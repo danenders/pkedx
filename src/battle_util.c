@@ -4010,3 +4010,8 @@ u8 IsMonDisobedient(void)
         }
     }
 }
+
+u8 GetBattleMoveSplit(u32 moveId)
+{
+    return gBattleMoves[moveId].split;
+}
