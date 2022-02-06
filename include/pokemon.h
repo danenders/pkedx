@@ -226,6 +226,11 @@ struct BaseStats
             u8 noFlip : 1;
 };
 
+#define SPLIT_PHYSICAL  0x0
+#define SPLIT_SPECIAL   0x1
+#define SPLIT_STATUS    0x2
+
+
 struct BattleMove
 {
     u8 effect;
@@ -237,6 +242,7 @@ struct BattleMove
     u8 target;
     s8 priority;
     u8 flags;
+    u8 split;
 };
 
 #define SPINDA_SPOT_WIDTH 16
