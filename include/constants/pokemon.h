@@ -21,7 +21,8 @@
 #define TYPE_ICE              15
 #define TYPE_DRAGON           16
 #define TYPE_DARK             17
-#define NUMBER_OF_MON_TYPES   18
+#define TYPE_FAIRY			  18
+#define NUMBER_OF_MON_TYPES   19
 
 // Pokemon egg groups
 #define EGG_GROUP_NONE          0
@@ -183,6 +184,7 @@
 #define MON_DATA_SPEED2            86
 #define MON_DATA_SPATK2            87
 #define MON_DATA_SPDEF2            88
+#define MON_DATA_NATURE            89
 
 // Ribbon IDs used by TV and Pokénav
 #define CHAMPION_RIBBON       0
