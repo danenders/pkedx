@@ -458,26 +458,26 @@ static const struct MenuAction sMenuActions_Gender[] = {
 };
 
 static const u8 *const gMalePresetNames[] = {
-    gText_DefaultNameStu,
-    gText_DefaultNameMilton,
-    gText_DefaultNameTom,
-    gText_DefaultNameKenny,
-    gText_DefaultNameReid,
-    gText_DefaultNameJude,
-    gText_DefaultNameJaxson,
-    gText_DefaultNameEaston,
-    gText_DefaultNameWalker,
-    gText_DefaultNameTeru,
-    gText_DefaultNameJohnny,
+    gText_DefaultNameBrendan,
+    gText_DefaultNameCaleb,
+    gText_DefaultNameNoah,
+    gText_DefaultNameDaniel,
+    gText_DefaultNameJosh,
+    gText_DefaultNameGeoff,
+    gText_DefaultNameTyler,
+    gText_DefaultNameMike,
+    gText_DefaultNameChris,
+    gText_DefaultNameStephen,
+    gText_DefaultNameKevin,
     gText_DefaultNameBrett,
     gText_DefaultNameSeth,
-    gText_DefaultNameTerry,
+    gText_DefaultNameEric,
     gText_DefaultNameCasey,
-    gText_DefaultNameDarren,
-    gText_DefaultNameLandon,
-    gText_DefaultNameCollin,
-    gText_DefaultNameStanley,
-    gText_DefaultNameQuincy
+    gText_DefaultNameRocco,
+    gText_DefaultNameGarret,
+    gText_DefaultNameDerrick,
+    gText_DefaultNameShawn,
+    gText_DefaultNameJohnny
 };
 
 static const u8 *const gFemalePresetNames[] = {
