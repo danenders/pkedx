@@ -459,48 +459,10 @@ static const struct MenuAction sMenuActions_Gender[] = {
 
 static const u8 *const gMalePresetNames[] = {
     gText_DefaultNameBrendan,
-    gText_DefaultNameCaleb,
-    gText_DefaultNameNoah,
-    gText_DefaultNameDaniel,
-    gText_DefaultNameJosh,
-    gText_DefaultNameGeoff,
-    gText_DefaultNameTyler,
-    gText_DefaultNameMike,
-    gText_DefaultNameChris,
-    gText_DefaultNameStephen,
-    gText_DefaultNameKevin,
-    gText_DefaultNameBrett,
-    gText_DefaultNameSeth,
-    gText_DefaultNameEric,
-    gText_DefaultNameCasey,
-    gText_DefaultNameRocco,
-    gText_DefaultNameGarret,
-    gText_DefaultNameDerrick,
-    gText_DefaultNameShawn,
-    gText_DefaultNameJohnny
 };
 
 static const u8 *const gFemalePresetNames[] = {
-    gText_DefaultNameKimmy,
-    gText_DefaultNameTiara,
-    gText_DefaultNameBella,
-    gText_DefaultNameJayla,
-    gText_DefaultNameAllie,
-    gText_DefaultNameLianna,
-    gText_DefaultNameSara,
-    gText_DefaultNameMonica,
-    gText_DefaultNameCamila,
-    gText_DefaultNameAubree,
-    gText_DefaultNameRuthie,
-    gText_DefaultNameHazel,
-    gText_DefaultNameNadine,
-    gText_DefaultNameTanja,
-    gText_DefaultNameYasmin,
-    gText_DefaultNameNicola,
-    gText_DefaultNameLillie,
-    gText_DefaultNameTerra,
-    gText_DefaultNameLucy,
-    gText_DefaultNameHalie
+    gText_DefaultNameMay,
 };
 
 // .text
@@ -1597,7 +1559,7 @@ static void Task_NewGameBirchSpeech_StartNamingScreen(u8 taskId)
     {
         FreeAllWindowBuffers();
         FreeAndDestroyMonPicSprite(gTasks[taskId].tLotadSpriteId);
-        NewGameBirchSpeech_SetDefaultPlayerName(Random() % 20);
+        NewGameBirchSpeech_SetDefaultPlayerName(0);
         DestroyTask(taskId);
         DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_NewGameBirchSpeech_ReturnFromNamingScreen);
     }
