@@ -132,12 +132,9 @@ struct Pokemon
 
 struct MonSpritesGfxManager
 {
-    u32 numSprites:4;
-    u32 numSprites2:4; // Never read
-    u32 numFrames:8;
-    u32 active:8;
-    u32 dataSize:4;
-    u32 mode:4; // MON_SPR_GFX_MODE_*
+    u8 numSprites;
+    u8 numFrames;
+    bool16 active;
     void *spriteBuffer;
     u8 **spritePointers;
     struct SpriteTemplate *templates;
@@ -444,8 +441,8 @@ void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality);
 const u8 *GetTrainerClassNameFromId(u16 trainerId);
 const u8 *GetTrainerNameFromId(u16 trainerId);
 bool8 HasTwoFramesAnimation(u16 species);
-struct MonSpritesGfxManager *CreateMonSpritesGfxManager(u8 managerId, u8 mode);
-void DestroyMonSpritesGfxManager(u8 managerId);
-u8 *MonSpritesGfxManager_GetSpritePtr(u8 managerId, u8 spriteNum);
+struct MonSpritesGfxManager *CreateMonSpritesGfxManager(void);
+void DestroyMonSpritesGfxManager(void);
+u8 *MonSpritesGfxManager_GetSpritePtr(u8 spriteNum);
 
 #endif // GUARD_POKEMON_H
