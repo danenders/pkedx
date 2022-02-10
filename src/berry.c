@@ -13,7 +13,7 @@
 #include "text.h"
 #include "constants/event_object_movement.h"
 #include "constants/items.h"
-#include "constants/map_groups.h"
+#include "constants/region_map_sections.h"
 
 static u32 GetEnigmaBerryChecksum(struct EnigmaBerry *enigmaBerry);
 static bool32 BerryTreeGrow(struct BerryTree *tree);
@@ -1082,7 +1082,7 @@ void BerryTreeTimeUpdate(s32 minutes)
     {
         tree = &gSaveBlock1Ptr->berryTrees[i];
 
-        if (tree->berry && tree->stage && !tree->growthSparkle && (tree->stage != BERRY_STAGE_BERRIES))
+        if (tree->berry && tree->stage && !tree->stopGrowth && (tree->stage != BERRY_STAGE_BERRIES))
         {
 /*              if (minutes >= GetStageDurationByBerryType(tree->berry) * 71)
             {
