@@ -36,6 +36,12 @@ OldaleTown_Mart_Pokemart_Expanded:
 	.2byte ITEM_PARALYZE_HEAL
 	.2byte ITEM_AWAKENING
 	.2byte ITEM_TM10
+	.2byte ITEM_HP_DOWN
+	.2byte ITEM_CARBOS_MINUS
+	.2byte ITEM_PROTEIN_MINUS
+	.2byte ITEM_IRON_MINUS
+	.2byte ITEM_CALCIUM_MINUS
+	.2byte ITEM_ZINC_MINUS
 	.2byte ITEM_NONE
 	release
 	end

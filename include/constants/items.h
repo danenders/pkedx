@@ -476,7 +476,15 @@
 #define ITEM_MAGMA_EMBLEM 375
 #define ITEM_OLD_SEA_MAP 376
 
-#define ITEMS_COUNT 377
+//IV Items
+#define ITEM_HP_DOWN 377
+#define ITEM_PROTEIN_MINUS 378
+#define ITEM_IRON_MINUS 379
+#define ITEM_CARBOS_MINUS 380
+#define ITEM_CALCIUM_MINUS 381
+#define ITEM_ZINC_MINUS 382
+
+#define ITEMS_COUNT 383
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS

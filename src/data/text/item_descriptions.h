@@ -1549,3 +1549,21 @@ static const u8 sOldSeaMapDesc[] = _(
     "A faded sea chart\n"
     "that shows the way\n"
     "to a certain island.");
+
+static const u8 sHPDownDesc[] = _(
+    "-10 HP IV");
+
+static const u8 sProteinMinusDesc[] = _(
+    "-10 ATK IV");
+
+static const u8 sIronMinusDesc[] = _(
+    "-10 DEF IV");
+
+static const u8 sCarbosMinusDesc[] = _(
+    "-10 SPD IV");
+
+static const u8 sCalciumMinusDesc[] = _(
+    "-10 SPATK IV");
+
+static const u8 sZincMinusDesc[] = _(
+    "-10 SPDEF IV");
