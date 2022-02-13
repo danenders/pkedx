@@ -3461,6 +3461,10 @@ extern const u32 gItemIconPalette_PPUp[];
 extern const u32 gItemIconPalette_Zinc[];
 extern const u32 gItemIcon_PPMax[];
 extern const u32 gItemIconPalette_PPMax[];
+// Supplements
+extern const u32 gItemIcon_HPDown[];
+extern const u32 gItemIconPalette_HPDown[];
+extern const u32 gItemIcon_Supplement[];
 // Battle items
 extern const u32 gItemIcon_BattleStatItem[];
 extern const u32 gItemIconPalette_GuardSpec[];
