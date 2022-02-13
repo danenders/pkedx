@@ -4194,3 +4194,22 @@ u8 Script_TryGainNewFanFromCounter(void)
 {
     return TryGainNewFanFromCounter(gSpecialVar_0x8004);
 }
+
+void GetTimeOfDay(void)
+{
+    u8 timeofday;
+    RtcCalcLocalTime();
+    if (gLocalTime.hours >= 10 && gLocalTime.hours <= 18)
+    {
+        timeofday = 0; //Day
+    }
+    else if (gLocalTime.hours >= 22 && gLocalTime.hours <= 4)
+    {
+        timeofday = 1; //Night
+    }
+    else
+    {
+        timeofday = 2; //Twilight
+    }
+    gSpecialVar_Result = timeofday;
+}
