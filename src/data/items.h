@@ -802,61 +802,6 @@ const struct Item gItems[] =
 
 // Vitamins
 
-    [ITEM_HP_UP] =
-    {
-        .name = _("HP UP"),
-        .itemId = ITEM_HP_UP,
-        .price = 9800,
-        .description = sHPUpDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-    },
-
-    [ITEM_PROTEIN] =
-    {
-        .name = _("PROTEIN"),
-        .itemId = ITEM_PROTEIN,
-        .price = 9800,
-        .description = sProteinDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-    },
-
-    [ITEM_IRON] =
-    {
-        .name = _("IRON"),
-        .itemId = ITEM_IRON,
-        .price = 9800,
-        .description = sIronDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-    },
-
-    [ITEM_CARBOS] =
-    {
-        .name = _("CARBOS"),
-        .itemId = ITEM_CARBOS,
-        .price = 9800,
-        .description = sCarbosDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-    },
-
-    [ITEM_CALCIUM] =
-    {
-        .name = _("CALCIUM"),
-        .itemId = ITEM_CALCIUM,
-        .price = 9800,
-        .description = sCalciumDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-    },
-
     [ITEM_RARE_CANDY] =
     {
         .name = _("RARE CANDY"),
@@ -877,17 +822,6 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_PPUp,
-    },
-
-    [ITEM_ZINC] =
-    {
-        .name = _("ZINC"),
-        .itemId = ITEM_ZINC,
-        .price = 9800,
-        .description = sZincDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
     },
 
     [ITEM_PP_MAX] =
@@ -4590,11 +4524,23 @@ const struct Item gItems[] =
     },
 
 //IV Items
+    [ITEM_HP_UP] =
+    {
+        .name = _("HP UP"),
+        .itemId = ITEM_HP_UP,
+        .price = 10,
+        .description = sHPUpDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_IncreaseIV,
+        .secondaryId = STAT_HP,
+    },
+
     [ITEM_HP_DOWN] =
     {
         .name = _("HP DOWN"),
         .itemId = ITEM_HP_DOWN,
-        .price = 0,
+        .price = 10,
         .description = sHPDownDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -4602,11 +4548,23 @@ const struct Item gItems[] =
         .secondaryId = STAT_HP,
     },
 
+    [ITEM_PROTEIN] =
+    {
+        .name = _("PROTEIN(+)"),
+        .itemId = ITEM_PROTEIN,
+        .price = 10,
+        .description = sProteinDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_IncreaseIV,
+        .secondaryId = STAT_ATK,
+    },
+
     [ITEM_PROTEIN_MINUS] =
     {
-        .name = _("PROTEIN MINUS"),
+        .name = _("PROTEIN(-)"),
         .itemId = ITEM_PROTEIN_MINUS,
-        .price = 0,
+        .price = 10,
         .description = sProteinMinusDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -4614,11 +4572,23 @@ const struct Item gItems[] =
         .secondaryId = STAT_ATK,
     },
 
+    [ITEM_IRON] =
+    {
+        .name = _("IRON(+)"),
+        .itemId = ITEM_IRON,
+        .price = 10,
+        .description = sIronDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_IncreaseIV,
+        .secondaryId = STAT_DEF,
+    },
+
     [ITEM_IRON_MINUS] =
     {
-        .name = _("IRON MINUS"),
+        .name = _("IRON(-)"),
         .itemId = ITEM_IRON_MINUS,
-        .price = 0,
+        .price = 10,
         .description = sIronMinusDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -4626,11 +4596,23 @@ const struct Item gItems[] =
         .secondaryId = STAT_DEF,
     },
 
+    [ITEM_CARBOS] =
+    {
+        .name = _("CARBOS(+)"),
+        .itemId = ITEM_CARBOS,
+        .price = 10,
+        .description = sCarbosDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_IncreaseIV,
+        .secondaryId = STAT_SPEED,
+    },
+
     [ITEM_CARBOS_MINUS] =
     {
-        .name = _("CARBOS MINUS"),
+        .name = _("CARBOS(-)"),
         .itemId = ITEM_CARBOS_MINUS,
-        .price = 0,
+        .price = 10,
         .description = sCarbosMinusDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -4638,11 +4620,24 @@ const struct Item gItems[] =
         .secondaryId = STAT_SPEED,
     },
 
+    [ITEM_CALCIUM] =
+    {
+        .name = _("CALCIUM(+)"),
+        .itemId = ITEM_CALCIUM,
+        .price = 10,
+        .description = sCalciumDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_IncreaseIV,
+        .secondaryId = STAT_SPATK,
+
+    },
+
     [ITEM_CALCIUM_MINUS] =
     {
-        .name = _("CALCIUM MINUS"),
+        .name = _("CALCIUM(-)"),
         .itemId = ITEM_CALCIUM_MINUS,
-        .price = 0,
+        .price = 10,
         .description = sCalciumMinusDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -4650,11 +4645,23 @@ const struct Item gItems[] =
         .secondaryId = STAT_SPATK,
     },
 
+    [ITEM_ZINC] =
+    {
+        .name = _("ZINC(+)"),
+        .itemId = ITEM_ZINC,
+        .price = 10,
+        .description = sZincDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_IncreaseIV,
+        .secondaryId = STAT_SPDEF,
+    },
+
     [ITEM_ZINC_MINUS] =
     {
-        .name = _("ZINC MINUS"),
+        .name = _("ZINC(-)"),
         .itemId = ITEM_ZINC_MINUS,
-        .price = 0,
+        .price = 10,
         .description = sZincMinusDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -4662,3 +4669,14 @@ const struct Item gItems[] =
         .secondaryId = STAT_SPDEF,
     },   
 };
+
+   
+
+
+
+
+
+
+
+
+
