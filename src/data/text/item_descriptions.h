@@ -253,28 +253,29 @@ static const u8 sGreenShardDesc[] = _(
 
 // Vitamins
 static const u8 sHPUpDesc[] = _(
-    "Raises the base HP\n"
-    "of one POKéMON.");
+    "Slightly raises\n"
+    "a POKéMON's base\n"
+    "HP stat.");
 
 static const u8 sProteinDesc[] = _(
-    "Raises the base\n"
-    "ATTACK stat of one\n"
-    "POKéMON.");
+    "Slightly raises\n"
+    "a POKéMON's base\n"
+    "ATTACK stat.");
 
 static const u8 sIronDesc[] = _(
-    "Raises the base\n"
-    "DEFENSE stat of\n"
-    "one POKéMON.");
+    "Slightly raises\n"
+    "a POKéMON's base\n"
+    "DEFENSE stat.");
 
 static const u8 sCarbosDesc[] = _(
-    "Raises the base\n"
-    "SPEED stat of one\n"
-    "POKéMON.");
+    "Slightly raises\n"
+    "a POKéMON's base\n"
+    "SPEED stat.");
 
 static const u8 sCalciumDesc[] = _(
-    "Raises the base\n"
-    "SP. ATK stat of one\n"
-    "POKéMON.");
+    "Slightly raises\n"
+    "a POKéMON's base\n"
+    "SP. ATK stat.");
 
 static const u8 sRareCandyDesc[] = _(
     "Raises the level\n"
@@ -287,9 +288,9 @@ static const u8 sPPUpDesc[] = _(
     "move.");
 
 static const u8 sZincDesc[] = _(
-    "Raises the base\n"
-    "SP. DEF stat of one\n"
-    "POKéMON.");
+    "Slightly raises\n"
+    "a POKéMON's base\n"
+    "SP. DEF stat.");
 
 static const u8 sPPMaxDesc[] = _(
     "Raises the PP of a\n"
@@ -1551,19 +1552,31 @@ static const u8 sOldSeaMapDesc[] = _(
     "to a certain island.");
 
 static const u8 sHPDownDesc[] = _(
-    "-10 HP IV");
+    "Slightly lowers\n"
+    "a POKéMON's base\n"
+    "HP stat.");
 
 static const u8 sProteinMinusDesc[] = _(
-    "-10 ATK IV");
+    "Slightly lowers\n"
+    "a POKéMON's base\n"
+    "ATTACK stat.");
 
 static const u8 sIronMinusDesc[] = _(
-    "-10 DEF IV");
+    "Slightly lowers\n"
+    "a POKéMON's base\n"
+    "DEFENSE stat.");
 
 static const u8 sCarbosMinusDesc[] = _(
-    "-10 SPD IV");
+    "Slightly lowers\n"
+    "a POKéMON's base\n"
+    "SPEED stat.");
 
 static const u8 sCalciumMinusDesc[] = _(
-    "-10 SPATK IV");
+    "Slightly lowers\n"
+    "a POKéMON's base\n"
+    "SP. ATK stat.");
 
 static const u8 sZincMinusDesc[] = _(
-    "-10 SPDEF IV");
+    "Slightly lowers\n"
+    "a POKéMON's base\n"
+    "SP. DEF stat.");
