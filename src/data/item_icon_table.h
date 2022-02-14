@@ -401,6 +401,15 @@ const u32 *const gItemIconTable[][2] =
     // Emerald-only key items
     [ITEM_MAGMA_EMBLEM] = {gItemIcon_MagmaEmblem, gItemIconPalette_MagmaEmblem},
     [ITEM_OLD_SEA_MAP] = {gItemIcon_OldSeaMap, gItemIconPalette_OldSeaMap},
+
+    // Custom IV Items
+    [ITEM_HP_DOWN] = {gItemIcon_HPDown, gItemIconPalette_HPDown},
+    [ITEM_PROTEIN_MINUS] = {gItemIcon_Supplement, gItemIconPalette_Protein},
+    [ITEM_IRON_MINUS] = {gItemIcon_Supplement, gItemIconPalette_Iron},
+    [ITEM_CARBOS_MINUS] = {gItemIcon_Supplement, gItemIconPalette_Carbos},
+    [ITEM_CALCIUM_MINUS] = {gItemIcon_Supplement, gItemIconPalette_Calcium},
+    [ITEM_ZINC_MINUS] = {gItemIcon_Supplement, gItemIconPalette_Zinc},
+
     // Return to field arrow
     [ITEM_FIELD_ARROW] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

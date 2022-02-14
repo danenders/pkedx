@@ -802,61 +802,6 @@ const struct Item gItems[] =
 
 // Vitamins
 
-    [ITEM_HP_UP] =
-    {
-        .name = _("HP UP"),
-        .itemId = ITEM_HP_UP,
-        .price = 9800,
-        .description = sHPUpDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-    },
-
-    [ITEM_PROTEIN] =
-    {
-        .name = _("PROTEIN"),
-        .itemId = ITEM_PROTEIN,
-        .price = 9800,
-        .description = sProteinDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-    },
-
-    [ITEM_IRON] =
-    {
-        .name = _("IRON"),
-        .itemId = ITEM_IRON,
-        .price = 9800,
-        .description = sIronDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-    },
-
-    [ITEM_CARBOS] =
-    {
-        .name = _("CARBOS"),
-        .itemId = ITEM_CARBOS,
-        .price = 9800,
-        .description = sCarbosDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-    },
-
-    [ITEM_CALCIUM] =
-    {
-        .name = _("CALCIUM"),
-        .itemId = ITEM_CALCIUM,
-        .price = 9800,
-        .description = sCalciumDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-    },
-
     [ITEM_RARE_CANDY] =
     {
         .name = _("RARE CANDY"),
@@ -877,17 +822,6 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_PPUp,
-    },
-
-    [ITEM_ZINC] =
-    {
-        .name = _("ZINC"),
-        .itemId = ITEM_ZINC,
-        .price = 9800,
-        .description = sZincDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
     },
 
     [ITEM_PP_MAX] =
@@ -4588,4 +4522,161 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+
+//IV Items
+    [ITEM_HP_UP] =
+    {
+        .name = _("HP UP"),
+        .itemId = ITEM_HP_UP,
+        .price = 9000,
+        .description = sHPUpDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_IncreaseIV,
+        .secondaryId = STAT_HP,
+    },
+
+    [ITEM_HP_DOWN] =
+    {
+        .name = _("HP DOWN"),
+        .itemId = ITEM_HP_DOWN,
+        .price = 1500,
+        .description = sHPDownDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_ReduceIV,
+        .secondaryId = STAT_HP,
+    },
+
+    [ITEM_PROTEIN] =
+    {
+        .name = _("PROTEIN"),
+        .itemId = ITEM_PROTEIN,
+        .price = 9000,
+        .description = sProteinDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_IncreaseIV,
+        .secondaryId = STAT_ATK,
+    },
+
+    [ITEM_PROTEIN_MINUS] =
+    {
+        .name = _("POTASSIUM"),
+        .itemId = ITEM_PROTEIN_MINUS,
+        .price = 1500,
+        .description = sProteinMinusDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_ReduceIV,
+        .secondaryId = STAT_ATK,
+    },
+
+    [ITEM_IRON] =
+    {
+        .name = _("IRON"),
+        .itemId = ITEM_IRON,
+        .price = 9000,
+        .description = sIronDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_IncreaseIV,
+        .secondaryId = STAT_DEF,
+    },
+
+    [ITEM_IRON_MINUS] =
+    {
+        .name = _("COPPER"),
+        .itemId = ITEM_IRON_MINUS,
+        .price = 1500,
+        .description = sIronMinusDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_ReduceIV,
+        .secondaryId = STAT_DEF,
+    },
+
+    [ITEM_CARBOS] =
+    {
+        .name = _("CARBOS"),
+        .itemId = ITEM_CARBOS,
+        .price = 9000,
+        .description = sCarbosDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_IncreaseIV,
+        .secondaryId = STAT_SPEED,
+    },
+
+    [ITEM_CARBOS_MINUS] =
+    {
+        .name = _("PHOSPHOS"),
+        .itemId = ITEM_CARBOS_MINUS,
+        .price = 1500,
+        .description = sCarbosMinusDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_ReduceIV,
+        .secondaryId = STAT_SPEED,
+    },
+
+    [ITEM_CALCIUM] =
+    {
+        .name = _("CALCIUM"),
+        .itemId = ITEM_CALCIUM,
+        .price = 9000,
+        .description = sCalciumDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_IncreaseIV,
+        .secondaryId = STAT_SPATK,
+
+    },
+
+    [ITEM_CALCIUM_MINUS] =
+    {
+        .name = _("CHOLINE"),
+        .itemId = ITEM_CALCIUM_MINUS,
+        .price = 1500,
+        .description = sCalciumMinusDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_ReduceIV,
+        .secondaryId = STAT_SPATK,
+    },
+
+    [ITEM_ZINC] =
+    {
+        .name = _("ZINC"),
+        .itemId = ITEM_ZINC,
+        .price = 9000,
+        .description = sZincDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_IncreaseIV,
+        .secondaryId = STAT_SPDEF,
+    },
+
+    [ITEM_ZINC_MINUS] =
+    {
+        .name = _("MAGNESIUM"),
+        .itemId = ITEM_ZINC_MINUS,
+        .price = 1500,
+        .description = sZincMinusDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_ReduceIV,
+        .secondaryId = STAT_SPDEF,
+    },   
 };
+
+   
+
+
+
+
+
+
+
+
+
