@@ -1,8 +1,46 @@
 Route134_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route124_OnTransition
 	map_script MAP_SCRIPT_ON_RESUME, Route134_OnResume
 	.byte 0
 
+Route134_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route134_OnTransition_Night
+	goto_if_eq VAR_RESULT, 2, Route134_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 0, Route134_OnTransition_Day
+	end	
+
+Route134_OnTransition_Day:
+	setvar VAR_TIMEOFDAY 0
+	end
+
+Route134_OnTransition_Night:
+	setvar VAR_TIMEOFDAY 1
+	end
+
+Route134_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	end
+
 Route134_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route134_OnResume_Night
+	goto_if_eq VAR_RESULT, 2, Route134_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 0, Route134_OnResume_Day
+	end	
+
+Route134_OnResume_Day:
+	setvar VAR_TIMEOFDAY 0
+	setdivewarp MAP_UNDERWATER_ROUTE134, 8, 6
+	end
+
+Route134_OnResume_Night:
+	setvar VAR_TIMEOFDAY 1
+	setdivewarp MAP_UNDERWATER_ROUTE134, 8, 6
+	end
+
+Route134_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY 2
 	setdivewarp MAP_UNDERWATER_ROUTE134, 8, 6
 	end
 

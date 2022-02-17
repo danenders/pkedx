@@ -7,7 +7,56 @@ Route119_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route119_OnTransition
 	.byte 0
 
+Route119_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route119_OnTransition_Night
+	goto_if_eq VAR_RESULT, 2, Route119_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 0, Route119_OnTransition_Day
+	end
+
+Route119_OnTransition_Day:
+	setvar VAR_TIMEOFDAY 0
+	call Common_EventScript_SetupRivalGfxId
+	call Common_EventScript_SetupRivalOnBikeGfxId
+	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 1, Route119_EventScript_MoveInstituteWorkersDownstairs
+	special SetRoute119Weather
+	end
+
+Route119_OnTransition_Night:
+	setvar VAR_TIMEOFDAY 1
+	call Common_EventScript_SetupRivalGfxId
+	call Common_EventScript_SetupRivalOnBikeGfxId
+	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 1, Route119_EventScript_MoveInstituteWorkersDownstairs
+	special SetRoute119Weather
+	end
+
+Route119_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	call Common_EventScript_SetupRivalGfxId
+	call Common_EventScript_SetupRivalOnBikeGfxId
+	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 1, Route119_EventScript_MoveInstituteWorkersDownstairs
+	special SetRoute119Weather
+	end
+
 Route119_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route119_OnResume_Night
+	goto_if_eq VAR_RESULT, 2, Route119_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 0, Route119_OnResume_Day
+	end	
+
+Route119_OnResume_Day:
+	setvar VAR_TIMEOFDAY 0
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveKecleon
+	end
+
+Route119_OnResume_Night:
+	setvar VAR_TIMEOFDAY 1
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveKecleon
+	end
+
+Route119_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY 2
 	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveKecleon
 	end
 
@@ -16,13 +65,6 @@ Route119_EventScript_TryRemoveKecleon::
 	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
 	removeobject VAR_LAST_TALKED
 	return
-
-Route119_OnTransition:
-	call Common_EventScript_SetupRivalGfxId
-	call Common_EventScript_SetupRivalOnBikeGfxId
-	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 1, Route119_EventScript_MoveInstituteWorkersDownstairs
-	special SetRoute119Weather
-	end
 
 Route119_EventScript_MoveInstituteWorkersDownstairs::
 	setflag FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS

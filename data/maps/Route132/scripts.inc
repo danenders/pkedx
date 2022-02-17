@@ -1,5 +1,45 @@
 Route132_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route132_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME,Route132_OnResume
 	.byte 0
+
+Route132_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route132_OnTransition_Night
+	goto_if_eq VAR_RESULT, 2, Route132_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 0, Route132_OnTransition_Day
+	end
+
+Route132_OnTransition_Day:
+	setvar VAR_TIMEOFDAY 0
+	end
+
+Route132_OnTransition_Night:
+	setvar VAR_TIMEOFDAY 1
+	end
+
+Route132_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	end
+
+Route132_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route132_OnResume_Night
+	goto_if_eq VAR_RESULT, 2, Route132_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 0, Route132_OnResume_Day
+	end	
+
+Route132_OnResume_Day:
+	setvar VAR_TIMEOFDAY 0
+	end
+
+Route132_OnResume_Night:
+	setvar VAR_TIMEOFDAY 1
+	end
+
+Route132_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	end
 
 Route132_EventScript_Gilbert::
 	trainerbattle_single TRAINER_GILBERT, Route132_Text_GilbertIntro, Route132_Text_GilbertDefeat

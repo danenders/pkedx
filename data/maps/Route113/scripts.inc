@@ -3,13 +3,51 @@ Route113_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route113_OnTransition
 	.byte 0
 
+Route113_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route113_OnTransition_Night
+	goto_if_eq VAR_RESULT, 2, Route113_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 0, Route113_OnTransition_Day
+	end
+
+Route113_OnTransition_Day:
+	setvar VAR_TIMEOFDAY 0
+	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
+	call Route113_EventScript_CheckSetAshWeather
+	end
+
+Route113_OnTransition_Night:
+	setvar VAR_TIMEOFDAY 1
+	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
+	call Route113_EventScript_CheckSetAshWeather
+	end
+
+Route113_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
+	call Route113_EventScript_CheckSetAshWeather
+	end
+
 Route113_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route113_OnResume_Night
+	goto_if_eq VAR_RESULT, 2, Route113_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 0, Route113_OnResume_Day
+	end	
+
+Route113_OnResume_Day:
+	setvar VAR_TIMEOFDAY 0
 	setstepcallback STEP_CB_ASH
 	end
 
-Route113_OnTransition:
-	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
-	call Route113_EventScript_CheckSetAshWeather
+Route113_OnResume_Night:
+	setvar VAR_TIMEOFDAY 1
+	setstepcallback STEP_CB_ASH
+	end
+
+Route113_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	setstepcallback STEP_CB_ASH
 	end
 
 Route113_EventScript_CheckSetAshWeather::

@@ -3,7 +3,47 @@
 .set LOCALID_GRUNT_3, 14
 
 Route121_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route121_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME,Route121_OnResume
 	.byte 0
+
+Route121_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route121_OnTransition_Night
+	goto_if_eq VAR_RESULT, 2, Route121_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 0, Route121_OnTransition_Day
+	end
+
+Route121_OnTransition_Day:
+	setvar VAR_TIMEOFDAY 0
+	end
+
+Route121_OnTransition_Night:
+	setvar VAR_TIMEOFDAY 1
+	end
+
+Route121_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	end
+
+Route121_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route121_OnResume_Night
+	goto_if_eq VAR_RESULT, 2, Route121_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 0, Route121_OnResume_Day
+	end	
+
+Route121_OnResume_Day:
+	setvar VAR_TIMEOFDAY 0
+	end
+
+Route121_OnResume_Night:
+	setvar VAR_TIMEOFDAY 1
+	end
+
+Route121_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	end
 
 Route121_EventScript_Woman::
 	msgbox Route121_Text_AheadLoomsMtPyre, MSGBOX_NPC

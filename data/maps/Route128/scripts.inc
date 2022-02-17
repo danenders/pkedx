@@ -4,11 +4,49 @@
 
 Route128_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route128_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, Route128_OnResume
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route128_OnFrame
 	.byte 0
 
 Route128_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route128_OnTransition_Night
+	goto_if_eq VAR_RESULT, 2, Route128_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 0, Route128_OnTransition_Day
+	end
+
+Route128_OnTransition_Day:
+	setvar VAR_TIMEOFDAY 0
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+	end
+
+Route128_OnTransition_Night:
+	setvar VAR_TIMEOFDAY 1
+	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+	end
+
+Route128_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+	end
+
+Route128_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route128_OnResume_Night
+	goto_if_eq VAR_RESULT, 2, Route128_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 0, Route128_OnResume_Day
+	end	
+
+Route128_OnResume_Day:
+	setvar VAR_TIMEOFDAY 0
+	end
+
+Route128_OnResume_Night:
+	setvar VAR_TIMEOFDAY 1
+	end
+
+Route128_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY 2
 	end
 
 Route128_OnFrame:

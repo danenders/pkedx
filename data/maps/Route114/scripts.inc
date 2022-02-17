@@ -1,13 +1,55 @@
 Route114_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route114_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, Route114_OnResume
 	map_script MAP_SCRIPT_ON_LOAD, Route114_OnLoad
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route114_OnFrame
 	.byte 0
 
 Route114_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route114_OnTransition_Night
+	goto_if_eq VAR_RESULT, 2, Route114_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 0, Route114_OnTransition_Day
+	end
+
+Route114_OnTransition_Day:
+	setvar VAR_TIMEOFDAY 0
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_NORTH, AbnormalWeather_StartGroudonWeather
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_SOUTH, AbnormalWeather_StartGroudonWeather
+	end
+
+Route114_OnTransition_Night:
+	setvar VAR_TIMEOFDAY 1
+	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_NORTH, AbnormalWeather_StartGroudonWeather
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_SOUTH, AbnormalWeather_StartGroudonWeather
+	end
+
+Route114_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_NORTH, AbnormalWeather_StartGroudonWeather
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_SOUTH, AbnormalWeather_StartGroudonWeather
+	end
+
+Route114_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route114_OnResume_Night
+	goto_if_eq VAR_RESULT, 2, Route114_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 0, Route114_OnResume_Day
+	end	
+
+Route114_OnResume_Day:
+	setvar VAR_TIMEOFDAY 0
+	end
+
+Route114_OnResume_Night:
+	setvar VAR_TIMEOFDAY 1
+	end
+
+Route114_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY 2
 	end
 
 Route114_OnLoad:

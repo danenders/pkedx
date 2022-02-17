@@ -1,5 +1,45 @@
 Route107_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route107_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME,Route107_OnResume
 	.byte 0
+
+Route107_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route107_OnTransition_Night
+	goto_if_eq VAR_RESULT, 2, Route107_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 0, Route107_OnTransition_Day
+	end
+
+Route107_OnTransition_Day:
+	setvar VAR_TIMEOFDAY 0
+	end
+
+Route107_OnTransition_Night:
+	setvar VAR_TIMEOFDAY 1
+	end
+
+Route107_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	end
+
+Route107_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route107_OnResume_Night
+	goto_if_eq VAR_RESULT, 2, Route107_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 0, Route107_OnResume_Day
+	end	
+
+Route107_OnResume_Day:
+	setvar VAR_TIMEOFDAY 0
+	end
+
+Route107_OnResume_Night:
+	setvar VAR_TIMEOFDAY 1
+	end
+
+Route107_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	end
 
 Route107_EventScript_Darrin::
 	trainerbattle_single TRAINER_DARRIN, Route107_Text_DarrinIntro, Route107_Text_DarrinDefeated

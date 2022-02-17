@@ -1,5 +1,45 @@
 Route106_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route106_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME,Route106_OnResume
 	.byte 0
+
+Route106_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route106_OnTransition_Night
+	goto_if_eq VAR_RESULT, 2, Route106_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 0, Route106_OnTransition_Day
+	end
+
+Route106_OnTransition_Day:
+	setvar VAR_TIMEOFDAY 0
+	end
+
+Route106_OnTransition_Night:
+	setvar VAR_TIMEOFDAY 1
+	end
+
+Route106_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	end
+
+Route106_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, Route106_OnResume_Night
+	goto_if_eq VAR_RESULT, 2, Route106_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 0, Route106_OnResume_Day
+	end	
+
+Route106_OnResume_Day:
+	setvar VAR_TIMEOFDAY 0
+	end
+
+Route106_OnResume_Night:
+	setvar VAR_TIMEOFDAY 1
+	end
+
+Route106_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	end
 
 Route106_EventScript_TrainerTipsSign::
 	msgbox Route106_Text_TrainerTips, MSGBOX_SIGN
