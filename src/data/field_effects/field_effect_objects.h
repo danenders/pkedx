@@ -224,6 +224,8 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_SurfBlob = {
     .callback = UpdateSurfBlobFieldEffect,
 };
 
+const struct SpritePalette gSpritePalette_SurfBlob = {gObjectEventPal_Npc1, OBJ_EVENT_PAL_TAG_NPC_1};
+
 static const struct SpriteFrameImage sPicTable_Arrow[] = {
     overworld_frame(gFieldEffectObjectPic_Arrow, 2, 2, 0),
     overworld_frame(gFieldEffectObjectPic_Arrow, 2, 2, 1),
@@ -1068,9 +1070,11 @@ static const union AnimCmd *const sAnimTable_Bird[] =
     sAnim_Bird,
 };
 
+const struct SpritePalette gSpritePalette_Bird = {gObjectEventPal_Npc1, OBJ_EVENT_PAL_TAG_NPC_1};
+
 const struct SpriteTemplate gFieldEffectObjectTemplate_Bird = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_1,
     .oam = &gObjectEventBaseOam_32x32,
     .anims = sAnimTable_Bird,
     .images = sPicTable_Bird,

@@ -106,8 +106,9 @@ gFieldEffectScript_Ash::
 	field_eff_end
 
 gFieldEffectScript_SurfBlob::
-	field_eff_callnative FldEff_SurfBlob
-	field_eff_end
+    field_eff_loadfadedpal_callnative gSpritePalette_SurfBlob, FldEff_SurfBlob
+    field_eff_end
+
 
 gFieldEffectScript_UseSurf::
 	field_eff_callnative FldEff_UseSurf
@@ -199,11 +200,11 @@ gFieldEffectScript_NPCUseFly::
 	field_eff_end
 
 gFieldEffectScript_UseFly::
-	field_eff_callnative FldEff_UseFly
+	field_eff_loadfadedpal_callnative gSpritePalette_Bird FldEff_UseFly
 	field_eff_end
 
 gFieldEffectScript_FlyIn::
-	field_eff_callnative FldEff_FlyIn
+	field_eff_loadfadedpal_callnative gSpritePalette_Bird FldEff_FlyIn
 	field_eff_end
 
 gFieldEffectScript_QuestionMarkIcon::
