@@ -202,7 +202,7 @@ void ItemUseOutOfBattle_ExpShare(u8 taskId)
 		if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
 			DisplayItemMessageOnField(taskId, gOtherText_ExpShareOn, Task_CloseCantUseKeyItemMessage);
 		else
-			DisplayItemMessage(taskId, 1, gOtherText_ExpShareOn, BagMenu_InitListsMenu);
+			DisplayItemMessage(taskId, 1, gOtherText_ExpShareOn, CloseItemMessage);
 	}
 	else
 	{
@@ -210,7 +210,7 @@ void ItemUseOutOfBattle_ExpShare(u8 taskId)
 		if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
 			DisplayItemMessageOnField(taskId, gOtherText_ExpShareOff, Task_CloseCantUseKeyItemMessage);
 		else
-			DisplayItemMessage(taskId, 1, gOtherText_ExpShareOff, BagMenu_InitListsMenu);
+			DisplayItemMessage(taskId, 1, gOtherText_ExpShareOff, CloseItemMessage);
 	}
 	gSaveBlock2Ptr->expShare = !gSaveBlock2Ptr->expShare;
 }
