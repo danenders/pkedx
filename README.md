@@ -20,7 +20,7 @@ _The Hoenn region is unstable — Rayquaza has awakened! Your skills as a Traine
 * Fairy Type: The Fairy type has been added, along with new moves (WIP).
 * Physical & Special Split: Moves have been re-categorized by Physical and Special attacks, based on modern classifications.
 * EXP Share is now a Key Item that can be toggled On/Off, and works across your party.
-* EXP is granted when a Pokémon is capatured.
+* EXP is granted when a Pokémon is captured.
 * TMs can be used infinitely.
 * Fishing has been adjusted to not require a buttom prompt to reel-in (FRLG style).
 * Badge Boosts have been removed.
@@ -40,6 +40,7 @@ _The Hoenn region is unstable — Rayquaza has awakened! Your skills as a Traine
 * WOLF - Character Art
 * Bushbugger - Character Sprites
 * kWharever - Battle Backgrounds
+* Aarant - Day/Night system & following pokemon
 * LUNOS - Many community modifications, assistance with questions, and the IV items!
 * XAMAN - Various community modificatins, debug system
 
