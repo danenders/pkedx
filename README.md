@@ -5,20 +5,20 @@ _The Hoenn region is unstable — Rayquaza has awakened! Your skills as a Traine
 **Pokémon Emerald DX** is an enhanced version of the classic GBA adventure, seeking to provide a satisfying blend of mechanical improvements while remaining true to the original game. With upgraded art, quality of life improvements, and some new mechanics, you'll get to experience the Hoenn region in a brand new light!
 
 ## Features
+
+### A New way to Explore Hoenn
+* Gotta Catch 'Em All: Updated encounters and events mean it is possible to obtain all Pokémon in a single player game. (WIP)
+* Following Pokemon: Explore Hoenn together with your Pokémon partners.
+* Day & Night Cycles: More than just a cosmetic change! Some Pokémon may only be found at certain times of day.
   
 ### Style Changes
 * Character art has been upgraded to GEN IV style, with a brand new May sprite commissioned for this game.
 * Character dialogue and color palettes have been edited to be less gendered and more inclusive. (WIP) 
 * Battle Backgrounds now feature environment art
 
-### New Mechanics
+### New Mechanics & Modifications
 * Fairy Type: The Fairy type has been added, along with new moves (WIP).
 * Physical & Special Split: Moves have been re-categorized by Physical and Special attacks, based on modern classifications.
-* Following Pokemon: Explore Hoenn together with your Pokémon partners.
-* Day & Night Cycles: More than just a cosmetic change! Some Pokémon may only be found at certain times of day.
-* 
-
-### Modifications
 * EXP Share is now a Key Item that can be toggled On/Off, and works across your party.
 * EXP is granted when a Pokémon is capatured.
 * TMs can be used infinitely.
