@@ -25,7 +25,7 @@ _The Hoenn region is unstable — Rayquaza has awakened! Your skills as a Traine
 * Fishing has been adjusted to not require a buttom prompt to reel-in (FRLG style).
 * Badge Boosts have been removed.
 * Vitamins now increase your Pokémon IVs (+3) instead of your EVs.
-** Supplements have been introduced that decrease IVs (-3).
+* Supplements have been introduced that decrease IVs (-3).
 
 ### Quality of Life
 * Gain more than 1 Premier Ball when purchasing balls in increments of 10.
