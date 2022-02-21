@@ -3261,7 +3261,6 @@ extern const u32 gBattleTerrainTilemap_Building[];
 extern const u32 gBattleTerrainAnimTiles_Building[];
 extern const u32 gBattleTerrainAnimTilemap_Building[];
 extern const u32 gBattleTerrainPalette_Building[];
-extern const u32 gBattleTerrainPalette_Plain[];
 extern const u32 gBattleTerrainPalette_Frontier[];
 extern const u32 gBattleTerrainTiles_Stadium[];
 extern const u32 gBattleTerrainTilemap_Stadium[];
