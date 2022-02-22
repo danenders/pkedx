@@ -32,7 +32,7 @@ _The Hoenn region is unstable — Rayquaza has awakened! Your skills as a Traine
 * You can now surf at faster speeds, just like with running shoes.
 * IVs and EVs are viewable on the summary screen
 * Repels prompt you for re-use when they run out
-* Hidden Power attributes (Base Power, Type) is now accurately displayed in summary screens & battle.
+* Hidden Power attributes (Base Power, Type) are now accurately displayed in summary screens & battle.
 
 
 ## Credits & Thanks
