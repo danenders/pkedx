@@ -46,6 +46,7 @@
 #include "constants/trainers.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
+#include "overworld.h"
 
 enum {
     TRANSITION_TYPE_NORMAL,
@@ -641,9 +642,25 @@ u8 BattleSetup_GetTerrainId(void)
     tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
     if (MetatileBehavior_IsTallGrass(tileBehavior))
-        return BATTLE_TERRAIN_GRASS;
+    {
+        if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+            if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                return BATTLE_TERRAIN_GRASS_DAY;
+            else
+                return BATTLE_TERRAIN_GRASS_TWILIGHT;
+        else
+            return BATTLE_TERRAIN_GRASS_NIGHT;
+    }
     if (MetatileBehavior_IsLongGrass(tileBehavior))
-        return BATTLE_TERRAIN_LONG_GRASS;
+   {
+        if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+            if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                return BATTLE_TERRAIN_LONG_GRASS_DAY;
+            else
+                return BATTLE_TERRAIN_LONG_GRASS_TWILIGHT;
+        else
+            return BATTLE_TERRAIN_LONG_GRASS_NIGHT;
+    }
     if (MetatileBehavior_IsSandOrDeepSand(tileBehavior))
         return BATTLE_TERRAIN_SAND;
 
@@ -689,7 +706,13 @@ u8 BattleSetup_GetTerrainId(void)
     if (GetSavedWeather() == WEATHER_SANDSTORM)
         return BATTLE_TERRAIN_SAND;
 
-    return BATTLE_TERRAIN_PLAIN;
+    if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+        if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+            return BATTLE_TERRAIN_GRASS_DAY;
+        else
+            return BATTLE_TERRAIN_GRASS_TWILIGHT;
+    else
+        return BATTLE_TERRAIN_GRASS_NIGHT;
 }
 
 static u8 GetBattleTransitionTypeByMap(void)

@@ -232,7 +232,7 @@ static void BattleIntroSlide1(u8 taskId)
         }
         else
         {
-            if (gTasks[taskId].tTerrain == BATTLE_TERRAIN_LONG_GRASS)
+            if (gTasks[taskId].tTerrain == BATTLE_TERRAIN_LONG_GRASS_DAY)
             {
                 if (gBattle_BG1_Y != 0xFFB0)
                     gBattle_BG1_Y -= 2;

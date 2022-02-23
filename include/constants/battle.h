@@ -291,16 +291,20 @@
 #define MOVE_EFFECT_CERTAIN             (1 << 7) // 128
 
 // Battle terrain defines for gBattleTerrain.
-#define BATTLE_TERRAIN_GRASS        0
-#define BATTLE_TERRAIN_LONG_GRASS   1
-#define BATTLE_TERRAIN_SAND         2
-#define BATTLE_TERRAIN_UNDERWATER   3
-#define BATTLE_TERRAIN_WATER        4
-#define BATTLE_TERRAIN_POND         5
-#define BATTLE_TERRAIN_MOUNTAIN     6
-#define BATTLE_TERRAIN_CAVE         7
-#define BATTLE_TERRAIN_BUILDING     8
-#define BATTLE_TERRAIN_PLAIN        9
+#define BATTLE_TERRAIN_GRASS_DAY             0
+#define BATTLE_TERRAIN_GRASS_TWILIGHT        1
+#define BATTLE_TERRAIN_GRASS_NIGHT           2
+#define BATTLE_TERRAIN_LONG_GRASS_DAY        3
+#define BATTLE_TERRAIN_LONG_GRASS_TWILIGHT   4
+#define BATTLE_TERRAIN_LONG_GRASS_NIGHT      5
+#define BATTLE_TERRAIN_SAND         6
+#define BATTLE_TERRAIN_UNDERWATER   7
+#define BATTLE_TERRAIN_WATER        8
+#define BATTLE_TERRAIN_POND         9
+#define BATTLE_TERRAIN_MOUNTAIN     10
+#define BATTLE_TERRAIN_CAVE         11
+#define BATTLE_TERRAIN_BUILDING     12
+#define BATTLE_TERRAIN_PLAIN        13
 
 #define B_WAIT_TIME_LONG  64
 #define B_WAIT_TIME_MED   48

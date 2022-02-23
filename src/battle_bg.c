@@ -600,7 +600,7 @@ const struct WindowTemplate * const gBattleWindowTemplates[] =
 
 static const struct BattleBackground sBattleTerrainTable[] =
 {
-    [BATTLE_TERRAIN_GRASS] =
+    [BATTLE_TERRAIN_GRASS_DAY] =
     {
         .tileset = gBattleTerrainTiles_TallGrass,
         .tilemap = gBattleTerrainTilemap_TallGrass,
@@ -609,13 +609,50 @@ static const struct BattleBackground sBattleTerrainTable[] =
         .palette = gBattleTerrainPalette_TallGrass,
     },
 
-    [BATTLE_TERRAIN_LONG_GRASS] =
+    [BATTLE_TERRAIN_GRASS_TWILIGHT] =
+    {
+        .tileset = gBattleTerrainTiles_TallGrassTwilight,
+        .tilemap = gBattleTerrainTilemap_TallGrassTwilight,
+        .entryTileset = gBattleTerrainAnimTiles_TallGrass,
+        .entryTilemap = gBattleTerrainAnimTilemap_TallGrass,
+        .palette = gBattleTerrainPalette_TallGrassTwilight,
+    },
+
+    [BATTLE_TERRAIN_GRASS_NIGHT] =
+    {
+        .tileset = gBattleTerrainTiles_TallGrassNight,
+        .tilemap = gBattleTerrainTilemap_TallGrassNight,
+        .entryTileset = gBattleTerrainAnimTiles_TallGrass,
+        .entryTilemap = gBattleTerrainAnimTilemap_TallGrass,
+        .palette = gBattleTerrainPalette_TallGrassNight,
+    },
+
+
+    [BATTLE_TERRAIN_LONG_GRASS_DAY] =
     {
         .tileset = gBattleTerrainTiles_LongGrass,
         .tilemap = gBattleTerrainTilemap_LongGrass,
         .entryTileset = gBattleTerrainAnimTiles_LongGrass,
         .entryTilemap = gBattleTerrainAnimTilemap_LongGrass,
         .palette = gBattleTerrainPalette_LongGrass,
+    },
+
+    [BATTLE_TERRAIN_LONG_GRASS_TWILIGHT] =
+    {
+        .tileset = gBattleTerrainTiles_LongGrassTwilight,
+        .tilemap = gBattleTerrainTilemap_LongGrassTwilight,
+        .entryTileset = gBattleTerrainAnimTiles_LongGrass,
+        .entryTilemap = gBattleTerrainAnimTilemap_LongGrass,
+        .palette = gBattleTerrainPalette_LongGrassTwilight,
+    },
+
+    [BATTLE_TERRAIN_LONG_GRASS_NIGHT] =
+    {
+        .tileset = gBattleTerrainTiles_LongGrassNight,
+        .tilemap = gBattleTerrainTilemap_LongGrassNight,
+        .entryTileset = gBattleTerrainAnimTiles_LongGrass,
+        .entryTilemap = gBattleTerrainAnimTilemap_LongGrass,
+        .palette = gBattleTerrainPalette_LongGrassNight,
     },
 
     [BATTLE_TERRAIN_SAND] =

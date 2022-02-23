@@ -108,10 +108,22 @@ void AnimTask_SetCamouflageBlend(u8 taskId)
     u32 selectedPalettes = UnpackSelectedBattleBgPalettes(gBattleAnimArgs[0]);
     switch (gBattleTerrain)
     {
-    case BATTLE_TERRAIN_GRASS:
+    case BATTLE_TERRAIN_GRASS_DAY:
         gBattleAnimArgs[4] = RGB(12, 24, 2);
         break;
-    case BATTLE_TERRAIN_LONG_GRASS:
+    case BATTLE_TERRAIN_GRASS_TWILIGHT:
+        gBattleAnimArgs[4] = RGB(12, 24, 2);
+        break;
+    case BATTLE_TERRAIN_GRASS_NIGHT:
+        gBattleAnimArgs[4] = RGB(12, 24, 2);
+        break;
+    case BATTLE_TERRAIN_LONG_GRASS_DAY:
+        gBattleAnimArgs[4] = RGB(0, 15, 2);
+        break;
+    case BATTLE_TERRAIN_LONG_GRASS_TWILIGHT:
+        gBattleAnimArgs[4] = RGB(0, 15, 2);
+        break;
+    case BATTLE_TERRAIN_LONG_GRASS_NIGHT:
         gBattleAnimArgs[4] = RGB(0, 15, 2);
         break;
     case BATTLE_TERRAIN_SAND:
