@@ -46,7 +46,6 @@
 #include "constants/trainers.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
-#include "overworld.h"
 
 enum {
     TRANSITION_TYPE_NORMAL,
@@ -683,11 +682,27 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_UNDERWATER;
     case MAP_TYPE_OCEAN_ROUTE:
         if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
-            return BATTLE_TERRAIN_WATER;
+        {
+            if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+                if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                    return BATTLE_TERRAIN_WATER_DAY;
+                else
+                    return BATTLE_TERRAIN_WATER_TWILIGHT;
+            else
+                return BATTLE_TERRAIN_WATER_NIGHT;
+        }
         return BATTLE_TERRAIN_PLAIN;
     }
     if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior))
-        return BATTLE_TERRAIN_WATER;
+    {
+        if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+            if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                return BATTLE_TERRAIN_WATER_DAY;
+            else
+                return BATTLE_TERRAIN_WATER_TWILIGHT;
+        else
+            return BATTLE_TERRAIN_WATER_NIGHT;
+    }
     if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
         return BATTLE_TERRAIN_POND;
     if (MetatileBehavior_IsMountain(tileBehavior))
@@ -699,7 +714,15 @@ u8 BattleSetup_GetTerrainId(void)
             return BATTLE_TERRAIN_POND;
 
         if (MetatileBehavior_IsBridgeOverWater(tileBehavior) == TRUE)
-            return BATTLE_TERRAIN_WATER;
+        {
+            if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+                if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                    return BATTLE_TERRAIN_WATER_DAY;
+                else
+                    return BATTLE_TERRAIN_WATER_TWILIGHT;
+            else
+                return BATTLE_TERRAIN_WATER_NIGHT;
+        }
     }
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE113) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE113))
         return BATTLE_TERRAIN_SAND;

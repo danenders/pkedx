@@ -281,7 +281,7 @@ static void BattleIntroSlide2(u8 taskId)
     switch (gTasks[taskId].tTerrain)
     {
     case BATTLE_TERRAIN_SAND:
-    case BATTLE_TERRAIN_WATER:
+    case BATTLE_TERRAIN_WATER_DAY:
         gBattle_BG1_X += 8;
         break;
     case BATTLE_TERRAIN_UNDERWATER:
@@ -289,7 +289,7 @@ static void BattleIntroSlide2(u8 taskId)
         break;
     }
 
-    if (gTasks[taskId].tTerrain == BATTLE_TERRAIN_WATER)
+    if (gTasks[taskId].tTerrain == BATTLE_TERRAIN_WATER_DAY)
     {
         gBattle_BG1_Y = Cos2(gTasks[taskId].data[6]) / 512 - 8;
         if (gTasks[taskId].data[6] < 180)

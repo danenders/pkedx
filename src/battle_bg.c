@@ -673,13 +673,31 @@ static const struct BattleBackground sBattleTerrainTable[] =
         .palette = gBattleTerrainPalette_Underwater,
     },
 
-    [BATTLE_TERRAIN_WATER] =
+    [BATTLE_TERRAIN_WATER_DAY] =
     {
         .tileset = gBattleTerrainTiles_Water,
         .tilemap = gBattleTerrainTilemap_Water,
         .entryTileset = gBattleTerrainAnimTiles_Water,
         .entryTilemap = gBattleTerrainAnimTilemap_Water,
         .palette = gBattleTerrainPalette_Water,
+    },
+
+    [BATTLE_TERRAIN_WATER_TWILIGHT] =
+    {
+        .tileset = gBattleTerrainTiles_WaterTwilight,
+        .tilemap = gBattleTerrainTilemap_WaterTwilight,
+        .entryTileset = gBattleTerrainAnimTiles_Water,
+        .entryTilemap = gBattleTerrainAnimTilemap_Water,
+        .palette = gBattleTerrainPalette_WaterTwilight,
+    },
+
+    [BATTLE_TERRAIN_WATER_NIGHT] =
+    {
+        .tileset = gBattleTerrainTiles_WaterNight,
+        .tilemap = gBattleTerrainTilemap_WaterNight,
+        .entryTileset = gBattleTerrainAnimTiles_Water,
+        .entryTilemap = gBattleTerrainAnimTilemap_Water,
+        .palette = gBattleTerrainPalette_WaterNight,
     },
 
     [BATTLE_TERRAIN_POND] =
@@ -803,21 +821,37 @@ void DrawMainBattleBackground(void)
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_GROUDON)
     {
-        LZDecompressVram(gBattleTerrainTiles_Cave, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Cave, (void*)(BG_SCREEN_ADDR(26)));
+        LZDecompressVram(gBattleTerrainTiles_Groudon, (void*)(BG_CHAR_ADDR(2)));
+        LZDecompressVram(gBattleTerrainTilemap_Groudon, (void*)(BG_SCREEN_ADDR(26)));
         LoadCompressedPalette(gBattleTerrainPalette_Groudon, 0x20, 0x60);
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_KYOGRE)
     {
-        LZDecompressVram(gBattleTerrainTiles_Water, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Water, (void*)(BG_SCREEN_ADDR(26)));
+        LZDecompressVram(gBattleTerrainTiles_Kyogre, (void*)(BG_CHAR_ADDR(2)));
+        LZDecompressVram(gBattleTerrainTilemap_Kyogre, (void*)(BG_SCREEN_ADDR(26)));
         LoadCompressedPalette(gBattleTerrainPalette_Kyogre, 0x20, 0x60);
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_RAYQUAZA)
     {
-        LZDecompressVram(gBattleTerrainTiles_Rayquaza, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Rayquaza, (void*)(BG_SCREEN_ADDR(26)));
-        LoadCompressedPalette(gBattleTerrainPalette_Rayquaza, 0x20, 0x60);
+        if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+            if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+            {
+                LZDecompressVram(gBattleTerrainTiles_Rayquaza, (void*)(BG_CHAR_ADDR(2)));
+                LZDecompressVram(gBattleTerrainTilemap_Rayquaza, (void*)(BG_SCREEN_ADDR(26)));
+                LoadCompressedPalette(gBattleTerrainPalette_Rayquaza, 0x20, 0x60);
+            }
+            else
+            {
+                LZDecompressVram(gBattleTerrainTiles_RayquazaTwilight, (void*)(BG_CHAR_ADDR(2)));
+                LZDecompressVram(gBattleTerrainTilemap_RayquazaTwilight, (void*)(BG_SCREEN_ADDR(26)));
+                LoadCompressedPalette(gBattleTerrainPalette_RayquazaTwilight, 0x20, 0x60);
+            }    
+        else
+        {
+            LZDecompressVram(gBattleTerrainTiles_RayquazaNight, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_RayquazaNight, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_RayquazaNight, 0x20, 0x60);
+        }
     }
     else
     {
@@ -1325,9 +1359,9 @@ bool8 LoadChosenBattleElement(u8 caseId)
         else if (gBattleTypeFlags & BATTLE_TYPE_KYOGRE_GROUDON)
         {
             if (gGameVersion == VERSION_RUBY)
-                LZDecompressVram(gBattleTerrainTilemap_Cave, (void*)(BG_SCREEN_ADDR(26)));
+                LZDecompressVram(gBattleTerrainTilemap_Groudon, (void*)(BG_SCREEN_ADDR(26)));
             else
-                LZDecompressVram(gBattleTerrainTilemap_Water, (void*)(BG_SCREEN_ADDR(26)));
+                LZDecompressVram(gBattleTerrainTilemap_Kyogre, (void*)(BG_SCREEN_ADDR(26)));
         }
         else
         {
