@@ -280,7 +280,7 @@ static void BattleIntroSlide2(u8 taskId)
 
     switch (gTasks[taskId].tTerrain)
     {
-    case BATTLE_TERRAIN_SAND:
+    case BATTLE_TERRAIN_SAND_DAY:
     case BATTLE_TERRAIN_WATER_DAY:
         gBattle_BG1_X += 8;
         break;

@@ -653,7 +653,7 @@ static void CB2_InitBattleInternal(void)
 
     gBattleTerrain = BattleSetup_GetTerrainId();
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
-        gBattleTerrain = BATTLE_TERRAIN_BUILDING;
+        gBattleTerrain = BATTLE_TERRAIN_BUILDING_DAY;
 
     InitBattleBgsVideo();
     LoadBattleTextboxAndBackground();
