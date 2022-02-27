@@ -6,7 +6,49 @@ JaggedPass_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, JaggedPass_OnLoad
 	.byte 0
 
+JaggedPass_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, JaggedPass_OnTransition_Night
+	goto_if_eq VAR_RESULT, 2, JaggedPass_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 0, JaggedPass_OnTransition_Day
+	end
+
+JaggedPass_OnTransition_Day:
+	setvar VAR_TIMEOFDAY 0
+	call_if_eq VAR_JAGGED_PASS_ASH_WEATHER, 1, JaggedPass_EventScript_SetWeatherAsh
+	end
+
+JaggedPass_OnTransition_Night:
+	setvar VAR_TIMEOFDAY 1
+	call_if_eq VAR_JAGGED_PASS_ASH_WEATHER, 1, JaggedPass_EventScript_SetWeatherAsh
+	end
+
+JaggedPass_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY 2
+	call_if_eq VAR_JAGGED_PASS_ASH_WEATHER, 1, JaggedPass_EventScript_SetWeatherAsh
+	end
+
 JaggedPass_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 1, JaggedPass_OnResume_Night
+	goto_if_eq VAR_RESULT, 2, JaggedPass_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 0, JaggedPass_OnResume_Day
+	end	
+
+JaggedPass_OnResume_Day:
+	setvar VAR_TIMEOFDAY 0
+	setstepcallback STEP_CB_ASH
+	call_if_eq VAR_JAGGED_PASS_STATE, 0, JaggedPass_EventScript_CheckHasMagmaEmblem
+	end
+
+JaggedPass_OnResume_Night:
+	setvar VAR_TIMEOFDAY 1
+	setstepcallback STEP_CB_ASH
+	call_if_eq VAR_JAGGED_PASS_STATE, 0, JaggedPass_EventScript_CheckHasMagmaEmblem
+	end
+
+JaggedPass_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY 2
 	setstepcallback STEP_CB_ASH
 	call_if_eq VAR_JAGGED_PASS_STATE, 0, JaggedPass_EventScript_CheckHasMagmaEmblem
 	end
@@ -19,10 +61,6 @@ JaggedPass_EventScript_CheckHasMagmaEmblem::
 JaggedPass_EventScript_SetReadyToOpenHideout::
 	setvar VAR_JAGGED_PASS_STATE, 1
 	return
-
-JaggedPass_OnTransition:
-	call_if_eq VAR_JAGGED_PASS_ASH_WEATHER, 1, JaggedPass_EventScript_SetWeatherAsh
-	end
 
 JaggedPass_EventScript_SetWeatherAsh::
 	setweather WEATHER_VOLCANIC_ASH

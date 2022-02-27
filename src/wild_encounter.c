@@ -185,8 +185,16 @@ static u8 ChooseWildMonIndex_Land(void)
         return 1;
     else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_1 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_2)
         return 2;
-    else
+    else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_2 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_3)
         return 3;
+    else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_3 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_4)
+        return 4;
+    else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_4 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_5)
+        return 5;
+    else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_5 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_6)
+        return 6;
+    else 
+        return 7;
 }
 
 // ROCK_WILD_COUNT / WATER_WILD_COUNT
@@ -202,8 +210,14 @@ static u8 ChooseWildMonIndex_WaterRock(void)
         return 2;
     else if (rand >= ENCOUNTER_CHANCE_WATER_MONS_SLOT_2 && rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_3)
         return 3;
-    else
+    else if (rand >= ENCOUNTER_CHANCE_WATER_MONS_SLOT_3 && rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_4)
         return 4;
+    else if (rand >= ENCOUNTER_CHANCE_WATER_MONS_SLOT_4 && rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_5)
+        return 5;
+    else if (rand >= ENCOUNTER_CHANCE_WATER_MONS_SLOT_5 && rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_6)
+        return 6;
+    else 
+        return 7;
 }
 
 // FISH_WILD_COUNT
@@ -218,24 +232,28 @@ static u8 ChooseWildMonIndex_Fishing(u8 rod)
     case OLD_ROD:
         if (rand < ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_0)
             wildMonIndex = 0;
-        else
+        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_0 && rand < ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_1)
             wildMonIndex = 1;
+        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_1 && rand < ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_2)
+            wildMonIndex = 2;
         break;
     case GOOD_ROD:
-        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_2)
-            wildMonIndex = 2;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_2 && rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_3)
+        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_3)
             wildMonIndex = 3;
         if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_3 && rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_4)
             wildMonIndex = 4;
+        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_4 && rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_5)
+            wildMonIndex = 5;
         break;
     case SUPER_ROD:
-        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_5)
-            wildMonIndex = 5;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_5 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_6)
+        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_6)
             wildMonIndex = 6;
         if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_6 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_7)
             wildMonIndex = 7;
+        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_7 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_8)
+            wildMonIndex = 8;
+        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_8 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_9)
+            wildMonIndex = 9;
         break;
     }
     return wildMonIndex;
@@ -442,17 +460,47 @@ static u16 GetCurrentMapWildMonHeaderId(void)
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(PETALBURG_WOODS))
                 i += VarGet(VAR_TIMEOFDAY);
 
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MT_PYRE_EXTERIOR) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(MT_PYRE_EXTERIOR))
+                i += VarGet(VAR_TIMEOFDAY);
 
-            //Special Routes
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MT_PYRE_SUMMIT) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(MT_PYRE_SUMMIT))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(JAGGED_PASS) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(JAGGED_PASS))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            //Safari Zones
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SAFARI_ZONE_NORTH) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SAFARI_ZONE_NORTH))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SAFARI_ZONE_NORTHWEST) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SAFARI_ZONE_NORTHWEST))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SAFARI_ZONE_NORTHEAST) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SAFARI_ZONE_NORTHEAST))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SAFARI_ZONE_SOUTH) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SAFARI_ZONE_SOUTH))
+                i += VarGet(VAR_TIMEOFDAY);
+            
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SAFARI_ZONE_SOUTHWEST) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SAFARI_ZONE_SOUTHWEST))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SAFARI_ZONE_SOUTHEAST) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SAFARI_ZONE_SOUTHEAST))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            //Altering Cave
             if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ALTERING_CAVE) &&
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(ALTERING_CAVE))
-            {
-                u16 alteringCaveId = VarGet(VAR_ALTERING_CAVE_WILD_SET);
-                if (alteringCaveId >= NUM_ALTERING_CAVE_TABLES)
-                    alteringCaveId = 0;
-
-                i += alteringCaveId;
-            }
+                i += VarGet(VAR_TIMEOFDAY);
 
             return i;
         }
