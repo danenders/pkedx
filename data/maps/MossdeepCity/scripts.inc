@@ -7,14 +7,60 @@
 
 MossdeepCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, MossdeepCity_OnResume
 	.byte 0
 
 MossdeepCity_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, MossdeepCity_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, MossdeepCity_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, MossdeepCity_OnTransition_Night
+	end
+
+MossdeepCity_OnTransition_Day:
+	setvar VAR_TIMEOFDAY 0
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_1
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_2
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_3
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_4
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+	end
+
+MossdeepCity_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY 1
+	clearflag FLAG_MOSSDEEP_GYM_SWITCH_1
+	clearflag FLAG_MOSSDEEP_GYM_SWITCH_2
+	clearflag FLAG_MOSSDEEP_GYM_SWITCH_3
+	clearflag FLAG_MOSSDEEP_GYM_SWITCH_4
+	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+	end
+
+MossdeepCity_OnTransition_Night:
+	setvar VAR_TIMEOFDAY 2
+	clearflag FLAG_MOSSDEEP_GYM_SWITCH_1
+	clearflag FLAG_MOSSDEEP_GYM_SWITCH_2
+	clearflag FLAG_MOSSDEEP_GYM_SWITCH_3
+	clearflag FLAG_MOSSDEEP_GYM_SWITCH_4
+	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+	end
+
+MossdeepCity_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, MossdeepCity_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, MossdeepCity_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, MossdeepCity_OnResume_Night
+	end	
+
+MossdeepCity_OnResume_Day:
+	setvar VAR_TIMEOFDAY 0
+	end
+
+MossdeepCity_OnResume_Night:
+	setvar VAR_TIMEOFDAY 1
+	end
+
+MossdeepCity_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY 2
 	end
 
 MossdeepCity_EventScript_PokefanF::

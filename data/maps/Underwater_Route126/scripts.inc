@@ -5,38 +5,39 @@ Underwater_Route126_MapScripts::
 
 Underwater_Route126_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Underwater_Route126_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Underwater_Route126_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Underwater_Route126_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Underwater_Route126_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Underwater_Route126_OnTransition_Night
+
 	end
 
 Underwater_Route126_OnTransition_Day:
 	setvar VAR_TIMEOFDAY 0
 	end
 
-Underwater_Route126_OnTransition_Night:
+Underwater_Route126_OnTransition_Twilgiht:
 	setvar VAR_TIMEOFDAY 1
 	end
 
-Underwater_Route126_OnTransition_Twilight:
+Underwater_Route126_OnTransition_Night:
 	setvar VAR_TIMEOFDAY 2
 	end
 
 Underwater_Route126_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Underwater_Route126_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Underwater_Route126_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Underwater_Route126_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Underwater_Route126_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Underwater_Route126_OnResume_Night
 	end
 
 Underwater_Route126_OnResume_Day:
 	setvar VAR_TIMEOFDAY 0
 	end
 
-Underwater_Route126_OnResume_Night:
+Underwater_Route126_OnResume_Twilight:
 	setvar VAR_TIMEOFDAY 1
 	end
 
-Underwater_Route126_OnResume_Twilight:
+Underwater_Route126_OnResume_Night:
 	setvar VAR_TIMEOFDAY 2
 	end

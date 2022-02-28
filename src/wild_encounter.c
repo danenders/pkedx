@@ -502,6 +502,39 @@ static u16 GetCurrentMapWildMonHeaderId(void)
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(ALTERING_CAVE))
                 i += VarGet(VAR_TIMEOFDAY);
 
+            //Towns
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PETALBURG_CITY) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(PETALBURG_CITY))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SLATEPORT_CITY) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SLATEPORT_CITY))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(LILYCOVE_CITY) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(LILYCOVE_CITY))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MOSSDEEP_CITY) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(MOSSDEEP_CITY))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SOOTOPOLIS_CITY) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SOOTOPOLIS_CITY))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(EVER_GRANDE_CITY) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(EVER_GRANDE_CITY))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DEWFORD_TOWN) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(DEWFORD_TOWN))
+                i += VarGet(VAR_TIMEOFDAY);
+
+             if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PACIFIDLOG_TOWN) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(PACIFIDLOG_TOWN))
+                i += VarGet(VAR_TIMEOFDAY);
+
             return i;
         }
     }

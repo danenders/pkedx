@@ -50,6 +50,14 @@ SootopolisCity_EventScript_LockGymDoor::
 	return
 
 SootopolisCity_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, SootopolisCity_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, SootopolisCity_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, SootopolisCity_OnTransition_Night
+	end
+
+SootopolisCity_OnTransition_Day:
+	setvar VAR_TIMEOFDAY 0
 	setflag FLAG_VISITED_SOOTOPOLIS_CITY
 	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 1, SootopolisCity_EventScript_HideMapNamePopup
 	call_if_eq VAR_SKY_PILLAR_STATE, 1, SootopolisCity_EventScript_HideMapNamePopup
@@ -65,6 +73,66 @@ SootopolisCity_OnTransition:
 	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 4, SootopolisCity_EventScript_SetExitCaveOfOriginObjPos
 	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 5, SootopolisCity_EventScript_SetOutsideGymObjPos
 	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 6, SootopolisCity_EventScript_SetExpertBlockCaveEntrance
+	end
+
+SootopolisCity_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY 1
+	setflag FLAG_VISITED_SOOTOPOLIS_CITY
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 1, SootopolisCity_EventScript_HideMapNamePopup
+	call_if_eq VAR_SKY_PILLAR_STATE, 1, SootopolisCity_EventScript_HideMapNamePopup
+	call SootopolisCity_EventScript_SetWeather
+	call SootopolisCity_EventScript_SetLayout
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 1, SootopolisCity_EventScript_SetBattleSpectators
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 2, SootopolisCity_EventScript_SetBattleSpectators
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 3, SootopolisCity_EventScript_SetBattleSpectators
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 4, SootopolisCity_EventScript_SetBattleSpectators
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 5, SootopolisCity_EventScript_SetBattleSpectators
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 2, SootopolisCity_EventScript_CheckSetEnterCaveOfOriginObjPos
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 3, SootopolisCity_EventScript_CheckSetEnterCaveOfOriginObjPos
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 4, SootopolisCity_EventScript_SetExitCaveOfOriginObjPos
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 5, SootopolisCity_EventScript_SetOutsideGymObjPos
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 6, SootopolisCity_EventScript_SetExpertBlockCaveEntrance
+	end
+
+SootopolisCity_OnTransition_Night:
+	setvar VAR_TIMEOFDAY 2
+	setflag FLAG_VISITED_SOOTOPOLIS_CITY
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 1, SootopolisCity_EventScript_HideMapNamePopup
+	call_if_eq VAR_SKY_PILLAR_STATE, 1, SootopolisCity_EventScript_HideMapNamePopup
+	call SootopolisCity_EventScript_SetWeather
+	call SootopolisCity_EventScript_SetLayout
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 1, SootopolisCity_EventScript_SetBattleSpectators
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 2, SootopolisCity_EventScript_SetBattleSpectators
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 3, SootopolisCity_EventScript_SetBattleSpectators
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 4, SootopolisCity_EventScript_SetBattleSpectators
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 5, SootopolisCity_EventScript_SetBattleSpectators
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 2, SootopolisCity_EventScript_CheckSetEnterCaveOfOriginObjPos
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 3, SootopolisCity_EventScript_CheckSetEnterCaveOfOriginObjPos
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 4, SootopolisCity_EventScript_SetExitCaveOfOriginObjPos
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 5, SootopolisCity_EventScript_SetOutsideGymObjPos
+	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 6, SootopolisCity_EventScript_SetExpertBlockCaveEntrance
+	end
+
+SootopolisCity_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, SootopolisCity_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, SootopolisCity_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, SootopolisCity_OnResume_Night
+	end	
+
+SootopolisCity_OnResume_Day:
+	setvar VAR_TIMEOFDAY 0
+	setdivewarp MAP_UNDERWATER_SOOTOPOLIS_CITY, 9, 6
+	end
+
+SootopolisCity_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY 1
+	setdivewarp MAP_UNDERWATER_SOOTOPOLIS_CITY, 9, 6
+	end
+
+SootopolisCity_OnResume_Night:
+	setvar VAR_TIMEOFDAY 2
+	setdivewarp MAP_UNDERWATER_SOOTOPOLIS_CITY, 9, 6
 	end
 
 SootopolisCity_EventScript_HideMapNamePopup::
@@ -175,10 +243,6 @@ SootopolisCity_EventScript_PlayerFaceLegendaries2::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	setvar VAR_SKY_PILLAR_STATE, 3
 	return
-
-SootopolisCity_OnResume:
-	setdivewarp MAP_UNDERWATER_SOOTOPOLIS_CITY, 9, 6
-	end
 
 SootopolisCity_OnFrame:
 	map_script_2 VAR_SOOTOPOLIS_CITY_STATE, 1, SootopolisCity_EventScript_StartLegendariesScene
