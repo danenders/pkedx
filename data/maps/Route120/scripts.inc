@@ -10,48 +10,48 @@ Route120_MapScripts::
 
 Route120_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route120_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Route120_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Route120_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route120_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route120_OnTransition_Night
 	end
 
 Route120_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call GabbyAndTy_EventScript_UpdateLocation
-	call Route120_EventScript_SetWeather
-	end
-
-Route120_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call GabbyAndTy_EventScript_UpdateLocation
 	call Route120_EventScript_SetWeather
 	end
 
 Route120_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call GabbyAndTy_EventScript_UpdateLocation
+	call Route120_EventScript_SetWeather
+	end
+
+Route120_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call GabbyAndTy_EventScript_UpdateLocation
 	call Route120_EventScript_SetWeather
 	end
 
 Route120_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route120_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Route120_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Route120_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route120_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route120_OnResume_Night
 	end	
 
 Route120_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route120_EventScript_RemoveKecleonObject
-	end
-
-Route120_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route120_EventScript_RemoveKecleonObject
 	end
 
 Route120_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route120_EventScript_RemoveKecleonObject
+	end
+
+Route120_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route120_EventScript_RemoveKecleonObject
 	end
 

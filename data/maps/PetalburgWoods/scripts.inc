@@ -8,46 +8,46 @@ PetalburgWoods_MapScripts::
 
 PetalburgWoods_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, PetalburgWoods_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, PetalburgWoods_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, PetalburgWoods_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, PetalburgWoods_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, PetalburgWoods_OnTransition_Night
 	end
 
 PetalburgWoods_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call Route104_EventScript_TrySetRivalPos
-	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
-	end
-
-PetalburgWoods_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
 	end
 
 PetalburgWoods_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call Route104_EventScript_TrySetRivalPos
+	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
+	end
+
+PetalburgWoods_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
 	end
 
 PetalburgWoods_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, PetalburgWoods_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, PetalburgWoods_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, PetalburgWoods_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, PetalburgWoods_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, PetalburgWoods_OnResume_Night
 	end	
 
 PetalburgWoods_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-PetalburgWoods_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 PetalburgWoods_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+PetalburgWoods_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 PetalburgWoods_EventScript_DevonResearcherLeft::

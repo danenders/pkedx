@@ -23,17 +23,17 @@ DewfordTown_OnTransition:
 	end
 
 DewfordTown_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
+	setvar VAR_TIMEOFDAY, 0
 	setflag FLAG_VISITED_DEWFORD_TOWN
 	end
 
 DewfordTown_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 1
 	setflag FLAG_VISITED_DEWFORD_TOWN
 	end
 
 DewfordTown_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 2
 	setflag FLAG_VISITED_DEWFORD_TOWN
 	end
 
@@ -45,15 +45,15 @@ DewfordTown_OnResume:
 	end	
 
 DewfordTown_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 DewfordTown_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 1
 	end
 
 DewfordTown_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 DewfordTown_EventScript_Briney::

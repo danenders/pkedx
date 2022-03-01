@@ -8,46 +8,46 @@ Route112_MapScripts::
 
 Route112_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route112_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Route112_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Route112_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route112_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route112_OnTransition_Night
 	end
 
 Route112_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
-	setvar VAR_JAGGED_PASS_ASH_WEATHER, 0
-	end
-
-Route112_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
 	setvar VAR_JAGGED_PASS_ASH_WEATHER, 0
 	end
 
 Route112_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
+	setvar VAR_JAGGED_PASS_ASH_WEATHER, 0
+	end
+
+Route112_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
 	setvar VAR_JAGGED_PASS_ASH_WEATHER, 0
 	end
 
 Route112_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route112_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Route112_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Route112_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route112_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route112_OnResume_Night
 	end	
 
 Route112_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-Route112_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 Route112_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route112_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route112_EventScript_MagmaGrunts::

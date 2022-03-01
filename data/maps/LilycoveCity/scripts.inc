@@ -15,7 +15,7 @@ LilycoveCity_OnTransition:
 	end
 
 LilycoveCity_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
+	setvar VAR_TIMEOFDAY, 0
 	setflag FLAG_VISITED_LILYCOVE_CITY
 	setvar VAR_CONTEST_HALL_STATE, 0
 	setflag FLAG_HIDE_LILYCOVE_CONTEST_HALL_REPORTER
@@ -24,7 +24,7 @@ LilycoveCity_OnTransition_Day:
 	end
 
 LilycoveCity_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 1
 	setflag FLAG_VISITED_LILYCOVE_CITY
 	setvar VAR_CONTEST_HALL_STATE, 0
 	setflag FLAG_HIDE_LILYCOVE_CONTEST_HALL_REPORTER
@@ -33,7 +33,7 @@ LilycoveCity_OnTransition_Twilight:
 	end
 
 LilycoveCity_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 2
 	setflag FLAG_VISITED_LILYCOVE_CITY
 	setvar VAR_CONTEST_HALL_STATE, 0
 	setflag FLAG_HIDE_LILYCOVE_CONTEST_HALL_REPORTER
@@ -49,15 +49,15 @@ LilycoveCity_OnResume:
 	end	
 
 LilycoveCity_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 LilycoveCity_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 1
 	end
 
 LilycoveCity_OnResume_Night:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 LilycoveCity_OnLoad:

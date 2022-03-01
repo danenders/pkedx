@@ -5,43 +5,43 @@ Route126_MapScripts::
 
 Route126_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route126_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Route126_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Route126_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route126_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route126_OnTransition_Night
 	end
 
 Route126_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
-	end
-
-Route126_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	end
 
 Route126_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+	end
+
+Route126_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	end
 
 Route126_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route126_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Route126_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Route126_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route126_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route126_OnResume_Night
 	end	
 
 Route126_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-Route126_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 Route126_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route126_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route126_EventScript_Barry::

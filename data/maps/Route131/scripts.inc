@@ -5,46 +5,46 @@ Route131_MapScripts::
 
 Route131_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route131_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Route131_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Route131_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route131_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route131_OnTransition_Night
 	end
 
 Route131_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, Route131_EventScript_CheckSetAbnormalWeather
-	call Route131_EventScript_SetLayout
-	end
-
-Route131_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, Route131_EventScript_CheckSetAbnormalWeather
 	call Route131_EventScript_SetLayout
 	end
 
 Route131_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, Route131_EventScript_CheckSetAbnormalWeather
+	call Route131_EventScript_SetLayout
+	end
+
+Route131_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, Route131_EventScript_CheckSetAbnormalWeather
 	call Route131_EventScript_SetLayout
 	end
 
 Route131_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route131_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Route131_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Route131_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route131_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route131_OnResume_Night
 	end	
 
 Route131_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-Route131_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 Route131_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route131_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 

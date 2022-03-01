@@ -5,40 +5,40 @@ Route106_MapScripts::
 
 Route106_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route106_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Route106_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Route106_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route106_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route106_OnTransition_Night
 	end
 
 Route106_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-Route106_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 Route106_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route106_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route106_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route106_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Route106_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Route106_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route106_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route106_OnResume_Night
 	end	
 
 Route106_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-Route106_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 Route106_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route106_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route106_EventScript_TrainerTipsSign::

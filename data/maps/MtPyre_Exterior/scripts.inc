@@ -5,43 +5,43 @@ MtPyre_Exterior_MapScripts::
 
 MtPyre_Exterior_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, MtPyre_Exterior_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, MtPyre_Exterior_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, MtPyre_Exterior_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, MtPyre_Exterior_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, MtPyre_Exterior_OnTransition_Night
 	end
 
 MtPyre_Exterior_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call MtPyre_Exterior_EventScript_CheckEnterFromSummit
-	end
-
-MtPyre_Exterior_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call MtPyre_Exterior_EventScript_CheckEnterFromSummit
 	end
 
 MtPyre_Exterior_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call MtPyre_Exterior_EventScript_CheckEnterFromSummit
+	end
+
+MtPyre_Exterior_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call MtPyre_Exterior_EventScript_CheckEnterFromSummit
 	end
 
 MtPyre_Exterior_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, MtPyre_Exterior_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, MtPyre_Exterior_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, MtPyre_Exterior_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, MtPyre_Exterior_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, MtPyre_Exterior_OnResume_Night
 	end	
 
 MtPyre_Exterior_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-MtPyre_Exterior_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 MtPyre_Exterior_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+MtPyre_Exterior_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 MtPyre_Exterior_EventScript_CheckEnterFromSummit::

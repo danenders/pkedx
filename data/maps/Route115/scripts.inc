@@ -7,9 +7,9 @@ Route115_MapScripts::
 
 Route115_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route115_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Route115_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Route115_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route115_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route115_OnTransition_Night
 	end
 
 Route115_OnLoad:
@@ -18,21 +18,21 @@ Route115_OnLoad:
 	end
 
 Route115_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_115_WEST, AbnormalWeather_StartGroudonWeather
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_115_EAST, AbnormalWeather_StartGroudonWeather
-	end
-
-Route115_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_115_WEST, AbnormalWeather_StartGroudonWeather
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_115_EAST, AbnormalWeather_StartGroudonWeather
 	end
 
 Route115_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_115_WEST, AbnormalWeather_StartGroudonWeather
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_115_EAST, AbnormalWeather_StartGroudonWeather
+	end
+
+Route115_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_115_WEST, AbnormalWeather_StartGroudonWeather
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_115_EAST, AbnormalWeather_StartGroudonWeather
@@ -40,21 +40,21 @@ Route115_OnTransition_Twilight:
 
 Route115_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route115_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Route115_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Route115_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route115_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route115_OnResume_Night
 	end	
 
 Route115_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-Route115_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 Route115_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route115_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route115_OnFrame:

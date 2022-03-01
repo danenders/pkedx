@@ -10,21 +10,13 @@ Route116_MapScripts::
 
 Route116_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route116_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Route116_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Route116_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route116_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route116_OnTransition_Night
 	end
 
 Route116_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call_if_set FLAG_RECOVERED_DEVON_GOODS, Route116_EventScript_SetWandasBoyfriendPos
-	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_116_NORTH, AbnormalWeather_StartGroudonWeather
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_116_SOUTH, AbnormalWeather_StartGroudonWeather
-	end
-
-Route116_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call_if_set FLAG_RECOVERED_DEVON_GOODS, Route116_EventScript_SetWandasBoyfriendPos
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_116_NORTH, AbnormalWeather_StartGroudonWeather
@@ -32,7 +24,15 @@ Route116_OnTransition_Night:
 	end
 
 Route116_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call_if_set FLAG_RECOVERED_DEVON_GOODS, Route116_EventScript_SetWandasBoyfriendPos
+	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_116_NORTH, AbnormalWeather_StartGroudonWeather
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_116_SOUTH, AbnormalWeather_StartGroudonWeather
+	end
+
+Route116_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call_if_set FLAG_RECOVERED_DEVON_GOODS, Route116_EventScript_SetWandasBoyfriendPos
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_116_NORTH, AbnormalWeather_StartGroudonWeather
@@ -41,21 +41,21 @@ Route116_OnTransition_Twilight:
 
 Route116_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route116_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Route116_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Route116_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route116_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route116_OnResume_Night
 	end	
 
 Route116_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-Route116_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 Route116_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route116_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route116_EventScript_SetWandasBoyfriendPos::

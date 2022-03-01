@@ -48,25 +48,13 @@ Route111_EventScript_ShowTemporaryMirageTower::
 
 Route111_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route111_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Route111_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Route111_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route111_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route111_OnTransition_Night
 	end
 
 Route111_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	setvar VAR_TRAINER_HILL_IS_ACTIVE, 0
-	special SetMirageTowerVisibility
-	call_if_unset FLAG_MIRAGE_TOWER_VISIBLE, Route111_EventScript_SetLayoutNoMirageTower
-	call_if_eq VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_SetFallingPlayerGfx
-	call_if_eq VAR_MIRAGE_TOWER_STATE, 2, Route111_EventScript_SetMirageTowerGone
-	call Route111_EventScript_CheckSetSandstorm
-	call GabbyAndTy_EventScript_UpdateLocation
-	goto_if_not_defeated TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated
-	end
-
-Route111_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	setvar VAR_TRAINER_HILL_IS_ACTIVE, 0
 	special SetMirageTowerVisibility
 	call_if_unset FLAG_MIRAGE_TOWER_VISIBLE, Route111_EventScript_SetLayoutNoMirageTower
@@ -78,7 +66,19 @@ Route111_OnTransition_Night:
 	end
 
 Route111_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	setvar VAR_TRAINER_HILL_IS_ACTIVE, 0
+	special SetMirageTowerVisibility
+	call_if_unset FLAG_MIRAGE_TOWER_VISIBLE, Route111_EventScript_SetLayoutNoMirageTower
+	call_if_eq VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_SetFallingPlayerGfx
+	call_if_eq VAR_MIRAGE_TOWER_STATE, 2, Route111_EventScript_SetMirageTowerGone
+	call Route111_EventScript_CheckSetSandstorm
+	call GabbyAndTy_EventScript_UpdateLocation
+	goto_if_not_defeated TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated
+	end
+
+Route111_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	setvar VAR_TRAINER_HILL_IS_ACTIVE, 0
 	special SetMirageTowerVisibility
 	call_if_unset FLAG_MIRAGE_TOWER_VISIBLE, Route111_EventScript_SetLayoutNoMirageTower
@@ -91,21 +91,21 @@ Route111_OnTransition_Twilight:
 
 Route111_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route111_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Route111_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Route111_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route111_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route111_OnResume_Night
 	end	
 
 Route111_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-Route111_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 Route111_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route111_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route111_EventScript_SetFallingPlayerGfx::

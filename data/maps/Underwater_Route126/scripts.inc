@@ -12,15 +12,15 @@ Underwater_Route126_OnTransition:
 	end
 
 Underwater_Route126_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
+	setvar VAR_TIMEOFDAY, 0
 	end
 
-Underwater_Route126_OnTransition_Twilgiht:
-	setvar VAR_TIMEOFDAY 1
+Underwater_Route126_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY, 1
 	end
 
 Underwater_Route126_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Underwater_Route126_OnResume:
@@ -31,13 +31,13 @@ Underwater_Route126_OnResume:
 	end
 
 Underwater_Route126_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 Underwater_Route126_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 1
 	end
 
 Underwater_Route126_OnResume_Night:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 2
 	end

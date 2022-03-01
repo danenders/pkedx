@@ -9,21 +9,13 @@ Route118_MapScripts::
 
 Route118_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route118_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Route118_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Route118_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route118_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route118_OnTransition_Night
 	end
 
 Route118_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call GabbyAndTy_EventScript_UpdateLocation
-	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_EAST, AbnormalWeather_StartGroudonWeather
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_WEST, AbnormalWeather_StartGroudonWeather
-	end
-
-Route118_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call GabbyAndTy_EventScript_UpdateLocation
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_EAST, AbnormalWeather_StartGroudonWeather
@@ -31,7 +23,15 @@ Route118_OnTransition_Night:
 	end
 
 Route118_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call GabbyAndTy_EventScript_UpdateLocation
+	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_EAST, AbnormalWeather_StartGroudonWeather
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_WEST, AbnormalWeather_StartGroudonWeather
+	end
+
+Route118_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call GabbyAndTy_EventScript_UpdateLocation
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_EAST, AbnormalWeather_StartGroudonWeather
@@ -40,21 +40,21 @@ Route118_OnTransition_Twilight:
 
 Route118_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route118_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Route118_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Route118_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route118_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route118_OnResume_Night
 	end	
 
 Route118_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-Route118_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 Route118_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route118_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route118_OnLoad:

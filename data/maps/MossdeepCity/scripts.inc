@@ -18,7 +18,7 @@ MossdeepCity_OnTransition:
 	end
 
 MossdeepCity_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
+	setvar VAR_TIMEOFDAY, 0
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_1
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_2
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_3
@@ -27,7 +27,7 @@ MossdeepCity_OnTransition_Day:
 	end
 
 MossdeepCity_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 1
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_1
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_2
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_3
@@ -36,7 +36,7 @@ MossdeepCity_OnTransition_Twilight:
 	end
 
 MossdeepCity_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 2
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_1
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_2
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_3
@@ -52,15 +52,15 @@ MossdeepCity_OnResume:
 	end	
 
 MossdeepCity_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 MossdeepCity_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 1
 	end
 
 MossdeepCity_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 MossdeepCity_EventScript_PokefanF::

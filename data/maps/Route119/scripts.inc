@@ -9,21 +9,13 @@ Route119_MapScripts::
 
 Route119_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route119_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Route119_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Route119_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route119_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route119_OnTransition_Night
 	end
 
 Route119_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call Common_EventScript_SetupRivalGfxId
-	call Common_EventScript_SetupRivalOnBikeGfxId
-	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 1, Route119_EventScript_MoveInstituteWorkersDownstairs
-	special SetRoute119Weather
-	end
-
-Route119_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call Common_EventScript_SetupRivalGfxId
 	call Common_EventScript_SetupRivalOnBikeGfxId
 	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 1, Route119_EventScript_MoveInstituteWorkersDownstairs
@@ -31,7 +23,15 @@ Route119_OnTransition_Night:
 	end
 
 Route119_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call Common_EventScript_SetupRivalGfxId
+	call Common_EventScript_SetupRivalOnBikeGfxId
+	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 1, Route119_EventScript_MoveInstituteWorkersDownstairs
+	special SetRoute119Weather
+	end
+
+Route119_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call Common_EventScript_SetupRivalGfxId
 	call Common_EventScript_SetupRivalOnBikeGfxId
 	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 1, Route119_EventScript_MoveInstituteWorkersDownstairs
@@ -40,23 +40,23 @@ Route119_OnTransition_Twilight:
 
 Route119_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route119_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Route119_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Route119_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route119_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route119_OnResume_Night
 	end	
 
 Route119_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveKecleon
-	end
-
-Route119_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveKecleon
 	end
 
 Route119_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveKecleon
+	end
+
+Route119_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveKecleon
 	end
 

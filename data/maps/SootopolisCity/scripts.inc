@@ -57,7 +57,7 @@ SootopolisCity_OnTransition:
 	end
 
 SootopolisCity_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
+	setvar VAR_TIMEOFDAY, 0
 	setflag FLAG_VISITED_SOOTOPOLIS_CITY
 	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 1, SootopolisCity_EventScript_HideMapNamePopup
 	call_if_eq VAR_SKY_PILLAR_STATE, 1, SootopolisCity_EventScript_HideMapNamePopup
@@ -76,7 +76,7 @@ SootopolisCity_OnTransition_Day:
 	end
 
 SootopolisCity_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 1
 	setflag FLAG_VISITED_SOOTOPOLIS_CITY
 	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 1, SootopolisCity_EventScript_HideMapNamePopup
 	call_if_eq VAR_SKY_PILLAR_STATE, 1, SootopolisCity_EventScript_HideMapNamePopup
@@ -95,7 +95,7 @@ SootopolisCity_OnTransition_Twilight:
 	end
 
 SootopolisCity_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 2
 	setflag FLAG_VISITED_SOOTOPOLIS_CITY
 	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 1, SootopolisCity_EventScript_HideMapNamePopup
 	call_if_eq VAR_SKY_PILLAR_STATE, 1, SootopolisCity_EventScript_HideMapNamePopup
@@ -121,17 +121,17 @@ SootopolisCity_OnResume:
 	end	
 
 SootopolisCity_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
+	setvar VAR_TIMEOFDAY, 0
 	setdivewarp MAP_UNDERWATER_SOOTOPOLIS_CITY, 9, 6
 	end
 
 SootopolisCity_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 1
 	setdivewarp MAP_UNDERWATER_SOOTOPOLIS_CITY, 9, 6
 	end
 
 SootopolisCity_OnResume_Night:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 2
 	setdivewarp MAP_UNDERWATER_SOOTOPOLIS_CITY, 9, 6
 	end
 

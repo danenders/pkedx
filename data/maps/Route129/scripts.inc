@@ -12,21 +12,13 @@ Route129_OnLoad:
 
 Route129_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route129_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Route129_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Route129_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route129_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route129_OnTransition_Night
 	end
 
 Route129_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
-	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, Route129_EventScript_CheckSetAbnormalWeather
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_129_WEST, AbnormalWeather_StartKyogreWeather
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_129_EAST, AbnormalWeather_StartKyogreWeather
-	end
-
-Route129_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, Route129_EventScript_CheckSetAbnormalWeather
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_129_WEST, AbnormalWeather_StartKyogreWeather
@@ -34,7 +26,15 @@ Route129_OnTransition_Night:
 	end
 
 Route129_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
+	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, Route129_EventScript_CheckSetAbnormalWeather
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_129_WEST, AbnormalWeather_StartKyogreWeather
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_129_EAST, AbnormalWeather_StartKyogreWeather
+	end
+
+Route129_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, Route129_EventScript_CheckSetAbnormalWeather
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_129_WEST, AbnormalWeather_StartKyogreWeather
@@ -43,21 +43,21 @@ Route129_OnTransition_Twilight:
 
 Route129_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route129_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Route129_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Route129_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route129_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route129_OnResume_Night
 	end	
 
 Route129_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-Route129_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 Route129_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route129_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route129_EventScript_CheckSetAbnormalWeather::

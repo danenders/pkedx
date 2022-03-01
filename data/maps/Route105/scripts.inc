@@ -18,27 +18,27 @@ Route105_CloseRegiEntrance::
 
 Route105_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route105_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Route105_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Route105_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route105_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route105_OnTransition_Night
 	end
 
 Route105_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_105_NORTH, AbnormalWeather_StartKyogreWeather
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_105_SOUTH, AbnormalWeather_StartKyogreWeather
-	end
-
-Route105_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_105_NORTH, AbnormalWeather_StartKyogreWeather
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_105_SOUTH, AbnormalWeather_StartKyogreWeather
 	end
 
 Route105_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_105_NORTH, AbnormalWeather_StartKyogreWeather
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_105_SOUTH, AbnormalWeather_StartKyogreWeather
+	end
+
+Route105_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_105_NORTH, AbnormalWeather_StartKyogreWeather
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_105_SOUTH, AbnormalWeather_StartKyogreWeather
@@ -46,21 +46,21 @@ Route105_OnTransition_Twilight:
 
 Route105_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route105_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Route105_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Route105_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route105_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route105_OnResume_Night
 	end	
 
 Route105_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-Route105_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 Route105_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route105_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route105_OnFrame:

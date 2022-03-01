@@ -8,47 +8,47 @@ JaggedPass_MapScripts::
 
 JaggedPass_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, JaggedPass_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, JaggedPass_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, JaggedPass_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, JaggedPass_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, JaggedPass_OnTransition_Night
 	end
 
 JaggedPass_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call_if_eq VAR_JAGGED_PASS_ASH_WEATHER, 1, JaggedPass_EventScript_SetWeatherAsh
-	end
-
-JaggedPass_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call_if_eq VAR_JAGGED_PASS_ASH_WEATHER, 1, JaggedPass_EventScript_SetWeatherAsh
 	end
 
 JaggedPass_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call_if_eq VAR_JAGGED_PASS_ASH_WEATHER, 1, JaggedPass_EventScript_SetWeatherAsh
+	end
+
+JaggedPass_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call_if_eq VAR_JAGGED_PASS_ASH_WEATHER, 1, JaggedPass_EventScript_SetWeatherAsh
 	end
 
 JaggedPass_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, JaggedPass_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, JaggedPass_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, JaggedPass_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, JaggedPass_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, JaggedPass_OnResume_Night
 	end	
 
 JaggedPass_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	setstepcallback STEP_CB_ASH
-	call_if_eq VAR_JAGGED_PASS_STATE, 0, JaggedPass_EventScript_CheckHasMagmaEmblem
-	end
-
-JaggedPass_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	setstepcallback STEP_CB_ASH
 	call_if_eq VAR_JAGGED_PASS_STATE, 0, JaggedPass_EventScript_CheckHasMagmaEmblem
 	end
 
 JaggedPass_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	setstepcallback STEP_CB_ASH
+	call_if_eq VAR_JAGGED_PASS_STATE, 0, JaggedPass_EventScript_CheckHasMagmaEmblem
+	end
+
+JaggedPass_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	setstepcallback STEP_CB_ASH
 	call_if_eq VAR_JAGGED_PASS_STATE, 0, JaggedPass_EventScript_CheckHasMagmaEmblem
 	end

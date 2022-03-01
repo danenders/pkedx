@@ -8,43 +8,43 @@ SafariZone_South_MapScripts::
 
 SafariZone_South_OnTransition::
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, SafariZone_South_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, SafariZone_South_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, SafariZone_South_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, SafariZone_South_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, SafariZone_South_OnTransition_Night
 	end
 
 SafariZone_South_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call_if_eq VAR_SAFARI_ZONE_STATE, 2, SafariZone_South_EventScript_SetExitAttendantAside
-	end
-
-SafariZone_South_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call_if_eq VAR_SAFARI_ZONE_STATE, 2, SafariZone_South_EventScript_SetExitAttendantAside
 	end
 
 SafariZone_South_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call_if_eq VAR_SAFARI_ZONE_STATE, 2, SafariZone_South_EventScript_SetExitAttendantAside
+	end
+
+SafariZone_South_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call_if_eq VAR_SAFARI_ZONE_STATE, 2, SafariZone_South_EventScript_SetExitAttendantAside
 	end
 
 SafariZone_South_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, SafariZone_South_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, SafariZone_South_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, SafariZone_South_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, SafariZone_South_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, SafariZone_South_OnResume_Night
 	end	
 
 SafariZone_South_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-SafariZone_South_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 SafariZone_South_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+SafariZone_South_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 

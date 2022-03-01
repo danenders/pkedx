@@ -19,27 +19,27 @@ Route104_EventScript_StartSailToDewford::
 
 Route104_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route104_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Route104_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Route104_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route104_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route104_OnTransition_Night
 	end
 
 Route104_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call Common_EventScript_SetupRivalGfxId
-	call Route104_EventScript_TrySetRivalPos
-	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
-	end
-
-Route104_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call Common_EventScript_SetupRivalGfxId
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
 	end
 
 Route104_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call Common_EventScript_SetupRivalGfxId
+	call Route104_EventScript_TrySetRivalPos
+	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
+	end
+
+Route104_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call Common_EventScript_SetupRivalGfxId
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
@@ -47,21 +47,21 @@ Route104_OnTransition_Twilight:
 
 Route104_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route104_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Route104_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Route104_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route104_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route104_OnResume_Night
 	end	
 
 Route104_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-Route104_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 Route104_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route104_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route104_EventScript_ShowOrHideWhiteHerbFlorist::

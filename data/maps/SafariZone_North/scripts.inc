@@ -5,40 +5,40 @@ SafariZone_North_MapScripts::
 
 SafariZone_North_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, SafariZone_North_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, SafariZone_North_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, SafariZone_North_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, SafariZone_North_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, SafariZone_North_OnTransition_Night
 	end
 
 SafariZone_North_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-SafariZone_North_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 SafariZone_North_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+SafariZone_North_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 SafariZone_North_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, SafariZone_North_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, SafariZone_North_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, SafariZone_North_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, SafariZone_North_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, SafariZone_North_OnResume_Night
 	end	
 
 SafariZone_North_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-SafariZone_North_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 SafariZone_North_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+SafariZone_North_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 SafariZone_North_EventScript_Fisherman::

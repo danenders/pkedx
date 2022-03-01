@@ -11,17 +11,17 @@ PacifidlogTown_OnTransition:
 	end
 
 PacifidlogTown_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
+	setvar VAR_TIMEOFDAY, 0
 	setflag FLAG_VISITED_PACIFIDLOG_TOWN
 	end
 
 PacifidlogTown_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 1
 	setflag FLAG_VISITED_PACIFIDLOG_TOWN
 	end
 
 PacifidlogTown_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 2
 	setflag FLAG_VISITED_PACIFIDLOG_TOWN
 	end
 
@@ -33,17 +33,17 @@ PacifidlogTown_OnResume:
 	end	
 
 PacifidlogTown_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
+	setvar VAR_TIMEOFDAY, 0
 	setstepcallback STEP_CB_PACIFIDLOG_BRIDGE
 	end
 
 PacifidlogTown_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 1
 	setstepcallback STEP_CB_PACIFIDLOG_BRIDGE
 	end
 
 PacifidlogTown_OnResume_Night:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 2
 	setstepcallback STEP_CB_PACIFIDLOG_BRIDGE
 	end
 

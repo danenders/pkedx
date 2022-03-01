@@ -1482,7 +1482,7 @@ u8 UpdateTimeOfDay(void) {
     currentTimeBlend.time0 = TIME_OF_DAY_NIGHT;
     currentTimeBlend.time1 = TIME_OF_DAY_TWILIGHT;
     currentTimeBlend.weight = 256 - 256 * ((hours - 4) * 60 + minutes) / ((7-4)*60);
-    return gTimeOfDay = TIME_OF_DAY_DAY;
+    return gTimeOfDay = TIME_OF_DAY_TWILIGHT;
   } else if (hours >= 7 && hours < 10) { // twilight->day
     currentTimeBlend.time0 = TIME_OF_DAY_TWILIGHT;
     currentTimeBlend.time1 = TIME_OF_DAY_DAY;
