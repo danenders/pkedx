@@ -1475,32 +1475,32 @@ u8 UpdateTimeOfDay(void) {
   RtcCalcLocalTime();
   hours = gLocalTime.hours;
   minutes = gLocalTime.minutes;
-  if (hours >= 22 || hours < 4) { // night
+  if (hours >= 21 || hours < 5) { // night
     currentTimeBlend.weight = 256;
     return gTimeOfDay = currentTimeBlend.time0 = currentTimeBlend.time1 = TIME_OF_DAY_NIGHT;
-  } else if (hours >= 4 && hours < 7) { // night->twilight
+  } else if (hours >= 5 && hours < 7) { // night->twilight
     currentTimeBlend.time0 = TIME_OF_DAY_NIGHT;
     currentTimeBlend.time1 = TIME_OF_DAY_TWILIGHT;
     currentTimeBlend.weight = 256 - 256 * ((hours - 4) * 60 + minutes) / ((7-4)*60);
     return gTimeOfDay = TIME_OF_DAY_TWILIGHT;
-  } else if (hours >= 7 && hours < 10) { // twilight->day
+  } else if (hours >= 7 && hours < 9) { // twilight->day
     currentTimeBlend.time0 = TIME_OF_DAY_TWILIGHT;
     currentTimeBlend.time1 = TIME_OF_DAY_DAY;
     currentTimeBlend.weight = 256 - 256 * ((hours - 7) * 60 + minutes) / ((10-7)*60);
-    return gTimeOfDay = TIME_OF_DAY_DAY;
-  } else if (hours >= 10 && hours < 18) { // day
+    return gTimeOfDay = TIME_OF_DAY_TWILIGHT;
+  } else if (hours >= 9 && hours < 17) { // day
     currentTimeBlend.weight = 256;
     return gTimeOfDay = currentTimeBlend.time0 = currentTimeBlend.time1 = TIME_OF_DAY_DAY;
-  } else if (hours >= 18 && hours < 20) { // day->twilight
+  } else if (hours >= 17 && hours < 19) { // day->twilight
     currentTimeBlend.time0 = TIME_OF_DAY_DAY;
     currentTimeBlend.time1 = TIME_OF_DAY_TWILIGHT;
     currentTimeBlend.weight = 256 - 256 * ((hours - 18) * 60 + minutes) / ((20-18)*60);
     return gTimeOfDay = TIME_OF_DAY_TWILIGHT;
-  } else if (hours >= 20 && hours < 22) { // twilight->night
+  } else if (hours >= 19 && hours < 21) { // twilight->night
     currentTimeBlend.time0 = TIME_OF_DAY_TWILIGHT;
     currentTimeBlend.time1 = TIME_OF_DAY_NIGHT;
     currentTimeBlend.weight = 256 - 256 * ((hours - 20) * 60 + minutes) / ((22-20)*60);
-    return gTimeOfDay = TIME_OF_DAY_NIGHT;
+    return gTimeOfDay = TIME_OF_DAY_TWILIGHT;
   } else { // This should never occur
     currentTimeBlend.weight = 256;
     return gTimeOfDay = currentTimeBlend.time0 = currentTimeBlend.time1 = TIME_OF_DAY_DAY;
