@@ -4,10 +4,46 @@ PacifidlogTown_MapScripts::
 	.byte 0
 
 PacifidlogTown_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, PacifidlogTown_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, PacifidlogTown_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, PacifidlogTown_OnTransition_Night
+	end
+
+PacifidlogTown_OnTransition_Day:
+	setvar VAR_TIMEOFDAY, 0
+	setflag FLAG_VISITED_PACIFIDLOG_TOWN
+	end
+
+PacifidlogTown_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	setflag FLAG_VISITED_PACIFIDLOG_TOWN
+	end
+
+PacifidlogTown_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	setflag FLAG_VISITED_PACIFIDLOG_TOWN
 	end
 
 PacifidlogTown_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, PacifidlogTown_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, PacifidlogTown_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, PacifidlogTown_OnResume_Night
+	end	
+
+PacifidlogTown_OnResume_Day:
+	setvar VAR_TIMEOFDAY, 0
+	setstepcallback STEP_CB_PACIFIDLOG_BRIDGE
+	end
+
+PacifidlogTown_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	setstepcallback STEP_CB_PACIFIDLOG_BRIDGE
+	end
+
+PacifidlogTown_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	setstepcallback STEP_CB_PACIFIDLOG_BRIDGE
 	end
 

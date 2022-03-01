@@ -2,12 +2,52 @@
 
 Route103_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route103_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, Route103_OnResume
 	map_script MAP_SCRIPT_ON_LOAD, Route103_OnLoad
 	.byte 0
 
 Route103_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, Route103_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route103_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route103_OnTransition_Night
+	end
+
+Route103_OnTransition_Day:
+	setvar VAR_TIMEOFDAY, 0
 	call Common_EventScript_SetupRivalGfxId
 	call ProfBirch_EventScript_UpdateLocation
+	end
+
+Route103_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	call Common_EventScript_SetupRivalGfxId
+	call ProfBirch_EventScript_UpdateLocation
+	end
+
+Route103_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
+	call Common_EventScript_SetupRivalGfxId
+	call ProfBirch_EventScript_UpdateLocation
+	end
+
+Route103_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, Route103_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route103_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route103_OnResume_Night
+	end	
+
+Route103_OnResume_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+Route103_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route103_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route103_OnLoad:

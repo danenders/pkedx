@@ -4199,17 +4199,21 @@ void GetTimeOfDay(void)
 {
     u8 timeofday;
     RtcCalcLocalTime();
-    if (gLocalTime.hours >= 10 && gLocalTime.hours <= 18)
+    if (gLocalTime.hours >= 21 || gLocalTime.hours < 5)
     {
-        timeofday = 0; //Day
+        timeofday = 2; //Night
     }
-    else if (gLocalTime.hours >= 22 && gLocalTime.hours <= 4)
+    else if (gLocalTime.hours >= 5 && gLocalTime.hours < 9)
     {
-        timeofday = 1; //Night
+        timeofday = 1; //Twilight (Morning)
+    }
+    else if (gLocalTime.hours >= 17 && gLocalTime.hours < 21)
+    {
+        timeofday = 1; //Evening
     }
     else
     {
-        timeofday = 2; //Twilight
+        timeofday = 0; //Day (9 - 16)
     }
     gSpecialVar_Result = timeofday;
 }

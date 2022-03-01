@@ -12,10 +12,48 @@
 
 DewfordTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, DewfordTown_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, DewfordTown_OnResume
 	.byte 0
 
 DewfordTown_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, DewfordTown_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, DewfordTown_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, DewfordTown_OnTransition_Night
+	end
+
+DewfordTown_OnTransition_Day:
+	setvar VAR_TIMEOFDAY, 0
 	setflag FLAG_VISITED_DEWFORD_TOWN
+	end
+
+DewfordTown_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	setflag FLAG_VISITED_DEWFORD_TOWN
+	end
+
+DewfordTown_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
+	setflag FLAG_VISITED_DEWFORD_TOWN
+	end
+
+DewfordTown_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, DewfordTown_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, DewfordTown_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, DewfordTown_OnResume_Night
+	end	
+
+DewfordTown_OnResume_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+DewfordTown_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+DewfordTown_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 DewfordTown_EventScript_Briney::

@@ -2,10 +2,48 @@
 
 Route117_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route117_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, Route117_OnResume
 	.byte 0
 
 Route117_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, Route117_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route117_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route117_OnTransition_Night
+	end
+
+Route117_OnTransition_Day:
+	setvar VAR_TIMEOFDAY, 0
 	call Route117_EventScript_TryMoveDayCareMan
+	end
+
+Route117_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	call Route117_EventScript_TryMoveDayCareMan
+	end
+
+Route117_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
+	call Route117_EventScript_TryMoveDayCareMan
+	end
+
+Route117_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, Route117_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route117_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route117_OnResume_Night
+	end	
+
+Route117_OnResume_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+Route117_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route117_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route117_EventScript_TryMoveDayCareMan::

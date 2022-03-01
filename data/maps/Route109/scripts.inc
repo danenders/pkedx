@@ -2,8 +2,48 @@
 @  These are labeled in DewfordTown/scripts.inc
 
 Route109_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route109_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME,Route109_OnResume
 	.byte 0
 
+Route109_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, Route109_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route109_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route109_OnTransition_Night
+	end
+
+Route109_OnTransition_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+Route109_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route109_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
+	end
+
+Route109_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, Route109_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route109_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route109_OnResume_Night
+	end	
+
+Route109_OnResume_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+Route109_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route109_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
+	end
+	
 Route109_EventScript_StartDepartForDewford::
 	call EventScript_BackupMrBrineyLocation
 	setobjectsubpriority LOCALID_BRINEY_R109, MAP_ROUTE109, 0

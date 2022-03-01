@@ -8,10 +8,48 @@
 
 MtPyre_Summit_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MtPyre_Summit_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, MtPyre_Summit_OnResume
 	.byte 0
 
 MtPyre_Summit_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, MtPyre_Summit_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, MtPyre_Summit_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, MtPyre_Summit_OnTransition_Night
+	end
+
+MtPyre_Summit_OnTransition_Day:
+	setvar VAR_TIMEOFDAY, 0
 	call_if_eq VAR_MT_PYRE_STATE, 2, MtPyre_Summit_EventScript_SetArchieMaxiePositions
+	end
+
+MtPyre_Summit_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	call_if_eq VAR_MT_PYRE_STATE, 2, MtPyre_Summit_EventScript_SetArchieMaxiePositions
+	end
+
+MtPyre_Summit_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
+	call_if_eq VAR_MT_PYRE_STATE, 2, MtPyre_Summit_EventScript_SetArchieMaxiePositions
+	end
+
+MtPyre_Summit_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, MtPyre_Summit_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, MtPyre_Summit_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, MtPyre_Summit_OnResume_Night
+	end	
+
+MtPyre_Summit_OnResume_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+MtPyre_Summit_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+MtPyre_Summit_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 MtPyre_Summit_EventScript_SetArchieMaxiePositions::

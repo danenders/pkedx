@@ -1,5 +1,45 @@
 Route133_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route133_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME,Route133_OnResume
 	.byte 0
+
+Route133_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, Route133_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route133_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route133_OnTransition_Night
+	end
+
+Route133_OnTransition_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+Route133_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route133_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
+	end
+
+Route133_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, Route133_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route133_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route133_OnResume_Night
+	end	
+
+Route133_OnResume_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+Route133_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route133_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
+	end
 
 Route133_EventScript_Franklin::
 	trainerbattle_single TRAINER_FRANKLIN, Route133_Text_FranklinIntro, Route133_Text_FranklinDefeat

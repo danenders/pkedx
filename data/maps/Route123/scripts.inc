@@ -1,9 +1,47 @@
 Route123_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route123_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, Route123_OnResume
 	.byte 0
 
 Route123_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, Route123_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route123_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route123_OnTransition_Night
+	end
+
+Route123_OnTransition_Day:
+	setvar VAR_TIMEOFDAY, 0
 	special SetRoute123Weather
+	end
+
+Route123_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	special SetRoute123Weather
+	end
+
+Route123_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
+	special SetRoute123Weather
+	end
+
+Route123_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, Route123_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route123_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route123_OnResume_Night
+	end	
+
+Route123_OnResume_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+Route123_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route123_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route123_EventScript_GigaDrainGirl::

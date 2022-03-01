@@ -1,14 +1,58 @@
 Route125_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route125_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, Route125_OnResume
 	map_script MAP_SCRIPT_ON_LOAD, Route125_OnLoad
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route125_OnFrame
 	.byte 0
 
 Route125_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, Route125_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route125_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route125_OnTransition_Night
+	end
+
+Route125_OnTransition_Day:
+	setvar VAR_TIMEOFDAY, 0
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_125_WEST, AbnormalWeather_StartKyogreWeather
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_125_EAST, AbnormalWeather_StartKyogreWeather
+	end
+
+Route125_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_125_WEST, AbnormalWeather_StartKyogreWeather
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_125_EAST, AbnormalWeather_StartKyogreWeather
+	end
+
+Route125_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
+	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_125_WEST, AbnormalWeather_StartKyogreWeather
+	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_125_EAST, AbnormalWeather_StartKyogreWeather
+	end
+
+Route125_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, Route125_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route125_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route125_OnResume_Night
+	end	
+
+Route125_OnResume_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+Route125_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route125_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route125_OnLoad:

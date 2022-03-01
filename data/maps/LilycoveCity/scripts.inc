@@ -3,15 +3,61 @@
 
 LilycoveCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LilycoveCity_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, LilycoveCity_OnResume
 	map_script MAP_SCRIPT_ON_LOAD, LilycoveCity_OnLoad
 	.byte 0
 
 LilycoveCity_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, LilycoveCity_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, LilycoveCity_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, LilycoveCity_OnResume_Night
+	end
+
+LilycoveCity_OnTransition_Day:
+	setvar VAR_TIMEOFDAY, 0
 	setflag FLAG_VISITED_LILYCOVE_CITY
 	setvar VAR_CONTEST_HALL_STATE, 0
 	setflag FLAG_HIDE_LILYCOVE_CONTEST_HALL_REPORTER
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	call Common_EventScript_SetupRivalGfxId
+	end
+
+LilycoveCity_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	setflag FLAG_VISITED_LILYCOVE_CITY
+	setvar VAR_CONTEST_HALL_STATE, 0
+	setflag FLAG_HIDE_LILYCOVE_CONTEST_HALL_REPORTER
+	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+	call Common_EventScript_SetupRivalGfxId
+	end
+
+LilycoveCity_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
+	setflag FLAG_VISITED_LILYCOVE_CITY
+	setvar VAR_CONTEST_HALL_STATE, 0
+	setflag FLAG_HIDE_LILYCOVE_CONTEST_HALL_REPORTER
+	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+	call Common_EventScript_SetupRivalGfxId
+	end
+
+LilycoveCity_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, LilycoveCity_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, LilycoveCity_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, LilycoveCity_OnResume_Night
+	end	
+
+LilycoveCity_OnResume_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+LilycoveCity_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+LilycoveCity_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 LilycoveCity_OnLoad:

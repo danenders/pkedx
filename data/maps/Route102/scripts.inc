@@ -1,5 +1,45 @@
 Route102_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route102_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME,Route102_OnResume
 	.byte 0
+
+Route102_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, Route102_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route102_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route102_OnTransition_Night
+	end
+
+Route102_OnTransition_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+Route102_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route102_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
+	end
+
+Route102_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, Route102_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route102_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route102_OnResume_Night
+	end	
+
+Route102_OnResume_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+Route102_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route102_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
+	end
 
 Route102_EventScript_LittleBoy::
 	msgbox Route102_Text_ImNotVeryTall, MSGBOX_NPC

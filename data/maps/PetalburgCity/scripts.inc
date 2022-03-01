@@ -6,15 +6,61 @@
 
 PetalburgCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgCity_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, PetalburgCity_OnResume
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PetalburgCity_OnFrame
 	.byte 0
 
 PetalburgCity_OnTransition:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, PetalburgCity_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, PetalburgCity_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, PetalburgCity_OnTransition_Night
+	end
+
+PetalburgCity_OnTransition_Day:
+	setvar VAR_TIMEOFDAY, 0
 	setflag FLAG_VISITED_PETALBURG_CITY
 	call_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
 	call_if_eq VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_DisableMapNameAndMusic
 	call_if_eq VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_DisableMapNameAndMusic
 	call_if_eq VAR_PETALBURG_GYM_STATE, 8, PetalburgCity_EventScript_SetGymDoorsUnlocked
+	end
+
+PetalburgCity_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	setflag FLAG_VISITED_PETALBURG_CITY
+	call_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
+	call_if_eq VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_DisableMapNameAndMusic
+	call_if_eq VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_DisableMapNameAndMusic
+	call_if_eq VAR_PETALBURG_GYM_STATE, 8, PetalburgCity_EventScript_SetGymDoorsUnlocked
+	end
+
+PetalburgCity_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
+	setflag FLAG_VISITED_PETALBURG_CITY
+	call_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
+	call_if_eq VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_DisableMapNameAndMusic
+	call_if_eq VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_DisableMapNameAndMusic
+	call_if_eq VAR_PETALBURG_GYM_STATE, 8, PetalburgCity_EventScript_SetGymDoorsUnlocked
+	end
+
+PetalburgCity_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, PetalburgCity_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, PetalburgCity_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, PetalburgCity_OnResume_Night
+	end	
+
+PetalburgCity_OnResume_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+PetalburgCity_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+PetalburgCity_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 PetalburgCity_EventScript_MoveGymBoyToWestEntrance::

@@ -9,43 +9,43 @@ Route101_MapScripts::
 
 Route101_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route101_OnTransition_Night
-	goto_if_eq VAR_RESULT, 2, Route101_OnTransition_Twilight
 	goto_if_eq VAR_RESULT, 0, Route101_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, Route101_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, Route101_OnTransition_Night
 	end
 
 Route101_OnTransition_Day:
-	setvar VAR_TIMEOFDAY 0
-	call ProfBirch_EventScript_UpdateLocation
-	end
-
-Route101_OnTransition_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	call ProfBirch_EventScript_UpdateLocation
 	end
 
 Route101_OnTransition_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	call ProfBirch_EventScript_UpdateLocation
+	end
+
+Route101_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
 	call ProfBirch_EventScript_UpdateLocation
 	end
 
 Route101_OnResume:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 1, Route101_OnResume_Night
-	goto_if_eq VAR_RESULT, 2, Route101_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 0, Route101_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, Route101_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, Route101_OnResume_Night
 	end	
 
 Route101_OnResume_Day:
-	setvar VAR_TIMEOFDAY 0
-	end
-
-Route101_OnResume_Night:
-	setvar VAR_TIMEOFDAY 1
+	setvar VAR_TIMEOFDAY, 0
 	end
 
 Route101_OnResume_Twilight:
-	setvar VAR_TIMEOFDAY 2
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+Route101_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
 	end
 
 Route101_OnFrame:

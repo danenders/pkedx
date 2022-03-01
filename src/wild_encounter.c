@@ -193,16 +193,8 @@ static u8 ChooseWildMonIndex_Land(void)
         return 5;
     else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_5 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_6)
         return 6;
-    else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_6 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_7)
+    else 
         return 7;
-    else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_7 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_8)
-        return 8;
-    else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_8 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_9)
-        return 9;
-    else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_9 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_10)
-        return 10;
-    else
-        return 11;
 }
 
 // ROCK_WILD_COUNT / WATER_WILD_COUNT
@@ -218,8 +210,14 @@ static u8 ChooseWildMonIndex_WaterRock(void)
         return 2;
     else if (rand >= ENCOUNTER_CHANCE_WATER_MONS_SLOT_2 && rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_3)
         return 3;
-    else
+    else if (rand >= ENCOUNTER_CHANCE_WATER_MONS_SLOT_3 && rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_4)
         return 4;
+    else if (rand >= ENCOUNTER_CHANCE_WATER_MONS_SLOT_4 && rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_5)
+        return 5;
+    else if (rand >= ENCOUNTER_CHANCE_WATER_MONS_SLOT_5 && rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_6)
+        return 6;
+    else 
+        return 7;
 }
 
 // FISH_WILD_COUNT
@@ -234,21 +232,21 @@ static u8 ChooseWildMonIndex_Fishing(u8 rod)
     case OLD_ROD:
         if (rand < ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_0)
             wildMonIndex = 0;
-        else
+        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_0 && rand < ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_1)
             wildMonIndex = 1;
+        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_1 && rand < ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_2)
+            wildMonIndex = 2;
         break;
     case GOOD_ROD:
-        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_2)
-            wildMonIndex = 2;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_2 && rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_3)
+        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_3)
             wildMonIndex = 3;
         if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_3 && rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_4)
             wildMonIndex = 4;
+        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_4 && rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_5)
+            wildMonIndex = 5;
         break;
     case SUPER_ROD:
-        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_5)
-            wildMonIndex = 5;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_5 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_6)
+        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_6)
             wildMonIndex = 6;
         if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_6 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_7)
             wildMonIndex = 7;
@@ -311,19 +309,231 @@ static u16 GetCurrentMapWildMonHeaderId(void)
         if (gWildMonHeaders[i].mapGroup == gSaveBlock1Ptr->location.mapGroup &&
             gWildMonHeaders[i].mapNum == gSaveBlock1Ptr->location.mapNum)
         {
+            //Overworld Routes
             if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE101) &&
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE101))
                 i += VarGet(VAR_TIMEOFDAY);
 
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE102) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE102))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE103) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE103))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE104) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE104))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE105) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE105))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE106) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE106))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE107) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE107))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE108) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE108))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE109) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE109))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE110) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE110))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE111) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE111))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE112) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE112))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE113) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE113))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE114) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE114))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE115) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE115))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE116) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE116))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE117) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE117))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE118) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE118))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE119) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE119))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE120) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE120))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE121) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE121))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE122) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE122))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE123) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE123))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE124) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE124))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE125) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE125))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE126) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE126))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE127) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE127))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE128) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE128))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE129) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE129))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE130) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE130))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE131) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE131))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE132) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE132))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE133) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE133))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE134) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE134))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            //Underwater Routes
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(UNDERWATER_ROUTE124) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(UNDERWATER_ROUTE124))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(UNDERWATER_ROUTE126) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(UNDERWATER_ROUTE126))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            //Dungeons
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PETALBURG_WOODS) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(PETALBURG_WOODS))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MT_PYRE_EXTERIOR) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(MT_PYRE_EXTERIOR))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MT_PYRE_SUMMIT) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(MT_PYRE_SUMMIT))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(JAGGED_PASS) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(JAGGED_PASS))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            //Safari Zones
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SAFARI_ZONE_NORTH) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SAFARI_ZONE_NORTH))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SAFARI_ZONE_NORTHWEST) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SAFARI_ZONE_NORTHWEST))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SAFARI_ZONE_NORTHEAST) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SAFARI_ZONE_NORTHEAST))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SAFARI_ZONE_SOUTH) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SAFARI_ZONE_SOUTH))
+                i += VarGet(VAR_TIMEOFDAY);
+            
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SAFARI_ZONE_SOUTHWEST) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SAFARI_ZONE_SOUTHWEST))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SAFARI_ZONE_SOUTHEAST) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SAFARI_ZONE_SOUTHEAST))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            //Altering Cave
             if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ALTERING_CAVE) &&
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(ALTERING_CAVE))
-            {
-                u16 alteringCaveId = VarGet(VAR_ALTERING_CAVE_WILD_SET);
-                if (alteringCaveId >= NUM_ALTERING_CAVE_TABLES)
-                    alteringCaveId = 0;
+                i += VarGet(VAR_TIMEOFDAY);
 
-                i += alteringCaveId;
-            }
+            //Towns
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PETALBURG_CITY) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(PETALBURG_CITY))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SLATEPORT_CITY) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SLATEPORT_CITY))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(LILYCOVE_CITY) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(LILYCOVE_CITY))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MOSSDEEP_CITY) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(MOSSDEEP_CITY))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SOOTOPOLIS_CITY) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(SOOTOPOLIS_CITY))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(EVER_GRANDE_CITY) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(EVER_GRANDE_CITY))
+                i += VarGet(VAR_TIMEOFDAY);
+
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DEWFORD_TOWN) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(DEWFORD_TOWN))
+                i += VarGet(VAR_TIMEOFDAY);
+
+             if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PACIFIDLOG_TOWN) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(PACIFIDLOG_TOWN))
+                i += VarGet(VAR_TIMEOFDAY);
 
             return i;
         }
