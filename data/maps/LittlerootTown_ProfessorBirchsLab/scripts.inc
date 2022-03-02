@@ -4,6 +4,7 @@
 .set LOCALID_BALL_CYNDAQUIL, 4
 .set LOCALID_BALL_TOTODILE, 5
 .set LOCALID_BALL_CHIKORITA, 6
+.set LOCALID_AIDE2, 7
 
 LittlerootTown_ProfessorBirchsLab_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_ProfessorBirchsLab_OnTransition
@@ -999,3 +1000,50 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "we meet. I'll be waiting!\p"
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Aide2::
+	goto_if_set FLAG_SYS_POKEDEX_GET, LittlerootTown_ProfessorBirchsLab_EventScript_Aide2UpgradeDex
+	faceplayer
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_Aide2SmallTalk, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_Aide2SmallTalk:
+	.string "I came all the way from KANTO\n"
+	.string "to assist PROF. BIRCH!$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Aide2Migration:
+    faceplayer
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_Aide2Migration, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_Aide2Migration:
+	.string "Recently, many Pokemon from\n"
+	.string "KANTO and JOHTO have been\l"
+	.string "spotted here in HOENN.\p"
+	.string "I wonder what is causing\l"
+	.string "this POKéMON migration...$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Aide2UpgradeDex:
+	goto_if_set FLAG_AIDE_DEX_UPGRADE, LittlerootTown_ProfessorBirchsLab_EventScript_Aide2Migration
+	lockall
+	faceplayer
+	applymovement LOCALID_AIDE2, Common_Movement_ExclamationMark
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_Aide2UpgradeDex, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational
+	waitmessage
+	waitfanfare
+	setflag FLAG_SYS_NATIONAL_DEX
+	special EnableNationalPokedex
+	setflag FLAG_AIDE_DEX_UPGRADE
+	releaseall
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_Aide2UpgradeDex:
+	.string "Hmm...it looks like PROF. BIRCH\n"
+	.string "ordered the old model!\p"
+	.string "My mentor in KANTO developed\l"
+	.string "a more advanced POKéDEX.\l"
+	.string "Let me upgrade that for you!$"
