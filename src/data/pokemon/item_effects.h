@@ -382,6 +382,47 @@ const u8 gItemEffect_TamatoBerry[10] = {
     EV_BERRY_FRIENDSHIP_CHANGE,
 };
 
+//Trade Evo Items
+const u8 gItemEffect_MetalCoat[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_KingsRock[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_BlackBelt[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_TwistedSpoon[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_DeepSeaScale[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_DeepSeaTooth[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_UpGrade[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_SpellTag[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_DragonScale[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_HardStone[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
 const u8 *const gItemEffectTable[] =
 {
     [ITEM_POTION - ITEM_POTION]        = gItemEffect_Potion,
@@ -453,5 +494,15 @@ const u8 *const gItemEffectTable[] =
     [ITEM_HONDEW_BERRY - ITEM_POTION]  = gItemEffect_HondewBerry,
     [ITEM_GREPA_BERRY - ITEM_POTION]   = gItemEffect_GrepaBerry,
     [ITEM_TAMATO_BERRY - ITEM_POTION]  = gItemEffect_TamatoBerry,
-    [LAST_BERRY_INDEX - ITEM_POTION]   = NULL
+    [LAST_BERRY_INDEX - ITEM_POTION]   = NULL,
+    [ITEM_METAL_COAT - ITEM_POTION] = gItemEffect_MetalCoat,
+    [ITEM_KINGS_ROCK - ITEM_POTION] = gItemEffect_KingsRock,
+    [ITEM_TWISTED_SPOON - ITEM_POTION] = gItemEffect_TwistedSpoon,
+    [ITEM_BLACK_BELT - ITEM_POTION] = gItemEffect_BlackBelt,
+    [ITEM_DRAGON_SCALE - ITEM_POTION] = gItemEffect_DragonScale,
+    [ITEM_UP_GRADE - ITEM_POTION] = gItemEffect_UpGrade,
+    [ITEM_SPELL_TAG - ITEM_POTION] = gItemEffect_SpellTag,
+    [ITEM_DEEP_SEA_SCALE - ITEM_POTION] = gItemEffect_DeepSeaScale,
+    [ITEM_DEEP_SEA_TOOTH - ITEM_POTION] = gItemEffect_DeepSeaTooth,
+    [ITEM_HARD_STONE - ITEM_POTION] = gItemEffect_HardStone,
 };
