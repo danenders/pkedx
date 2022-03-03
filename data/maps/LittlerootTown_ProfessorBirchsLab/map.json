@@ -94,10 +94,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
-      "x": 3,
-      "y": 11,
+      "x": 2,
+      "y": 10,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -123,7 +123,42 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 12,
+      "elevation": 3,
+      "var": "VAR_BIRCH_LAB_STATE",
+      "var_value": "5",
+      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_GetNationalDexTrigger1"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_BIRCH_LAB_STATE",
+      "var_value": "5",
+      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_GetNationalDexTrigger2"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_BIRCH_LAB_STATE",
+      "var_value": "5",
+      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_GetNationalDexTrigger3"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 12,
+      "elevation": 3,
+      "var": "VAR_BIRCH_LAB_STATE",
+      "var_value": "5",
+      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_GetNationalDexTrigger4"
+    }
   ],
   "bg_events": [
     {
@@ -132,7 +167,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Machine"
+      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Aide2"
     },
     {
       "type": "sign",

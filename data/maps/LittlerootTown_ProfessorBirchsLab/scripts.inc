@@ -26,6 +26,7 @@ LittlerootTown_ProfessorBirchsLab_MapScripts::
 	@ 3: Received starter in lab
 	@ 4: Defeated rival on Route 103
 	@ 5: Received pokedex
+	@ 6: Aide upgraded the dex
 
 LittlerootTown_ProfessorBirchsLab_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
@@ -492,7 +493,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_TryRatePokedexOrRegister::
 	goto_if_unset FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_UNKNOWN_0x380, ProfBirch_EventScript_RatePokedexOrRegister
 	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3, ProfBirch_EventScript_RatePokedexOrRegister
 	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, ProfBirch_EventScript_RatePokedexOrRegister
-	goto_if_eq VAR_BIRCH_LAB_STATE, 5, LittlerootTown_ProfessorBirchsLab_EventScript_PokemonAwait
+	goto_if_ge VAR_BIRCH_LAB_STATE, 5, LittlerootTown_ProfessorBirchsLab_EventScript_PokemonAwait
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_BirchRivalGoneHome, MSGBOX_DEFAULT
 	release
 	end
@@ -1002,8 +1003,10 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "… … … … … Click!$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Aide2::
-	goto_if_set FLAG_SYS_POKEDEX_GET, LittlerootTown_ProfessorBirchsLab_EventScript_Aide2UpgradeDex
+	lock
 	faceplayer
+	goto_if_set FLAG_SYS_NATIONAL_DEX, LittlerootTown_ProfessorBirchsLab_EventScript_Migration
+	goto_if_set FLAG_SYS_POKEDEX_GET, LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeDex
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_Aide2SmallTalk, MSGBOX_DEFAULT
 	release
 	end
@@ -1012,38 +1015,133 @@ LittlerootTown_ProfessorBirchsLab_Text_Aide2SmallTalk:
 	.string "I came all the way from KANTO\n"
 	.string "to assist PROF. BIRCH!$"
 
-LittlerootTown_ProfessorBirchsLab_EventScript_Aide2Migration:
+LittlerootTown_ProfessorBirchsLab_EventScript_Migration:
     faceplayer
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_Aide2Migration, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_Migration, MSGBOX_DEFAULT
 	release
 	end
 
-LittlerootTown_ProfessorBirchsLab_Text_Aide2Migration:
+LittlerootTown_ProfessorBirchsLab_Text_Migration:
 	.string "Recently, many Pokemon from\n"
 	.string "KANTO and JOHTO have been\l"
 	.string "spotted here in HOENN.\p"
-	.string "I wonder what is causing\l"
+	.string "I wonder what is causing\n"
 	.string "this POKéMON migration...$"
 
-LittlerootTown_ProfessorBirchsLab_EventScript_Aide2UpgradeDex:
-	goto_if_set FLAG_AIDE_DEX_UPGRADE, LittlerootTown_ProfessorBirchsLab_EventScript_Aide2Migration
-	lockall
-	faceplayer
+LittlerootTown_ProfessorBirchsLab_EventScript_GetNationalDexTrigger1::
+	applymovement LOCALID_AIDE2, Common_Movement_FacePlayer
+	waitmovement 0
 	applymovement LOCALID_AIDE2, Common_Movement_ExclamationMark
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_Aide2UpgradeDex, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_WaitAMoment, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, WalktoAide1
+	waitmovement 0
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeDex
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GetNationalDexTrigger2::
+	applymovement LOCALID_AIDE2, Common_Movement_FacePlayer
+	waitmovement 0
+	applymovement LOCALID_AIDE2, Common_Movement_ExclamationMark
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_WaitAMoment, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, WalktoAide2
+	waitmovement 0
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeDex
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GetNationalDexTrigger3::
+	applymovement LOCALID_AIDE2, Common_Movement_FacePlayer
+	waitmovement 0
+	applymovement LOCALID_AIDE2, Common_Movement_ExclamationMark
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_WaitAMoment, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, WalktoAide3
+	waitmovement 0
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeDex
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GetNationalDexTrigger4::
+	applymovement LOCALID_AIDE2, Common_Movement_FacePlayer
+	waitmovement 0
+	applymovement LOCALID_AIDE2, Common_Movement_ExclamationMark
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_WaitAMoment, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, WalktoAide4
+	waitmovement 0
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeDex
+
+WalktoAide1::
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	step_end
+
+WalktoAide2::
+    walk_up
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+WalktoAide3::
+    walk_up
+    walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+WalktoAide4::
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeDex::
+	lockall
+	applymovement LOCALID_AIDE2, Common_Movement_FacePlayer
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_UpgradeDex, MSGBOX_DEFAULT
+	closemessage
+	delay 20
+	playse SE_CLICK
+	delay 20
+	applymovement LOCALID_AIDE2, Common_Movement_FaceAwayPlayer
+	waitmovement 0
+	playse SE_PC_ON
+	waitse
+	delay 20
+	playse SE_CLICK
+	delay 20
+	playse SE_SWITCH
+	delay 20
+	applymovement LOCALID_AIDE2, Common_Movement_FacePlayer
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_AllSet, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_ITEM
 	message LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational
 	waitmessage
 	waitfanfare
 	setflag FLAG_SYS_NATIONAL_DEX
+	setvar VAR_BIRCH_LAB_STATE, 6
 	special EnableNationalPokedex
-	setflag FLAG_AIDE_DEX_UPGRADE
 	releaseall
 	end
 
-LittlerootTown_ProfessorBirchsLab_Text_Aide2UpgradeDex:
-	.string "Hmm...it looks like PROF. BIRCH\n"
-	.string "ordered the old model!\p"
+LittlerootTown_ProfessorBirchsLab_Text_UpgradeDex:
+	.string "Hmm...just as I thought.\n"
+	.string "It seems that PROF. BIRCH ordered\l"
+	.string "the old model POKéDEX.\l"
 	.string "My mentor in KANTO developed\l"
-	.string "a more advanced POKéDEX.\l"
-	.string "Let me upgrade that for you!$"
+	.string "a more advanced version.\l"
+	.string "Let me upgrade your POKéDEX!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_WaitAMoment:
+	.string "Excuse me, {PLAYER}!\n"
+	.string "May I see your POKéDEX?$"
+
+LittlerootTown_ProfessorBirchsLab_Text_AllSet:
+	.string "There, all set!$"
+
+
