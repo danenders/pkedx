@@ -37,12 +37,11 @@ _The Hoenn region is unstable — Rayquaza has awakened! Your skills as a Traine
 
 ## Credits & Thanks
 
-* WOLF - Character Art
-* Bushbugger - Character Sprites
-* kWharever - Battle Backgrounds
-* Aarant - Day/Night system & following pokemon
-* LUNOS - Many community modifications, assistance with questions, and the IV items!
-* XAMAN - Various community modificatins, debug system
+* Wolf & Bushbugger - Character Art
+* Carchagui, Princess Phoenix, Noobiess - Battle Backgrounds
+* PokeMerp - Day/Night system & following pokemon
+* Lunos - Many community modifications, assistance with questions, and the IV items!
+* TheXaman - Various community modificatins, debug system
 
 ## PokéEmerald
 
