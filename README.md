@@ -42,6 +42,7 @@ _The Hoenn region is unstable — Rayquaza has awakened! Your skills as a Traine
 * PokeMerp - Day/Night system & following pokemon
 * Lunos - Many community modifications, assistance with questions, and the IV items!
 * TheXaman - Various community modificatins, debug system
+* GriffinR & the Pret Discord - Various assistance
 
 ## PokéEmerald
 
