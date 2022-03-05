@@ -2740,6 +2740,16 @@ extern const u32 gMonShinyPalette_Chimecho[];
 extern const u32 gMonStillFrontPic_Chimecho[];
 extern const u8 gMonIcon_Chimecho[];
 extern const u8 gMonFootprint_Chimecho[];
+
+//New Pokemon
+extern const u32 gMonFrontPic_Sylveon[];
+extern const u32 gMonPalette_Sylveon[];
+extern const u32 gMonBackPic_Sylveon[];
+extern const u32 gMonShinyPalette_Sylveon[];
+extern const u32 gMonStillFrontPic_Sylveon[];
+extern const u8 gMonIcon_Sylveon[];
+extern const u8 gMonFootprint_Sylveon[];
+
 extern const u32 gMonPic_Egg[];
 extern const u32 gMonPalette_Egg[];
 extern const u32 gMonFrontPic_Egg[];

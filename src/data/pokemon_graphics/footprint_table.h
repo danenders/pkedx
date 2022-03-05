@@ -412,5 +412,8 @@ const u8 *const gMonFootprintTable[] =
     [SPECIES_JIRACHI] = gMonFootprint_Jirachi,
     [SPECIES_DEOXYS] = gMonFootprint_Deoxys,
     [SPECIES_CHIMECHO] = gMonFootprint_Chimecho,
+    //New Pokemon
+    [SPECIES_SYLVEON] = gMonFootprint_Sylveon,
+    //
     [SPECIES_EGG] = gMonFootprint_Bulbasaur,
 };

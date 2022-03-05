@@ -2064,6 +2064,13 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = MON_COORDS_SIZE(24, 56),
         .y_offset = 6,
     },
+    //New Pokemon
+    [SPECIES_SYLVEON] =
+    {
+        .size = MON_COORDS_SIZE(48, 56),
+        .y_offset = 4,
+    },
+    //
     [SPECIES_EGG] =
     {
         .size = MON_COORDS_SIZE(24, 24),
