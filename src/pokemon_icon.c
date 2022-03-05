@@ -438,6 +438,8 @@ const u8 *const gMonIconTable[] =
     [SPECIES_CHIMECHO] = gMonIcon_Chimecho,
     //New Pokemon
     [SPECIES_SYLVEON] = gMonIcon_Sylveon,
+    [SPECIES_GLACEON] = gMonIcon_Glaceon,
+    [SPECIES_LEAFEON] = gMonIcon_Leafeon,
     //
     [SPECIES_EGG] = gMonIcon_Egg,
     [SPECIES_UNOWN_B] = gMonIcon_UnownB,
@@ -885,6 +887,8 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_CHIMECHO] = 0,
     //New Pokemon
     [SPECIES_SYLVEON] = 0,
+    [SPECIES_GLACEON] = 0,
+    [SPECIES_LEAFEON] = 1,
     //
     [SPECIES_EGG] = 1,
     [SPECIES_UNOWN_B] = 0,

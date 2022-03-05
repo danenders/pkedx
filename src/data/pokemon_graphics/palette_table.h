@@ -414,6 +414,8 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
     SPECIES_PAL(CHIMECHO, gMonPalette_Chimecho),
     //New Pokemon
     SPECIES_PAL(SYLVEON, gMonPalette_Sylveon),
+    SPECIES_PAL(GLACEON, gMonPalette_Glaceon),
+    SPECIES_PAL(LEAFEON, gMonPalette_Leafeon),
     //
     SPECIES_PAL(EGG, gMonPalette_Egg),
     SPECIES_PAL(UNOWN_B, gMonPalette_Unown),

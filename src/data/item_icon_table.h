@@ -103,6 +103,7 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_05A] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_05B] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_05C] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    
     // Evolution stones
     [ITEM_SUN_STONE] = {gItemIcon_SunStone, gItemIconPalette_SunStone},
     [ITEM_MOON_STONE] = {gItemIcon_MoonStone, gItemIconPalette_MoonStone},
@@ -110,11 +111,13 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_THUNDER_STONE] = {gItemIcon_ThunderStone, gItemIconPalette_ThunderStone},
     [ITEM_WATER_STONE] = {gItemIcon_WaterStone, gItemIconPalette_WaterStone},
     [ITEM_LEAF_STONE] = {gItemIcon_LeafStone, gItemIconPalette_LeafStone},
+    [ITEM_ICE_STONE] = {gItemIcon_IceStone, gItemIconPalette_IceStone},
+    [ITEM_SHINY_STONE] = {gItemIcon_ShinyStone, gItemIconPalette_ShinyStone},
+
     // ????????
-    [ITEM_063] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
-    [ITEM_064] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_065] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_066] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+
     // Valuables
     [ITEM_TINY_MUSHROOM] = {gItemIcon_TinyMushroom, gItemIconPalette_Mushroom},
     [ITEM_BIG_MUSHROOM] = {gItemIcon_BigMushroom, gItemIconPalette_Mushroom},

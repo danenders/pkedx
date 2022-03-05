@@ -416,9 +416,22 @@
 #define SPECIES_DEOXYS 410
 #define SPECIES_CHIMECHO 411
 //New Pokemon
-#define SPECIES_SYLVEON 412
+#define SPECIES_LEAFEON 412
+#define SPECIES_GLACEON 413
+#define SPECIES_SYLVEON 414
+//#define SPECIES_? 415
+//#define SPECIES_? 416
+//#define SPECIES_? 417
+//#define SPECIES_? 418
+//#define SPECIES_? 419
+//#define SPECIES_? 420
+//#define SPECIES_? 421
+//#define SPECIES_? 422
+//#define SPECIES_? 423
+//#define SPECIES_? 424
+//#define SPECIES_? 425
 //
-#define SPECIES_EGG 413
+#define SPECIES_EGG 415
 
 #define NUM_SPECIES SPECIES_EGG
 

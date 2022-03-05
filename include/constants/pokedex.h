@@ -393,6 +393,8 @@ enum {
     NATIONAL_DEX_RAYQUAZA,
     NATIONAL_DEX_JIRACHI,
     NATIONAL_DEX_DEOXYS,
+    NATIONAL_DEX_LEAFEON,
+    NATIONAL_DEX_GLACEON,
     NATIONAL_DEX_SYLVEON,
     // Old Unown
     NATIONAL_DEX_OLD_UNOWN_B,
@@ -631,7 +633,6 @@ enum {
     HOENN_DEX_RAYQUAZA,
     HOENN_DEX_JIRACHI,
     HOENN_DEX_DEOXYS,
-    HOENN_DEX_SYLVEON,
     // End of Hoenn Dex (see HOENN_DEX_COUNT)
     // Here below have values but are excluded from the Pokedex
     HOENN_DEX_BULBASAUR,
@@ -818,6 +819,20 @@ enum {
     HOENN_DEX_LUGIA,
     HOENN_DEX_HO_OH,
     HOENN_DEX_CELEBI,
+    HOENN_DEX_LEAFEON,
+    HOENN_DEX_GLACEON,
+    HOENN_DEX_SYLVEON,
+    //HOENN_DEX_?
+    //HOENN_DEX_?
+    //HOENN_DEX_?
+    //HOENN_DEX_?
+    //HOENN_DEX_?
+    //HOENN_DEX_?
+    //HOENN_DEX_?
+    //HOENN_DEX_?
+    //HOENN_DEX_?
+    //HOENN_DEX_?
+    //HOENN_DEX_?
     HOENN_DEX_OLD_UNOWN_B,
     HOENN_DEX_OLD_UNOWN_C,
     HOENN_DEX_OLD_UNOWN_D,

@@ -414,6 +414,8 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
     SPECIES_SPRITE(CHIMECHO, gMonFrontPic_Chimecho),
     //New Pokemon
     SPECIES_SPRITE(SYLVEON, gMonFrontPic_Sylveon),
+    SPECIES_SPRITE(GLACEON, gMonFrontPic_Glaceon),
+    SPECIES_SPRITE(LEAFEON, gMonFrontPic_Leafeon),
     
     SPECIES_SPRITE(EGG, gMonFrontPic_Egg),
     SPECIES_SPRITE(UNOWN_B, gMonFrontPic_UnownB),

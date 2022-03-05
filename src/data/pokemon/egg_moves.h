@@ -451,6 +451,7 @@ const u16 gEggMoves[] = {
               MOVE_FLAIL,
               MOVE_ENDURE,
               MOVE_CURSE,
+              MOVE_COVET,
               MOVE_TICKLE,
               MOVE_WISH),
 

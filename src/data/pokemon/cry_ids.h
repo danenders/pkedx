@@ -135,5 +135,9 @@ const u16 gSpeciesIdToCryId[] =
     [SPECIES_JIRACHI - 277] = 385,
     [SPECIES_DEOXYS - 277] = 386,
     [SPECIES_CHIMECHO - 277] = 387,
-    [SPECIES_SYLVEON - 277] = 388,
+    [SPECIES_LEAFEON - 277] = 388,
+    [SPECIES_GLACEON - 277] = 389,
+    [SPECIES_SYLVEON - 277] = 390,
+
+
 };

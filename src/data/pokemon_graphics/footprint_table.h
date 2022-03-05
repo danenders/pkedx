@@ -414,6 +414,8 @@ const u8 *const gMonFootprintTable[] =
     [SPECIES_CHIMECHO] = gMonFootprint_Chimecho,
     //New Pokemon
     [SPECIES_SYLVEON] = gMonFootprint_Sylveon,
+    [SPECIES_GLACEON] = gMonFootprint_Glaceon,
+    [SPECIES_LEAFEON] = gMonFootprint_Leafeon,
     //
     [SPECIES_EGG] = gMonFootprint_Bulbasaur,
 };
