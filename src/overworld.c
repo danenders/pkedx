@@ -1481,12 +1481,12 @@ u8 UpdateTimeOfDay(void) {
   } else if (hours >= 5 && hours < 7) { // night->twilight
     currentTimeBlend.time0 = TIME_OF_DAY_NIGHT;
     currentTimeBlend.time1 = TIME_OF_DAY_TWILIGHT;
-    currentTimeBlend.weight = 256 - 256 * ((hours - 4) * 60 + minutes) / ((7-4)*60);
+    currentTimeBlend.weight = 256 - 256 * ((hours - 5) * 60 + minutes) / ((7-5)*60);
     return gTimeOfDay = TIME_OF_DAY_TWILIGHT;
   } else if (hours >= 7 && hours < 9) { // twilight->day
     currentTimeBlend.time0 = TIME_OF_DAY_TWILIGHT;
     currentTimeBlend.time1 = TIME_OF_DAY_DAY;
-    currentTimeBlend.weight = 256 - 256 * ((hours - 7) * 60 + minutes) / ((10-7)*60);
+    currentTimeBlend.weight = 256 - 256 * ((hours - 7) * 60 + minutes) / ((9-7)*60);
     return gTimeOfDay = TIME_OF_DAY_TWILIGHT;
   } else if (hours >= 9 && hours < 17) { // day
     currentTimeBlend.weight = 256;
@@ -1494,12 +1494,12 @@ u8 UpdateTimeOfDay(void) {
   } else if (hours >= 17 && hours < 19) { // day->twilight
     currentTimeBlend.time0 = TIME_OF_DAY_DAY;
     currentTimeBlend.time1 = TIME_OF_DAY_TWILIGHT;
-    currentTimeBlend.weight = 256 - 256 * ((hours - 18) * 60 + minutes) / ((20-18)*60);
+    currentTimeBlend.weight = 256 - 256 * ((hours - 17) * 60 + minutes) / ((19-17)*60);
     return gTimeOfDay = TIME_OF_DAY_TWILIGHT;
   } else if (hours >= 19 && hours < 21) { // twilight->night
     currentTimeBlend.time0 = TIME_OF_DAY_TWILIGHT;
     currentTimeBlend.time1 = TIME_OF_DAY_NIGHT;
-    currentTimeBlend.weight = 256 - 256 * ((hours - 20) * 60 + minutes) / ((22-20)*60);
+    currentTimeBlend.weight = 256 - 256 * ((hours - 19) * 60 + minutes) / ((21-19)*60);
     return gTimeOfDay = TIME_OF_DAY_TWILIGHT;
   } else { // This should never occur
     currentTimeBlend.weight = 256;
