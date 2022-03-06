@@ -686,7 +686,7 @@ static const struct PyramidWildMon sLevel50WildMons_Round14[] =
         .species = SPECIES_SNEASEL,
         .lvl = 42,
         .abilityNum = ABILITY_RANDOM,
-        .moves = {MOVE_ICE_BEAM, MOVE_TAUNT, MOVE_FAINT_ATTACK, MOVE_QUICK_ATTACK}
+        .moves = {MOVE_ICE_BEAM, MOVE_TAUNT, MOVE_FEINT_ATTACK, MOVE_QUICK_ATTACK}
     },
     {
         .species = SPECIES_CRAWDAUNT,

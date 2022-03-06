@@ -2339,15 +2339,15 @@ const u8 gGlaceonPokedexText[] = _(
     "flurries of diamond dust.");
 
 const u8 gGliscorPokedexText[] = _(
-    "Gliscor observes prey while hanging\n"
+    "GLISCOR observes prey while hanging\n"
     "upside down from branches. Its flight is\n"
     "soundless. When the chance presents\n"
     "itself, it swoops!");
 
 const u8 gMamoswinePokedexText[] = _(
-    "A frozen Mamoswine was dug from ice\n"
+    "A frozen MAMOSWINE was dug from ice\n"
     "dating back 10,000 years. It woke up to\n"
-    "much amazement. This Pokémon has been\n"
+    "much amazement. This POKéMON has been\n"
     "around for a long, long, long time.");
 
 const u8 gGalladePokedexText[] = _(
@@ -2357,13 +2357,13 @@ const u8 gGalladePokedexText[] = _(
     "It can sense what its foe is thinking.");
 
 const u8 gDusknoirPokedexText[] = _(
-    "This feared Pokémon is said to travel to\n"
+    "This feared POKéMON is said to travel to\n"
     "worlds unknown. Some even believe that\n"
     "it takes lost spirits into its pliant body\n"
     "and guides them home.");
 
 const u8 gFroslassPokedexText[] = _(
-    "When it finds people or Pokémon it likes,\n"
+    "When it finds people or POKéMON it likes,\n"
     "it freezes them and takes them to its\n"
     "chilly den, where they become its\n"
     "decorations.");
@@ -2376,7 +2376,7 @@ const u8 gMismagiusPokedexText[] = _(
 
 const u8 gHonchkrowPokedexText[] = _(
     "Becoming active at night, it is known\n"
-    "to swarm with numerous Murkrow in tow.\n"
+    "to swarm with numerous MURKROW in tow.\n"
     "It is said that it never forgives the\n"
     "mistakes of its cronies.");
 
