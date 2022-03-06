@@ -1,4 +1,4 @@
-﻿static const union AnimCmd sAnim_NONE_1[] =
+static const union AnimCmd sAnim_NONE_1[] =
 {
     ANIMCMD_FRAME(0, 30),
     ANIMCMD_FRAME(1, 30),
@@ -4587,6 +4587,14 @@ static const union AnimCmd sAnim_SYLVEON_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_WEAVILE_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_LEAFEON_1[] =
 {
     ANIMCMD_FRAME(1, 35),
@@ -4596,6 +4604,84 @@ static const union AnimCmd sAnim_LEAFEON_1[] =
 
 static const union AnimCmd sAnim_GLACEON_1[] =
 {
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GLISCOR_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MAMOSWINE_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_TOGEKISS_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MELTAN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MELMETAL_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MISMAGIUS_1[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_HONCHKROW_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GALLADE_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DUSKNOIR_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FROSLASS_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
     ANIMCMD_FRAME(1, 30),
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
@@ -6842,6 +6928,62 @@ static const union AnimCmd *const sAnims_GLACEON[] ={
     sAnim_GLACEON_1,
 };
 
+static const union AnimCmd *const sAnims_GALLADE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GALLADE_1,
+};
+
+static const union AnimCmd *const sAnims_DUSKNOIR[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DUSKNOIR_1,
+};
+
+static const union AnimCmd *const sAnims_FROSLASS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_FROSLASS_1,
+};
+
+static const union AnimCmd *const sAnims_MELTAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MELTAN_1,
+};
+
+static const union AnimCmd *const sAnims_MELMETAL[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MELMETAL_1,
+};
+
+static const union AnimCmd *const sAnims_GLISCOR[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GLISCOR_1,
+};
+
+static const union AnimCmd *const sAnims_MAMOSWINE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MAMOSWINE_1,
+};
+
+static const union AnimCmd *const sAnims_TOGEKISS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_TOGEKISS_1,
+};
+
+static const union AnimCmd *const sAnims_WEAVILE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_WEAVILE_1,
+};
+
+static const union AnimCmd *const sAnims_MISMAGIUS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MISMAGIUS_1,
+};
+
+static const union AnimCmd *const sAnims_HONCHKROW[] ={
+    sAnim_GeneralFrame0,
+    sAnim_HONCHKROW_1,
+};
+
+
 static const union AnimCmd *const sAnims_EGG[] ={
     sAnim_GeneralFrame0,
     sAnim_EGG_1,
@@ -7404,7 +7546,17 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(SYLVEON),
     ANIM_CMD(GLACEON),
     ANIM_CMD(LEAFEON),
-
+    ANIM_CMD(MELTAN),
+    ANIM_CMD(MELMETAL),
+    ANIM_CMD(DUSKNOIR),
+    ANIM_CMD(FROSLASS),
+    ANIM_CMD(TOGEKISS),
+    ANIM_CMD(WEAVILE),
+    ANIM_CMD(MAMOSWINE),
+    ANIM_CMD(GALLADE),
+    ANIM_CMD(GLISCOR),
+    ANIM_CMD(MISMAGIUS),
+    ANIM_CMD(HONCHKROW),
     ANIM_CMD(EGG),
     ANIM_CMD(UNOWN_B),
     ANIM_CMD(UNOWN_C),

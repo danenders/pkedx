@@ -304,6 +304,18 @@ const u8 gItemEffect_ShinyStone[6] = {
     [4] = ITEM4_EVO_STONE,
 };
 
+const u8 gItemEffect_DawnStone[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_DuskStone[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_ReaperCloth[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
 const u8 gItemEffect_CheriBerry[6] = {
     [3] = ITEM3_PARALYSIS,
 };
@@ -431,6 +443,14 @@ const u8 gItemEffect_HardStone[6] = {
     [4] = ITEM4_EVO_STONE,
 };
 
+const u8 gItemEffect_MeltanCandy[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_DuskStoneCandy[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
 const u8 *const gItemEffectTable[] =
 {
     [ITEM_POTION - ITEM_POTION]        = gItemEffect_Potion,
@@ -515,4 +535,9 @@ const u8 *const gItemEffectTable[] =
     [ITEM_HARD_STONE - ITEM_POTION]     = gItemEffect_HardStone,
     [ITEM_LEAF_STONE - ITEM_POTION]     = gItemEffect_LeafStone,
     [ITEM_ICE_STONE - ITEM_POTION]      = gItemEffect_IceStone,
+
+    [ITEM_DAWN_STONE - ITEM_POTION]     = gItemEffect_DawnStone,
+    [ITEM_DUSK_STONE - ITEM_POTION]     = gItemEffect_DuskStone,
+    [ITEM_REAPER_CLOTH - ITEM_POTION]   = gItemEffect_ReaperCloth,
+    [ITEM_MELTAN_CANDY - ITEM_POTION]   = gItemEffect_MeltanCandy,
 };

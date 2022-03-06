@@ -331,7 +331,11 @@
 #define EVO_LEVEL_CASCOON    12 // Pokémon reaches the specified level with a Cascoon personality value
 #define EVO_LEVEL_NINJASK    13 // Pokémon reaches the specified level (special value for Ninjask)
 #define EVO_LEVEL_SHEDINJA   14 // Pokémon reaches the specified level (special value for Shedinja)
-#define EVO_BEAUTY           15 // Pokémon levels up with beauty ≥ specified value
+#define EVO_BEAUTY           15 // 
+#define EVO_ITEM_MALE		 16 // specified item is used on a male Pokémon
+#define EVO_ITEM_FEMALE		 17 // specified item is used on a female Pokémon
+#define EVO_ITEM_HOLD_NIGHT	 18 // Pokémon levels up holding the specified item during night
+#define EVO_MOVE			 19 // Pokémon levels up knowing the specified move
 
 #define EVOS_PER_MON 9
 

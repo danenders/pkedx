@@ -1590,3 +1590,33 @@ static const u8 sZincMinusDesc[] = _(
     "Slightly lowers\n"
     "a POKéMON's base\n"
     "SP. DEF stat.");
+
+static const u8 sRazorClawDesc[] = _(
+    "A hooked claw that\n"
+    "ups the holder's\n"
+    "critical-hit ratio.");
+
+static const u8 sRazorFangDesc[] = _(
+    "A hold item that\n"
+    "may cause flinching\n"
+    "when the foe is hit.");
+
+static const u8 sDuskStoneDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sDawnStoneDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sReaperClothDesc[] = _(
+    "Loved by a certain\n"
+    "Pokémon. Imbued with\n"
+    "spiritual energy.");
+
+static const u8 sMeltanCandyDesc[] = _(
+    "A candy not found\n"
+    "in HOENN. Loved by\n"
+    "a certain Pokémon.");

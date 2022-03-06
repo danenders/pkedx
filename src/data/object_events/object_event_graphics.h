@@ -760,6 +760,18 @@ const u32 gObjectEventPic_Sylveon[] = INCBIN_U32("graphics/object_events/pics/po
 const u32 gObjectEventPic_Leafeon[] = INCBIN_U32("graphics/object_events/pics/pokemon/leafeon.4bpp");
 const u32 gObjectEventPic_Glaceon[] = INCBIN_U32("graphics/object_events/pics/pokemon/glaceon.4bpp");
 
+const u32 gObjectEventPic_Gliscor[] = INCBIN_U32("graphics/object_events/pics/pokemon/gliscor.4bpp");
+const u32 gObjectEventPic_Froslass[] = INCBIN_U32("graphics/object_events/pics/pokemon/froslass.4bpp");
+const u32 gObjectEventPic_Weavile[] = INCBIN_U32("graphics/object_events/pics/pokemon/weavile.4bpp");
+const u32 gObjectEventPic_Mamoswine[] = INCBIN_U32("graphics/object_events/pics/pokemon/mamoswine.4bpp");
+const u32 gObjectEventPic_Honchkrow[] = INCBIN_U32("graphics/object_events/pics/pokemon/honchkrow.4bpp");
+const u32 gObjectEventPic_Mismagius[] = INCBIN_U32("graphics/object_events/pics/pokemon/mismagius.4bpp");
+const u32 gObjectEventPic_Meltan[] = INCBIN_U32("graphics/object_events/pics/pokemon/meltan.4bpp");
+const u32 gObjectEventPic_Melmetal[] = INCBIN_U32("graphics/object_events/pics/pokemon/melmetal.4bpp");
+const u32 gObjectEventPic_Gallade[] = INCBIN_U32("graphics/object_events/pics/pokemon/gallade.4bpp");
+const u32 gObjectEventPic_Dusknoir[] = INCBIN_U32("graphics/object_events/pics/pokemon/dusknoir.4bpp");
+const u32 gObjectEventPic_Togekiss[] = INCBIN_U32("graphics/object_events/pics/pokemon/togekiss.4bpp");
+
 const u32 gObjectEventPic_DeoxysOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/deoxys_old.4bpp");
 const u32 gObjectEventPic_MewOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/mew_old.4bpp");
 const u32 gObjectEventPic_DusclopsOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/dusclops_old.4bpp");
