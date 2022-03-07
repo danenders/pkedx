@@ -1603,20 +1603,126 @@ static const u8 sRazorFangDesc[] = _(
 
 static const u8 sDuskStoneDesc[] = _(
     "Makes certain\n"
-    "species of Pokémon\n"
+    "species of POKéMON\n"
     "evolve.");
 
 static const u8 sDawnStoneDesc[] = _(
     "Makes certain\n"
-    "species of Pokémon\n"
+    "species of POKéMON\n"
     "evolve.");
 
 static const u8 sReaperClothDesc[] = _(
     "Loved by a certain\n"
-    "Pokémon. Imbued with\n"
+    "POKéMON. It has a\n"
     "spiritual energy.");
 
 static const u8 sMeltanCandyDesc[] = _(
-    "A candy not found\n"
-    "in HOENN. Loved by\n"
-    "a certain Pokémon.");
+    "A candy with a hard\n"
+    "coating. Loved by\n"
+    "a certain POKéMON.");
+
+//Nature Mints
+static const u8 sAdamantMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has an\n"
+    "ADAMANT flavor.");
+
+static const u8 sBoldMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "BOLD flavor.");
+
+static const u8 sBraveMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "BRAVE flavor.");
+
+static const u8 sCalmMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "CALM flavor.");
+
+static const u8 sCarefulMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "CAREFUL flavor.");
+
+static const u8 sGentleMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "GENTLE flavor.");
+
+static const u8 sHastyMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "HASTY flavor.");
+
+static const u8 sImpishMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has an\n"
+    "IMPISH flavor.");
+
+static const u8 sJollyMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "JOLLY flavor.");
+
+static const u8 sLaxMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "LAX flavor.");
+
+static const u8 sLonelyMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "LONELY flavor.");
+
+static const u8 sMildMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "MILD flavor.");
+
+static const u8 sModestMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "MODEST flavor.");
+
+static const u8 sNaiveMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "NAIVE flavor.");
+
+static const u8 sNaughtyMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "NAUGHTY flavor.");
+
+static const u8 sQuietMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "QUIET flavor.");
+
+static const u8 sRashMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "RASH flavor.");
+
+static const u8 sRelaxedMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "RELAXED flavor.");
+
+static const u8 sSassyMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "SASSY flavor.");
+
+static const u8 sSeriousMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "SERIOUS flavor.");
+
+static const u8 sTimidMintDesc[] = _(
+    "Loved by POKéMON!\n"
+    "This mint has a\n"
+    "TIMID flavor.");

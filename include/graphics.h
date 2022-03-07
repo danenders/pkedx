@@ -3681,6 +3681,14 @@ extern const u32 gItemIconPalette_PPMax[];
 extern const u32 gItemIcon_HPDown[];
 extern const u32 gItemIconPalette_HPDown[];
 extern const u32 gItemIcon_Supplement[];
+// Nature Mints
+extern const u32 gItemIcon_Mint[];
+extern const u32 gItemIconPalette_RedMint[];
+extern const u32 gItemIconPalette_BlueMint[];
+extern const u32 gItemIconPalette_PinkMint[];
+extern const u32 gItemIconPalette_GreenMint[];
+extern const u32 gItemIconPalette_LightBlueMint[];
+extern const u32 gItemIconPalette_YellowMint[];
 // Battle items
 extern const u32 gItemIcon_BattleStatItem[];
 extern const u32 gItemIconPalette_GuardSpec[];
