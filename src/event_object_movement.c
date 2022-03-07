@@ -1776,9 +1776,10 @@ void UpdateFollowingPokemon(void) { // Update following pokemon if any
     objEvent->extra.mon.species = species;
     objEvent->extra.mon.shiny = shiny;
     objEvent->extra.mon.form = form;
-  } else {
+    } 
+    else {
     RemoveFollowingPokemon();
-  }
+    } 
 }
 
 void RemoveFollowingPokemon(void) { // Remove follower object. Idempotent.
@@ -1789,14 +1790,21 @@ void RemoveFollowingPokemon(void) { // Remove follower object. Idempotent.
 }
 
 static bool8 IsFollowerVisible(void) { // Determine whether follower *should* be visible
-  return
-  !(TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_MACH_BIKE)
-  || MetatileBehavior_IsSurfableWaterOrUnderwater(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior)
-  || MetatileBehavior_IsSurfableWaterOrUnderwater(gObjectEvents[gPlayerAvatar.objectEventId].previousMetatileBehavior)
-  || MetatileBehavior_IsForcedMovementTile(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior)
-  || MetatileBehavior_IsForcedMovementTile(gObjectEvents[gPlayerAvatar.objectEventId].previousMetatileBehavior)
-  || gWeatherPtr->currWeather == WEATHER_UNDERWATER
-  || gWeatherPtr->currWeather == WEATHER_UNDERWATER_BUBBLES);
+    if (gSaveBlock2Ptr->optionsFollowerVisible == (1))
+    { 
+        return;
+    }
+    else
+    {
+        return
+        !(TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_MACH_BIKE)
+        || MetatileBehavior_IsSurfableWaterOrUnderwater(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior)
+        || MetatileBehavior_IsSurfableWaterOrUnderwater(gObjectEvents[gPlayerAvatar.objectEventId].previousMetatileBehavior)
+        || MetatileBehavior_IsForcedMovementTile(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior)
+        || MetatileBehavior_IsForcedMovementTile(gObjectEvents[gPlayerAvatar.objectEventId].previousMetatileBehavior)
+        || gWeatherPtr->currWeather == WEATHER_UNDERWATER
+        || gWeatherPtr->currWeather == WEATHER_UNDERWATER_BUBBLES);
+    }
 }
 
 static bool8 SpeciesHasType(u16 species, u8 type) {

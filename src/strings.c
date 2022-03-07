@@ -1445,6 +1445,11 @@ const u8 gText_BattleScene[] = _("BATTLE SCENE");
 const u8 gText_BattleStyle[] = _("BATTLE STYLE");
 const u8 gText_Sound[] = _("SOUND");
 const u8 gText_Frame[] = _("FRAME");
+//
+const u8 gText_Follower[] = _("FOLLOWER");
+const u8 gText_FollowerOn[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}ON");
+const u8 gText_FollowerOff[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}OFF");
+//
 const u8 gText_OptionMenuCancel[] = _("CANCEL");
 const u8 gText_ButtonMode[] = _("BUTTON MODE");
 const u8 gText_TextSpeedSlow[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}SLOW");
