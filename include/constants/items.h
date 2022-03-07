@@ -102,18 +102,18 @@
 #define ITEM_058 88
 #define ITEM_059 89
 #define ITEM_05A 90
-#define ITEM_05B 91
-#define ITEM_05C 92
+#define ITEM_DAWN_STONE 91
+#define ITEM_DUSK_STONE 92
 #define ITEM_SUN_STONE 93
 #define ITEM_MOON_STONE 94
 #define ITEM_FIRE_STONE 95
 #define ITEM_THUNDER_STONE 96
 #define ITEM_WATER_STONE 97
 #define ITEM_LEAF_STONE 98
-#define ITEM_063 99
-#define ITEM_064 100
-#define ITEM_065 101
-#define ITEM_066 102
+#define ITEM_ICE_STONE 99
+#define ITEM_SHINY_STONE 100
+#define ITEM_REAPER_CLOTH 101
+#define ITEM_MELTAN_CANDY 102
 
 // Unusable
 #define ITEM_TINY_MUSHROOM 103
@@ -254,9 +254,9 @@
 #define ITEM_LUCKY_PUNCH    222
 #define ITEM_METAL_POWDER   223
 #define ITEM_THICK_CLUB     224
-#define ITEM_STICK 225
-#define ITEM_0E2 226
-#define ITEM_0E3 227
+#define ITEM_STICK 			225
+#define ITEM_RAZOR_CLAW 	226
+#define ITEM_RAZOR_FANG		227
 #define ITEM_0E4 228
 #define ITEM_0E5 229
 #define ITEM_0E6 230

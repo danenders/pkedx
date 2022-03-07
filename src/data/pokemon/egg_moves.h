@@ -35,7 +35,7 @@ const u16 gEggMoves[] = {
 
     egg_moves(PIDGEY,
               MOVE_PURSUIT,
-              MOVE_FAINT_ATTACK,
+              MOVE_FEINT_ATTACK,
               MOVE_FORESIGHT,
               MOVE_STEEL_WING,
               MOVE_AIR_CUTTER),
@@ -51,7 +51,7 @@ const u16 gEggMoves[] = {
               MOVE_SWAGGER),
 
     egg_moves(SPEAROW,
-              MOVE_FAINT_ATTACK,
+              MOVE_FEINT_ATTACK,
               MOVE_FALSE_SWIPE,
               MOVE_SCARY_FACE,
               MOVE_QUICK_ATTACK,
@@ -95,7 +95,7 @@ const u16 gEggMoves[] = {
               MOVE_BEAT_UP),
 
     egg_moves(VULPIX,
-              MOVE_FAINT_ATTACK,
+              MOVE_FEINT_ATTACK,
               MOVE_HYPNOSIS,
               MOVE_FLAIL,
               MOVE_SPITE,
@@ -107,7 +107,7 @@ const u16 gEggMoves[] = {
     egg_moves(ZUBAT,
               MOVE_QUICK_ATTACK,
               MOVE_PURSUIT,
-              MOVE_FAINT_ATTACK,
+              MOVE_FEINT_ATTACK,
               MOVE_GUST,
               MOVE_WHIRLWIND,
               MOVE_CURSE),
@@ -137,7 +137,7 @@ const u16 gEggMoves[] = {
               MOVE_SIGNAL_BEAM),
 
     egg_moves(DIGLETT,
-              MOVE_FAINT_ATTACK,
+              MOVE_FEINT_ATTACK,
               MOVE_SCREECH,
               MOVE_ANCIENT_POWER,
               MOVE_PURSUIT,
@@ -261,7 +261,7 @@ const u16 gEggMoves[] = {
               MOVE_QUICK_ATTACK,
               MOVE_SUPERSONIC,
               MOVE_HAZE,
-              MOVE_FAINT_ATTACK,
+              MOVE_FEINT_ATTACK,
               MOVE_FLAIL,
               MOVE_ENDEAVOR),
 
@@ -434,7 +434,7 @@ const u16 gEggMoves[] = {
               MOVE_FURY_ATTACK,
               MOVE_FLAIL,
               MOVE_FALSE_SWIPE,
-              MOVE_FAINT_ATTACK),
+              MOVE_FEINT_ATTACK),
 
     egg_moves(LAPRAS,
               MOVE_FORESIGHT,
@@ -451,6 +451,7 @@ const u16 gEggMoves[] = {
               MOVE_FLAIL,
               MOVE_ENDURE,
               MOVE_CURSE,
+              MOVE_COVET,
               MOVE_TICKLE,
               MOVE_WISH),
 
@@ -539,7 +540,7 @@ const u16 gEggMoves[] = {
     egg_moves(HOOTHOOT,
               MOVE_MIRROR_MOVE,
               MOVE_SUPERSONIC,
-              MOVE_FAINT_ATTACK,
+              MOVE_FEINT_ATTACK,
               MOVE_WING_ATTACK,
               MOVE_WHIRLWIND,
               MOVE_SKY_ATTACK,
@@ -585,7 +586,7 @@ const u16 gEggMoves[] = {
     egg_moves(IGGLYBUFF,
               MOVE_PERISH_SONG,
               MOVE_PRESENT,
-              MOVE_FAINT_ATTACK,
+              MOVE_FEINT_ATTACK,
               MOVE_WISH,
               MOVE_FAKE_TEARS),
 
@@ -602,7 +603,7 @@ const u16 gEggMoves[] = {
               MOVE_HAZE,
               MOVE_DRILL_PECK,
               MOVE_QUICK_ATTACK,
-              MOVE_FAINT_ATTACK,
+              MOVE_FEINT_ATTACK,
               MOVE_STEEL_WING,
               MOVE_PSYCH_UP,
               MOVE_FEATHER_DANCE,
@@ -726,7 +727,7 @@ const u16 gEggMoves[] = {
 
     egg_moves(SNUBBULL,
               MOVE_METRONOME,
-              MOVE_FAINT_ATTACK,
+              MOVE_FEINT_ATTACK,
               MOVE_REFLECT,
               MOVE_PRESENT,
               MOVE_CRUNCH,
@@ -957,7 +958,7 @@ const u16 gEggMoves[] = {
 
     egg_moves(NINCADA,
               MOVE_ENDURE,
-              MOVE_FAINT_ATTACK,
+              MOVE_FEINT_ATTACK,
               MOVE_GUST,
               MOVE_SILVER_WIND),
 
@@ -1077,7 +1078,7 @@ const u16 gEggMoves[] = {
               MOVE_GUST),
 
     egg_moves(MAKUHITA,
-              MOVE_FAINT_ATTACK,
+              MOVE_FEINT_ATTACK,
               MOVE_DETECT,
               MOVE_FORESIGHT,
               MOVE_HELPING_HAND,
@@ -1172,7 +1173,7 @@ const u16 gEggMoves[] = {
               MOVE_PAIN_SPLIT,
               MOVE_GRUDGE,
               MOVE_MEMENTO,
-              MOVE_FAINT_ATTACK),
+              MOVE_FEINT_ATTACK),
 
     egg_moves(ROSELIA,
               MOVE_SPIKES,
@@ -1219,7 +1220,7 @@ const u16 gEggMoves[] = {
 
     egg_moves(ABSOL,
               MOVE_BATON_PASS,
-              MOVE_FAINT_ATTACK,
+              MOVE_FEINT_ATTACK,
               MOVE_DOUBLE_EDGE,
               MOVE_MAGIC_COAT,
               MOVE_CURSE,

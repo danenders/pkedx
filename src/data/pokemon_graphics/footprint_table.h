@@ -412,5 +412,21 @@ const u8 *const gMonFootprintTable[] =
     [SPECIES_JIRACHI] = gMonFootprint_Jirachi,
     [SPECIES_DEOXYS] = gMonFootprint_Deoxys,
     [SPECIES_CHIMECHO] = gMonFootprint_Chimecho,
+    //New Pokemon
+    [SPECIES_SYLVEON] = gMonFootprint_Sylveon,
+    [SPECIES_GLACEON] = gMonFootprint_Glaceon,
+    [SPECIES_LEAFEON] = gMonFootprint_Leafeon,
+    [SPECIES_MELTAN] = gMonFootprint_Meltan,
+    [SPECIES_MELMETAL] = gMonFootprint_Melmetal,
+    [SPECIES_HONCHKROW] = gMonFootprint_Honchkrow,
+    [SPECIES_MISMAGIUS] = gMonFootprint_Mismagius,
+    [SPECIES_GALLADE] = gMonFootprint_Gallade,
+    [SPECIES_DUSKNOIR] = gMonFootprint_Dusknoir,
+    [SPECIES_FROSLASS] = gMonFootprint_Froslass,
+    [SPECIES_GLISCOR] = gMonFootprint_Gliscor,
+    [SPECIES_MAMOSWINE] = gMonFootprint_Mamoswine,
+    [SPECIES_WEAVILE] = gMonFootprint_Weavile,
+    [SPECIES_TOGEKISS] = gMonFootprint_Togekiss,
+    //
     [SPECIES_EGG] = gMonFootprint_Bulbasaur,
 };

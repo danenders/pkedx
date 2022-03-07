@@ -3492,7 +3492,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(SE_M_BONEMERANG, "SE-M-BONEMERANG") \
     X(SE_M_LICK, "SE-M-LICK") \
     X(SE_M_PSYBEAM, "SE-M-PSYBEAM") \
-    X(SE_M_FAINT_ATTACK, "SE-M-FAINT-ATTACK") \
+    X(SE_M_FEINT_ATTACK, "SE-M-FAINT-ATTACK") \
     X(SE_M_SWORDS_DANCE, "SE-M-SWORDS-DANCE") \
     X(SE_M_LEER, "SE-M-LEER") \
     X(SE_M_SWAGGER, "SE-M-SWAGGER") \

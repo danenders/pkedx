@@ -1939,6 +1939,62 @@ Cry_Chimecho::
 	.incbin "sound/direct_sound_samples/cries/chimecho.bin"
 
 	.align 2
+Cry_Mismagius::
+	.incbin "sound/direct_sound_samples/cries/mismagius.bin"
+
+	.align 2
+Cry_Honchkrow::
+	.incbin "sound/direct_sound_samples/cries/honchkrow.bin"
+
+	.align 2
+Cry_Weavile::
+	.incbin "sound/direct_sound_samples/cries/weavile.bin"
+
+	.align 2
+Cry_Togekiss::
+	.incbin "sound/direct_sound_samples/cries/togekiss.bin"
+
+	.align 2
+Cry_Leafeon::
+	.incbin "sound/direct_sound_samples/cries/leafeon.bin"
+
+	.align 2
+Cry_Glaceon::
+	.incbin "sound/direct_sound_samples/cries/glaceon.bin"
+
+	.align 2
+Cry_Sylveon::
+	.incbin "sound/direct_sound_samples/cries/sylveon.bin"
+
+	.align 2
+Cry_Gliscor::
+	.incbin "sound/direct_sound_samples/cries/gliscor.bin"
+
+	.align 2
+Cry_Mamoswine::
+	.incbin "sound/direct_sound_samples/cries/mamoswine.bin"
+
+	.align 2
+Cry_Gallade::
+	.incbin "sound/direct_sound_samples/cries/gallade.bin"
+
+	.align 2
+Cry_Dusknoir::
+	.incbin "sound/direct_sound_samples/cries/dusknoir.bin"
+
+	.align 2
+Cry_Froslass::
+	.incbin "sound/direct_sound_samples/cries/froslass.bin"
+
+	.align 2
+Cry_Meltan::
+	.incbin "sound/direct_sound_samples/cries/meltan.bin"
+
+	.align 2
+Cry_Melmetal::
+	.incbin "sound/direct_sound_samples/cries/melmetal.bin"
+
+	.align 2
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"
 

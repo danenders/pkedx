@@ -704,7 +704,7 @@ static const struct TrHillFloor sDataTagNormal_Floors[] =
                     {
                         .species = SPECIES_PINSIR,
                         .heldItem = ITEM_QUICK_CLAW,
-                        .moves = {MOVE_GUILLOTINE, MOVE_BRICK_BREAK, MOVE_SWAGGER, MOVE_FAINT_ATTACK},
+                        .moves = {MOVE_GUILLOTINE, MOVE_BRICK_BREAK, MOVE_SWAGGER, MOVE_FEINT_ATTACK},
                         .level = 0,
                         .ppBonuses = 0,
                         .hpEV = 200,
@@ -1899,7 +1899,7 @@ static const struct TrHillFloor sDataTagVariety_Floors[] = {
                                         {
                                             .species = SPECIES_SABLEYE,
                                             .heldItem = ITEM_SILK_SCARF,
-                                            .moves = {MOVE_ASTONISH, MOVE_FAINT_ATTACK, MOVE_DETECT, MOVE_CONFUSE_RAY},
+                                            .moves = {MOVE_ASTONISH, MOVE_FEINT_ATTACK, MOVE_DETECT, MOVE_CONFUSE_RAY},
                                             .level = 0,
                                             .ppBonuses = 0,
                                             .hpEV = 255,
@@ -4889,7 +4889,7 @@ static const struct TrHillFloor sDataTagExpert_Floors[] = {
                                         {
                                             .species = SPECIES_BANETTE,
                                             .heldItem = ITEM_FOCUS_BAND,
-                                            .moves = {MOVE_SHADOW_BALL, MOVE_FAINT_ATTACK, MOVE_ATTRACT, MOVE_WILL_O_WISP},
+                                            .moves = {MOVE_SHADOW_BALL, MOVE_FEINT_ATTACK, MOVE_ATTRACT, MOVE_WILL_O_WISP},
                                             .level = 0,
                                             .ppBonuses = 0,
                                             .hpEV = 252,

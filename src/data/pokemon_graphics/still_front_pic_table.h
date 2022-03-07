@@ -415,6 +415,24 @@ const struct CompressedSpriteSheet gMonStillFrontPicTable[] =
     SPECIES_SPRITE(JIRACHI,       gMonStillFrontPic_Jirachi),
     SPECIES_SPRITE(DEOXYS,        gMonStillFrontPic_Deoxys),
     SPECIES_SPRITE(CHIMECHO,      gMonStillFrontPic_Chimecho),
+    //New Pokemon
+    SPECIES_SPRITE(SYLVEON,      gMonStillFrontPic_Sylveon),
+    SPECIES_SPRITE(GLACEON,      gMonStillFrontPic_Glaceon),
+    SPECIES_SPRITE(LEAFEON,      gMonStillFrontPic_Leafeon),
+
+    SPECIES_SPRITE(MELTAN,       gMonStillFrontPic_Meltan),
+    SPECIES_SPRITE(MELMETAL,     gMonStillFrontPic_Melmetal),
+    SPECIES_SPRITE(GLISCOR,      gMonStillFrontPic_Gliscor),
+    SPECIES_SPRITE(GALLADE,      gMonStillFrontPic_Gallade),
+    SPECIES_SPRITE(DUSKNOIR,     gMonStillFrontPic_Dusknoir),
+    SPECIES_SPRITE(FROSLASS,     gMonStillFrontPic_Froslass),
+    SPECIES_SPRITE(TOGEKISS,     gMonStillFrontPic_Togekiss),
+    SPECIES_SPRITE(WEAVILE,     gMonStillFrontPic_Weavile),
+    SPECIES_SPRITE(MAMOSWINE,    gMonStillFrontPic_Mamoswine),
+    SPECIES_SPRITE(HONCHKROW,    gMonStillFrontPic_Honchkrow),
+    SPECIES_SPRITE(MISMAGIUS,    gMonStillFrontPic_Mismagius),
+    
+
     SPECIES_SPRITE(EGG,           gMonStillFrontPic_Egg),
     SPECIES_SPRITE(UNOWN_B,       gMonStillFrontPic_UnownB),
     SPECIES_SPRITE(UNOWN_C,       gMonStillFrontPic_UnownC),
