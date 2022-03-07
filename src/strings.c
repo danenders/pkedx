@@ -1450,7 +1450,7 @@ const u8 gText_Follower[] = _("FOLLOWER");
 const u8 gText_FollowerOn[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}ON");
 const u8 gText_FollowerOff[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}OFF");
 //
-const u8 gText_OptionMenuCancel[] = _("CANCEL");
+const u8 gText_OptionMenuCancel[] = _("CLOSE");
 const u8 gText_ButtonMode[] = _("BUTTON MODE");
 const u8 gText_TextSpeedSlow[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}SLOW");
 const u8 gText_TextSpeedMid[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}MID");
