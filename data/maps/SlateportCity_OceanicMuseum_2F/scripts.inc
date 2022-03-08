@@ -2,6 +2,7 @@
 .set LOCALID_ARCHIE, 2
 .set LOCALID_GRUNT_1, 3
 .set LOCALID_GRUNT_2, 4
+.set LOCALID_STERN, 8
 
 SlateportCity_OceanicMuseum_2F_MapScripts::
 	.byte 0
@@ -438,3 +439,119 @@ SlateportCity_OceanicMuseum_2F_Text_SSAnneReplica:
 	.string "“S.S. ANNE\p"
 	.string "“A replica of the luxury liner that\n"
 	.string "circles the globe.”$"
+
+
+SlateportCity_OceanicMuseum_2F_EventScript_OldSeaMap::
+	lock
+	goto_if_set FLAG_RECEIVED_OLD_SEA_MAP, SlateportCity_OceanicMuseum_2F_EventScript_OldSeaMapReplica
+	goto_if_set FLAG_IS_CHAMPION, SlateportCity_OceanicMuseum_2F_EventScript_GetOldSeaMap
+	msgbox SlateportCity_OceanicMuseum_2F_Text_OldSeaMapRestoration, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_OldSeaMapReplica:
+	msgbox SlateportCity_OceanicMuseum_2F_Text_OldSeaMapReplica, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_OceanicMuseum_2F_Text_OldSeaMapRestoration:
+	.string "There is a note on the glass!\p"
+	.string "“OLD SEA MAP\p"
+	.string "“This exhibit is currently\n"
+	.string "being restored. We apologize\l"
+	.string "for the inconvenience.”$"
+
+SlateportCity_OceanicMuseum_2F_Text_OldSeaMap:
+	.string "“OLD SEA MAP\p"
+	.string "“This faded sea chart has been\n"
+	.string "carefully restored.\p"
+	.string "It supposedly shows the route”\n"
+	.string "to a FARAWAY ISLAND.”$"
+
+SlateportCity_OceanicMuseum_2F_Text_OldSeaMapReplica:
+	.string "“OLD SEA MAP\p"
+	.string "“This is a replica of the maps\n"
+	.string "sailors used long ago.”$"
+
+SlateportCity_OceanicMuseum_2F_Text_ItsYouAgain:
+	.string "STERN: Oh! Nice to see you\n"
+	.string "again, {PLAYER}.$"
+
+SlateportCity_OceanicMuseum_2F_Text_AdmiringMap:
+	.string "STERN: I see you are admiring\n"
+	.string "that OLD SEA MAP.\p"
+	.string "It took my scientists a long\n"
+	.string "time to restore it, but they\l"
+	.string "did excellent work!\p"
+	.string "In fact, they did such a good\n"
+	.string "job that a researcher was able\l"
+	.string "to use this to confirm the\l"
+	.string "coordinates of a FARAWAY ISLAND!\p"
+	.string "It's rumored to be the home of a\n"
+	.string "rare POKéMON...\p "
+	.string "Say, {PLAYER}, now that you're\n"
+	.string "the CHAMPION, why don't you borrow\l"
+	.string "this map and investigate the\l"
+	.string "FARAWAY ISLAND in my place?$"
+
+SlateportCity_OceanicMuseum_2F_Text_SternInsist:
+	.string "STERN: Please, I insist!\p"
+	.string "Don't you want to explore\n"
+	.string "the FARAWAY ISLAND?$"
+
+SlateportCity_OceanicMuseum_2F_Text_TakeOldSeaMap:
+	.string "STERN: Excellent!\p"
+	.string "I already cleared this with the\n"
+	.string "museum directors, too.\p"
+	.string "We'll replace the exhibit with\n"
+	.string "a replica for now.$"
+
+SlateportCity_OceanicMuseum_2F_Text_TellTheFerry:
+	.string "STERN: I'll let the ferry captain\n"
+	.string "know to expect you soon!"
+
+SlateportCity_OceanicMuseum_2F_EventScript_GetOldSeaMap::
+	lockall
+	msgbox SlateportCity_OceanicMuseum_2F_Text_OldSeaMapRestoration, MSGBOX_DEFAULT
+	addobject LOCALID_STERN
+	applymovement LOCALID_STERN, Common_Movement_ExclamationMark
+	msgbox SlateportCity_OceanicMuseum_2F_Text_ItsYouAgain, MSGBOX_DEFAULT
+	applymovement LOCALID_STERN, MoveSternToMap1
+	msgbox SlateportCity_OceanicMuseum_2F_Text_AdmiringMap, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, SlateportCity_OceanicMuseum_2F_EventScript_AgreeToTakeMap
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_DeclineMap
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_DeclineMap::
+	msgbox SlateportCity_OceanicMuseum_2F_Text_SternInsist, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, SlateportCity_OceanicMuseum_2F_EventScript_AgreeToTakeMap
+	goto_if_eq VAR_RESULT, NO, SlateportCity_OceanicMuseum_2F_EventScript_DeclineMap
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_AgreeToTakeMap::
+	msgbox SlateportCity_OceanicMuseum_2F_Text_TakeOldSeaMap, MSGBOX_DEFAULT
+	giveitem ITEM_OLD_SEA_MAP
+	setflag FLAG_ENABLE_SHIP_FARAWAY_ISLAND
+	setflag FLAG_RECEIVED_OLD_SEA_MAP
+	applymovement LOCALID_STERN, MoveSternToExit1
+	waitmovement 8
+	removeobject LOCALID_STERN
+	releaseall
+	end
+
+MoveSternToMap1:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+MoveSternToExit1:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+	
