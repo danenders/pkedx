@@ -657,3 +657,15 @@ MagmaHideout_4F_EventScript_ItemMaxRevive::
 MagmaHideout_3F_3R_EventScript_ItemEscapeRope::
 	finditem ITEM_ESCAPE_ROPE
 	end
+
+UnderwaterRoute_124_EventScript_ItemDomeFossil::
+	finditem ITEM_DOME_FOSSIL
+	end
+
+SeafloorCavern_EventScript_ItemHelixFossil::
+	finditem ITEM_HELIX_FOSSIL
+	end
+
+MeteorFalls_EventScript_ItemOldAmber::
+	finditem ITEM_OLD_AMBER
+	end
