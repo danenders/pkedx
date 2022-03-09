@@ -4,6 +4,7 @@
 .set LOCALID_OLD_MAN, 4
 .set LOCALID_WOMAN, 5
 .set LOCALID_STAIR_GRUNT, 9
+.set LOCALID_STEVEN, 12
 
 MossdeepCity_SpaceCenter_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, MossdeepCity_SpaceCenter_1F_OnLoad
@@ -12,6 +13,7 @@ MossdeepCity_SpaceCenter_1F_MapScripts::
 
 MossdeepCity_SpaceCenter_1F_OnTransition:
 	goto_if_eq VAR_MOSSDEEP_CITY_STATE, 2, MossdeepCity_SpaceCenter_1F_EventScript_MoveObjectsForTeamMagma
+	goto_if_set FLAG_IS_CHAMPION, MossdeepCity_SpaceCenter_1F_EventScript_PostgameSteven
 	end
 
 MossdeepCity_SpaceCenter_1F_EventScript_MoveObjectsForTeamMagma::
@@ -429,3 +431,83 @@ MossdeepCity_SpaceCenter_1F_Text_MagmaIntentToStealNotice:
 	.string "We will take the fuel no matter what.\p"
 	.string "“Let there be more land!\n"
 	.string "                                          TEAM MAGMA”$"
+
+MossdeepCity_SpaceCenter_1F_EventScript_PostgameSteven::
+	goto_if_unset FLAG_RECEIVED_AURORA_TICKET, MossdeepCity_SpaceCenter_1F_EventScript_ShowSteven
+	end
+
+MossdeepCity_SpaceCenter_1F_EventScript_ShowSteven::
+	clearflag FLAG_POSTGAME_STEVEN
+	end
+
+MossdeepCity_SpaceCenter_1F_EventScript_StevenDiscovery::
+	lockall
+	applymovement LOCALID_STEVEN, Common_Movement_ExclamationMark
+	faceplayer
+	msgbox MossdeepCity_SpaceCenter_1F_Text_StevenDiscovery, MSGBOX_DEFAULT
+	checkitemspace ITEM_AURORA_TICKET
+	goto_if_eq VAR_RESULT, FALSE, MossdeepCity_SpaceCenter_1F_EventScript_Triangulating
+	msgbox MossdeepCity_SpaceCenter_1F_Text_GoInMyPlace, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, MossdeepCity_SpaceCenter_1F_EventScript_AgreeWithSteven
+	goto_if_eq VAR_RESULT, NO, MossdeepCity_SpaceCenter_1F_EventScript_StevenInsists
+	release
+	end
+
+MossdeepCity_SpaceCenter_1F_Text_StevenDiscovery:
+	.string "STEVEN: {PLAYER}! Excellent timing!\p"
+	.string "The scientists at the SPACE CENTER\n"
+	.string	"made an extraordinary discovery!\p"
+	.string "It seems that after RAYQUAZA was\n"
+	.string "awakened, a strange object was\l"
+	.string "detected entering our planet's\l"
+	.string "atmosphere.$"
+
+MossdeepCity_SpaceCenter_1F_EventScript_Triangulating::
+	msgbox MossdeepCity_SpaceCenter_1F_Text_Triangulating, MSGBOX_DEFAULT
+	setflag FLAG_POSTGAME_STEVEN
+	release
+	end
+
+MossdeepCity_SpaceCenter_1F_Text_Triangulating:
+	.string "We're still collecting data.\p"
+	.string "You should check back in later.$"
+
+MossdeepCity_SpaceCenter_1F_Text_GoInMyPlace:
+	.string "I was just about to head there\n"
+	.string "myself, but perhaps you could go\l"
+	.string "investigate in my place.$"
+
+MossdeepCity_SpaceCenter_1F_EventScript_StevenInsists::
+	applymovement LOCALID_STEVEN, Common_Movement_ExclamationMark
+	msgbox MossdeepCity_SpaceCenter_1F_Text_StevenInsists, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, MossdeepCity_SpaceCenter_1F_EventScript_AgreeWithSteven
+	goto_if_eq VAR_RESULT, NO, MossdeepCity_SpaceCenter_1F_EventScript_StevenInsists
+	end
+
+MossdeepCity_SpaceCenter_1F_Text_StevenInsists:
+	.string "STEVEN: I didn't think that\n"
+	.string "HOENN'S CHAMPION would turn down\l"
+	.string "an opportunity for adventure.\p"
+	.string "Please, help me investigate this.$"
+
+MossdeepCity_SpaceCenter_1F_EventScript_AgreeWithSteven::
+	msgbox MossdeepCity_SpaceCenter_1F_Text_RecieveAuroraTicket, MSGBOX_DEFAULT
+	giveitem ITEM_AURORA_TICKET
+	setflag FLAG_ENABLE_SHIP_BIRTH_ISLAND
+	setflag FLAG_RECEIVED_AURORA_TICKET
+	setflag FLAG_POSTGAME_STEVEN
+	msgbox MossdeepCity_SpaceCenter_1F_Text_Coordinate, MSGBOX_DEFAULT
+	release
+	end
+
+MossdeepCity_SpaceCenter_1F_Text_RecieveAuroraTicket:
+	.string "STEVEN: Wonderful!\p"
+	.string "Take this ticket to the ferry.$"
+
+MossdeepCity_SpaceCenter_1F_Text_Coordinate:
+	.string "I'll send the coordinates to the\n"
+	.string "captain ahead of your arrival.\p"
+	.string "Good luck, {PLAYER}!$"
+
+
+

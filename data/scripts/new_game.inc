@@ -275,7 +275,7 @@ EventScript_ResetAllMapFlags::
 
 	@New
 	setflag FLAG_POSTGAME_CAPTSTERN
-	
+	setflag FLAG_POSTGAME_STEVEN
 
 	call EventScript_ResetAllBerries
 	end

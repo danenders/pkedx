@@ -512,7 +512,9 @@ SlateportCity_OceanicMuseum_2F_Text_TellTheFerry:
 
 SlateportCity_OceanicMuseum_2F_EventScript_GetOldSeaMap::
 	lockall
-	msgbox SlateportCity_OceanicMuseum_2F_Text_OldSeaMapRestoration, MSGBOX_DEFAULT
+	msgbox SlateportCity_OceanicMuseum_2F_Text_OldSeaMap, MSGBOX_DEFAULT
+	checkitemspace ITEM_OLD_SEA_MAP
+	goto_if_eq VAR_RESULT, FALSE, OldSeaMap_NoBagSpace
 	addobject LOCALID_STERN
 	applymovement LOCALID_STERN, Common_Movement_ExclamationMark
 	msgbox SlateportCity_OceanicMuseum_2F_Text_ItsYouAgain, MSGBOX_DEFAULT
@@ -536,6 +538,10 @@ SlateportCity_OceanicMuseum_2F_EventScript_AgreeToTakeMap::
 	applymovement LOCALID_STERN, MoveSternToExit1
 	waitmovement 8
 	removeobject LOCALID_STERN
+	releaseall
+	end
+
+OldSeaMap_NoBagSpace::
 	releaseall
 	end
 
