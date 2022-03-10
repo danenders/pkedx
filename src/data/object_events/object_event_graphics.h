@@ -781,7 +781,6 @@ const u32 gObjectEventPic_KecleonOld[] = INCBIN_U32("graphics/object_events/pics
 const u32 gObjectEventPic_WingullOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/wingull_old.4bpp");
 const u32 gObjectEventPic_AzumarillOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/azumarill_old.4bpp");
 const u32 gObjectEventPic_PikachuOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/pikachu_old.4bpp");
-const u32 gObjectEventPic_ZigzagoonOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/zigzagoon_old.4bpp");
 const u32 gObjectEventPic_SkittyOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/skitty_old.4bpp");
 const u32 gObjectEventPic_PoochyenaOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/poochyena_old.4bpp");
 const u32 gObjectEventPic_LugiaOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/lugia_old.4bpp");

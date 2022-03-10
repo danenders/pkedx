@@ -204,7 +204,7 @@
 #define OBJ_EVENT_GFX_KYOGRE_ASLEEP              199
 #define OBJ_EVENT_GFX_GROUDON_ASLEEP             200
 #define OBJ_EVENT_GFX_RAYQUAZA                   201
-#define OBJ_EVENT_GFX_ZIGZAGOON_2                202
+#define OBJ_EVENT_GFX_UNUSED	                 202
 #define OBJ_EVENT_GFX_PIKACHU                    203
 #define OBJ_EVENT_GFX_AZUMARILL                  204
 #define OBJ_EVENT_GFX_WINGULL                    205
