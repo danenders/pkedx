@@ -2349,7 +2349,7 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
     {
         gText_KissPoster16BP,
         gText_KissCushion32BP,
-        gText_SmoochumDoll32BP,
+        gText_PichuDoll32BP,
         gText_TogepiDoll48BP,
         gText_MeowthDoll48BP,
         gText_ClefairyDoll48BP,
