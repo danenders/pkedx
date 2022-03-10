@@ -18101,37 +18101,37 @@
               {
                 "min_level": 10,
                 "max_level": 30,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_SHELLDER"
               },
               {
                 "min_level": 10,
                 "max_level": 30,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_SHELLDER"
               },
               {
                 "min_level": 10,
                 "max_level": 30,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_SHELLDER"
               },
               {
                 "min_level": 25,
                 "max_level": 45,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_SHELLDER"
               },
               {
                 "min_level": 25,
                 "max_level": 45,
-                "species": "SPECIES_CORPHISH"
+                "species": "SPECIES_CLAMPERL"
               },
               {
                 "min_level": 25,
                 "max_level": 45,
-                "species": "SPECIES_CORPHISH"
+                "species": "SPECIES_CLAMPERL"
               },
               {
                 "min_level": 25,
                 "max_level": 45,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_SHELLDER"
               }
             ]
           }
@@ -18205,37 +18205,37 @@
               {
                 "min_level": 10,
                 "max_level": 30,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_SHELLDER"
               },
               {
                 "min_level": 10,
                 "max_level": 30,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_SHELLDER"
               },
               {
                 "min_level": 10,
                 "max_level": 30,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_SHELLDER"
               },
               {
                 "min_level": 25,
                 "max_level": 45,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_SHELLDER"
               },
               {
                 "min_level": 25,
                 "max_level": 45,
-                "species": "SPECIES_CORPHISH"
+                "species": "SPECIES_CLAMPERL"
               },
               {
                 "min_level": 25,
                 "max_level": 45,
-                "species": "SPECIES_CORPHISH"
+                "species": "SPECIES_CLAMPERL"
               },
               {
                 "min_level": 25,
                 "max_level": 45,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_SHELLDER"
               }
             ]
           }
@@ -18309,37 +18309,37 @@
               {
                 "min_level": 10,
                 "max_level": 30,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_CLAMPERL"
               },
               {
                 "min_level": 10,
                 "max_level": 30,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_CLAMPERL"
               },
               {
                 "min_level": 10,
                 "max_level": 30,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_CLAMPERL"
               },
               {
                 "min_level": 25,
                 "max_level": 45,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_CLAMPERL"
               },
               {
                 "min_level": 25,
                 "max_level": 45,
-                "species": "SPECIES_CORPHISH"
+                "species": "SPECIES_SHELLDER"
               },
               {
                 "min_level": 25,
                 "max_level": 45,
-                "species": "SPECIES_CORPHISH"
+                "species": "SPECIES_CLAMPERL"
               },
               {
                 "min_level": 25,
                 "max_level": 45,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_SHELLDER"
               }
             ]
           }

@@ -534,7 +534,11 @@ void BattleSetup_StartLegendaryBattle(void)
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_DEOXYS);
         break;
     case SPECIES_LUGIA:
+        gBattleTypeFlags |= BATTLE_TYPE_KYOGRE;
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+        break;
     case SPECIES_HO_OH:
+        gBattleTypeFlags |= BATTLE_TYPE_RAYQUAZA;
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
         break;
     case SPECIES_MEW:
@@ -803,7 +807,19 @@ u8 BattleSetup_GetTerrainId(void)
         else
             return BATTLE_TERRAIN_AUTUMN_NIGHT;
     }
+    //MEW
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(FARAWAY_ISLAND_INTERIOR) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(FARAWAY_ISLAND_INTERIOR))
+    {
+        if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+            if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                return BATTLE_TERRAIN_LONG_GRASS_DAY;
+            else
+                return BATTLE_TERRAIN_LONG_GRASS_TWILIGHT;
+        else
+            return BATTLE_TERRAIN_LONG_GRASS_NIGHT;
+    }
+    //DEOXYS
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BIRTH_ISLAND_EXTERIOR) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(BIRTH_ISLAND_EXTERIOR))
     {
         if (gTimeOfDay != TIME_OF_DAY_NIGHT)
             if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)

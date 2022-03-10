@@ -9,6 +9,7 @@ Route114_LanettesHouse_OnTransition:
 Route114_LanettesHouse_EventScript_Lanette::
 	lock
 	faceplayer
+	goto_if_unset FLAG_ENABLE_SHIP_SOUTHERN_ISLAND, Route114_LanettesHouse_EventScript_CheckPostgame
 	goto_if_set FLAG_RECEIVED_DOLL_LANETTE, Route114_LanettesHouse_EventScript_OfferAdvice
 	setflag FLAG_SYS_PC_LANETTE
 	msgbox Route114_LanettesHouse_Text_EverythingClutteredKeepThis, MSGBOX_DEFAULT
@@ -17,6 +18,34 @@ Route114_LanettesHouse_EventScript_Lanette::
 	setflag FLAG_RECEIVED_DOLL_LANETTE
 	release
 	end
+
+Route114_LanettesHouse_EventScript_CheckPostgame::
+	goto_if_set FLAG_IS_CHAMPION, Route114_LanettesHouse_EventScript_GiveTicket
+	goto_if_set FLAG_RECEIVED_DOLL_LANETTE, Route114_LanettesHouse_EventScript_OfferAdvice
+	setflag FLAG_SYS_PC_LANETTE
+	msgbox Route114_LanettesHouse_Text_EverythingClutteredKeepThis, MSGBOX_DEFAULT
+	givedecoration DECOR_LOTAD_DOLL
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowNoRoomForDecor
+	setflag FLAG_RECEIVED_DOLL_LANETTE
+	release	
+	end
+
+Route114_LanettesHouse_EventScript_GiveTicket::
+	msgbox Route114_LanettesHouse_Text_GotThisTicket, MSGBOX_DEFAULT
+	giveitem ITEM_EON_TICKET
+	setflag FLAG_ENABLE_SHIP_SOUTHERN_ISLAND
+	setvar VAR_DISTRIBUTE_EON_TICKET, 0
+	release
+	end
+
+Route114_LanettesHouse_Text_GotThisTicket:
+	.string "LANETTE: Hey {PLAYER}!\p"
+	.string "I got this ticket from my\n"
+	.string "my friend in KANTO...\p"
+	.string "I'm not really one for\n"
+	.string "ferry rides, though.\p"
+	.string "Why don't you go instead?$"
+
 
 Route114_LanettesHouse_EventScript_OfferAdvice::
 	msgbox Route114_LanettesHouse_Text_OrganizeYourBoxes, MSGBOX_DEFAULT

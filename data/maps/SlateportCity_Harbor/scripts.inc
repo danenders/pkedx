@@ -318,71 +318,8 @@ SlateportCity_Harbor_EventScript_NeedDive::
 	release
 	end
 
-SlateportCity_Harbor_EventScript_CaptSternFerryOrScannerComment::
-	goto_if_eq VAR_TEMP_1, 1, SlateportCity_Harbor_EventScript_TradedScanner
-	checkitem ITEM_SCANNER
-	goto_if_eq VAR_RESULT, TRUE, SlateportCity_Harbor_EventScript_AskToTradeScanner
-	goto_if_set FLAG_SYS_GAME_CLEAR, SlateportCity_Harbor_EventScript_FerryFinished
-	msgbox SlateportCity_Harbor_Text_WontBeLongBeforeWeFinishFerry, MSGBOX_DEFAULT
-	release
-	end
-
 SlateportCity_Harbor_EventScript_FerryFinished::
 	msgbox SlateportCity_Harbor_Text_FinishedMakingFerry, MSGBOX_DEFAULT
-	release
-	end
-
-SlateportCity_Harbor_EventScript_AskToTradeScanner::
-	message SlateportCity_Harbor_Text_WouldYouTradeScanner
-	waitmessage
-	goto SlateportCity_Harbor_EventScript_ChooseScannerTrade
-	end
-
-SlateportCity_Harbor_EventScript_ChooseScannerTrade::
-	multichoice 0, 0, MULTI_STERN_DEEPSEA, FALSE
-	switch VAR_RESULT
-	case 0, SlateportCity_Harbor_EventScript_DeepSeaTooth
-	case 1, SlateportCity_Harbor_EventScript_DeepSeaScale
-	case 2, SlateportCity_Harbor_EventScript_DeclineTrade
-	case MULTI_B_PRESSED, SlateportCity_Harbor_EventScript_DeclineTrade
-	end
-
-SlateportCity_Harbor_EventScript_DeepSeaTooth::
-	msgbox SlateportCity_Harbor_Text_TradeForDeepSeaTooth, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, SlateportCity_Harbor_EventScript_ChooseDifferentTrade
-	giveitem ITEM_DEEP_SEA_TOOTH
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	removeitem ITEM_SCANNER
-	msgbox SlateportCity_Harbor_Text_HandedScannerToStern, MSGBOX_DEFAULT
-	setflag FLAG_EXCHANGED_SCANNER
-	goto SlateportCity_Harbor_EventScript_TradedScanner
-	end
-
-SlateportCity_Harbor_EventScript_DeepSeaScale::
-	msgbox SlateportCity_Harbor_Text_TradeForDeepSeaScale, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, SlateportCity_Harbor_EventScript_ChooseDifferentTrade
-	giveitem ITEM_DEEP_SEA_SCALE
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	removeitem ITEM_SCANNER
-	msgbox SlateportCity_Harbor_Text_HandedScannerToStern, MSGBOX_DEFAULT
-	setflag FLAG_EXCHANGED_SCANNER
-	goto SlateportCity_Harbor_EventScript_TradedScanner
-	end
-
-SlateportCity_Harbor_EventScript_DeclineTrade::
-	msgbox SlateportCity_Harbor_Text_IfYouWantToTradeLetMeKnow, MSGBOX_DEFAULT
-	release
-	end
-
-SlateportCity_Harbor_EventScript_ChooseDifferentTrade::
-	message SlateportCity_Harbor_Text_WhichOneDoYouWant
-	waitmessage
-	goto SlateportCity_Harbor_EventScript_ChooseScannerTrade
-	end
-
-SlateportCity_Harbor_EventScript_TradedScanner::
-	setvar VAR_TEMP_1, 1
-	msgbox SlateportCity_Harbor_Text_ThisWillHelpResearch, MSGBOX_DEFAULT
 	release
 	end
 
@@ -510,6 +447,52 @@ SlateportCity_Harbor_Text_FinishedMakingFerry:
 	.string "your friend MR. BRINEY.\p"
 	.string "Please go for a short cruise on it!$"
 
+SlateportCity_Harbor_EventScript_CaptSternFerryOrScannerComment::
+	goto_if_eq VAR_TEMP_1, 1, SlateportCity_Harbor_EventScript_TradedScanner
+	checkitem ITEM_SCANNER
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_Harbor_EventScript_AskToTradeScanner
+	goto_if_set FLAG_SYS_GAME_CLEAR, SlateportCity_Harbor_EventScript_FerryFinished
+	msgbox SlateportCity_Harbor_Text_WontBeLongBeforeWeFinishFerry, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_Harbor_EventScript_AskToTradeScanner::
+	msgbox SlateportCity_Harbor_Text_WouldYouTradeScanner, MSGBOX_DEFAULT
+	goto SlateportCity_Harbor_EventScript_ChooseScannerTrade
+	end
+
+SlateportCity_Harbor_EventScript_ChooseScannerTrade::
+	msgbox SlateportCity_Harbor_Text_MysticTicket, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_Harbor_EventScript_AcceptTrade
+	goto_if_eq VAR_RESULT, FALSE, SlateportCity_Harbor_EventScript_DeclineTrade
+	end
+
+SlateportCity_Harbor_Text_MysticTicket:
+	.string "Trade the SCANNER for the\n"
+	.string "MYSTIC TICKET?$"
+
+SlateportCity_Harbor_EventScript_AcceptTrade::
+	removeitem ITEM_SCANNER
+	msgbox SlateportCity_Harbor_Text_HandedScannerToStern, MSGBOX_DEFAULT
+	setflag FLAG_EXCHANGED_SCANNER
+	giveitem ITEM_MYSTIC_TICKET
+	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
+	setflag FLAG_RECEIVED_MYSTIC_TICKET
+	msgbox SlateportCity_Harbor_Text_TakeThatToLilycove, MSGBOX_DEFAULT
+	goto SlateportCity_Harbor_EventScript_TradedScanner
+	end
+
+SlateportCity_Harbor_EventScript_DeclineTrade::
+	msgbox SlateportCity_Harbor_Text_IfYouWantToTradeLetMeKnow, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_Harbor_EventScript_TradedScanner::
+	setvar VAR_TEMP_1, 1
+	msgbox SlateportCity_Harbor_Text_ThisWillHelpResearch, MSGBOX_DEFAULT
+	release
+	end
+
 SlateportCity_Harbor_Text_WouldYouTradeScanner:
 	.string "CAPT. STERN: Oh?\n"
 	.string "{PLAYER}{KUN}, that item you have…\p"
@@ -517,8 +500,8 @@ SlateportCity_Harbor_Text_WouldYouTradeScanner:
 	.string "help us on our explorations.\p"
 	.string "{PLAYER}{KUN}, would you trade your\n"
 	.string "SCANNER for something?\p"
-	.string "Like, say, a DEEPSEATOOTH or\n"
-	.string "a DEEPSEASCALE that I have?$"
+	.string "Like, say, a special TICKET\n"
+	.string "for the ferry?$"
 
 SlateportCity_Harbor_Text_IfYouWantToTradeLetMeKnow:
 	.string "CAPT. STERN: Are you certain?\n"
@@ -526,20 +509,13 @@ SlateportCity_Harbor_Text_IfYouWantToTradeLetMeKnow:
 	.string "Well, okay, then. If you want to trade\n"
 	.string "your SCANNER, let me know.$"
 
-SlateportCity_Harbor_Text_TradeForDeepSeaTooth:
-	.string "CAPT. STERN: So you'll trade it for\n"
-	.string "my DEEPSEATOOTH?$"
-
-SlateportCity_Harbor_Text_TradeForDeepSeaScale:
-	.string "CAPT. STERN: So you'll trade it for\n"
-	.string "my DEEPSEASCALE?$"
-
-SlateportCity_Harbor_Text_WhichOneDoYouWant:
-	.string "CAPT. STERN: Which one do you want?$"
-
 SlateportCity_Harbor_Text_HandedScannerToStern:
 	.string "{PLAYER} handed the SCANNER to\n"
 	.string "CAPT. STERN.$"
+
+SlateportCity_Harbor_Text_TakeThatToLilycove:
+	.string "CAPT. STERN: You should take that\n"
+	.string "to LILYCOVE CITY'S HARBOR!$"
 
 SlateportCity_Harbor_Text_ThisWillHelpResearch:
 	.string "CAPT. STERN: Thanks, {PLAYER}{KUN}!\n"

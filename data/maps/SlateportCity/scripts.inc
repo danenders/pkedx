@@ -18,6 +18,7 @@
 .set LOCALID_GRUNT_9, 31
 .set LOCALID_GRUNT_11, 33
 .set LOCALID_SCOTT, 35
+.set LOCALID_FISHERMAN, 37
 
 @ Note: LOCALID_SLATEPORT_ENERGY_GURU is a local id for this map used elsewhere. It's defined in event_objects.h
 
@@ -1430,3 +1431,94 @@ SlateportCity_Text_TakingBattleTentChallenge:
 	.string "After all, a tough TRAINER is\n"
 	.string "the perfect fit for the BATTLE TENT!\p"
 	.string "Give it your best effort!$"
+
+SlateportCity_EventScript_Fisherman::
+	lock
+	faceplayer
+	msgbox SlateportCity_Text_GetRichQuick, MSGBOX_DEFAULT
+	checkitem ITEM_PEARL
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_EventScript_FishermanTrade
+	applymovement LOCALID_FISHERMAN, Common_Movement_FaceOriginalDirection
+	release
+	end
+
+SlateportCity_Text_GetRichQuick:
+	.string "I thought I could get rich quick\n"
+	.string "by fishing up PEARLS...$"
+
+SlateportCity_EventScript_FishermanTrade::
+	applymovement LOCALID_FISHERMAN, Common_Movement_ExclamationMark
+	msgbox SlateportCity_Text_TradeThatPearl, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_EventScript_DeclineTrade
+	goto_if_eq VAR_RESULT, YES, SlateportCity_EventScript_DeepSeaTrade
+	applymovement LOCALID_FISHERMAN, Common_Movement_FaceOriginalDirection
+	end
+
+SlateportCity_EventScript_DeepSeaTrade::
+	message SlateportCity_Text_WhichOneDoYouWant
+	waitmessage
+	multichoice 0, 0, MULTI_STERN_DEEPSEA, FALSE
+	switch VAR_RESULT
+	case 0, SlateportCity_EventScript_DeepSeaTooth
+	case 1, SlateportCity_EventScript_DeepSeaScale
+	case 2, SlateportCity_EventScript_DeclineTrade
+	case MULTI_B_PRESSED, SlateportCity_EventScript_DeclineTrade
+	end
+
+SlateportCity_Text_WhichOneDoYouWant:
+	.string "Which one do you want?$"
+
+SlateportCity_EventScript_DeepSeaTooth::
+	msgbox SlateportCity_Text_TradeForDeepSeaTooth, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_EventScript_DeepSeaTrade
+	giveitem ITEM_DEEP_SEA_TOOTH
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	removeitem ITEM_PEARL
+	msgbox SlateportCity_Text_MoreWhereThatCameFrom, MSGBOX_DEFAULT
+	applymovement LOCALID_FISHERMAN, Common_Movement_FaceOriginalDirection
+	release
+	end
+
+SlateportCity_Text_TradeForDeepSeaTooth:
+	.string "So you'll trade it for\n"
+	.string "a DEEPSEATOOTH?$"
+
+SlateportCity_EventScript_DeepSeaScale::
+	msgbox SlateportCity_Text_TradeForDeepSeaScale, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_EventScript_DeepSeaTrade
+	giveitem ITEM_DEEP_SEA_SCALE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	removeitem ITEM_PEARL
+	msgbox SlateportCity_Text_MoreWhereThatCameFrom, MSGBOX_DEFAULT
+	applymovement LOCALID_FISHERMAN, Common_Movement_FaceOriginalDirection
+	release
+	end
+
+SlateportCity_Text_TradeForDeepSeaScale:
+	.string "So you'll trade it for\n"
+	.string "a DEEPSEASCALE?$"
+
+SlateportCity_Text_MoreWhereThatCameFrom:
+	.string "Now that's what I'm talking!\n"
+	.string "about! Easy money!\p"
+	.string "I've got more where that came\n"
+	.string "from, so if you've got any\l"
+	.string "more PEARLS, you know where\l"
+	.string "to find me!$"
+
+SlateportCity_EventScript_DeclineTrade::
+	msgbox SlateportCity_Text_DeclineTrade, MSGBOX_DEFAULT
+	applymovement LOCALID_FISHERMAN, Common_Movement_FaceOriginalDirection
+	release
+	end
+
+SlateportCity_Text_DeclineTrade:
+	.string "You know where to find me\n"
+	.string "if you change your mind...$"
+
+SlateportCity_Text_TradeThatPearl:
+	.string "Oh! What do you have there?\p"
+	.string "Is that a PEARL?\p"
+	.string "How about a trade? I could\n"
+	.string "give you a DEEPSEATOOTH or\l"
+	.string "this DEEPSEASCALE.$"
