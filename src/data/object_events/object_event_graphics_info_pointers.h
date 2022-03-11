@@ -150,17 +150,11 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TorchicDoll;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MudkipDoll;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DuskullDoll;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WynautDoll;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BaltoyDoll;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KecleonDoll;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AzurillDoll;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SkittyDoll;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SwabluDoll;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GulpinDoll;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LotadDoll;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SeedotDoll;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PikaCushion;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RoundCushion;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KissCushion;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZigzagCushion;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SpinCushion;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DiamondCushion;
@@ -395,18 +389,12 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MUDKIP_DOLL] =              &gObjectEventGraphicsInfo_MudkipDoll,
     [OBJ_EVENT_GFX_DUSKULL_DOLL] =             &gObjectEventGraphicsInfo_DuskullDoll,
     [OBJ_EVENT_GFX_WYNAUT_DOLL] =              &gObjectEventGraphicsInfo_WynautDoll,
-    [OBJ_EVENT_GFX_BALTOY_DOLL] =              &gObjectEventGraphicsInfo_BaltoyDoll,
-    [OBJ_EVENT_GFX_KECLEON_DOLL] =             &gObjectEventGraphicsInfo_KecleonDoll,
     [OBJ_EVENT_GFX_AZURILL_DOLL] =             &gObjectEventGraphicsInfo_AzurillDoll,
     [OBJ_EVENT_GFX_SKITTY_DOLL] =              &gObjectEventGraphicsInfo_SkittyDoll,
     [OBJ_EVENT_GFX_SWABLU_DOLL] =              &gObjectEventGraphicsInfo_SwabluDoll,
-    [OBJ_EVENT_GFX_GULPIN_DOLL] =              &gObjectEventGraphicsInfo_GulpinDoll,
-    [OBJ_EVENT_GFX_LOTAD_DOLL] =               &gObjectEventGraphicsInfo_LotadDoll,
-    [OBJ_EVENT_GFX_SEEDOT_DOLL] =              &gObjectEventGraphicsInfo_SeedotDoll,
     [OBJ_EVENT_GFX_PIKA_CUSHION] =             &gObjectEventGraphicsInfo_PikaCushion,
     [OBJ_EVENT_GFX_ROUND_CUSHION] =            &gObjectEventGraphicsInfo_RoundCushion,
-    [OBJ_EVENT_GFX_KISS_CUSHION] =             &gObjectEventGraphicsInfo_KissCushion,
-    [OBJ_EVENT_GFX_ZIGZAG_CUSHION] =           &gObjectEventGraphicsInfo_ZigzagCushion,
+  	[OBJ_EVENT_GFX_ZIGZAG_CUSHION] =           &gObjectEventGraphicsInfo_ZigzagCushion,
     [OBJ_EVENT_GFX_SPIN_CUSHION] =             &gObjectEventGraphicsInfo_SpinCushion,
     [OBJ_EVENT_GFX_DIAMOND_CUSHION] =          &gObjectEventGraphicsInfo_DiamondCushion,
     [OBJ_EVENT_GFX_BALL_CUSHION] =             &gObjectEventGraphicsInfo_BallCushion,

@@ -1895,8 +1895,6 @@ void CheckInteractedWithFriendsPosterDecor(void)
         case METATILE_SecretBase_SeaPoster_Right:
         case METATILE_SecretBase_SkyPoster_Left:
         case METATILE_SecretBase_SkyPoster_Right:
-        case METATILE_SecretBase_KissPoster_Left:
-        case METATILE_SecretBase_KissPoster_Right:
         case METATILE_SecretBase_BallPoster:
         case METATILE_SecretBase_GreenPoster:
         case METATILE_SecretBase_RedPoster:

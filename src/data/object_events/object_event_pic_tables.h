@@ -1465,14 +1465,6 @@ static const struct SpriteFrameImage sPicTable_WynautDoll[] = {
     obj_frame_tiles(gObjectEventPic_WynautDoll),
 };
 
-static const struct SpriteFrameImage sPicTable_BaltoyDoll[] = {
-    obj_frame_tiles(gObjectEventPic_BaltoyDoll),
-};
-
-static const struct SpriteFrameImage sPicTable_KecleonDoll[] = {
-    obj_frame_tiles(gObjectEventPic_KecleonDoll),
-};
-
 static const struct SpriteFrameImage sPicTable_AzurillDoll[] = {
     obj_frame_tiles(gObjectEventPic_AzurillDoll),
 };
@@ -1485,28 +1477,12 @@ static const struct SpriteFrameImage sPicTable_SwabluDoll[] = {
     obj_frame_tiles(gObjectEventPic_SwabluDoll),
 };
 
-static const struct SpriteFrameImage sPicTable_GulpinDoll[] = {
-    obj_frame_tiles(gObjectEventPic_GulpinDoll),
-};
-
-static const struct SpriteFrameImage sPicTable_LotadDoll[] = {
-    obj_frame_tiles(gObjectEventPic_LotadDoll),
-};
-
-static const struct SpriteFrameImage sPicTable_SeedotDoll[] = {
-    obj_frame_tiles(gObjectEventPic_SeedotDoll),
-};
-
 static const struct SpriteFrameImage sPicTable_PikaCushion[] = {
     obj_frame_tiles(gObjectEventPic_PikaCushion),
 };
 
 static const struct SpriteFrameImage sPicTable_RoundCushion[] = {
     obj_frame_tiles(gObjectEventPic_RoundCushion),
-};
-
-static const struct SpriteFrameImage sPicTable_KissCushion[] = {
-    obj_frame_tiles(gObjectEventPic_KissCushion),
 };
 
 static const struct SpriteFrameImage sPicTable_ZigzagCushion[] = {

@@ -35,12 +35,9 @@ LilycoveCity_DepartmentStore_5F_Pokemart_Dolls:
 	.2byte DECOR_JIGGLYPUFF_DOLL
 	.2byte DECOR_DUSKULL_DOLL
 	.2byte DECOR_WYNAUT_DOLL
-	.2byte DECOR_BALTOY_DOLL
-	.2byte DECOR_KECLEON_DOLL
 	.2byte DECOR_AZURILL_DOLL
 	.2byte DECOR_SKITTY_DOLL
 	.2byte DECOR_SWABLU_DOLL
-	.2byte DECOR_GULPIN_DOLL
 	.2byte DECOR_NONE
 	release
 	end
