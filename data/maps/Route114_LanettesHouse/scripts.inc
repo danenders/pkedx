@@ -26,7 +26,7 @@ Route114_LanettesHouse_EventScript_CheckPostgame::
 	msgbox Route114_LanettesHouse_Text_EverythingClutteredKeepThis, MSGBOX_DEFAULT
 	giveitem ITEM_MELTAN_CANDY
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowNoRoomForDecor
-	setflag FLAG_RECEIVED_DOLL_LANETTE
+	setflag FLAG_RECEIVED_CANDY_LANETTE
 	release	
 	end
 

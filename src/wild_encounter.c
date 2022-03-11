@@ -497,11 +497,6 @@ static u16 GetCurrentMapWildMonHeaderId(void)
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(SAFARI_ZONE_SOUTHEAST))
                 i += VarGet(VAR_TIMEOFDAY);
 
-            //Altering Cave
-            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ALTERING_CAVE) &&
-                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ALTERING_CAVE))
-                i += VarGet(VAR_TIMEOFDAY);
-
             //Towns
             if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PETALBURG_CITY) &&
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(PETALBURG_CITY))

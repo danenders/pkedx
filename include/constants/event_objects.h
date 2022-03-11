@@ -233,14 +233,14 @@
 #define OBJ_EVENT_GFX_OW_MON                     226
 
 //NEW LEGENDARIES
-//#define OBJ_EVENT_GFX_MEWTWO	                 227
-//#define OBJ_EVENT_GFX_JIRARCHI	             228
-//#define OBJ_EVENT_GFX_ARTICUNO             	 229
-//#define OBJ_EVENT_GFX_ZAPDOS              	 230
-//#define OBJ_EVENT_GFX_MOLTRES              	 231
-//#define OBJ_EVENT_GFX_RAIKOU              	 232
-//#define OBJ_EVENT_GFX_ENTEI                 	 233
-//#define OBJ_EVENT_GFX_SUICUNE              	 234
+#define OBJ_EVENT_GFX_ARTICUNO	             	 227
+#define OBJ_EVENT_GFX_ZAPDOS	                 228
+#define OBJ_EVENT_GFX_MOLTRES             	 	 229
+//#define OBJ_EVENT_GFX_MEWTWO              	 230
+//#define OBJ_EVENT_GFX_?              	     	 231
+//#define OBJ_EVENT_GFX_?              	 		 232
+//#define OBJ_EVENT_GFX_?                	 	 233
+//#define OBJ_EVENT_GFX_?              			 234
 
 //FREE OVERWORLDS
 //#define OBJ_EVENT_PLACEHOLDER_1                235
