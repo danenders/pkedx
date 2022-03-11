@@ -900,18 +900,6 @@ const struct Decoration gDecorations[] =
         .tiles = DecorGfx_SKY_POSTER,
     },
 
-    [DECOR_KISS_POSTER] =
-    {
-        .id = DECOR_KISS_POSTER,
-        .name = _("KISS POSTER"),
-        .permission = DECORPERM_NA_WALL,
-        .shape = DECORSHAPE_2x1,
-        .category = DECORCAT_POSTER,
-        .price = 1500,
-        .description = DecorDesc_KISS_POSTER,
-        .tiles = DecorGfx_KISS_POSTER,
-    },
-
     [DECOR_PICHU_DOLL] =
     {
         .id = DECOR_PICHU_DOLL,
@@ -1044,18 +1032,6 @@ const struct Decoration gDecorations[] =
         .tiles = DecorGfx_DITTO_DOLL,
     },
 
-    [DECOR_SMOOCHUM_DOLL] =
-    {
-        .id = DECOR_SMOOCHUM_DOLL,
-        .name = _("SMOOCHUM DOLL"),
-        .permission = DECORPERM_SPRITE,
-        .shape = DECORSHAPE_1x1,
-        .category = DECORCAT_DOLL,
-        .price = 3000,
-        .description = DecorDesc_SMOOCHUM_DOLL,
-        .tiles = DecorGfx_SMOOCHUM_DOLL,
-    },
-
     [DECOR_TREECKO_DOLL] =
     {
         .id = DECOR_TREECKO_DOLL,
@@ -1116,30 +1092,6 @@ const struct Decoration gDecorations[] =
         .tiles = DecorGfx_WYNAUT_DOLL,
     },
 
-    [DECOR_BALTOY_DOLL] =
-    {
-        .id = DECOR_BALTOY_DOLL,
-        .name = _("BALTOY DOLL"),
-        .permission = DECORPERM_SPRITE,
-        .shape = DECORSHAPE_1x1,
-        .category = DECORCAT_DOLL,
-        .price = 3000,
-        .description = DecorDesc_BALTOY_DOLL,
-        .tiles = DecorGfx_BALTOY_DOLL,
-    },
-
-    [DECOR_KECLEON_DOLL] =
-    {
-        .id = DECOR_KECLEON_DOLL,
-        .name = _("KECLEON DOLL"),
-        .permission = DECORPERM_SPRITE,
-        .shape = DECORSHAPE_1x1,
-        .category = DECORCAT_DOLL,
-        .price = 3000,
-        .description = DecorDesc_KECLEON_DOLL,
-        .tiles = DecorGfx_KECLEON_DOLL,
-    },
-
     [DECOR_AZURILL_DOLL] =
     {
         .id = DECOR_AZURILL_DOLL,
@@ -1176,42 +1128,6 @@ const struct Decoration gDecorations[] =
         .tiles = DecorGfx_SWABLU_DOLL,
     },
 
-    [DECOR_GULPIN_DOLL] =
-    {
-        .id = DECOR_GULPIN_DOLL,
-        .name = _("GULPIN DOLL"),
-        .permission = DECORPERM_SPRITE,
-        .shape = DECORSHAPE_1x1,
-        .category = DECORCAT_DOLL,
-        .price = 3000,
-        .description = DecorDesc_GULPIN_DOLL,
-        .tiles = DecorGfx_GULPIN_DOLL,
-    },
-
-    [DECOR_LOTAD_DOLL] =
-    {
-        .id = DECOR_LOTAD_DOLL,
-        .name = _("LOTAD DOLL"),
-        .permission = DECORPERM_SPRITE,
-        .shape = DECORSHAPE_1x1,
-        .category = DECORCAT_DOLL,
-        .price = 3000,
-        .description = DecorDesc_LOTAD_DOLL,
-        .tiles = DecorGfx_LOTAD_DOLL,
-    },
-
-    [DECOR_SEEDOT_DOLL] =
-    {
-        .id = DECOR_SEEDOT_DOLL,
-        .name = _("SEEDOT DOLL"),
-        .permission = DECORPERM_SPRITE,
-        .shape = DECORSHAPE_1x1,
-        .category = DECORCAT_DOLL,
-        .price = 3000,
-        .description = DecorDesc_SEEDOT_DOLL,
-        .tiles = DecorGfx_SEEDOT_DOLL,
-    },
-
     [DECOR_PIKA_CUSHION] =
     {
         .id = DECOR_PIKA_CUSHION,
@@ -1234,18 +1150,6 @@ const struct Decoration gDecorations[] =
         .price = 2000,
         .description = DecorDesc_ROUND_CUSHION,
         .tiles = DecorGfx_ROUND_CUSHION,
-    },
-
-    [DECOR_KISS_CUSHION] =
-    {
-        .id = DECOR_KISS_CUSHION,
-        .name = _("KISS CUSHION"),
-        .permission = DECORPERM_SPRITE,
-        .shape = DECORSHAPE_1x1,
-        .category = DECORCAT_CUSHION,
-        .price = 2000,
-        .description = DecorDesc_KISS_CUSHION,
-        .tiles = DecorGfx_KISS_CUSHION,
     },
 
     [DECOR_ZIGZAG_CUSHION] =

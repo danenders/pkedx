@@ -707,8 +707,8 @@
 #define METATILE_SecretBase_SeaPoster_Right             0x325
 #define METATILE_SecretBase_SkyPoster_Left              0x326
 #define METATILE_SecretBase_SkyPoster_Right             0x327
-#define METATILE_SecretBase_KissPoster_Left             0x32C
-#define METATILE_SecretBase_KissPoster_Right            0x32D
+#define METATILE_SecretBase_Unused_Left             	0x32C
+#define METATILE_SecretBase_Unused_Right	            0x32D
 #define METATILE_SecretBase_BallPoster                  0x330
 #define METATILE_SecretBase_GreenPoster                 0x331
 #define METATILE_SecretBase_RedPoster                   0x332

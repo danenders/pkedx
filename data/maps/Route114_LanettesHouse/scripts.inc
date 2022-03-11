@@ -10,21 +10,21 @@ Route114_LanettesHouse_EventScript_Lanette::
 	lock
 	faceplayer
 	goto_if_unset FLAG_ENABLE_SHIP_SOUTHERN_ISLAND, Route114_LanettesHouse_EventScript_CheckPostgame
-	goto_if_set FLAG_RECEIVED_DOLL_LANETTE, Route114_LanettesHouse_EventScript_OfferAdvice
+	goto_if_set FLAG_RECEIVED_CANDY_LANETTE, Route114_LanettesHouse_EventScript_OfferAdvice
 	setflag FLAG_SYS_PC_LANETTE
 	msgbox Route114_LanettesHouse_Text_EverythingClutteredKeepThis, MSGBOX_DEFAULT
-	givedecoration DECOR_LOTAD_DOLL
+	giveitem ITEM_MELTAN_CANDY
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowNoRoomForDecor
-	setflag FLAG_RECEIVED_DOLL_LANETTE
+	setflag FLAG_RECEIVED_CANDY_LANETTE
 	release
 	end
 
 Route114_LanettesHouse_EventScript_CheckPostgame::
 	goto_if_set FLAG_IS_CHAMPION, Route114_LanettesHouse_EventScript_GiveTicket
-	goto_if_set FLAG_RECEIVED_DOLL_LANETTE, Route114_LanettesHouse_EventScript_OfferAdvice
+	goto_if_set FLAG_RECEIVED_CANDY_LANETTE, Route114_LanettesHouse_EventScript_OfferAdvice
 	setflag FLAG_SYS_PC_LANETTE
 	msgbox Route114_LanettesHouse_Text_EverythingClutteredKeepThis, MSGBOX_DEFAULT
-	givedecoration DECOR_LOTAD_DOLL
+	giveitem ITEM_MELTAN_CANDY
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowNoRoomForDecor
 	setflag FLAG_RECEIVED_DOLL_LANETTE
 	release	
@@ -79,8 +79,12 @@ Route114_LanettesHouse_Text_EverythingClutteredKeepThis:
 	.string "I'm sorry everything is so cluttered…\n"
 	.string "When I get engrossed in research,\l"
 	.string "things end up this way…\p"
-	.string "This is embarrassing… Please keep\n"
-	.string "this a secret in exchange for this.$"
+	.string "I was trying to clean things up a\n"
+	.string "little, and I found this strange\l"
+	.string "CANDY. I don't remember buying it…\p"
+	.string "Why don't you keep it in exchange for\n"
+	.string "keeping this a secret?$"
+
 
 Route114_LanettesHouse_Text_OrganizeYourBoxes:
 	.string "May I offer advice about my POKéMON\n"
