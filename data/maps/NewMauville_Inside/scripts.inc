@@ -515,7 +515,7 @@ NewMauville_Inside_EventScript_SomethingLivingHere::
 NewMauville_Inside_Text_SomethingLivingHere:
 	.string "It looks like this box's contents\n"
 	.string "were all scattered about...\p"
-	.string "Perhaps a POKEMON got inside?$"
+	.string "Perhaps a POKéMON got inside?$"
 
 NewMauville_Inside_EventScript_SomethingLivingHere2::
 	msgbox NewMauville_Inside_Text_SomethingLivingHere2, MSGBOX_DEFAULT
@@ -525,5 +525,5 @@ NewMauville_Inside_EventScript_SomethingLivingHere2::
 NewMauville_Inside_Text_SomethingLivingHere2:
 	.string "It looks like this machine\n"
 	.string "has been moved around...\p"
-	.string "Perhaps a POKEMON got behind it?$"
+	.string "Perhaps a POKéMON got behind it?$"
 

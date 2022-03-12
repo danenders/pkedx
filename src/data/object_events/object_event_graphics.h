@@ -768,6 +768,7 @@ const u32 gObjectEventPic_Togekiss[] = INCBIN_U32("graphics/object_events/pics/p
 const u32 gObjectEventPic_ArticunoOverworld[] = INCBIN_U32("graphics/object_events/pics/pokemon/articuno_ow.4bpp");
 const u32 gObjectEventPic_ZapdosOverworld[] = INCBIN_U32("graphics/object_events/pics/pokemon/zapdos_ow.4bpp");
 const u32 gObjectEventPic_MoltresOverworld[] = INCBIN_U32("graphics/object_events/pics/pokemon/moltres_ow.4bpp");
+const u32 gObjectEventPic_MewtwoOverworld[] = INCBIN_U32("graphics/object_events/pics/pokemon/mewtwo_ow.4bpp");
 
 //OW Pokemon
 const u32 gObjectEventPic_DeoxysOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/deoxys_old.4bpp");
