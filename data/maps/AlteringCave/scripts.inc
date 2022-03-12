@@ -81,7 +81,7 @@ AlteringCave_EventScript_RanFromMewtwo::
 AlteringCave_EventScript_Leaf::
 	lock
 	faceplayer
-	goto_if_set FLAG_MEWTWO_DEFEATED
+	goto_if_set FLAG_DEFEATED_MEWTWO, AlteringCave_Text_MewtwoWillReturn
  	msgbox AlteringCave_Text_PowerfulPokemon, MSGBOX_DEFAULT
 	release
 	end

@@ -237,7 +237,7 @@
 #define OBJ_EVENT_GFX_ZAPDOS	                 228
 #define OBJ_EVENT_GFX_MOLTRES             	 	 229
 #define OBJ_EVENT_GFX_MEWTWO              		 230
-//#define OBJ_EVENT_GFX_?              	     	 231
+#define OBJ_EVENT_GFX_JIRACHI              	     231
 //#define OBJ_EVENT_GFX_?              	 		 232
 //#define OBJ_EVENT_GFX_?                	 	 233
 //#define OBJ_EVENT_GFX_?              			 234

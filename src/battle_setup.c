@@ -551,6 +551,7 @@ void BattleSetup_StartLegendaryBattle(void)
     case SPECIES_ZAPDOS:
     case SPECIES_MOLTRES:
     case SPECIES_MELTAN:
+    case SPECIES_JIRACHI:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
         break;
     case SPECIES_RAIKOU:

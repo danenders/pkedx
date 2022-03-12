@@ -223,7 +223,12 @@ SootopolisCity_EventScript_SetWallaceLeft::
 	return
 
 SootopolisCity_EventScript_SetExpertBlockCaveEntrance::
+	goto_if_set FLAG_IS_CHAMPION, SootopolisCity_EventScript_SetExpertBlockCaveEntrancePostgame
 	setobjectxyperm LOCALID_EXPERT, 31, 18
+	return
+
+SootopolisCity_EventScript_SetExpertBlockCaveEntrancePostgame::
+	setobjectxyperm LOCALID_EXPERT, 32, 21
 	return
 
 SootopolisCity_OnWarp:
@@ -748,6 +753,7 @@ SootopolisCity_Movement_UnusedPanBack:
 SootopolisCity_EventScript_CaveOfOriginExpert::
 	lock
 	faceplayer
+	goto_if_set FLAG_IS_CHAMPION, SootopolisCity_EventScript_ExpertPostgame
 	goto_if_ge VAR_SOOTOPOLIS_CITY_STATE, 6, SootopolisCity_EventScript_ExpertPostLegendaries
 	goto_if_eq VAR_SOOTOPOLIS_CITY_STATE, 5, SootopolisCity_EventScript_ExpertLegendaries
 	goto_if_ge VAR_SOOTOPOLIS_CITY_STATE, 2, SootopolisCity_EventScript_ExpertLeadToCave
@@ -764,6 +770,24 @@ SootopolisCity_EventScript_ExpertPostLegendaries::
 	msgbox SootopolisCity_Text_CaveOfOriginSleepsToo, MSGBOX_DEFAULT
 	release
 	end
+
+SootopolisCity_EventScript_ExpertPostgame::
+	goto_if_set FLAG_CAUGHT_JIRACHI, SootopolisCity_Text_YouAreTheWish
+	msgbox SootopolisCity_Text_MadeAWish, MSGBOX_DEFAULT
+	release
+	end
+
+SootopolisCity_Text_MadeAWish:
+	.string "The people of SOOTOPOLIS made a\n"
+	.string "WISH to bring peace to HOENN...\p"
+	.string "I believe a POKéMON will grant\n"
+	.string "that WISH one day....$"
+
+SootopolisCity_Text_YouAreTheWish:
+	applymovement LOCALID_EXPERT, Common_Movement_ExclamationMark
+	.string "That POKéMON...\p"
+	.string "Perhaps it recognized you as\n"
+	.string "someone who wishes for PEACE too.$"
 
 SootopolisCity_EventScript_ExpertLegendaries::
 	msgbox SootopolisCity_Text_AwakenedPokemonClash, MSGBOX_DEFAULT
