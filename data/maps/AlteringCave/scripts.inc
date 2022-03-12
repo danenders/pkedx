@@ -81,10 +81,21 @@ AlteringCave_EventScript_RanFromMewtwo::
 AlteringCave_EventScript_Leaf::
 	lock
 	faceplayer
-	msgbox AlteringCave_Text_PowerfulPokemon, MSGBOX_DEFAULT
+	goto_if_set FLAG_MEWTWO_DEFEATED
+ 	msgbox AlteringCave_Text_PowerfulPokemon, MSGBOX_DEFAULT
+	release
+	end
+
+AlteringCave_EventScript_Leaf_Searching::
+	msgbox AlteringCave_Text_MewtwoWillReturn, MSGBOX_DEFAULT
 	release
 	end
 
 AlteringCave_Text_PowerfulPokemon:
 	.string "LEAF: I'm searching for a\n"
 	.string "powerful POKéMON.$"
+
+AlteringCave_Text_MewtwoWillReturn:
+	.string "LEAF: I saw MEWTWO flee the\n"
+	.string "cave!\p"
+	.string "I'm waiting for it to return!$"
