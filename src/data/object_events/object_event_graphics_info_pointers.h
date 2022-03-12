@@ -156,7 +156,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SwabluDoll;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PikaCushion;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RoundCushion;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZigzagCushion;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SpinCushion;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DiamondCushion;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BallCushion;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GrassCushion;
@@ -236,6 +235,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jirachi;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Raikou;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Entei;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Suicune;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Celebi;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bard;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hipster;
@@ -405,8 +405,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_PIKA_CUSHION] =             &gObjectEventGraphicsInfo_PikaCushion,
     [OBJ_EVENT_GFX_ROUND_CUSHION] =            &gObjectEventGraphicsInfo_RoundCushion,
   	[OBJ_EVENT_GFX_ZIGZAG_CUSHION] =           &gObjectEventGraphicsInfo_ZigzagCushion,
-    [OBJ_EVENT_GFX_SPIN_CUSHION] =             &gObjectEventGraphicsInfo_SpinCushion,
-    [OBJ_EVENT_GFX_DIAMOND_CUSHION] =          &gObjectEventGraphicsInfo_DiamondCushion,
+   	[OBJ_EVENT_GFX_DIAMOND_CUSHION] =          &gObjectEventGraphicsInfo_DiamondCushion,
     [OBJ_EVENT_GFX_BALL_CUSHION] =             &gObjectEventGraphicsInfo_BallCushion,
     [OBJ_EVENT_GFX_GRASS_CUSHION] =            &gObjectEventGraphicsInfo_GrassCushion,
     [OBJ_EVENT_GFX_FIRE_CUSHION] =             &gObjectEventGraphicsInfo_FireCushion,
@@ -482,6 +481,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 	[OBJ_EVENT_GFX_RAIKOU] =                   &gObjectEventGraphicsInfo_Raikou,
 	[OBJ_EVENT_GFX_ENTEI] =                    &gObjectEventGraphicsInfo_Entei,
 	[OBJ_EVENT_GFX_SUICUNE] =                  &gObjectEventGraphicsInfo_Suicune,
+	[OBJ_EVENT_GFX_CELEBI] =                   &gObjectEventGraphicsInfo_Celebi,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

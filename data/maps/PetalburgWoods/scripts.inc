@@ -1,10 +1,65 @@
 .set LOCALID_GRUNT, 3
 .set LOCALID_DEVON_EMPLOYEE, 4
+.set LOCALID_CELEBI, 14
 
 PetalburgWoods_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, PetalburgWoods_OnLoad
 	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgWoods_OnTransition
 	map_script MAP_SCRIPT_ON_RESUME, PetalburgWoods_OnResume
 	.byte 0
+
+PetalburgWoods_OnLoad:
+	special GetTimeOfDay
+	call_if_eq VAR_RESULT, 2, PetalburgWoods_CelebiGrove
+	end
+
+PetalburgWoods_CelebiGrove::
+	call_if_set FLAG_IS_CHAMPION, PetalburgWoods_CelebiGrove_Appears
+	end
+
+PetalburgWoods_CelebiGrove_Appears::
+	setmetatile 33, 13, 0x1E5, 1
+	setmetatile 34, 13, 0x1E6, 1
+	setmetatile 35, 13, 0x1E5, 1
+	setmetatile 36, 13, 0x1E6, 1
+	@
+	setmetatile 33, 14, 0x00D, 0
+	setmetatile 34, 14, 0x004, 0
+	setmetatile 35, 14, 0x004, 0
+	setmetatile 36, 14, 0x00D, 0
+	@
+	setmetatile 32, 15, 0x1E7, 1
+	setmetatile 33, 15, 0x004, 0
+	setmetatile 34, 15, 0x0C8, 0
+	setmetatile 35, 15, 0x0CA, 0
+	setmetatile 36, 15, 0x004, 0
+	setmetatile 37, 15, 0x1E6, 1
+	@
+	setmetatile 32, 16, 0x00D, 0
+	setmetatile 33, 16, 0x004, 0
+	setmetatile 34, 16, 0x0D8, 0
+	setmetatile 35, 16, 0x0DA, 0
+	setmetatile 36, 16, 0x004, 0
+	setmetatile 37, 16, 0x00D, 0
+	@
+	setmetatile 32, 17, 0x1C6, 0
+	setmetatile 33, 17, 0x1C7, 0
+	setmetatile 34, 17, 0x004, 0
+	setmetatile 35, 17, 0x004, 0
+	setmetatile 36, 17, 0x1C6, 0
+	setmetatile 37, 17, 0x1C7, 0
+	@
+	setmetatile 34, 18, 0x001 0
+	setmetatile 35, 18, 0x001 0
+	setmetatile 34, 19, 0x001 0
+	setmetatile 35, 19, 0x001 0
+	setmetatile 34, 20, 0x001 0
+	setmetatile 35, 20, 0x001 0
+	setmetatile 34, 21, 0x001 0
+	setmetatile 35, 21, 0x001 0
+	@
+	special DrawWholeMapView
+	end
 
 PetalburgWoods_OnTransition:
 	special GetTimeOfDay
@@ -17,18 +72,22 @@ PetalburgWoods_OnTransition_Day:
 	setvar VAR_TIMEOFDAY, 0
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
+	PetalburgWoods_EventScript_HideCelebi
 	end
 
 PetalburgWoods_OnTransition_Twilight:
 	setvar VAR_TIMEOFDAY, 1
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
+	PetalburgWoods_EventScript_HideCelebi
 	end
 
 PetalburgWoods_OnTransition_Night:
 	setvar VAR_TIMEOFDAY, 2
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
+	call_if_set FLAG_CAUGHT_CELEBI, PetalburgWoods_EventScript_HideCelebi
+	call_if_unset FLAG_CAUGHT_CELEBI, PetalburgWoods_EventScript_TryShowCelebi
 	end
 
 PetalburgWoods_OnResume:
@@ -36,6 +95,7 @@ PetalburgWoods_OnResume:
 	goto_if_eq VAR_RESULT, 0, PetalburgWoods_OnResume_Day
 	goto_if_eq VAR_RESULT, 1, PetalburgWoods_OnResume_Twilight
 	goto_if_eq VAR_RESULT, 2, PetalburgWoods_OnResume_Night
+
 	end	
 
 PetalburgWoods_OnResume_Day:
@@ -48,6 +108,7 @@ PetalburgWoods_OnResume_Twilight:
 
 PetalburgWoods_OnResume_Night:
 	setvar VAR_TIMEOFDAY, 2
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, PetalburgWoods_EventScript_TryRemoveCelebi
 	end
 
 PetalburgWoods_EventScript_DevonResearcherLeft::
@@ -520,3 +581,53 @@ PetalburgWoods_Text_TrainerTipsPP:
 	.string "If a POKéMON runs out of PP, it must be\n"
 	.string "taken to a POKéMON CENTER.$"
 
+
+PetalburgWoods_EventScript_HideCelebi::
+	setflag FLAG_HIDE_CELEBI
+	return
+
+PetalburgWoods_EventScript_TryShowCelebi::
+	goto_if_unset FLAG_CAUGHT_RAIKOU, PetalburgWoods_EventScript_HideCelebi
+	goto_if_unset FLAG_CAUGHT_ENTEI, PetalburgWoods_EventScript_HideCelebi
+	goto_if_unset FLAG_CAUGHT_SUICUNE, PetalburgWoods_EventScript_HideCelebi
+	goto_if_unset FLAG_CAUGHT_HO_OH, PetalburgWoods_EventScript_HideCelebi
+	goto_if_unset FLAG_CAUGHT_LUGIA, PetalburgWoods_EventScript_HideCelebi
+	goto_if_set FLAG_DEFEATED_CELEBI, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_CELEBI
+	return
+
+PetalburgWoods_EventScript_TryRemoveCelebi::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
+	removeobject LOCALID_CELEBI
+	return
+
+PetalburgWoods_EventScript_Celebi::
+	lock
+	faceplayer
+	playmoncry SPECIES_CELEBI, CRY_MODE_ENCOUNTER
+	waitmoncry
+	delay 20
+	seteventmon SPECIES_CELEBI, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, PetalburgWoods_EventScript_DefeatedCelebi
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, PetalburgWoods_EventScript_RanFromCelebi
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, PetalburgWoods_EventScript_RanFromCelebi
+	setflag FLAG_CAUGHT_CELEBI
+	release
+	end
+
+PetalburgWoods_EventScript_DefeatedCelebi::
+	setflag FLAG_DEFEATED_CELEBI
+	setvar VAR_0x8004, SPECIES_CELEBI
+	goto Common_EventScript_LegendaryFlewAway
+	end
+
+PetalburgWoods_EventScript_RanFromCelebi::
+	setvar VAR_0x8004, SPECIES_CELEBI
+	goto Common_EventScript_LegendaryFlewAway
+	end

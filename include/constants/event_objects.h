@@ -160,23 +160,24 @@
 #define OBJ_EVENT_GFX_PIKA_CUSHION               155
 #define OBJ_EVENT_GFX_ROUND_CUSHION              156
 #define OBJ_EVENT_GFX_ZIGZAG_CUSHION             157
-#define OBJ_EVENT_GFX_SPIN_CUSHION               158
-#define OBJ_EVENT_GFX_DIAMOND_CUSHION            159
-#define OBJ_EVENT_GFX_BALL_CUSHION               160
-#define OBJ_EVENT_GFX_GRASS_CUSHION              161
-#define OBJ_EVENT_GFX_FIRE_CUSHION               162
-#define OBJ_EVENT_GFX_WATER_CUSHION              163
-#define OBJ_EVENT_GFX_BIG_SNORLAX_DOLL           164
-#define OBJ_EVENT_GFX_BIG_RHYDON_DOLL            165
-#define OBJ_EVENT_GFX_BIG_LAPRAS_DOLL            166
-#define OBJ_EVENT_GFX_BIG_VENUSAUR_DOLL          167
-#define OBJ_EVENT_GFX_BIG_CHARIZARD_DOLL         168
-#define OBJ_EVENT_GFX_BIG_BLASTOISE_DOLL         169
-#define OBJ_EVENT_GFX_BIG_WAILMER_DOLL           170
+#define OBJ_EVENT_GFX_DIAMOND_CUSHION            158
+#define OBJ_EVENT_GFX_BALL_CUSHION               159
+#define OBJ_EVENT_GFX_GRASS_CUSHION              160
+#define OBJ_EVENT_GFX_FIRE_CUSHION               161
+#define OBJ_EVENT_GFX_WATER_CUSHION              162
+#define OBJ_EVENT_GFX_BIG_SNORLAX_DOLL           163
+#define OBJ_EVENT_GFX_BIG_RHYDON_DOLL            164
+#define OBJ_EVENT_GFX_BIG_LAPRAS_DOLL            165
+#define OBJ_EVENT_GFX_BIG_VENUSAUR_DOLL          166
+#define OBJ_EVENT_GFX_BIG_CHARIZARD_DOLL         167
+#define OBJ_EVENT_GFX_BIG_BLASTOISE_DOLL         168
+#define OBJ_EVENT_GFX_BIG_WAILMER_DOLL           169
 //
-#define OBJ_EVENT_GFX_BIG_REGIROCK_DOLL          171
-#define OBJ_EVENT_GFX_BIG_REGICE_DOLL            172
-#define OBJ_EVENT_GFX_BIG_REGISTEEL_DOLL         173
+#define OBJ_EVENT_GFX_BIG_REGIROCK_DOLL          170
+#define OBJ_EVENT_GFX_BIG_REGICE_DOLL            171
+#define OBJ_EVENT_GFX_BIG_REGISTEEL_DOLL         172
+
+#define OBJ_EVENT_GFX_CELEBI 					 173
 
 #define OBJ_EVENT_GFX_LATIAS                     174
 #define OBJ_EVENT_GFX_LATIOS                     175

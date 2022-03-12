@@ -1164,18 +1164,6 @@ const struct Decoration gDecorations[] =
         .tiles = DecorGfx_ZIGZAG_CUSHION,
     },
 
-    [DECOR_SPIN_CUSHION] =
-    {
-        .id = DECOR_SPIN_CUSHION,
-        .name = _("SPIN CUSHION"),
-        .permission = DECORPERM_SPRITE,
-        .shape = DECORSHAPE_1x1,
-        .category = DECORCAT_CUSHION,
-        .price = 2000,
-        .description = DecorDesc_SPIN_CUSHION,
-        .tiles = DecorGfx_SPIN_CUSHION,
-    },
-
     [DECOR_DIAMOND_CUSHION] =
     {
         .id = DECOR_DIAMOND_CUSHION,
