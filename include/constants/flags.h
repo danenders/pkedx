@@ -666,18 +666,18 @@
 #define FLAG_CAUGHT_MEWTWO  	0x26F
 #define FLAG_HIDE_MEWTWO  		0x270
 #define FLAG_DEFEATED_MEWTWO	0x271
-#define FLAG_CAUGHT_JIRACHI  	0x272 // Unused Flag
-#define FLAG_HIDE_JIRACHI  	 	0x273 // Unused Flag
-#define FLAG_DEFEATED_JIRACHI  	0x274 // Unused Flag
-#define FLAG_UNUSED_0x275  0x275 // Unused Flag
-#define FLAG_UNUSED_0x276  0x276 // Unused Flag
-#define FLAG_UNUSED_0x277  0x277 // Unused Flag
-#define FLAG_UNUSED_0x278  0x278 // Unused Flag
-#define FLAG_UNUSED_0x279  0x279 // Unused Flag
-#define FLAG_UNUSED_0x27A  0x27A // Unused Flag
-#define FLAG_UNUSED_0x27B  0x27B // Unused Flag
-#define FLAG_UNUSED_0x27C  0x27C // Unused Flag
-#define FLAG_UNUSED_0x27D  0x27D // Unused Flag
+#define FLAG_CAUGHT_JIRACHI  	0x272
+#define FLAG_HIDE_JIRACHI  	 	0x273
+#define FLAG_DEFEATED_JIRACHI  	0x274
+#define FLAG_CAUGHT_RAIKOU  	0x275
+#define FLAG_DEFEATED_RAIKOU  	0x276
+#define FLAG_HIDE_RAIKOU  		0x277
+#define FLAG_CAUGHT_ENTEI 		0x278
+#define FLAG_DEFEATED_ENTEI  	0x279
+#define FLAG_HIDE_ENTEI 		0x27A
+#define FLAG_CAUGHT_SUICUNE 	0x27B
+#define FLAG_DEFEATED_SUICUNE   0x27C
+#define FLAG_HIDE_SUICUNE  0x27D // Unused Flag
 #define FLAG_UNUSED_0x27E  0x27E // Unused Flag
 #define FLAG_UNUSED_0x27F  0x27F // Unused Flag
 #define FLAG_UNUSED_0x280  0x280 // Unused Flag

@@ -227,7 +227,6 @@ const u16 gObjectEventPal_Truck[] = INCBIN_U16("graphics/object_events/palettes/
 const u16 gObjectEventPal_Vigoroth[] = INCBIN_U16("graphics/object_events/palettes/vigoroth.gbapal");
 const u32 gObjectEventPic_BirchsBag[] = INCBIN_U32("graphics/object_events/pics/misc/birchs_bag.4bpp");
 const u32 gObjectEventPic_EnemyZigzagoon[] = INCBIN_U32("graphics/object_events/pics/pokemon/enemy_zigzagoon.4bpp");
-const u16 gObjectEventPal_EnemyZigzagoon[] = INCBIN_U16("graphics/object_events/palettes/enemy_zigzagoon.gbapal");
 const u16 gObjectEventPal_Poochyena[] = INCBIN_U16("graphics/object_events/palettes/poochyena.gbapal");
 const u32 gObjectEventPic_CableCar[] = INCBIN_U32("graphics/object_events/pics/misc/cable_car.4bpp");
 const u16 gObjectEventPal_CableCar[] = INCBIN_U16("graphics/object_events/palettes/cable_car.gbapal");
@@ -770,6 +769,11 @@ const u32 gObjectEventPic_ZapdosOverworld[] = INCBIN_U32("graphics/object_events
 const u32 gObjectEventPic_MoltresOverworld[] = INCBIN_U32("graphics/object_events/pics/pokemon/moltres_ow.4bpp");
 const u32 gObjectEventPic_MewtwoOverworld[] = INCBIN_U32("graphics/object_events/pics/pokemon/mewtwo_ow.4bpp");
 const u32 gObjectEventPic_JirachiOverworld[] = INCBIN_U32("graphics/object_events/pics/pokemon/jirachi_ow.4bpp");
+const u32 gObjectEventPic_RaikouOverworld[] = INCBIN_U32("graphics/object_events/pics/pokemon/raikou_ow.4bpp");
+const u32 gObjectEventPic_EnteiOverworld[] = INCBIN_U32("graphics/object_events/pics/pokemon/entei_ow.4bpp");
+const u32 gObjectEventPic_SuicuneOverworld[] = INCBIN_U32("graphics/object_events/pics/pokemon/suicune_ow.4bpp");
+
+const u16 gObjectEventPal_LegendaryBeasts[] = INCBIN_U16("graphics/object_events/palettes/legendary_beasts.gbapal");
 
 //OW Pokemon
 const u32 gObjectEventPic_DeoxysOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/deoxys_old.4bpp");

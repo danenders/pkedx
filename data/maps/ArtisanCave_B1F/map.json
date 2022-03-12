@@ -26,6 +26,45 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ArtisanCave_B1F_EventScript_ItemHPUp",
       "flag": "FLAG_ITEM_ARTISAN_CAVE_B1F_HP_UP"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RAIKOU",
+      "x": 11,
+      "y": 27,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ArtisanCave_B1F_EventScript_Raikou",
+      "flag": "FLAG_HIDE_RAIKOU"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ENTEI",
+      "x": 32,
+      "y": 22,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ArtisanCave_B1F_EventScript_Entei",
+      "flag": "FLAG_HIDE_ENTEI"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SUICUNE",
+      "x": 18,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ArtisanCave_B1F_EventScript_Suicune",
+      "flag": "FLAG_HIDE_SUICUNE"
     }
   ],
   "warp_events": [
