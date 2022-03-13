@@ -1739,25 +1739,29 @@ u16 GetDeptStoreDefaultFloorChoice(void)
     {
         switch (gSaveBlock1Ptr->dynamicWarp.mapNum)
         {
-        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_5F):
+        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_6F):
             sLilycoveDeptStore_NeverRead = 0;
             sLilycoveDeptStore_DefaultFloorChoice = 0;
             break;
-        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_4F):
+        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_5F):
             sLilycoveDeptStore_NeverRead = 0;
             sLilycoveDeptStore_DefaultFloorChoice = 1;
             break;
-        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_3F):
+        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_4F):
             sLilycoveDeptStore_NeverRead = 0;
             sLilycoveDeptStore_DefaultFloorChoice = 2;
             break;
-        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_2F):
+        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_3F):
             sLilycoveDeptStore_NeverRead = 0;
             sLilycoveDeptStore_DefaultFloorChoice = 3;
             break;
-        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_1F):
+        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_2F):
             sLilycoveDeptStore_NeverRead = 0;
             sLilycoveDeptStore_DefaultFloorChoice = 4;
+            break;
+        case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_1F):
+            sLilycoveDeptStore_NeverRead = 0;
+            sLilycoveDeptStore_DefaultFloorChoice = 5;
             break;
         }
     }

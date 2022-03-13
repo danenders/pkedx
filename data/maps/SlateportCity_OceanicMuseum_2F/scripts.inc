@@ -560,4 +560,3 @@ MoveSternToExit1:
 	walk_right
 	walk_up
 	step_end
-	

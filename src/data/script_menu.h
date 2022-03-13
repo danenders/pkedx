@@ -316,6 +316,7 @@ static const struct MenuAction MultichoiceList_SSTidalSlateportNoBF[] =
 
 static const struct MenuAction MultichoiceList_Floors[] =
 {
+    {gText_6F},
     {gText_5F},
     {gText_4F},
     {gText_3F},

@@ -215,6 +215,7 @@
 #define MAP_LILYCOVE_CITY_DEPARTMENT_STORE_5F       (20 | (13 << 8))
 #define MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ROOFTOP  (21 | (13 << 8))
 #define MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ELEVATOR (22 | (13 << 8))
+#define MAP_LILYCOVE_CITY_DEPARTMENT_STORE_6F       (23 | (13 << 8))
 
 // gMapGroup_IndoorMossdeep
 #define MAP_MOSSDEEP_CITY_GYM               (0 | (14 << 8))
@@ -594,6 +595,6 @@
 
 #define MAP_GROUPS_COUNT 34
 
-// static const u8 MAP_GROUP_COUNT[] = {57, 5, 5, 6, 7, 8, 9, 7, 7, 14, 8, 17, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 109, 61, 89, 2, 1, 13, 1, 1, 3, 1, 0};
+// static const u8 MAP_GROUP_COUNT[] = {57, 5, 5, 6, 7, 8, 9, 7, 7, 14, 8, 17, 10, 24, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 109, 61, 89, 2, 1, 13, 1, 1, 3, 1, 0};
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

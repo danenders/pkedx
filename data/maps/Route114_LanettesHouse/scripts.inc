@@ -9,8 +9,8 @@ Route114_LanettesHouse_OnTransition:
 Route114_LanettesHouse_EventScript_Lanette::
 	lock
 	faceplayer
-	goto_if_unset FLAG_ENABLE_SHIP_SOUTHERN_ISLAND, Route114_LanettesHouse_EventScript_CheckPostgame
-	goto_if_set FLAG_RECEIVED_CANDY_LANETTE, Route114_LanettesHouse_EventScript_OfferAdvice
+	call_if_unset FLAG_ENABLE_SHIP_SOUTHERN_ISLAND, Route114_LanettesHouse_EventScript_CheckPostgame
+	goto_if_set FLAG_RECEIVED_CANDY_LANETTE, Route114_LanettesHouse_EventScript_DailyUpgrade
 	setflag FLAG_SYS_PC_LANETTE
 	msgbox Route114_LanettesHouse_Text_EverythingClutteredKeepThis, MSGBOX_DEFAULT
 	giveitem ITEM_MELTAN_CANDY
@@ -19,16 +19,25 @@ Route114_LanettesHouse_EventScript_Lanette::
 	release
 	end
 
+Route114_LanettesHouse_EventScript_DailyUpgrade::
+	goto_if_set FLAG_DAILY_LANETTE_UPGRADE, Route114_LanettesHouse_EventScript_OfferAdvice
+	msgbox Route114_LanettesHouse_Text_FoundThisWhileCleaning, MSGBOX_DEFAULT
+	giveitem ITEM_UP_GRADE
+	setflag FLAG_DAILY_LANETTE_UPGRADE
+	release
+	end
+
+Route114_LanettesHouse_Text_FoundThisWhileCleaning:
+	.string "LANETTE: Oh, {PLAYER}!\p"
+	.string "While I was organizing my\n"
+	.string "house, I found this old tech.\p"
+	.string "I don't have a use for it, so\n"
+	.string "why don't you take it?$"
+
 Route114_LanettesHouse_EventScript_CheckPostgame::
 	goto_if_set FLAG_IS_CHAMPION, Route114_LanettesHouse_EventScript_GiveTicket
-	goto_if_set FLAG_RECEIVED_CANDY_LANETTE, Route114_LanettesHouse_EventScript_OfferAdvice
-	setflag FLAG_SYS_PC_LANETTE
-	msgbox Route114_LanettesHouse_Text_EverythingClutteredKeepThis, MSGBOX_DEFAULT
-	giveitem ITEM_MELTAN_CANDY
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowNoRoomForDecor
-	setflag FLAG_RECEIVED_CANDY_LANETTE
-	release	
 	end
+
 
 Route114_LanettesHouse_EventScript_GiveTicket::
 	msgbox Route114_LanettesHouse_Text_GotThisTicket, MSGBOX_DEFAULT

@@ -245,7 +245,8 @@
     "LilycoveCity_DepartmentStore_4F",
     "LilycoveCity_DepartmentStore_5F",
     "LilycoveCity_DepartmentStoreRooftop",
-    "LilycoveCity_DepartmentStoreElevator"
+    "LilycoveCity_DepartmentStoreElevator",
+    "LilycoveCity_DepartmentStore_6F"
   ],
   "gMapGroup_IndoorMossdeep": [
     "MossdeepCity_Gym",

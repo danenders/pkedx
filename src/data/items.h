@@ -1074,7 +1074,7 @@ const struct Item gItems[] =
     {
         .name = _("DAWN STONE"),
         .itemId = ITEM_DAWN_STONE,
-        .price = 2100,
+        .price = 5000,
         .description = sDawnStoneDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -1085,7 +1085,7 @@ const struct Item gItems[] =
     {
         .name = _("DUSK STONE"),
         .itemId = ITEM_DUSK_STONE,
-        .price = 2100,
+        .price = 5000,
         .description = sDuskStoneDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -1096,7 +1096,7 @@ const struct Item gItems[] =
     {
         .name = _("SUN STONE"),
         .itemId = ITEM_SUN_STONE,
-        .price = 2100,
+        .price = 5000,
         .description = sSunStoneDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -1107,7 +1107,7 @@ const struct Item gItems[] =
     {
         .name = _("MOON STONE"),
         .itemId = ITEM_MOON_STONE,
-        .price = 0,
+        .price = 5000,
         .description = sMoonStoneDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -1173,7 +1173,7 @@ const struct Item gItems[] =
     {
         .name = _("SHINY STONE"),
         .itemId = ITEM_SHINY_STONE,
-        .price = 2100,
+        .price = 5000,
         .description = sShinyStoneDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
