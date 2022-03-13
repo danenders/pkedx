@@ -72,14 +72,14 @@ PetalburgWoods_OnTransition_Day:
 	setvar VAR_TIMEOFDAY, 0
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
-	PetalburgWoods_EventScript_HideCelebi
+	call PetalburgWoods_EventScript_HideCelebi
 	end
 
 PetalburgWoods_OnTransition_Twilight:
 	setvar VAR_TIMEOFDAY, 1
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
-	PetalburgWoods_EventScript_HideCelebi
+	call PetalburgWoods_EventScript_HideCelebi
 	end
 
 PetalburgWoods_OnTransition_Night:
