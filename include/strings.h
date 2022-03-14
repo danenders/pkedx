@@ -630,21 +630,6 @@ extern const u8 gText_90Pts[];
 extern const u8 gText_100Pts[];
 extern const u8 gText_QuestionMark[];
 
-extern const u8 gText_PichuDoll32BP[];
-extern const u8 gText_TogepiDoll48BP[];
-extern const u8 gText_MeowthDoll48BP[];
-extern const u8 gText_ClefairyDoll48BP[];
-extern const u8 gText_DittoDoll48BP[];
-extern const u8 gText_CyndaquilDoll80BP[];
-extern const u8 gText_ChikoritaDoll80BP[];
-extern const u8 gText_TotodileDoll80BP[];
-
-extern const u8 gText_LaprasDoll128BP[];
-extern const u8 gText_SnorlaxDoll128BP[];
-extern const u8 gText_VenusaurDoll256BP[];
-extern const u8 gText_CharizardDoll256BP[];
-extern const u8 gText_BlastoiseDoll256BP[];
-
 extern const u8 gText_Protein1BP[];
 extern const u8 gText_Calcium1BP[];
 extern const u8 gText_Iron1BP[];
@@ -801,15 +786,6 @@ extern const u8 BattleFrontier_Lounge3_Text_GetToBattlePyramid[];
 extern const u8 gText_BP[];
 
 // Battle Frontier Exchange Corner
-extern const u8 BattleFrontier_ExchangeServiceCorner_Text_PichuDollDesc[];
-extern const u8 BattleFrontier_ExchangeServiceCorner_Text_TogepiDollDesc[];
-extern const u8 BattleFrontier_ExchangeServiceCorner_Text_MeowthDollDesc[];
-extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ClefairyDollDesc[];
-extern const u8 BattleFrontier_ExchangeServiceCorner_Text_DittoDollDesc[];
-extern const u8 BattleFrontier_ExchangeServiceCorner_Text_CyndaquilDollDesc[];
-extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ChikoritaDollDesc[];
-extern const u8 BattleFrontier_ExchangeServiceCorner_Text_TotodileDollDesc[];
-extern const u8 BattleFrontier_ExchangeServiceCorner_Text_LargeDollDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ProteinDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_CalciumDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_IronDesc[];
@@ -1155,11 +1131,12 @@ extern const u8 gText_GlassDesk[];
 extern const u8 gText_TreeckoDollAndPrice[];
 extern const u8 gText_TorchicDollAndPrice[];
 extern const u8 gText_MudkipDollAndPrice[];
-extern const u8 gText_TM32AndPrice[];
-extern const u8 gText_TM29AndPrice[];
-extern const u8 gText_TM35AndPrice[];
-extern const u8 gText_TM24AndPrice[];
-extern const u8 gText_TM13AndPrice[];
+extern const u8 gText_CyndaquilDollAndPrice[];
+extern const u8 gText_ChikoritaDollAndPrice[];
+extern const u8 gText_TotodileDollAndPrice[];
+extern const u8 gText_VenusaurDollAndPrice[];
+extern const u8 gText_CharizardDollAndPrice[];
+extern const u8 gText_BlastoiseDollAndPrice[];
 extern const u8 gText_50CoinsAndPrice[];
 extern const u8 gText_500CoinsAndPrice[];
 extern const u8 gText_Excellent2[];

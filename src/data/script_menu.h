@@ -265,13 +265,19 @@ static const struct MenuAction MultichoiceList_GameCornerDolls[] =
     {gText_Exit},
 };
 
-static const struct MenuAction MultichoiceList_GameCornerTMs[] =
+static const struct MenuAction MultichoiceList_GameCornerJohtoDolls[] =
 {
-    {gText_TM32AndPrice},
-    {gText_TM29AndPrice},
-    {gText_TM35AndPrice},
-    {gText_TM24AndPrice},
-    {gText_TM13AndPrice},
+    {gText_ChikoritaDollAndPrice},
+    {gText_CyndaquilDollAndPrice},
+    {gText_TotodileDollAndPrice},
+    {gText_Exit},
+};
+
+static const struct MenuAction MultichoiceList_GameCornerBigDolls[] =
+{
+    {gText_VenusaurDollAndPrice},
+    {gText_CharizardDollAndPrice},
+    {gText_BlastoiseDollAndPrice},
     {gText_Exit},
 };
 
@@ -837,13 +843,13 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_STERN_DEEPSEA]              = MULTICHOICE(MultichoiceList_SternDeepSea),
     [MULTI_UNUSED_ASH_VENDOR]          = MULTICHOICE(MultichoiceList_UnusedAshVendor),
     [MULTI_GAME_CORNER_DOLLS]          = MULTICHOICE(MultichoiceList_GameCornerDolls),
+    [MULTI_GAME_CORNER_JOHTO_DOLLS]    = MULTICHOICE(MultichoiceList_GameCornerJohtoDolls),
+    [MULTI_GAME_CORNER_BIG_DOLLS]      = MULTICHOICE(MultichoiceList_GameCornerBigDolls),
     [MULTI_GAME_CORNER_COINS]          = MULTICHOICE(MultichoiceList_GameCornerCoins),
     [MULTI_HOWS_FISHING]               = MULTICHOICE(MultichoiceList_HowsFishing),
-    [MULTI_UNUSED_51]                  = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_SSTIDAL_SLATEPORT_WITH_BF]  = MULTICHOICE(MultichoiceList_SSTidalSlateportWithBF),
     [MULTI_SSTIDAL_BATTLE_FRONTIER]    = MULTICHOICE(MultichoiceList_SSTidalBattleFrontier),
     [MULTI_RIGHTLEFT]                  = MULTICHOICE(MultichoiceList_RightLeft),
-    [MULTI_GAME_CORNER_TMS]            = MULTICHOICE(MultichoiceList_GameCornerTMs),
     [MULTI_SSTIDAL_SLATEPORT_NO_BF]    = MULTICHOICE(MultichoiceList_SSTidalSlateportNoBF),
     [MULTI_FLOORS]                     = MULTICHOICE(MultichoiceList_Floors),
     [MULTI_SHARDS_R]                   = MULTICHOICE(MultichoiceList_ShardsR),

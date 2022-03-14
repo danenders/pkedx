@@ -9730,25 +9730,25 @@ const u32 gTMHMLearnsets[][2] =
                                             | TMHM(TM03_WATER_PULSE)),
 
     [SPECIES_MELTAN]      = TMHM_LEARNSET(TMHM(TM10_HIDDEN_POWER)
-                                            | TMHM(TM44_REST),
-                                            | TMHM(TM17_PROTECT),
-                                            | TMHM(TM42_FACADE),
-                                            | TMHM(TM24_THUNDERBOLT),
-                                            | TMHM(HM05_FLASH),
+                                            | TMHM(TM44_REST)
+                                            | TMHM(TM17_PROTECT)
+                                            | TMHM(TM42_FACADE)
+                                            | TMHM(TM24_THUNDERBOLT)
+                                            | TMHM(HM05_FLASH)
                                             | TMHM(HM09_SECRET_POWER)),
 
     [SPECIES_MELMETAL]    = TMHM_LEARNSET(TMHM(TM10_HIDDEN_POWER)
-                                            | TMHM(TM15_HYPER_BEAM),
-                                            | TMHM(TM22_SOLAR_BEAM),
-                                            | TMHM(TM44_REST),
-                                            | TMHM(HM06_ROCK_SMASH),
-                                            | TMHM(TM17_PROTECT),
-                                            | TMHM(TM42_FACADE),
-                                            | TMHM(TM31_BRICK_BREAK),
-                                            | TMHM(TM39_ROCK_TOMB),
-                                            | TMHM(TM25_THUNDER),
-                                            | TMHM(TM24_THUNDERBOLT),
-                                            | TMHM(TM26_EARTHQUAKE),
+                                            | TMHM(TM15_HYPER_BEAM)
+                                            | TMHM(TM22_SOLAR_BEAM)
+                                            | TMHM(TM44_REST)
+                                            | TMHM(HM06_ROCK_SMASH)
+                                            | TMHM(TM17_PROTECT)
+                                            | TMHM(TM42_FACADE)
+                                            | TMHM(TM31_BRICK_BREAK)
+                                            | TMHM(TM39_ROCK_TOMB)
+                                            | TMHM(TM25_THUNDER)
+                                            | TMHM(TM24_THUNDERBOLT)
+                                            | TMHM(TM26_EARTHQUAKE)
                                             | TMHM(HM09_SECRET_POWER)),
 
 };

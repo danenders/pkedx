@@ -556,6 +556,9 @@ SlateportCity_PokemartDecor_Dolls:
 	.2byte DECOR_AZURILL_DOLL
 	.2byte DECOR_MARILL_DOLL
 	.2byte DECOR_SKITTY_DOLL
+	.2byte DECOR_MEOWTH_DOLL
+	.2byte DECOR_DITTO_DOLL
+	.2byte DECOR_SNORLAX_DOLL
 	.2byte DECOR_NONE
 	release
 	end

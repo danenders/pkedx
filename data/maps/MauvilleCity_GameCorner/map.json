@@ -12,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
@@ -41,8 +41,8 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 11,
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
+      "x": 9,
       "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -55,7 +55,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 14,
+      "x": 15,
       "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -63,12 +63,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MauvilleCity_GameCorner_EventScript_PrizeCornerDolls",
+      "script": "MauvilleCity_GameCorner_EventScript_PrizeCornerBigDolls",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
-      "x": 7,
+      "x": 6,
       "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -128,7 +128,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MauvilleCity_GameCorner_EventScript_PrizeCornerTMs",
+      "script": "MauvilleCity_GameCorner_EventScript_PrizeCornerJohtoDolls",
       "flag": "0"
     },
     {
@@ -169,6 +169,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MauvilleCity_GameCorner_EventScript_Woman",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+      "x": 11,
+      "y": 2,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_GameCorner_EventScript_PrizeCornerDolls",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -187,7 +200,9 @@
       "dest_warp_id": 5
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -195,7 +210,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_EAST",
-      "script": "MauvilleCity_GameCorner_EventScript_SlotMachine0"
+      "script": "MauvilleCity_GameCorner_EventScript_PrizeCornerDolls"
     },
     {
       "type": "sign",
