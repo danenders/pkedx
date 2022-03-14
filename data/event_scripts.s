@@ -888,9 +888,8 @@ gText_RegisteredTrainerinPokeNav::
 	.string "in the POKéNAV.$"
 
 gText_ComeBackWithSecretPower::
-	.string "Do you know the TM SECRET POWER?\p"
-	.string "Our group, we love the TM SECRET\n"
-	.string "POWER.\p"
+	.string "Do you know about SECRET POWER?\p"
+	.string "Our group, we love SECRET POWER.\p"
 	.string "One of our members will give it to you.\n"
 	.string "Come back and show me if you get it.\p"
 	.string "We'll accept you as a member and sell\n"

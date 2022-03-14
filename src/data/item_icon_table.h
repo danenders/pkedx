@@ -350,7 +350,7 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_TM40] = {gItemIcon_TM, gItemIconPalette_FlyingTMHM},
     [ITEM_TM41] = {gItemIcon_TM, gItemIconPalette_DarkTMHM},
     [ITEM_TM42] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},
-    [ITEM_TM43] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},
+    [ITEM_TM43] = {gItemIcon_TM, gItemIconPalette_FairyTMHM},
     [ITEM_TM44] = {gItemIcon_TM, gItemIconPalette_PsychicTMHM},
     [ITEM_TM45] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},
     [ITEM_TM46] = {gItemIcon_TM, gItemIconPalette_DarkTMHM},
@@ -366,8 +366,9 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_HM06] = {gItemIcon_HM, gItemIconPalette_FightingTMHM},
     [ITEM_HM07] = {gItemIcon_HM, gItemIconPalette_WaterTMHM},
     [ITEM_HM08] = {gItemIcon_HM, gItemIconPalette_WaterTMHM},
+    [ITEM_HM09] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},
+
     // ????????
-    [ITEM_15B] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_15C] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     // FireRed/LeafGreen key items
     [ITEM_OAKS_PARCEL] = {gItemIcon_OaksParcel, gItemIconPalette_OaksParcel},

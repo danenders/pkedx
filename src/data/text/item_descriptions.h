@@ -1339,9 +1339,9 @@ static const u8 sTM42Desc[] = _(
     "or paralyzed.");
 
 static const u8 sTM43Desc[] = _(
-    "Adds an effect to\n"
-    "attack depending\n"
-    "on the location.");
+    "The user emits a\n"
+    "powerful beam to\n"
+    "damage all foes.");
 
 static const u8 sTM44Desc[] = _(
     "The user sleeps for\n"
@@ -1418,6 +1418,11 @@ static const u8 sHM08Desc[] = _(
     "Dives underwater\n"
     "the 1st turn, then\n"
     "attacks next turn.");
+
+static const u8 sHM09Desc[] = _(
+    "Adds an effect to\n"
+    "attack depending\n"
+    "on the location.");
 
 // FireRed/LeafGreen key items
 static const u8 sOaksParcelDesc[] = _(
