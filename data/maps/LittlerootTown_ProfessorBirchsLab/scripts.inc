@@ -198,12 +198,9 @@ LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_OkayAllDone, MSGBOX_DEFAULT
-	playfanfare MUS_OBTAIN_ITEM
-	message LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational
-	waitmessage
-	waitfanfare
-	setflag FLAG_SYS_NATIONAL_DEX
-	special EnableNationalPokedex
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayNoFair
+	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanNoFair
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
@@ -213,6 +210,22 @@ LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex::
 	setflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
 	releaseall
 	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_MayNoFair::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayNoFair, MSGBOX_DEFAULT
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_BrendanNoFair::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanNoFair, MSGBOX_DEFAULT
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_MayNoFair:
+	.string "MAY: That's just like you,\n"
+	.string "{PLAYER}, always one step ahead!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_BrendanNoFair:
+	.string "BRENDAN: No fair, {PLAYER}!\n"
+	.string "You always get the best stuf!$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_MayUpgradeComment::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayUpgradeSoCool, MSGBOX_DEFAULT
@@ -856,7 +869,10 @@ LittlerootTown_ProfessorBirchsLab_Text_BrendanYouCanThankMe:
 	.string "Yep, you're lucky, {PLAYER}!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_OkayAllDone:
-	.string "PROF. BIRCH: Okay, all done!$"
+	.string "PROF. BIRCH: Okay, all done!\p"
+	.string "But it looks like yours was\n"
+	.string "up to date, {PLAYER}!\p"
+
 
 LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational:
 	.string "{PLAYER}'s POKéDEX was upgraded\n"
