@@ -1981,3 +1981,6 @@ $(OBJEVENTGFXDIR)/pokemon/entei_ow.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/pokemon/suicune_ow.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/lanette.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4

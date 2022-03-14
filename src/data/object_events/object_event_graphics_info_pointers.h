@@ -222,6 +222,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphireBrenda
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphireMay;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lugia;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HoOh;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lanette;
+
 // Begin pokemon event objects
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AnimatedBall;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
@@ -482,6 +485,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 	[OBJ_EVENT_GFX_ENTEI] =                    &gObjectEventGraphicsInfo_Entei,
 	[OBJ_EVENT_GFX_SUICUNE] =                  &gObjectEventGraphicsInfo_Suicune,
 	[OBJ_EVENT_GFX_CELEBI] =                   &gObjectEventGraphicsInfo_Celebi,
+	[OBJ_EVENT_GFX_LANETTE] =                  &gObjectEventGraphicsInfo_Lanette,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

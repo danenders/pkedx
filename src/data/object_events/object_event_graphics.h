@@ -172,6 +172,9 @@ const u16 gObjectEventPal_KyogreReflection[] = INCBIN_U16("graphics/object_event
 const u16 gObjectEventPal_Groudon[] = INCBIN_U16("graphics/object_events/palettes/groudon.gbapal");
 const u16 gObjectEventPal_GroudonReflection[] = INCBIN_U16("graphics/object_events/palettes/groudon_reflection.gbapal");
 
+const u32 gObjectEventPic_Lanette[] = INCBIN_U32("graphics/object_events/pics/people/lanette.4bpp");
+const u16 gObjectEventPal_Lanette[] = INCBIN_U16("graphics/object_events/palettes/lanette.gbapal");
+
 //Dolls
 const u32 gObjectEventPic_PichuDoll[] = INCBIN_U32("graphics/object_events/pics/dolls/pichu_doll.4bpp");
 const u32 gObjectEventPic_PikachuDoll[] = INCBIN_U32("graphics/object_events/pics/dolls/pikachu_doll.4bpp");
@@ -226,7 +229,6 @@ const u16 gObjectEventPal_Truck[] = INCBIN_U16("graphics/object_events/palettes/
 const u16 gObjectEventPal_Vigoroth[] = INCBIN_U16("graphics/object_events/palettes/vigoroth.gbapal");
 const u32 gObjectEventPic_BirchsBag[] = INCBIN_U32("graphics/object_events/pics/misc/birchs_bag.4bpp");
 const u32 gObjectEventPic_EnemyZigzagoon[] = INCBIN_U32("graphics/object_events/pics/pokemon/enemy_zigzagoon.4bpp");
-const u16 gObjectEventPal_Poochyena[] = INCBIN_U16("graphics/object_events/palettes/poochyena.gbapal");
 const u32 gObjectEventPic_CableCar[] = INCBIN_U32("graphics/object_events/pics/misc/cable_car.4bpp");
 const u16 gObjectEventPal_CableCar[] = INCBIN_U16("graphics/object_events/palettes/cable_car.gbapal");
 const u32 gObjectEventPic_SSTidal[] = INCBIN_U32("graphics/object_events/pics/misc/ss_tidal.4bpp");

@@ -244,10 +244,10 @@
 #define OBJ_EVENT_GFX_SUICUNE             		 234
 
 //FREE OVERWORLDS
-//#define OBJ_EVENT_PLACEHOLDER_1                235
-//#define OBJ_EVENT_PLACEHOLDER_2                236
-//#define OBJ_EVENT_PLACEHOLDER_3                237
-//#define OBJ_EVENT_PLACEHOLDER_4                238
+#define OBJ_EVENT_GFX_LANETTE	                 235
+//#define OBJ_EVENT_GFX_ETHAN                	 236
+//#define OBJ_EVENT_GFX_LYRA                	 237
+//#define OBJ_EVENT_GFX_KRIS                	 238
 
 #define NUM_OBJ_EVENT_GFX                        239 //THIS IS THE LIMIT!
 

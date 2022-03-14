@@ -178,6 +178,18 @@ static const struct SpriteFrameImage sPicTable_Girl2[] = {
     overworld_frame(gObjectEventPic_Girl2, 4, 4, 8),
 };
 
+static const struct SpriteFrameImage sPicTable_Lanette[] = {
+    overworld_frame(gObjectEventPic_Lanette, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Lanette, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Lanette, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Lanette, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Lanette, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Lanette, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Lanette, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Lanette, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Lanette, 4, 4, 8),
+};
+
 static const struct SpriteFrameImage sPicTable_LittleBoy[] = {
     overworld_frame(gObjectEventPic_LittleBoy, 4, 4, 0),
     overworld_frame(gObjectEventPic_LittleBoy, 4, 4, 1),
