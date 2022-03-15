@@ -143,54 +143,65 @@ struct
     {TRAINER_CLASS_SCHOOL_KID, TRAINER_ENCOUNTER_MUSIC_MALE},
 };
 
-static const u16 sPrizeListRareCandy1[]  = {ITEM_RARE_CANDY,       ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListLuxuryBall1[] = {ITEM_LUXURY_BALL,      ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListMaxRevive1[]  = {ITEM_MAX_REVIVE,       ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListMaxEther1[]   = {ITEM_MAX_ETHER,        ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListElixir1[]     = {ITEM_ELIXIR,           ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListRoar[]        = {ITEM_TM05_ROAR,        ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListSludgeBomb[]  = {ITEM_TM36_SLUDGE_BOMB, ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListToxic[]       = {ITEM_TM06_TOXIC,       ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListSunnyDay[]    = {ITEM_TM11_SUNNY_DAY,   ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListEarthQuake[]  = {ITEM_TM26_EARTHQUAKE,  ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+/*Filler*/
+static const u16 sPrizeListFiller1[]    = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
+static const u16 sPrizeListFiller2[]    = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
+static const u16 sPrizeListFiller3[]    = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
+static const u16 sPrizeListFiller4[]    = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
+/*Variety Mode?*/   
+static const u16 sPrizeListEVBerries1[] = {ITEM_TAMATO_BERRY,   ITEM_HONDEW_BERRY, ITEM_KELPSY_BERRY, ITEM_GREPA_BERRY, ITEM_KELPSY_BERRY, ITEM_POMEG_BERRY}; 
+/*Filler*/
+static const u16 sPrizeListFiller5[]    = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
+static const u16 sPrizeListFiller6[]    = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
+static const u16 sPrizeListFiller7[]    = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
+/*Normal Mode*/     
+static const u16 sPrizeListTreasure[]   = {ITEM_NUGGET,         ITEM_STAR_PIECE, ITEM_BIG_PEARL, ITEM_STARDUST, ITEM_PEARL, ITEM_HEART_SCALE};
+/*Filler*/
+static const u16 sPrizeListFiller8[]    = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
 
-static const u16 sPrizeListRareCandy2[]  = {ITEM_RARE_CANDY,       ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListLuxuryBall2[] = {ITEM_LUXURY_BALL,      ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListMaxRevive2[]  = {ITEM_MAX_REVIVE,       ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListMaxEther2[]   = {ITEM_MAX_ETHER,        ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListElixir2[]     = {ITEM_ELIXIR,           ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListBrickBreak[]  = {ITEM_TM31_BRICK_BREAK, ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListTorment[]     = {ITEM_TM41_TORMENT,     ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListSkillSwap[]   = {ITEM_TM48_SKILL_SWAP,  ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListGigaDrain[]   = {ITEM_TM19_GIGA_DRAIN,  ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
-static const u16 sPrizeListAttract[]     = {ITEM_TM45_ATTRACT,     ITEM_ETHER, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_FLUFFY_TAIL, ITEM_GREAT_BALL};
+/*Filler*/
+static const u16 sPrizeListFiller9[]    = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
+static const u16 sPrizeListFiller10[]   = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
+static const u16 sPrizeListFiller11[]   = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
+static const u16 sPrizeListFiller12[]   = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
+/*Variety Mode?*/
+static const u16 sPrizeListEVBerries2[] = {ITEM_TAMATO_BERRY,   ITEM_HONDEW_BERRY, ITEM_KELPSY_BERRY, ITEM_GREPA_BERRY, ITEM_KELPSY_BERRY, ITEM_POMEG_BERRY}; 
+/*Expert Mode*/     
+static const u16 sPrizeListExpert[]     = {ITEM_MASTER_BALL,    ITEM_PP_MAX, ITEM_PP_UP, ITEM_RARE_CANDY, ITEM_MAX_REVIVE, ITEM_FULL_RESTORE};
+/*Filler*/
+static const u16 sPrizeListFiller13[]   = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
+static const u16 sPrizeListFiller14[]   = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
+/*Unique Mode*/     
+static const u16 sPrizeListEvoItems[]   = {ITEM_KINGS_ROCK,     ITEM_DRAGON_SCALE, ITEM_TWISTED_SPOON, ITEM_RAZOR_FANG, ITEM_RAZOR_CLAW, ITEM_REAPER_CLOTH};     
+/*Filler*/
+static const u16 sPrizeListFiller15[]   = {ITEM_CARBOS,         ITEM_CALCIUM, ITEM_PROTEIN, ITEM_IRON, ITEM_ZINC, ITEM_HP_UP};
 
 static const u16 *const sPrizeLists1[NUM_TRAINER_HILL_PRIZE_LISTS] =
 {
-	sPrizeListRareCandy1,
-	sPrizeListLuxuryBall1,
-	sPrizeListMaxRevive1,
-	sPrizeListMaxEther1,
-	sPrizeListElixir1,
-	sPrizeListRoar,
-	sPrizeListSludgeBomb,
-	sPrizeListToxic,
-	sPrizeListSunnyDay,
-	sPrizeListEarthQuake
+    sPrizeListFiller1,
+    sPrizeListFiller2,
+    sPrizeListFiller3,
+    sPrizeListFiller4,
+    sPrizeListEVBerries1,
+    sPrizeListFiller5,
+    sPrizeListFiller6,
+    sPrizeListFiller7,
+    sPrizeListTreasure,
+    sPrizeListFiller8
 };
 
 static const u16 *const sPrizeLists2[NUM_TRAINER_HILL_PRIZE_LISTS] =
 {
-	sPrizeListRareCandy2,
-	sPrizeListLuxuryBall2,
-	sPrizeListMaxRevive2,
-	sPrizeListMaxEther2,
-	sPrizeListElixir2,
-	sPrizeListBrickBreak,
-	sPrizeListTorment,
-	sPrizeListSkillSwap,
-	sPrizeListGigaDrain,
-	sPrizeListAttract
+    sPrizeListFiller9,
+    sPrizeListFiller10,
+    sPrizeListFiller11,
+    sPrizeListFiller12,
+    sPrizeListEVBerries2,
+    sPrizeListExpert,
+    sPrizeListFiller13,
+    sPrizeListFiller14,
+    sPrizeListEvoItems,
+    sPrizeListFiller15
 };
 
 static const u16 *const *const sPrizeListSets[] =
