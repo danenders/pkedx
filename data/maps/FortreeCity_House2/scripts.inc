@@ -1,7 +1,7 @@
 FortreeCity_House2_MapScripts::
 	.byte 0
 
-FortreeCity_House2_EventScript_DazzlingBeamGiver::
+FortreeCity_House2_EventScript_TM43Giver::
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_TM43, FortreeCity_House2_EventScript_ExplainTM43
@@ -31,7 +31,7 @@ FortreeCity_House2_EventScript_Greeting::
 	setflag FLAG_MET_TM43_GIVER
 	return
 
-FortreeCity_House2_EventScript_TM43::
+FortreeCity_House2_EventScript_ExplainTM43::
 	msgbox FortreeCity_House2_Text_ExplainTM43, MSGBOX_DEFAULT
 	release
 	end
@@ -66,10 +66,10 @@ FortreeCity_House2_Text_CorrectTryAgainWhichHand2:
 	.string "The right or left?$"
 
 FortreeCity_House2_Text_ThatWasFun:
-	.string "Oh! Splendid!\n"
+	.string "Oh! Splendid!\p"
 	.string "A game does not need to be hard\n"
 	.string "to be fun.\p"
-	.string "Take this TM as a gift for$"
+	.string "Take this TM as a gift for\n"
 	.string "entertaining this old woman.$"
 
 FortreeCity_House2_Text_ExplainTM43:
@@ -81,7 +81,7 @@ FortreeCity_House2_Text_ExplainTM43:
 	.string "I hope you and your POKéMON\n"
 	.string "can have fun playing games\l"
 	.string "together, even when things\l"
-	.string "are changing…"
+	.string "are changing…$"
 
 FortreeCity_House2_Text_YouGuessedWrong:
 	.string "No, too bad.\n"

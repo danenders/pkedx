@@ -370,6 +370,10 @@ JaggedPass_EventScript_ItemBurnHeal::
 	finditem ITEM_BURN_HEAL
 	end
 
+JaggedPass_EventScript_ItemTM35::
+	finditem ITEM_TM35
+	end
+
 FieryPath_EventScript_ItemFireStone::
 	finditem ITEM_FIRE_STONE
 	end
