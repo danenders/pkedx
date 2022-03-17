@@ -690,7 +690,16 @@ u8 BattleSetup_GetTerrainId(void)
         else
             return BATTLE_TERRAIN_SAND_NIGHT;
     }
-
+    if (MetatileBehavior_IsPondEdge(tileBehavior))
+    {
+        if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+            if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                return BATTLE_TERRAIN_POND_DAY;
+            else
+                return BATTLE_TERRAIN_POND_TWILIGHT;
+        else
+            return BATTLE_TERRAIN_POND_NIGHT;
+    }
     switch (gMapHeader.mapType)
     {
     case MAP_TYPE_TOWN:
