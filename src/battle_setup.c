@@ -670,8 +670,9 @@ u8 BattleSetup_GetTerrainId(void)
         else
             return BATTLE_TERRAIN_GRASS_NIGHT;
     }
+    
     if (MetatileBehavior_IsLongGrass(tileBehavior))
-   {
+    {
         if (gTimeOfDay != TIME_OF_DAY_NIGHT)
             if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
                 return BATTLE_TERRAIN_LONG_GRASS_DAY;
@@ -680,6 +681,7 @@ u8 BattleSetup_GetTerrainId(void)
         else
             return BATTLE_TERRAIN_LONG_GRASS_NIGHT;
     }
+    
     if (MetatileBehavior_IsSandOrDeepSand(tileBehavior))
     {
         if (gTimeOfDay != TIME_OF_DAY_NIGHT)
@@ -690,6 +692,7 @@ u8 BattleSetup_GetTerrainId(void)
         else
             return BATTLE_TERRAIN_SAND_NIGHT;
     }
+    
     if (MetatileBehavior_IsPondEdge(tileBehavior))
     {
         if (gTimeOfDay != TIME_OF_DAY_NIGHT)
@@ -699,6 +702,28 @@ u8 BattleSetup_GetTerrainId(void)
                 return BATTLE_TERRAIN_POND_TWILIGHT;
         else
             return BATTLE_TERRAIN_POND_NIGHT;
+    }
+
+    /*if (MetatileBehavior_IsBeach(tileBehavior))
+    {
+        if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+            if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                return BATTLE_TERRAIN_BEACH_DAY;
+            else
+                return BATTLE_TERRAIN_BEACH_TWILIGHT;
+        else
+            return BATTLE_TERRAIN_BEACH_NIGHT;
+    }*/
+
+    if ((MetatileBehavior_IsShallowFlowingWater(tileBehavior)) | (MetatileBehavior_IsBeach(tileBehavior)))
+    {
+        if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+            if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                return BATTLE_TERRAIN_BEACH_DAY;
+            else
+                return BATTLE_TERRAIN_BEACH_TWILIGHT;
+        else
+            return BATTLE_TERRAIN_BEACH_NIGHT;
     }
     switch (gMapHeader.mapType)
     {

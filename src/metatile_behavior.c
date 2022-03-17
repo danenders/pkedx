@@ -127,6 +127,7 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_VERTICAL_RAIL]                   = TILE_FLAG_UNUSED,
     [MB_HORIZONTAL_RAIL]                 = TILE_FLAG_UNUSED,
     [MB_POND_EDGE]                       = TILE_FLAG_UNUSED,
+    [MB_BEACH]                           = TILE_FLAG_UNUSED,
 };
 
 bool8 MetatileBehavior_IsATile(u8 metatileBehavior)
@@ -1406,6 +1407,14 @@ bool8 MetatileBehavior_IsTrainerHillTimer(u8 metatileBehavior)
 bool8 MetatileBehavior_IsPondEdge(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_POND_EDGE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsBeach(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_BEACH)
         return TRUE;
     else
         return FALSE;
