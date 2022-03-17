@@ -704,17 +704,6 @@ u8 BattleSetup_GetTerrainId(void)
             return BATTLE_TERRAIN_POND_NIGHT;
     }
 
-    /*if (MetatileBehavior_IsBeach(tileBehavior))
-    {
-        if (gTimeOfDay != TIME_OF_DAY_NIGHT)
-            if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
-                return BATTLE_TERRAIN_BEACH_DAY;
-            else
-                return BATTLE_TERRAIN_BEACH_TWILIGHT;
-        else
-            return BATTLE_TERRAIN_BEACH_NIGHT;
-    }*/
-
     if ((MetatileBehavior_IsShallowFlowingWater(tileBehavior)) | (MetatileBehavior_IsBeach(tileBehavior)))
     {
         if (gTimeOfDay != TIME_OF_DAY_NIGHT)
@@ -879,7 +868,7 @@ u8 BattleSetup_GetTerrainId(void)
         else
             return BATTLE_TERRAIN_LONG_GRASS_NIGHT;
     }
-//Plain
+    //Plain
     if (gTimeOfDay != TIME_OF_DAY_NIGHT)
         if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
             return BATTLE_TERRAIN_GRASS_DAY;
