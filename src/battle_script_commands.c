@@ -778,6 +778,7 @@ static const u16 sNaturePowerMoves[] =
     [BATTLE_TERRAIN_MOUNTAIN_NIGHT]      = MOVE_ROCK_SLIDE,
     [BATTLE_TERRAIN_CAVE]                = MOVE_SHADOW_BALL,
     [BATTLE_TERRAIN_CAVE_WATER]          = MOVE_SHADOW_BALL,
+    [BATTLE_TERRAIN_ICE_CAVE]            = MOVE_ICE_BEAM,
     [BATTLE_TERRAIN_BUILDING_DAY]        = MOVE_SWIFT,
     [BATTLE_TERRAIN_BUILDING_TWILIGHT]   = MOVE_SWIFT,
     [BATTLE_TERRAIN_BUILDING_NIGHT]      = MOVE_SWIFT,
@@ -868,6 +869,7 @@ static const u8 sTerrainToType[] =
     [BATTLE_TERRAIN_MOUNTAIN_TWILIGHT]   = TYPE_ROCK,
     [BATTLE_TERRAIN_MOUNTAIN_NIGHT]      = TYPE_ROCK,
     [BATTLE_TERRAIN_CAVE]                = TYPE_ROCK,
+    [BATTLE_TERRAIN_ICE_CAVE]            = TYPE_ICE,
     [BATTLE_TERRAIN_CAVE_WATER]          = TYPE_WATER,
     [BATTLE_TERRAIN_BUILDING_DAY]        = TYPE_NORMAL,
     [BATTLE_TERRAIN_BUILDING_TWILIGHT]   = TYPE_NORMAL,
@@ -9598,6 +9600,9 @@ static void Cmd_getsecretpowereffect(void)
         gBattleCommunication[MOVE_EFFECT_BYTE] = MOVE_EFFECT_CONFUSION;
         break;
     case BATTLE_TERRAIN_CAVE:
+        gBattleCommunication[MOVE_EFFECT_BYTE] = MOVE_EFFECT_FLINCH;
+        break;
+    case BATTLE_TERRAIN_ICE_CAVE:
         gBattleCommunication[MOVE_EFFECT_BYTE] = MOVE_EFFECT_FLINCH;
         break;
     case BATTLE_TERRAIN_CAVE_WATER:

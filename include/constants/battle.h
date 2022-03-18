@@ -324,7 +324,8 @@
 #define BATTLE_TERRAIN_CHIMNEY_DAY           30
 #define BATTLE_TERRAIN_CHIMNEY_TWILIGHT      31
 #define BATTLE_TERRAIN_CHIMNEY_NIGHT         32
-#define BATTLE_TERRAIN_PLAIN                 33
+#define BATTLE_TERRAIN_ICE_CAVE              33
+#define BATTLE_TERRAIN_PLAIN                 34
 
 #define B_WAIT_TIME_LONG  64
 #define B_WAIT_TIME_MED   48

@@ -872,6 +872,15 @@ static const struct BattleBackground sBattleTerrainTable[] =
         .palette = gBattleTerrainPalette_CaveWater,
     },
 
+    [BATTLE_TERRAIN_ICE_CAVE] =
+    {
+        .tileset = gBattleTerrainTiles_IceCave,
+        .tilemap = gBattleTerrainTilemap_IceCave,
+        .entryTileset = gBattleTerrainAnimTiles_Cave,
+        .entryTilemap = gBattleTerrainAnimTilemap_Cave,
+        .palette = gBattleTerrainPalette_IceCave,
+    },
+
     [BATTLE_TERRAIN_BUILDING_DAY] =
     {
         .tileset = gBattleTerrainTiles_Building,

@@ -102,13 +102,16 @@ const u32 gBattleTerrainTiles_ChimneyNight[] = INCBIN_U32("graphics/battle_terra
 const u32 gBattleTerrainPalette_ChimneyNight[] = INCBIN_U32("graphics/battle_terrain/mountain/chimney_night.gbapal.lz");
 const u32 gBattleTerrainTilemap_ChimneyNight[] = INCBIN_U32("graphics/battle_terrain/mountain/chimney_night.bin.lz");
 
-//Cave (Land and Water)
+//Cave (Land, Water, and Ice)
 const u32 gBattleTerrainTiles_Cave[] = INCBIN_U32("graphics/battle_terrain/cave/tiles.4bpp.lz");
 const u32 gBattleTerrainPalette_Cave[] = INCBIN_U32("graphics/battle_terrain/cave/palette.gbapal.lz");
 const u32 gBattleTerrainTilemap_Cave[] = INCBIN_U32("graphics/battle_terrain/cave/map.bin.lz");
 const u32 gBattleTerrainTiles_CaveWater[] = INCBIN_U32("graphics/battle_terrain/cave/tiles_water.4bpp.lz");
 const u32 gBattleTerrainPalette_CaveWater[] = INCBIN_U32("graphics/battle_terrain/cave/palette_water.gbapal.lz");
 const u32 gBattleTerrainTilemap_CaveWater[] = INCBIN_U32("graphics/battle_terrain/cave/map_water.bin.lz");
+const u32 gBattleTerrainTiles_IceCave[] = INCBIN_U32("graphics/battle_terrain/cave/tiles_ice.4bpp.lz");
+const u32 gBattleTerrainPalette_IceCave[] = INCBIN_U32("graphics/battle_terrain/cave/palette_ice.gbapal.lz");
+const u32 gBattleTerrainTilemap_IceCave[] = INCBIN_U32("graphics/battle_terrain/cave/map_ice.bin.lz");
 
 //Plain
 const u32 gBattleTerrainPalette_Plain[] = INCBIN_U32("graphics/battle_terrain/plain/palette.gbapal.lz");

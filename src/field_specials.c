@@ -2895,7 +2895,8 @@ static void HideFrontierExchangeCornerItemIcon(u16 menu, u16 unused)
         {
         case SCROLL_MULTI_BF_EXCHANGE_CORNER_VITAMIN_VENDOR:
         case SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR:
-            DestroySpriteAndFreeResources(&gSprites[sScrollableMultichoice_ItemSpriteId]);
+            //DestroySpriteAndFreeResources(&gSprites[sScrollableMultichoice_ItemSpriteId]); //Original code
+            FieldEffectFreeGraphicsResources(&gSprites[sScrollableMultichoice_ItemSpriteId]); //Merrp's fix for Decor Vendors
             break;
         }
         sScrollableMultichoice_ItemSpriteId = MAX_SPRITES;

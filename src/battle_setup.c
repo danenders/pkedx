@@ -733,6 +733,8 @@ u8 BattleSetup_GetTerrainId(void)
             }
         if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
             return BATTLE_TERRAIN_CAVE_WATER;
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SHOAL_CAVE_LOW_TIDE_ICE_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(SHOAL_CAVE_LOW_TIDE_ICE_ROOM))
+            return BATTLE_TERRAIN_ICE_CAVE;
         return BATTLE_TERRAIN_CAVE;
     case MAP_TYPE_INDOOR:
     case MAP_TYPE_SECRET_BASE:

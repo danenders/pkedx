@@ -3433,6 +3433,10 @@ extern const u32 gBattleTerrainPalette_Cave[];
 extern const u32 gBattleTerrainTiles_CaveWater[];
 extern const u32 gBattleTerrainTilemap_CaveWater[];
 extern const u32 gBattleTerrainPalette_CaveWater[];
+extern const u32 gBattleTerrainTiles_IceCave[];
+extern const u32 gBattleTerrainTilemap_IceCave[];
+extern const u32 gBattleTerrainPalette_IceCave[];
+
 
 extern const u32 gBattleTerrainTiles_Rayquaza[];
 extern const u32 gBattleTerrainTilemap_Rayquaza[];
