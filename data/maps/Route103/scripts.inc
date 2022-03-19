@@ -1,4 +1,5 @@
 .set LOCALID_RIVAL, 2
+.set LOCALID_LEAF, 21
 
 Route103_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route103_OnTransition
@@ -52,11 +53,17 @@ Route103_OnResume_Night:
 
 Route103_OnLoad:
 	call_if_set FLAG_SYS_GAME_CLEAR, Route103_EventScript_OpenAlteringCave
+	call_if_set FLAG_LEAF_OUTSIDE_AC, Route103_EventScript_HideLeaf
+	end
+
+Route103_EventScript_HideLeaf::
+	removeobject LOCALID_LEAF
 	end
 
 Route103_EventScript_OpenAlteringCave::
 	setmetatile 45, 5, METATILE_General_CaveEntrance_Top, TRUE
 	setmetatile 45, 6, METATILE_General_CaveEntrance_Bottom, FALSE
+	setflag FLAG_LEAF_OUTSIDE_AC
 	return
 
 Route103_EventScript_Rival::
@@ -393,3 +400,83 @@ Route103_Text_RouteSign:
 	.string "ROUTE 103\n"
 	.string "{DOWN_ARROW} OLDALE TOWN$"
 
+Route103_EventScript_LeafOutsideAC::
+	lock
+	goto_if_unset FLAG_LEAF_OUTSIDE_AC, Route103_EventScript_LeafsMission
+	msgbox Route103_Text_StillSearching, MSGBOX_DEFAULT
+	release
+	end
+	
+Route103_EventScript_LeafsMission::	
+	setflag FLAG_LEAF_OUTSIDE_AC
+	playbgm MUS_RG_SEVII_ROUTE, TRUE
+	msgbox Route103_Text_TheTrailEndsHere, MSGBOX_DEFAULT
+	applymovement LOCALID_LEAF, Common_Movement_ExclamationMark
+	faceplayer
+	msgbox Route103_Text_MeetLeaf, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, TRUE, Route103_EventScript_FellowTrainer
+	goto_if_eq VAR_RESULT, FALSE, Route103_EventScript_NotATrainer 
+	end
+
+Route103_Text_TheTrailEndsHere:
+	.string "????: Hmm...that's strange...\p"
+	.string "The trail seems to end here...$"
+
+Route103_Text_MeetLeaf:
+	.string "????: OH! You startled me.\p"
+	.string "I was so focused on my\n"
+	.string "POKéDEX that I didn't hear\l"
+	.string "you approach.\p"
+	.string "My name is LEAF.\p"
+	.string "Are you also a POKéMON trainer?$"
+
+Route103_EventScript_NotATrainer::
+	msgbox Route103_Text_NotATrainer, MSGBOX_DEFAULT
+	goto Route103_EventScript_LeafMission
+	end
+
+Route103_Text_NotATrainer:
+	.string "LEAF: Interesting...\p"
+	.string "I'm not usually wrong about\n"
+	.string "these sort of things.$"
+
+Route103_EventScript_FellowTrainer::
+	msgbox Route103_Text_FellowTrainer, MSGBOX_DEFAULT
+	goto Route103_EventScript_LeafMission
+	end
+
+Route103_Text_FellowTrainer:
+	.string "LEAF: I had a feeling!\p"
+	.string "I'm not usually wrong about\n"
+	.string "these sort of things.$"
+
+Route103_EventScript_LeafMission::
+	msgbox Route103_Text_MyMission, MSGBOX_DEFAULT
+	playbgm MUS_ROUTE101, TRUE
+	release
+	end
+
+Route103_Text_MyMission:
+	.string "LEAF: I've come all the way\n"
+	.string "to HOENN from KANTO to assist\l"
+	.string "PROFESSOR OAK in finding rare\l"
+	.string "POKéMON!\p"
+	.string "Recently, I picked up these strange\n"
+	.string "readings on my POKéNAV!\p"
+	.string "It surely must be the trail of a\n"
+	.string "powerful POKéMON, {PLAYER}!\p"
+	.string "I've made it my mission to find\n"
+	.string "this POKéMON first!$"
+
+Route103_EventScript_StillSearching::
+	faceplayer
+	msgbox Route103_Text_StillSearching, MSGBOX_DEFAULT
+	release
+	end
+
+Route103_Text_StillSearching:
+	.string "LEAF: I'm going to find this\n"
+	.string "POKéMON first, {PLAYER}!\p"
+	.string "Just need to pick up its\n"
+	.string "trail again...$"
+	
