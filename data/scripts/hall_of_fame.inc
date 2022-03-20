@@ -39,6 +39,7 @@ EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries::
 	clearflag FLAG_DEFEATED_ENTEI
 	clearflag FLAG_DEFEATED_SUICUNE
 	clearflag FLAG_DEFEATED_CELEBI
+	clearflag FLAG_DEFEATED_JIRACHI
 	return
 
 EverGrandeCity_HallOfFame_EventScript_SetDesertUnderpassCommentReady::

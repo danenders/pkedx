@@ -296,7 +296,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route103_EventScript_LeafOutsideAC",
-      "flag": "FLAG_LEAF_OUTSIDE_AC"
+      "flag": "FLAG_HIDE_LEAF_OUTSIDE_AC"
     }
   ],
   "warp_events": [

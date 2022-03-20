@@ -11941,6 +11941,20 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMoves = sParty_Leaf},
     },
 
+    [TRAINER_BLUE] =
+    {
+        .partyFlags = F_TRAINER_PARTY_HELD_ITEM | F_TRAINER_PARTY_CUSTOM_MOVESET,
+        .trainerClass = TRAINER_CLASS_RIVAL,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
+        .trainerPic = TRAINER_PIC_BLUE,
+        .trainerName = _("BLUE"),
+        .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_MAX_POTION, ITEM_X_DEFEND},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_CHECK_BAD_MOVE,
+        .partySize = ARRAY_COUNT(sParty_Blue),
+        .party = {.ItemCustomMoves = sParty_Blue},
+    },
+
     [TRAINER_BRENDAN_PLACEHOLDER] =
     {
         .partyFlags = 0,

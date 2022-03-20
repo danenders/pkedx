@@ -230,24 +230,25 @@
 #define OBJ_EVENT_GFX_LINK_RS_MAY                222
 #define OBJ_EVENT_GFX_LUGIA                      223
 #define OBJ_EVENT_GFX_HOOH                       224
-#define OBJ_EVENT_GFX_ANIMATED_BALL              225
-#define OBJ_EVENT_GFX_OW_MON                     226
+#define OBJ_EVENT_GFX_OW_MON                     225
+#define	OBJ_EVENT_GFX_ANIMATED_BALL				 OBJ_EVENT_GFX_ITEM_BALL
 
 //NEW LEGENDARIES
-#define OBJ_EVENT_GFX_ARTICUNO	             	 227
-#define OBJ_EVENT_GFX_ZAPDOS	                 228
-#define OBJ_EVENT_GFX_MOLTRES             	 	 229
-#define OBJ_EVENT_GFX_MEWTWO              		 230
-#define OBJ_EVENT_GFX_JIRACHI              	     231
-#define OBJ_EVENT_GFX_RAIKOU              	 	 232
-#define OBJ_EVENT_GFX_ENTEI                	 	 233
-#define OBJ_EVENT_GFX_SUICUNE             		 234
+#define OBJ_EVENT_GFX_ARTICUNO	             	 226
+#define OBJ_EVENT_GFX_ZAPDOS	                 227
+#define OBJ_EVENT_GFX_MOLTRES             	 	 228
+#define OBJ_EVENT_GFX_MEWTWO              		 229
+#define OBJ_EVENT_GFX_JIRACHI              	     230
+#define OBJ_EVENT_GFX_RAIKOU              	 	 231
+#define OBJ_EVENT_GFX_ENTEI                	 	 232
+#define OBJ_EVENT_GFX_SUICUNE             		 233
 
 //FREE OVERWORLDS
+#define	OBJ_EVENT_GFX_BLUE 						 234
 #define OBJ_EVENT_GFX_LANETTE	                 235
-//#define OBJ_EVENT_GFX_ETHAN                	 236
-//#define OBJ_EVENT_GFX_LYRA                	 237
-//#define OBJ_EVENT_GFX_KRIS                	 238
+#define OBJ_EVENT_GFX_ETHAN                	 	 236
+#define OBJ_EVENT_GFX_LYRA                	 	 237
+#define OBJ_EVENT_GFX_KRIS                	 	 238
 
 #define NUM_OBJ_EVENT_GFX                        239 //THIS IS THE LIMIT!
 

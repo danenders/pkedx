@@ -453,8 +453,8 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_BIRTH_ISLAND_STONE      0x111F
 #define OBJ_EVENT_PAL_TAG_HO_OH_LUGIA             0x1120
 #define OBJ_EVENT_PAL_TAG_CELEBI                  0x1121
-#define OBJ_EVENT_PAL_TAG_RS_BRENDAN              0x1122
-#define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
+#define OBJ_EVENT_PAL_TAG_ETHAN_LYRA              0x1122
+#define OBJ_EVENT_PAL_TAG_KRIS                    0x1123
 #define OBJ_EVENT_PAL_TAG_DYNAMIC                 0x1124
 #define OBJ_EVENT_PAL_TAG_LIGHT                   0x8001
 #define OBJ_EVENT_PAL_TAG_EMOTES                  0x8002
@@ -470,41 +470,41 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #include "data/object_events/object_event_graphics_info_followers.h"
 
 static const struct SpritePalette sObjectEventSpritePalettes[] = {
-    {gObjectEventPal_Npc1,                  OBJ_EVENT_PAL_TAG_NPC_1},
-    {gObjectEventPal_Npc2,                  OBJ_EVENT_PAL_TAG_NPC_2},
-    {gObjectEventPal_Npc3,                  OBJ_EVENT_PAL_TAG_NPC_3},
-    {gObjectEventPal_Npc4,                  OBJ_EVENT_PAL_TAG_NPC_4},
-    {gObjectEventPal_Npc1Reflection,        OBJ_EVENT_PAL_TAG_NPC_1_REFLECTION},
-    {gObjectEventPal_Npc2Reflection,        OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION},
-    {gObjectEventPal_Npc3Reflection,        OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION},
-    {gObjectEventPal_Npc4Reflection,        OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION},
-    {gObjectEventPal_Brendan,               OBJ_EVENT_PAL_TAG_BRENDAN},
-    {gObjectEventPal_BrendanReflection,     OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION},
-    {gObjectEventPal_BridgeReflection,      OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION},
-    {gObjectEventPal_PlayerUnderwater,      OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER},
-    {gObjectEventPal_QuintyPlump,           OBJ_EVENT_PAL_TAG_QUINTY_PLUMP},
-    {gObjectEventPal_QuintyPlumpReflection, OBJ_EVENT_PAL_TAG_QUINTY_PLUMP_REFLECTION},
-    {gObjectEventPal_Truck,                 OBJ_EVENT_PAL_TAG_TRUCK},
-    {gObjectEventPal_Vigoroth,              OBJ_EVENT_PAL_TAG_VIGOROTH},
-    {gObjectEventPal_LegendaryBeasts,       OBJ_EVENT_PAL_TAG_LEGENDARY_BEASTS},
-    {gObjectEventPal_May,                   OBJ_EVENT_PAL_TAG_MAY},
-    {gObjectEventPal_MayReflection,         OBJ_EVENT_PAL_TAG_MAY_REFLECTION},
-    {gObjectEventPal_MovingBox,             OBJ_EVENT_PAL_TAG_MOVING_BOX},
-    {gObjectEventPal_CableCar,              OBJ_EVENT_PAL_TAG_CABLE_CAR},
-    {gObjectEventPal_SSTidal,               OBJ_EVENT_PAL_TAG_SSTIDAL},
-    {gObjectEventPal_Kyogre,                OBJ_EVENT_PAL_TAG_KYOGRE},
-    {gObjectEventPal_KyogreReflection,      OBJ_EVENT_PAL_TAG_KYOGRE_REFLECTION},
-    {gObjectEventPal_Groudon,               OBJ_EVENT_PAL_TAG_GROUDON},
-    {gObjectEventPal_GroudonReflection,     OBJ_EVENT_PAL_TAG_GROUDON_REFLECTION},
-    {gObjectEventPal_SubmarineShadow,       OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW},
-    {gObjectEventPal_Lanette,               OBJ_EVENT_PAL_TAG_LANETTE},
-    {gObjectEventPal_RedLeaf,               OBJ_EVENT_PAL_TAG_RED_LEAF},
-    {gObjectEventPal_Deoxys,                OBJ_EVENT_PAL_TAG_DEOXYS},
-    {gObjectEventPal_BirthIslandStone,      OBJ_EVENT_PAL_TAG_BIRTH_ISLAND_STONE},
-    {gObjectEventPal_HoOhLugia,             OBJ_EVENT_PAL_TAG_HO_OH_LUGIA},
-    {gObjectEventPal_Celebi,                OBJ_EVENT_PAL_TAG_CELEBI},
-    {gObjectEventPal_RubySapphireBrendan,   OBJ_EVENT_PAL_TAG_RS_BRENDAN},
-    {gObjectEventPal_RubySapphireMay,       OBJ_EVENT_PAL_TAG_RS_MAY},
+    {gObjectEventPal_Npc1,                      OBJ_EVENT_PAL_TAG_NPC_1},
+    {gObjectEventPal_Npc2,                      OBJ_EVENT_PAL_TAG_NPC_2},
+    {gObjectEventPal_Npc3,                      OBJ_EVENT_PAL_TAG_NPC_3},
+    {gObjectEventPal_Npc4,                      OBJ_EVENT_PAL_TAG_NPC_4},
+    {gObjectEventPal_Npc1Reflection,            OBJ_EVENT_PAL_TAG_NPC_1_REFLECTION},
+    {gObjectEventPal_Npc2Reflection,            OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION},
+    {gObjectEventPal_Npc3Reflection,            OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION},
+    {gObjectEventPal_Npc4Reflection,            OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION},
+    {gObjectEventPal_Brendan,                   OBJ_EVENT_PAL_TAG_BRENDAN},
+    {gObjectEventPal_BrendanReflection,         OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION},
+    {gObjectEventPal_BridgeReflection,          OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION},
+    {gObjectEventPal_PlayerUnderwater,          OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER},
+    {gObjectEventPal_QuintyPlump,               OBJ_EVENT_PAL_TAG_QUINTY_PLUMP},
+    {gObjectEventPal_QuintyPlumpReflection,     OBJ_EVENT_PAL_TAG_QUINTY_PLUMP_REFLECTION},
+    {gObjectEventPal_Truck,                     OBJ_EVENT_PAL_TAG_TRUCK},
+    {gObjectEventPal_Vigoroth,                  OBJ_EVENT_PAL_TAG_VIGOROTH},
+    {gObjectEventPal_LegendaryBeasts,           OBJ_EVENT_PAL_TAG_LEGENDARY_BEASTS},
+    {gObjectEventPal_May,                       OBJ_EVENT_PAL_TAG_MAY},
+    {gObjectEventPal_MayReflection,             OBJ_EVENT_PAL_TAG_MAY_REFLECTION},
+    {gObjectEventPal_MovingBox,                 OBJ_EVENT_PAL_TAG_MOVING_BOX},
+    {gObjectEventPal_CableCar,                  OBJ_EVENT_PAL_TAG_CABLE_CAR},
+    {gObjectEventPal_SSTidal,                   OBJ_EVENT_PAL_TAG_SSTIDAL},
+    {gObjectEventPal_Kyogre,                    OBJ_EVENT_PAL_TAG_KYOGRE},
+    {gObjectEventPal_KyogreReflection,          OBJ_EVENT_PAL_TAG_KYOGRE_REFLECTION},
+    {gObjectEventPal_Groudon,                   OBJ_EVENT_PAL_TAG_GROUDON},
+    {gObjectEventPal_GroudonReflection,         OBJ_EVENT_PAL_TAG_GROUDON_REFLECTION},
+    {gObjectEventPal_SubmarineShadow,           OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW},
+    {gObjectEventPal_Lanette,                   OBJ_EVENT_PAL_TAG_LANETTE},
+    {gObjectEventPal_RedLeaf,                   OBJ_EVENT_PAL_TAG_RED_LEAF},
+    {gObjectEventPal_Deoxys,                    OBJ_EVENT_PAL_TAG_DEOXYS},
+    {gObjectEventPal_BirthIslandStone,          OBJ_EVENT_PAL_TAG_BIRTH_ISLAND_STONE},
+    {gObjectEventPal_HoOhLugia,                 OBJ_EVENT_PAL_TAG_HO_OH_LUGIA},
+    {gObjectEventPal_Celebi,                    OBJ_EVENT_PAL_TAG_CELEBI},
+    {gObjectEventPal_EthanLyra,                 OBJ_EVENT_PAL_TAG_ETHAN_LYRA},
+    {gObjectEventPal_Kris,                      OBJ_EVENT_PAL_TAG_KRIS},
     {gObjectEventPal_Npc1, OBJ_EVENT_PAL_TAG_DYNAMIC},
     {gObjectEventPaletteLight, OBJ_EVENT_PAL_TAG_LIGHT},
     {gObjectEventPaletteEmotes, OBJ_EVENT_PAL_TAG_EMOTES},
@@ -6466,6 +6466,7 @@ bool8 MovementAction_ExitPokeball_Step0(struct ObjectEvent *objectEvent, struct 
     }
     sprite->data[6] |= (direction == DIR_EAST ? 1 : 0) << 4;
     ObjectEventSetGraphicsId(objectEvent, OBJ_EVENT_GFX_ANIMATED_BALL);
+    objectEvent->inanimate = FALSE;
     return MovementAction_ExitPokeball_Step1(objectEvent, sprite);
 }
 
@@ -6566,6 +6567,7 @@ bool8 MovementAction_EnterPokeball_Step1(struct ObjectEvent *objectEvent, struct
       FreeSpriteOamMatrix(sprite);
       sprite->oam.affineMode = ST_OAM_AFFINE_OFF;
       ObjectEventSetGraphicsId(objectEvent, OBJ_EVENT_GFX_ANIMATED_BALL);
+      objectEvent->inanimate = FALSE;
     }
     return FALSE;
 }

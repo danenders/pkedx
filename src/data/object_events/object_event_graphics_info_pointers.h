@@ -224,6 +224,10 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lugia;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HoOh;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lanette;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Blue;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ethan;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lyra;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kris;
 
 // Begin pokemon event objects
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AnimatedBall;
@@ -309,7 +313,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M] =     &gObjectEventGraphicsInfo_CyclingTriathleteM,
     [OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F] =     &gObjectEventGraphicsInfo_CyclingTriathleteF,
     [OBJ_EVENT_GFX_NURSE] =                    &gObjectEventGraphicsInfo_Nurse,
-    [OBJ_EVENT_GFX_ITEM_BALL] =                &gObjectEventGraphicsInfo_ItemBall,
+    //[OBJ_EVENT_GFX_ITEM_BALL] =                &gObjectEventGraphicsInfo_AnimatedBall,
     [OBJ_EVENT_GFX_BERRY_TREE] =               &gObjectEventGraphicsInfo_BerryTree,
     [OBJ_EVENT_GFX_BERRY_TREE_EARLY_STAGES] =  &gObjectEventGraphicsInfo_BerryTreeEarlyStages,
     [OBJ_EVENT_GFX_BERRY_TREE_LATE_STAGES] =   &gObjectEventGraphicsInfo_BerryTreeLateStages,
@@ -470,8 +474,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DEOXYS] =                   &gObjectEventGraphicsInfo_Deoxys,
     [OBJ_EVENT_GFX_DEOXYS_TRIANGLE] =          &gObjectEventGraphicsInfo_BirthIslandStone,
     [OBJ_EVENT_GFX_BRANDON] =                  &gObjectEventGraphicsInfo_Brandon,
-    [OBJ_EVENT_GFX_LINK_RS_BRENDAN] =          &gObjectEventGraphicsInfo_RubySapphireBrendan,
-    [OBJ_EVENT_GFX_LINK_RS_MAY] =              &gObjectEventGraphicsInfo_RubySapphireMay,
+    [OBJ_EVENT_GFX_LINK_RS_BRENDAN] =          &gObjectEventGraphicsInfo_LinkBrendan,
+    [OBJ_EVENT_GFX_LINK_RS_MAY] =              &gObjectEventGraphicsInfo_LinkMay,
     [OBJ_EVENT_GFX_LUGIA] =                    &gObjectEventGraphicsInfo_Lugia,
     [OBJ_EVENT_GFX_HOOH] =                     &gObjectEventGraphicsInfo_HoOh,
     [OBJ_EVENT_GFX_ANIMATED_BALL] =            &gObjectEventGraphicsInfo_AnimatedBall,
@@ -486,6 +490,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 	[OBJ_EVENT_GFX_SUICUNE] =                  &gObjectEventGraphicsInfo_Suicune,
 	[OBJ_EVENT_GFX_CELEBI] =                   &gObjectEventGraphicsInfo_Celebi,
 	[OBJ_EVENT_GFX_LANETTE] =                  &gObjectEventGraphicsInfo_Lanette,
+	[OBJ_EVENT_GFX_BLUE] =                     &gObjectEventGraphicsInfo_Blue,
+	[OBJ_EVENT_GFX_ETHAN] =                    &gObjectEventGraphicsInfo_Ethan,
+	[OBJ_EVENT_GFX_KRIS] =                     &gObjectEventGraphicsInfo_Kris,
+	[OBJ_EVENT_GFX_LYRA] =                     &gObjectEventGraphicsInfo_Lyra,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

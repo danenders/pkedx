@@ -44,7 +44,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "AlteringCave_EventScript_Leaf",
-      "flag": "FLAG_LEAF_INSIDE_AC"
+      "flag": "FLAG_HIDE_LEAF_INSIDE_AC"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",

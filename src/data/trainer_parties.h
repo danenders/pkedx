@@ -12456,6 +12456,51 @@ static const struct TrainerMonItemCustomMoves sParty_Leaf[] = {
     },
 };
 
+static const struct TrainerMonItemCustomMoves sParty_Blue[] = {
+    {
+    .iv = 200,
+    .lvl = 70,
+    .species = SPECIES_ALAKAZAM,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_SHADOW_BALL, MOVE_RECOVER}
+    },
+    {
+    .iv = 200,
+    .lvl = 70,
+    .species = SPECIES_AERODACTYL,
+    .heldItem = ITEM_CHOICE_BAND,
+    .moves = {MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_DOUBLE_EDGE, MOVE_DRAGON_CLAW}
+    },
+    {
+    .iv = 200,
+    .lvl = 70,
+    .species = SPECIES_ARCANINE,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_FIRE_BLAST, MOVE_EXTREME_SPEED, MOVE_CRUNCH, MOVE_ROAR}
+    },
+    {
+    .iv = 200,
+    .lvl = 70,
+    .species = SPECIES_GYARADOS,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_WATERFALL, MOVE_EARTHQUAKE, MOVE_DRAGON_DANCE, MOVE_THUNDER_WAVE}
+    },
+    {
+    .iv = 200,
+    .lvl = 70,
+    .species = SPECIES_MACHAMP,
+    .heldItem = ITEM_BLACK_BELT,
+    .moves = {MOVE_BULK_UP, MOVE_CROSS_CHOP, MOVE_THUNDER_PUNCH, MOVE_FIRE_PUNCH}
+    },
+    {
+    .iv = 255,
+    .lvl = 75,
+    .species = SPECIES_BLASTOISE,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_PROTECT, MOVE_HAZE}
+    },
+};
+
 static const struct TrainerMonNoItemDefaultMoves sParty_BrendanLinkPlaceholder[] = {
     {
     .iv = 0,

@@ -15,19 +15,6 @@
   "connections": 0,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
-      "x": 9,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Aide",
-      "flag": "0"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
       "x": 6,
       "y": 4,
@@ -54,46 +41,7 @@
       "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 6,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Cyndaquil",
-      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CYNDAQUIL"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 6,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Totodile",
-      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_TOTODILE"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 6,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Chikorita",
-      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CHIKORITA"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
+      "graphics_id": "OBJ_EVENT_GFX_LEAF",
       "x": 2,
       "y": 10,
       "elevation": 3,
@@ -102,7 +50,33 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Aide2",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_LEAF_INSIDE_LAB"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BLUE",
+      "x": 6,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_BLUE_INSIDE_LAB"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
+      "x": 9,
+      "y": 9,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Aide",
       "flag": "0"
     }
   ],
@@ -123,42 +97,7 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 12,
-      "elevation": 3,
-      "var": "VAR_BIRCH_LAB_STATE",
-      "var_value": "5",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_GetNationalDexTrigger1"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 11,
-      "elevation": 3,
-      "var": "VAR_BIRCH_LAB_STATE",
-      "var_value": "5",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_GetNationalDexTrigger2"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 11,
-      "elevation": 3,
-      "var": "VAR_BIRCH_LAB_STATE",
-      "var_value": "5",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_GetNationalDexTrigger3"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 12,
-      "elevation": 3,
-      "var": "VAR_BIRCH_LAB_STATE",
-      "var_value": "5",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_GetNationalDexTrigger4"
-    }
+
   ],
   "bg_events": [
     {
@@ -167,7 +106,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Aide2"
+      "script": "NULL"
     },
     {
       "type": "sign",

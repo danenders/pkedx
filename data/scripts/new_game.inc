@@ -276,6 +276,8 @@ EventScript_ResetAllMapFlags::
 	@New
 	setflag FLAG_POSTGAME_CAPTSTERN
 	setflag FLAG_POSTGAME_STEVEN
+	setflag FLAG_HIDE_LEAF_INSIDE_LAB
+	setflag FLAG_HIDE_BLUE_INSIDE_LAB
 
 	call EventScript_ResetAllBerries
 	end

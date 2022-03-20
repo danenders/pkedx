@@ -2517,9 +2517,9 @@ void LoadLinkContestPlayerPalettes(void)
             if (version == VERSION_RUBY || version == VERSION_SAPPHIRE)
             {
                 if (gLinkPlayers[i].gender == MALE)
-                    LoadPalette(gObjectEventPal_RubySapphireBrendan, 0x160 + i * 0x10, 0x20);
+                    LoadPalette(gObjectEventPal_Brendan, 0x160 + i * 0x10, 0x20);
                 else
-                    LoadPalette(gObjectEventPal_RubySapphireMay, 0x160 + i * 0x10, 0x20);
+                    LoadPalette(gObjectEventPal_May, 0x160 + i * 0x10, 0x20);
             }
             else
             {

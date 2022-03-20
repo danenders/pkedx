@@ -621,11 +621,11 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
             ScriptContext1_SetupScript(Route119_EventScript_ScottWonAtFortreeGymCall);
             return TRUE;
         }
-        if (ShouldDoScottBattleFrontierCall() == TRUE)
+        /*if (ShouldDoScottBattleFrontierCall() == TRUE)
         {
             ScriptContext1_SetupScript(LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall);
             return TRUE;
-        }
+        }*/
         if (ShouldDoRoxanneCall() == TRUE)
         {
             ScriptContext1_SetupScript(RustboroCity_Gym_EventScript_RegisterRoxanne);

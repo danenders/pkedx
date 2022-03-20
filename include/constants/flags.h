@@ -1219,13 +1219,13 @@
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
 //POSTGAME FLAGS
-#define FLAG_LEAF_OUTSIDE_AC                                        0x493 // Unused Flag
-#define FLAG_LEAF_INSIDE_AC                                         0x494 // Unused Flag
-#define FLAG_LEAF_INSIDE_LAB                                        0x495 // Unused Flag
-#define FLAG_LEAF_GIFT_POKEMON                                      0x496 // Unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
+#define FLAG_HIDE_LEAF_OUTSIDE_AC                                   0x493
+#define FLAG_HIDE_LEAF_INSIDE_AC                                    0x494 
+#define FLAG_HIDE_LEAF_INSIDE_LAB                                   0x495 
+#define FLAG_LEAF_GIFT_BULBASAUR                                    0x496 
+#define FLAG_LEAF_GIFT_CHARMANDER                                   0x497 
+#define FLAG_LEAF_GIFT_SQUIRTLE                                     0x498 
+#define FLAG_HIDE_BLUE_INSIDE_LAB                                   0x499 
 #define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
 #define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag

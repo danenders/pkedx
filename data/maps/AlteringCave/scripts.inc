@@ -131,7 +131,9 @@ AlteringCave_Text_ICantBelieveIt:
 
 AlteringCave_EventScript_GetStronger::
 	msgbox AlteringCave_Text_GetStronger, MSGBOX_DEFAULT
-	goto AlteringCave_EventScript_LeafLeaves
+	setflag FLAG_HIDE_LEAF_INSIDE_AC
+	clearflag FLAG_HIDE_LEAF_INSIDE_LAB
+	release
 	end
 
 AlteringCave_Text_GetStronger:
@@ -147,7 +149,8 @@ AlteringCave_Text_GetStronger:
 
 AlteringCave_EventScript_MorePokemonAwait::
 	msgbox AlteringCave_Text_MorePokemonAwait, MSGBOX_DEFAULT
-	goto AlteringCave_EventScript_LeafLeaves
+	setflag FLAG_HIDE_LEAF_INSIDE_AC
+	clearflag FLAG_HIDE_LEAF_INSIDE_LAB
 	release
 	end
 
@@ -158,11 +161,3 @@ AlteringCave_Text_MorePokemonAwait:
 	.string "I'm going to make it my new\n"
 	.string "mission to discover a POKéMON\l"
 	.string "even more powerful than MEWTWO!$"
-
-AlteringCave_EventScript_LeafLeaves::
-	fadescreen FADE_TO_BLACK
-	setflag FLAG_LEAF_INSIDE_AC
-	removeobject LOCALID_LEAF
-	fadescreen FADE_FROM_BLACK
-	release
-	end

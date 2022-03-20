@@ -3,7 +3,6 @@ const u32 gObjectEventPic_BrendanRunning[] = INCBIN_U32("graphics/object_events/
 const u16 gObjectEventPal_Brendan[] = INCBIN_U16("graphics/object_events/palettes/brendan.gbapal");
 const u32 gObjectEventPic_RubySapphireBrendanNormal[] = INCBIN_U32("graphics/object_events/pics/people/ruby_sapphire_brendan/walking.4bpp");
 const u32 gObjectEventPic_RubySapphireBrendanRunning[] = INCBIN_U32("graphics/object_events/pics/people/ruby_sapphire_brendan/running.4bpp");
-const u16 gObjectEventPal_RubySapphireBrendan[] = INCBIN_U16("graphics/object_events/palettes/ruby_sapphire_brendan.gbapal");
 const u16 gObjectEventPal_Null1[16] = {};
 const u16 gObjectEventPal_Null2[16] = {};
 const u16 gObjectEventPal_Null3[16] = {};
@@ -38,8 +37,6 @@ const u16 gObjectEventPal_May[] = INCBIN_U16("graphics/object_events/palettes/ma
 const u16 gObjectEventPal_MayReflection[] = INCBIN_U16("graphics/object_events/palettes/may_reflection.gbapal");
 const u32 gObjectEventPic_RubySapphireMayNormal[] = INCBIN_U32("graphics/object_events/pics/people/ruby_sapphire_may/walking.4bpp");
 const u32 gObjectEventPic_RubySapphireMayRunning[] = INCBIN_U32("graphics/object_events/pics/people/ruby_sapphire_may/running.4bpp");
-const u16 gObjectEventPal_RubySapphireMay[] = INCBIN_U16("graphics/object_events/palettes/ruby_sapphire_may.gbapal");
-const u16 gUnusedObjectEventPalette[] = INCBIN_U16("graphics/object_events/palettes/unused_palette.gbapal");
 const u16 gObjectEventPal_Null16[16] = {};
 const u16 gObjectEventPal_Null17[16] = {};
 const u16 gObjectEventPal_Null18[16] = {};
@@ -174,6 +171,12 @@ const u16 gObjectEventPal_GroudonReflection[] = INCBIN_U16("graphics/object_even
 
 const u32 gObjectEventPic_Lanette[] = INCBIN_U32("graphics/object_events/pics/people/lanette.4bpp");
 const u16 gObjectEventPal_Lanette[] = INCBIN_U16("graphics/object_events/palettes/lanette.gbapal");
+const u32 gObjectEventPic_Blue[] = INCBIN_U32("graphics/object_events/pics/people/blue.4bpp");
+const u32 gObjectEventPic_Ethan[] = INCBIN_U32("graphics/object_events/pics/people/ethan.4bpp");
+const u32 gObjectEventPic_Lyra[] = INCBIN_U32("graphics/object_events/pics/people/lyra.4bpp");
+const u32 gObjectEventPic_Kris[] = INCBIN_U32("graphics/object_events/pics/people/kris.4bpp");
+const u16 gObjectEventPal_EthanLyra[] = INCBIN_U16("graphics/object_events/palettes/ethan_lyra.gbapal");
+const u16 gObjectEventPal_Kris[] = INCBIN_U16("graphics/object_events/palettes/kris.gbapal");
 
 //Dolls
 const u32 gObjectEventPic_PichuDoll[] = INCBIN_U32("graphics/object_events/pics/dolls/pichu_doll.4bpp");

@@ -53,7 +53,7 @@ Route103_OnResume_Night:
 
 Route103_OnLoad:
 	call_if_set FLAG_SYS_GAME_CLEAR, Route103_EventScript_OpenAlteringCave
-	call_if_set FLAG_LEAF_OUTSIDE_AC, Route103_EventScript_HideLeaf
+	call_if_set FLAG_HIDE_LEAF_OUTSIDE_AC, Route103_EventScript_HideLeaf
 	end
 
 Route103_EventScript_HideLeaf::
@@ -63,7 +63,7 @@ Route103_EventScript_HideLeaf::
 Route103_EventScript_OpenAlteringCave::
 	setmetatile 45, 5, METATILE_General_CaveEntrance_Top, TRUE
 	setmetatile 45, 6, METATILE_General_CaveEntrance_Bottom, FALSE
-	setflag FLAG_LEAF_OUTSIDE_AC
+	setflag FLAG_HIDE_LEAF_OUTSIDE_AC
 	return
 
 Route103_EventScript_Rival::
@@ -402,13 +402,13 @@ Route103_Text_RouteSign:
 
 Route103_EventScript_LeafOutsideAC::
 	lock
-	goto_if_unset FLAG_LEAF_OUTSIDE_AC, Route103_EventScript_LeafsMission
+	goto_if_unset FLAG_HIDE_LEAF_OUTSIDE_AC, Route103_EventScript_LeafsMission
 	msgbox Route103_Text_StillSearching, MSGBOX_DEFAULT
 	release
 	end
 	
 Route103_EventScript_LeafsMission::	
-	setflag FLAG_LEAF_OUTSIDE_AC
+	setflag FLAG_HIDE_LEAF_OUTSIDE_AC
 	playbgm MUS_RG_SEVII_ROUTE, TRUE
 	msgbox Route103_Text_TheTrailEndsHere, MSGBOX_DEFAULT
 	applymovement LOCALID_LEAF, Common_Movement_ExclamationMark
@@ -479,4 +479,3 @@ Route103_Text_StillSearching:
 	.string "POKéMON first, {PLAYER}!\p"
 	.string "Just need to pick up its\n"
 	.string "trail again...$"
-	
