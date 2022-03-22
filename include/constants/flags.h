@@ -96,7 +96,7 @@
 #define FLAG_RESCUED_BIRCH                       0x52
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0x53
 
-#define FLAG_UNUSED_0x54                    0x54
+#define FLAG_SCOTT_POSTGAME_CALL                 0x54
 #define FLAG_UNUSED_0x55                    0x55
 
 #define FLAG_HIDE_CONTEST_POKE_BALL          0x56  // Always set after new game, object it hides is added directly
@@ -855,9 +855,9 @@
 #define FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WANDAS_BOYFRIEND     0x328
 #define FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WALLYS_UNCLE         0x329
 #define FLAG_HIDE_SS_TIDAL_CORRIDOR_SCOTT                           0x32A
-#define FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CYNDAQUIL     0x32B
-#define FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_TOTODILE      0x32C
-#define FLAG_HIDE_ROUTE_116_DROPPED_GLASSES_MAN                     0x32D
+#define FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_TREECKO       0x32B
+#define FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_TORCHIC       0x32C
+#define FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_MUDKIP        0x32D
 #define FLAG_HIDE_RUSTBORO_CITY_RIVAL                               0x32E
 #define FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_SWABLU_DOLL     0x32F
 #define FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE                           0x330
@@ -882,7 +882,7 @@
 #define FLAG_HIDE_SLATEPORT_CITY_GABBY_AND_TY                       0x343
 #define FLAG_HIDE_BATTLE_FRONTIER_RECEPTION_GATE_SCOTT              0x344
 #define FLAG_HIDE_ROUTE_110_BIRCH                                   0x345
-#define FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CHIKORITA     0x346
+#define FLAG_HIDE_ROUTE_116_DROPPED_GLASSES_MAN	 	 	 	 	    0x346
 #define FLAG_HIDE_SOOTOPOLIS_CITY_MAN_1                             0x347
 #define FLAG_HIDE_SLATEPORT_CITY_CAPTAIN_STERN                      0x348
 #define FLAG_HIDE_SLATEPORT_CITY_HARBOR_CAPTAIN_STERN               0x349
@@ -1590,7 +1590,7 @@
 #define FLAG_DAILY_APPRENTICE_LEAVES                (DAILY_FLAGS_START + 0x14)
 
 #define FLAG_DAILY_FANCLUB_PRESENT                  (DAILY_FLAGS_START + 0x15) // Unused Flag
-#define FLAG_UNUSED_0x936                           (DAILY_FLAGS_START + 0x16) // Unused Flag
+#define FLAG_DAILY_RECEIVED_BIRCH_STARTER      (DAILY_FLAGS_START + 0x16) // Unused Flag
 #define FLAG_UNUSED_0x937                           (DAILY_FLAGS_START + 0x17) // Unused Flag
 #define FLAG_UNUSED_0x938                           (DAILY_FLAGS_START + 0x18) // Unused Flag
 #define FLAG_UNUSED_0x939                           (DAILY_FLAGS_START + 0x19) // Unused Flag

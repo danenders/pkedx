@@ -1,7 +1,11 @@
 .set LOCALID_BIRCH, 1
 .set LOCALID_RIVAL, 2
-.set LOCALID_LEAF, 6
+.set LOCALID_LEAF, 3
 .set LOCALID_BLUE, 4
+.set LOCALID_AIDE, 5
+.set LOCALID_BALL_TREECKO, 6
+.set LOCALID_BALL_TORCHIC, 7
+.set LOCALID_BALL_MUDKIP, 8
 
 
 	@ State descriptions for VAR_BIRCH_LAB_STATE
@@ -10,6 +14,13 @@
 	@ 3: Received starter in lab
 	@ 4: Defeated rival on Route 103
 	@ 5: Received pokedex
+
+	@ State descriptions for VAR_POSTGAME_BIRCH_GIFT
+	@ 1: Beat Elite 4 for the first time
+	@ 2: Birch presents starters
+	@ 3: Chose a new Hoenn starter
+	@ 4: Awaiting Scott's call
+	@ 5: Re-enabled Starter gift (will loop back to 2)
 
 
 LittlerootTown_ProfessorBirchsLab_MapScripts::
@@ -22,17 +33,297 @@ LittlerootTown_ProfessorBirchsLab_MapScripts::
 LittlerootTown_ProfessorBirchsLab_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	call ProfBirch_EventScript_UpdateLocation
+	goto_if_ge VAR_POSTGAME_BIRCH_GIFT, 1, LittlerootTown_ProfessorBirchsLab_EventScript_SetPostgameLayout
 	end
 
 LittlerootTown_ProfessorBirchsLab_OnFrame:
 	map_script_2 VAR_BIRCH_LAB_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent
 	map_script_2 VAR_BIRCH_LAB_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedexEvent
+	map_script_2 VAR_POSTGAME_BIRCH_GIFT, 1, LittlerootTown_ProfessorBirchsLab_EventScript_ChooseHoennStarter
 	.2byte 0
 
 LittlerootTown_ProfessorBirchsLab_OnWarp:
 	map_script_2 VAR_BIRCH_LAB_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_SetPlayerPosForReceiveStarter
+	map_script_2 VAR_POSTGAME_BIRCH_GIFT, 1, LittlerootTown_ProfessorBirchsLab_EventScript_SetPostgamePositions
+	map_script_2 VAR_POSTGAME_BIRCH_GIFT, 2, LittlerootTown_ProfessorBirchsLab_EventScript_SetPostgamePositions
+	map_script_2 VAR_POSTGAME_BIRCH_GIFT, 5, LittlerootTown_ProfessorBirchsLab_EventScript_SetPostgamePositions
 	.2byte 0
 
+@POSTGAME
+LittlerootTown_ProfessorBirchsLab_EventScript_SetPostgameLayout::
+	setmaplayoutindex LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB_WITH_TABLE
+	setobjectmovementtype LOCALID_RIVAL, MOVEMENT_TYPE_WANDER_UP_AND_DOWN
+	setobjectxyperm LOCALID_RIVAL, 5, 8
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_SetPostgamePositions::
+	addobject LOCALID_BALL_TREECKO
+	turnobject LOCALID_BALL_TREECKO, DIR_SOUTH
+	setobjectxy LOCALID_BALL_TREECKO, 8, 4
+	addobject LOCALID_BALL_TORCHIC
+	turnobject LOCALID_BALL_TORCHIC, DIR_SOUTH
+	setobjectxy LOCALID_BALL_TORCHIC, 9, 4
+	addobject LOCALID_BALL_MUDKIP
+	turnobject LOCALID_BALL_MUDKIP, DIR_SOUTH
+	setobjectxy LOCALID_BALL_MUDKIP, 10, 4
+	turnobject LOCALID_BIRCH, DIR_SOUTH
+	setobjectxy LOCALID_BIRCH, 6, 4
+	addobject LOCALID_RIVAL
+	setobjectmovementtype LOCALID_RIVAL, MOVEMENT_TYPE_WANDER_UP_AND_DOWN
+	setobjectxyperm LOCALID_RIVAL, 5, 8
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_ChooseHoennStarter::
+	lockall
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_CompletedDexChoosePokemon, MSGBOX_DEFAULT
+	setvar VAR_POSTGAME_BIRCH_GIFT, 2
+	releaseall
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_CompletedDexChoosePokemon:
+	.string "PROF. BIRCH: {PLAYER}{KUN}!\p"
+	.string "You've come a long way since that\n"
+	.string "day you saved me on ROUTE 101.\p"
+	.string "You didn't have a POKéMON of your\n"
+	.string "own, and now you are the CHAMPION!\p"
+	.string "That's more than just impressive.\p"
+	.string "I have a gift for you.\p"
+	.string "Consider it my show of appreciation\n"
+	.string "for the fantastic work you've done.\p"
+	.string "My gift is another rare POKéMON that I\n"
+	.string "found during my fieldwork!\p"
+	.string "You can have any one of these\n"
+	.string "three POKéMON!$"
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Treecko::
+	release
+	goto_if_ge VAR_POSTGAME_BIRCH_GIFT, 3, LittlerootTown_ProfessorBirchsLab_EventScript_AlreadyChoseGift
+	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	showmonpic SPECIES_TREECKO, 10, 3
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_YoullTakeTreecko, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiveTreecko
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_YoullTakeTreecko:
+	.string "PROF. BIRCH: The GRASS POKéMON\n"
+	.string "TREECKO caught your eye!\p"
+	.string "You're as sharp as ever!\p"
+	.string "So TREECKO is your choice?$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiveTreecko::
+	bufferspeciesname STR_VAR_1, SPECIES_TREECKO
+	setvar VAR_TEMP_1, SPECIES_TREECKO
+	givemon SPECIES_TREECKO, 5
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, LittlerootTown_ProfessorBirchsLab_EventScript_SendTreeckoToParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, LittlerootTown_ProfessorBirchsLab_EventScript_SendTreeckoToPC
+	hidemonpic
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_SendTreeckoToParty::
+	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedPostgameGift
+	removeobject LOCALID_BALL_TREECKO
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTreecko
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTreecko
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_SendTreeckoToPC::
+	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedPostgameGift
+	removeobject LOCALID_BALL_TREECKO
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_TreeckoTransferredToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_TreeckoTransferredToPC
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_TreeckoTransferredToPC::
+	call Common_EventScript_TransferredToPC
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTreecko
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTreecko::
+	hidemonpic
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting, MSGBOX_DEFAULT
+	setvar VAR_POSTGAME_BIRCH_GIFT, 3
+	setflag FLAG_DAILY_RECEIVED_BIRCH_STARTER
+	releaseall
+	end
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Torchic::
+	release
+	goto_if_ge VAR_POSTGAME_BIRCH_GIFT, 3, LittlerootTown_ProfessorBirchsLab_EventScript_AlreadyChoseGift
+	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	showmonpic SPECIES_TORCHIC, 10, 3
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_YoullTakeTorchic, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiveTorchic
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_YoullTakeTorchic:
+	.string "PROF. BIRCH: The FIRE POKéMON\n"
+	.string "TORCHIC is your choice!\p"
+	.string "You know how to pick a good one.\p"
+	.string "So, you'll take the TORCHIC?$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiveTorchic::
+	bufferspeciesname STR_VAR_1, SPECIES_TORCHIC
+	setvar VAR_TEMP_1, SPECIES_TORCHIC
+	givemon SPECIES_TORCHIC, 5
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, LittlerootTown_ProfessorBirchsLab_EventScript_SendTorchicToParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, LittlerootTown_ProfessorBirchsLab_EventScript_SendTorchicToPC
+	hidemonpic
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_SendTorchicToParty::
+	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedPostgameGift
+	removeobject LOCALID_BALL_TORCHIC
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTorchic
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTorchic
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_SendTorchicToPC::
+	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedPostgameGift
+	removeobject LOCALID_BALL_TORCHIC
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_TorchicTransferredToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_TorchicTransferredToPC
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_TorchicTransferredToPC::
+	call Common_EventScript_TransferredToPC
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTorchic
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTorchic::
+	hidemonpic
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting, MSGBOX_DEFAULT
+	setvar VAR_POSTGAME_BIRCH_GIFT, 3
+	setflag FLAG_DAILY_RECEIVED_BIRCH_STARTER
+	releaseall
+	end
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Mudkip::
+	release
+	goto_if_ge VAR_POSTGAME_BIRCH_GIFT, 3, LittlerootTown_ProfessorBirchsLab_EventScript_AlreadyChoseGift
+	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	showmonpic SPECIES_MUDKIP, 10, 3
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_YoullTakeMudkip, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiveMudkip
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_YoullTakeMudkip:
+	.string "PROF. BIRCH: The WATER POKéMON\n"
+	.string "MUDKIP is your choice!\p"
+	.string "You sure know what you're doing.\p"
+	.string "So, you'll take the MUDKIP?$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiveMudkip::
+	bufferspeciesname STR_VAR_1, SPECIES_MUDKIP
+	setvar VAR_TEMP_1, SPECIES_MUDKIP
+	givemon SPECIES_MUDKIP, 5
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, LittlerootTown_ProfessorBirchsLab_EventScript_SendMudkipToParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, LittlerootTown_ProfessorBirchsLab_EventScript_SendMudkipToPC
+	hidemonpic
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_SendMudkipToParty::
+	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedPostgameGift
+	removeobject LOCALID_BALL_MUDKIP
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedMudkip
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedMudkip
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_SendMudkipToPC::
+	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedPostgameGift
+	removeobject LOCALID_BALL_MUDKIP
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_MudkipTransferredToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_MudkipTransferredToPC
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_MudkipTransferredToPC::
+	call Common_EventScript_TransferredToPC
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedMudkip
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedMudkip::
+	hidemonpic
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting, MSGBOX_DEFAULT
+	setvar VAR_POSTGAME_BIRCH_GIFT, 3
+	setflag FLAG_DAILY_RECEIVED_BIRCH_STARTER
+	releaseall
+	end
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime::
+	hidemonpic
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_TakeYourTimeAllInvaluable, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_TakeYourTimeAllInvaluable:
+	.string "PROF. BIRCH: Take your time before\n"
+	.string "you decide.\p"
+	.string "They're all invaluable POKéMON.$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedPostgameGift::
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_ProfessorBirchsLab_Text_ReceivedPostgameGift
+	waitmessage
+	waitfanfare
+	return
+
+LittlerootTown_ProfessorBirchsLab_Text_ReceivedPostgameGift:
+	.string "{PLAYER} received the {STR_VAR_1}\n"
+	.string "from PROF. BIRCH!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting:
+	.string "PROF. BIRCH: Listen, {PLAYER}{KUN}.\n"
+	.string "You've become the HOENN CHAMPION,\l"
+	.string "but your POKéMON journey isn't over.\p"
+	.string "There is no end to the road\n"
+	.string "that is POKéMON.\p"
+	.string "Somewhere, there is a grassy patch\n"
+	.string "that's waiting for you!$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_AlreadyChoseGift::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BetterLeaveOthersAlone, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_BetterLeaveOthersAlone:
+	.string "You received the promised POKéMON.\p"
+	.string "You'll have to prove yourself to.\n"
+	.string "PROF BIRCH. before you can receive.\l"
+	.string "another gift!$"
+
+
+
+
+
+@GET STARTER
 LittlerootTown_ProfessorBirchsLab_EventScript_SetPlayerPosForReceiveStarter::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	end
@@ -153,7 +444,6 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
 	waitmovement 0
 	applymovement LOCALID_BLUE, Movement_Blue_Steps_Up
 	waitmovement 4
-	playbgm MUS_BIRCH_LAB, TRUE
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_Beat, MSGBOX_DEFAULT
 	waitmessage
 	turnobject LOCALID_BLUE, DIR_WEST
@@ -168,7 +458,6 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
 	applymovement LOCALID_BLUE, Movement_Blue_FacesPlayer
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_AnotherTrainer, MSGBOX_DEFAULT
 	applymovement LOCALID_BLUE, Movement_Blue_Goodbye
-	playbgm MUS_RG_RIVAL_EXIT, TRUE
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_Goodbye, MSGBOX_DEFAULT
 	applymovement LOCALID_BLUE, Movement_Blue_Exit
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_SmellYaLater, MSGBOX_DEFAULT
@@ -255,16 +544,17 @@ Movement_Blue_FacesPlayer:
 	step_end
 
 LittlerootTown_ProfessorBirchsLab_Text_AnotherTrainer:
-	.string "????: Oh, so you're a POKéMON\n"
-	.string "TRAINER too?\p"
-	.string "BLUE: I'm BLUE. I just took my\n"
+	.string "????: Oh, so you're also a POKéMON\n"
+	.string "TRAINER?\p"
+	.string "My name is BLUE. I just took my\n"
 	.string "shot at the POKéMON LEAGUE back\l"
 	.string "in KANTO.\p"
-	.string "I even took down the CHAMPION.\p"
-	.string "But even an ace like me has\n"
-	.string "their limits...\p"
-	.string "So, I came to HOENN to search for\n"
-	.string "some stronger POKéMON.\p"
+	.string "That's right, you're face to face\n"
+	.string "with a former CHAMPION.\p"
+	.string "I heard a rumor someone in HOENN\n"
+	.string "was searching for strong TRAINERS.\p"
+	.string "So, I came to see what that's\n"
+	.string "all about.\p"
 	.string "Maybe I'll see you around, {PLAYER}!$"
 
 Movement_Blue_Goodbye:
@@ -298,8 +588,9 @@ LittlerootTown_ProfessorBirchsLab_Text_WhereWereWe:
 	.string "PROF. BIRCH: He's my colleague's\n"
 	.string "grandson - he's been that way \l"
 	.string "since he was young...\p"
-	.string "But I wonder what he meant when he\n"
-	.string "mentioned his limits...\p"
+	.string "He's a very skilled trainer, but\n"
+	.string "clearly has a lot to learn about\l"
+	.string "what it takes to be a CHAMPION.\p"
 	.string "...\p"
 	.string "Anyway, where were we?\p"
 	.string "Ah! That's right, the POKéDEX!\p"
@@ -314,7 +605,7 @@ LittlerootTown_ProfessorBirchsLab_Text_WhereWereWe:
 	.string "Now…\p"
 	.string "{PLAYER}{KUN} and {RIVAL}, I want the\n"
 	.string "two of you to help me study these new\l"
-	.string "POKéMON that have been seen in HOENN."
+	.string "POKéMON that have been seen in HOENN.\p"
 	.string "With your help, perhaps we can learn\n"
 	.string "even more about POKéMON!$"
 
@@ -398,14 +689,43 @@ LittlerootTown_ProfessorBirchsLab_Movement_RivalApproachPlayer:
 	walk_in_place_faster_left
 	step_end
 
-
+@BIRCH
 LittlerootTown_ProfessorBirchsLab_EventScript_Birch::
 	lock
 	faceplayer
+	call_if_eq VAR_POSTGAME_BIRCH_GIFT, 5, LittlerootTown_ProfessorBirchsLab_EventScript_CanHaveAnotherPokemon
+	goto_if_ge VAR_POSTGAME_BIRCH_GIFT, 3, ProfBirch_EventScript_RatePokedexOrRegister
+	goto_if_eq VAR_POSTGAME_BIRCH_GIFT, 2, LittlerootTown_ProfessorBirchsLab_EventScript_CanHaveAnyOneOfRarePokemon
 	goto_if_unset FLAG_HAS_MATCH_CALL, LittlerootTown_ProfessorBirchsLab_EventScript_TryRatePokedexOrRegister
 	goto_if_unset FLAG_ENABLE_PROF_BIRCH_MATCH_CALL, EventScript_RegisterProfBirch
 	goto LittlerootTown_ProfessorBirchsLab_EventScript_TryRatePokedexOrRegister
 	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_CanHaveAnotherPokemon::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_CanHaveAnotherPokemon, MSGBOX_DEFAULT
+	setvar VAR_POSTGAME_BIRCH_GIFT, 2
+	return
+
+LittlerootTown_ProfessorBirchsLab_Text_CanHaveAnotherPokemon:
+	.string "PROF. BIRCH: Hello, {PLAYER}!\p"
+	.string "I see you've been working very\n"
+	.string "hard to improve your abilities as\l"
+	.string "a POKéMON TRAINER!\p"
+	.string "This calls for a reward!\p"
+	.string "I've brought back more POKéMON\n"
+	.string "from my fieldwork.$"
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_CanHaveAnyOneOfRarePokemon::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_CanHaveAnyOneOfRarePokemon, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_CanHaveAnyOneOfRarePokemon:
+	.string "PROF. BIRCH: These POKéMON are not\n"
+	.string "seen very often, but I seem to have\l"
+	.string "a knack for finding them!\p"
+	.string "Go ahead and choose one.$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_TryRatePokedexOrRegister::
 	goto_if_unset FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_UNKNOWN_0x380, ProfBirch_EventScript_RatePokedexOrRegister
@@ -450,6 +770,10 @@ LittlerootTown_ProfessorBirchsLab_Text_CountlessPokemonAwait:
 LittlerootTown_ProfessorBirchsLab_EventScript_Rival::
 	lock
 	faceplayer
+	goto_if_eq VAR_POSTGAME_BIRCH_GIFT, 5, LittlerootTown_ProfessorBirchsLab_EventScript_RivalFuturePlans
+	goto_if_eq VAR_POSTGAME_BIRCH_GIFT, 4, LittlerootTown_ProfessorBirchsLab_EventScript_RivalHaveYouGoneToBattleFrontier
+	goto_if_ge VAR_POSTGAME_BIRCH_GIFT, 3, LittlerootTown_ProfessorBirchsLab_EventScript_RivalFuturePlans
+	goto_if_eq VAR_POSTGAME_BIRCH_GIFT, 2, LittlerootTown_ProfessorBirchsLab_EventScript_RivalTakeBreakFromFieldwork
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayWhereShouldIGoNext
 	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanWhereShouldIGoNext
@@ -472,13 +796,86 @@ LittlerootTown_ProfessorBirchsLab_Text_BrendanWhereShouldIGoNext:
 	.string "BRENDAN: Where should I look for\n"
 	.string "POKéMON next…$"
 
+LittlerootTown_ProfessorBirchsLab_EventScript_RivalFuturePlans::
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayWhatNextImStayingHere
+	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanPreferCollectingSlowly
+	release
+	end
 
+LittlerootTown_ProfessorBirchsLab_EventScript_MayWhatNextImStayingHere::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayWhatNextImStayingHere, MSGBOX_DEFAULT
+	return
 
+LittlerootTown_ProfessorBirchsLab_Text_MayWhatNextImStayingHere:
+	.string "MAY: {PLAYER}{KUN}, after this…\n"
+	.string "What are you going to do?\p"
+	.string "Are you going to keep battling\n"
+	.string "and sharpening your skills?\p"
+	.string "Or are you going to try filling\n"
+	.string "the NATIONAL POKéDEX?\p"
+	.string "I'm staying here to help the PROF.$"
 
+LittlerootTown_ProfessorBirchsLab_EventScript_BrendanPreferCollectingSlowly:
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanPreferCollectingSlowly, MSGBOX_DEFAULT
+	return
 
+LittlerootTown_ProfessorBirchsLab_Text_BrendanPreferCollectingSlowly:
+	.string "BRENDAN: Rather than collecting\n"
+	.string "POKéMON, I prefer slowly and \l"
+	.string "steadily raising the one I chose.$"
 
+LittlerootTown_ProfessorBirchsLab_EventScript_RivalHaveYouGoneToBattleFrontier::
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayHaveYouGoneToBattleFrontier
+	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanHaveYouGoneToBattleFrontier
+	release
+	end
 
+LittlerootTown_ProfessorBirchsLab_EventScript_MayHaveYouGoneToBattleFrontier::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier, MSGBOX_DEFAULT
+	return
 
+LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier:
+	.string "MAY: Oh, hi, {PLAYER}{KUN}!\n"
+	.string "Have you gone to that place,\l"
+	.string "the BATTLE FRONTIER?$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_BrendanHaveYouGoneToBattleFrontier::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier, MSGBOX_DEFAULT
+	return
+
+LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier:
+	.string "BRENDAN: Hey, {PLAYER}!\n"
+	.string "Have you gone out to that place,\l"
+	.string "the BATTLE FRONTIER?$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_RivalTakeBreakFromFieldwork::
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayTakeBreakFromFieldwork
+	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanTakeBreakFromFieldwork
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_MayTakeBreakFromFieldwork::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayTakeBreakFromFieldwork, MSGBOX_DEFAULT
+	return
+
+LittlerootTown_ProfessorBirchsLab_Text_MayTakeBreakFromFieldwork:
+	.string "MAY: I think I'll take a short break\n"
+	.string "from fieldwork.\p"
+	.string "I think I'll help the PROF here for\n"
+	.string "a while.$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_BrendanTakeBreakFromFieldwork::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork, MSGBOX_DEFAULT
+	return
+
+LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork:
+	.string "BRENDAN: For the time being,\n"
+	.string "I'm taking a break from fieldwork.\p"
+	.string "I'll be helping out the PROF here\n"
+	.string "for a while.$"
 
 
 @Other Lab Events
@@ -557,4 +954,19 @@ LittlerootTown_ProfessorBirchsLab_Text_BirchEnjoysRivalsHelpToo:
 	.string "and distribution of POKéMON.\p"
 	.string "The PROF enjoys {RIVAL}'s help, too.\n"
 	.string "There's a lot of love there.$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Leaf::
+	lock
+	faceplayer
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_Leaf, MSGBOX_DEFAULT
+	turnobject LOCALID_LEAF, DIR_WEST
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_Leaf:
+	.string "LEAF: PROF. BIRCH is letting me use\n"
+	.string "some of his equipment to do research\l"
+	.string "on rare POKéMON.\p"
+	.string "I wonder where I should travel to next?$"
+
 

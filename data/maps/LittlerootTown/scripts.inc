@@ -49,12 +49,18 @@ LittlerootTown_OnTransition:
 	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
 	call_if_eq VAR_OLDALE_RIVAL_STATE, 1, LittlerootTown_EventScript_MoveRivalFromOldale
 	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
-	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
-	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
+	call_if_eq VAR_POSTGAME_BIRCH_GIFT, 1, LittlerootTown_EventScript_HideMapNamePopup
+	call_if_eq VAR_POSTGAME_BIRCH_GIFT, 3, LittlerootTown_EventScript_LeftLabAfterPostgameGift
 	end
 
-LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
-	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3
+LittlerootTown_EventScript_LeftLabAfterPostgameGift::
+	call_if_unset FLAG_SCOTT_POSTGAME_CALL, LittlerootTown_EventScript_EnableScottCall
+	return
+
+LittlerootTown_EventScript_EnableScottCall::
+	setvar VAR_SCOTT_BF_CALL_STEP_COUNTER, 0
+	setflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
+	setvar VAR_POSTGAME_BIRCH_GIFT, 4
 	return
 
 LittlerootTown_EventScript_HideMapNamePopup::
@@ -109,7 +115,7 @@ LittlerootTown_EventScript_SetMomInFrontOfDoorFemale::
 LittlerootTown_OnFrame:
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 1, LittlerootTown_EventScript_StepOffTruckMale
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_StepOffTruckFemale
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_BeginDexUpgradeScene
+	map_script_2 VAR_POSTGAME_BIRCH_GIFT, 1, LittlerootTown_EventScript_BeginPostgameBirchScene
 	.2byte 0
 
 LittlerootTown_EventScript_StepOffTruckMale::
@@ -207,7 +213,7 @@ LittlerootTown_Movement_PlayerStepOffTruck:
 	delay_16
 	step_end
 
-LittlerootTown_EventScript_BeginDexUpgradeScene::
+LittlerootTown_EventScript_BeginPostgameBirchScene::
 	lockall
 	playse SE_PIN
 	applymovement LOCALID_BIRCH, Common_Movement_ExclamationMark
@@ -220,28 +226,30 @@ LittlerootTown_EventScript_BeginDexUpgradeScene::
 	delay 20
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 6, 5
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_RIVAL
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
 	waitstate
 	releaseall
 	end
 
 LittlerootTown_OnWarp:
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade
+	map_script_2 VAR_POSTGAME_BIRCH_GIFT, 1, LittlerootTown_EventScript_SetRivalBirchPostgamePos
 	.2byte 0
 
-LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade::
+LittlerootTown_EventScript_SetRivalBirchPostgamePos::
 	addobject LOCALID_BIRCH
 	addobject LOCALID_RIVAL
 	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeMale
-	goto LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeFemale
+	goto_if_eq VAR_RESULT, MALE, LittlerootTown_EventScript_SetRivalBirchPostgamePosMale
+	goto LittlerootTown_EventScript_SetRivalBirchPostgamePosFemale
 	end
 
-LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeMale::
+LittlerootTown_EventScript_SetRivalBirchPostgamePosMale::
 	setobjectxy LOCALID_RIVAL, 6, 10
 	setobjectxy LOCALID_BIRCH, 5, 10
 	end
 
-LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeFemale::
+LittlerootTown_EventScript_SetRivalBirchPostgamePosFemale::
 	setobjectxy LOCALID_RIVAL, 13, 10
 	setobjectxy LOCALID_BIRCH, 14, 10
 	end
@@ -1014,8 +1022,30 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I knew there was something special\n"
 	.string "about you when I first saw you,\l"
 	.string "but I never expected this.\p"
-	.string "Oh, yes. Do you still have the POKéDEX\n"
-	.string "I gave you?\p"
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
+LittlerootTown_EventScript_ScottAboardSSTidalCall::
+	lockall
+	pokenavcall LittlerootTown_Text_ScottAboardSSTidalCall
+	waitmessage
+	clearflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
+	releaseall
+	end
+
+LittlerootTown_Text_ScottAboardSSTidalCall:
+	.string "… … … … … …\n"
+	.string "… … … … … Beep!\p"
+	.string "SCOTT: Hi, hi, {PLAYER}!\n"
+	.string "It's me, SCOTT.\p"
+	.string "I'm aboard the S.S. TIDAL now.\n"
+	.string "It feels great to be on the sea!\p"
+	.string "By the way…\p"
+	.string "There's this place that I'd like to\n"
+	.string "invite you to for a visit.\p"
+	.string "If you're interested, board a ferry\n"
+	.string "at either SLATEPORT or LILYCOVE.\p"
+	.string "I'll fill you in on the details when\n"
+	.string "we meet. I'll be waiting!\p"
+	.string "… … … … … …\n"
+	.string "… … … … … Click!$"

@@ -21,7 +21,8 @@ EverGrandeCity_HallOfFame_EventScript_SetGameClearFlags::
 	call_if_unset FLAG_RECEIVED_BELDUM, EverGrandeCity_HallOfFame_EventScript_ShowStevensHouseBeldum
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
-	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 0, EverGrandeCity_HallOfFame_EventScript_ReadyDexUpgradeEvent
+	call_if_eq VAR_POSTGAME_BIRCH_GIFT, 0, EverGrandeCity_HallOfFame_EventScript_ReadyPostgameBirchStarter
+	call_if_ge VAR_POSTGAME_BIRCH_GIFT, 3, EverGrandeCity_HallOfFame_EventScript_ReenablePostgameBirch
 	return
 
 EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries::
@@ -56,6 +57,14 @@ EverGrandeCity_HallOfFame_EventScript_ReadyReceiveSSTicketEvent::
 	clearflag FLAG_HIDE_PLAYERS_HOUSE_DAD
 	return
 
-EverGrandeCity_HallOfFame_EventScript_ReadyDexUpgradeEvent::
-	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1
+EverGrandeCity_HallOfFame_EventScript_ReadyPostgameBirchStarter::
+	setvar VAR_POSTGAME_BIRCH_GIFT, 1
+	return
+
+EverGrandeCity_HallOfFame_EventScript_ReenablePostgameBirch::
+	goto_if_set FLAG_DAILY_RECEIVED_BIRCH_STARTER, EverGrandeCity_HallOfFame_EventScript_DoNotEnablePostgameBirch
+	setvar VAR_POSTGAME_BIRCH_GIFT, 5
+	return
+
+EverGrandeCity_HallOfFame_EventScript_DoNotEnablePostgameBirch::
 	return
