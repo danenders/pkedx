@@ -1226,7 +1226,7 @@
 #define FLAG_LEAF_GIFT_CHARMANDER                                   0x497 
 #define FLAG_LEAF_GIFT_SQUIRTLE                                     0x498 
 #define FLAG_HIDE_BLUE_INSIDE_LAB                                   0x499 
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
+#define FLAG_HIDE_RED_MTPYRE                                        0x49A // Unused Flag
 #define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
@@ -1590,9 +1590,9 @@
 #define FLAG_DAILY_APPRENTICE_LEAVES                (DAILY_FLAGS_START + 0x14)
 
 #define FLAG_DAILY_FANCLUB_PRESENT                  (DAILY_FLAGS_START + 0x15) // Unused Flag
-#define FLAG_DAILY_RECEIVED_BIRCH_STARTER      (DAILY_FLAGS_START + 0x16) // Unused Flag
-#define FLAG_UNUSED_0x937                           (DAILY_FLAGS_START + 0x17) // Unused Flag
-#define FLAG_UNUSED_0x938                           (DAILY_FLAGS_START + 0x18) // Unused Flag
+#define FLAG_DAILY_RECEIVED_BIRCH_STARTER      		(DAILY_FLAGS_START + 0x16) // Unused Flag
+#define FLAG_DAILY_RED_BATTLE                       (DAILY_FLAGS_START + 0x17) // Unused Flag
+#define FLAG_DAILY_BLUE_BATTLE                      (DAILY_FLAGS_START + 0x18) // Unused Flag
 #define FLAG_UNUSED_0x939                           (DAILY_FLAGS_START + 0x19) // Unused Flag
 #define FLAG_UNUSED_0x93A                           (DAILY_FLAGS_START + 0x1A) // Unused Flag
 #define FLAG_UNUSED_0x93B                           (DAILY_FLAGS_START + 0x1B) // Unused Flag

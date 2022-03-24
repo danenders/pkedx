@@ -6,6 +6,7 @@
 .set LOCALID_CAMPER, 14
 .set LOCALID_FISHERMAN_2, 18
 .set LOCALID_MAN_4, 23
+.set LOCALID_BLUE, 25
 
 BattleFrontier_OutsideWest_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, BattleFrontier_OutsideWest_OnTransition
@@ -524,3 +525,100 @@ BattleFrontier_OutsideWest_Text_MonWithLongTailInFrontier:
 	.string "Oh, challenges can wait. I feel driven\n"
 	.string "to find the delightful creature!$"
 
+BattleFrontier_OutsideWest_EventScript_Blue::
+	goto_if_set FLAG_DAILY_BLUE_BATTLE, BattleFrontier_OutsideWest_EventScript_BlueNeverSatisfied
+	lock
+	playbgm MUS_RG_ENCOUNTER_RIVAL, TRUE
+	msgbox BattleFrontier_OutsideWest_Text_RedsNotHere, MSGBOX_DEFAULT
+	applymovement LOCALID_BLUE, Common_Movement_ExclamationMark
+	faceplayer
+	msgbox BattleFrontier_OutsideWest_Text_HeyPlayer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, TRUE, BattleFrontier_OutsideWest_EventScript_BlueBattle
+	msgbox BattleFrontier_OutsideWest_Text_WouldntWantToFightMeEither, MSGBOX_DEFAULT
+	turnobject LOCALID_BLUE, DIR_NORTH
+	playbgm MUS_B_FRONTIER, TRUE
+	release
+	end
+
+BattleFrontier_OutsideWest_Text_RedsNotHere:
+	.string "BLUE: So he's not here, either...$"
+
+BattleFrontier_OutsideWest_Text_HeyPlayer:
+	.string "Oh! You're {PLAYER}!\p"
+	.string "It looks like you finally got\n"
+	.string "strong enough to make it here!\p"
+	.string "I thought I'd find the person I'm\n"
+	.string "looking for here, too.\p"
+	.string "But instead it's a just a bunch of\n"
+	.string "rookie TRAINERS.\p"
+	.string "I'm looking for a real challenge.\p"
+	.string "Say, now that you're the CHAMPION,\n"
+	.string "how about a BATTLE?$"
+
+BattleFrontier_OutsideWest_Text_WouldntWantToFightMeEither:
+	.string "Yeah, I wouldn't want to fight me\n"
+	.string "either.$"
+
+BattleFrontier_OutsideWest_EventScript_BlueBattle::
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_BLUE, LOCALID_BLUE, BattleFrontier_OutsideWest_Text_BlueBattleIntro, BattleFrontier_OutsideWest_Text_BlueBattleDefeated, BattleFrontier_OutsideWest_EventScript_BlueBattled
+	release
+	end
+
+BattleFrontier_OutsideWest_Text_BlueBattleIntro:
+	.string "Yes! Show me the true power of\n"
+	.string "HOENN'S CHAMPION!$"
+
+BattleFrontier_OutsideWest_Text_BlueBattleDefeated:
+	.string "How did I lose?\p" 
+	.string "You really are the real deal!$"
+
+BattleFrontier_OutsideWest_EventScript_BlueBattled::
+	playbgm MUS_B_FRONTIER, TRUE
+	setflag FLAG_DAILY_BLUE_BATTLE
+	msgbox BattleFrontier_OutsideWest_Text_CouldLearnSomething, MSGBOX_DEFAULT
+	turnobject LOCALID_BLUE, DIR_NORTH
+	release
+	end
+
+BattleFrontier_OutsideWest_Text_CouldLearnSomething:
+	.string "Wow, {PLAYER}. You're really\n"
+	.string "something else...\p"
+	.string "For a minute, I thought I was\n"
+	.string "fighting HIM again!\p"
+	.string "You're always pushing yourself\n"
+	.string "to get stronger, aren't you?\p"
+	.string "Maybe I should stick around and\n"
+	.string "give this BATTLE FRONTIER a shot.$"
+
+BattleFrontier_OutsideWest_EventScript_BlueNeverSatisfied::
+	goto_if_set FLAG_DAILY_RED_BATTLE, BattleFrontier_OutsideWest_EventScript_YouDefeatedRed
+	lock
+	faceplayer
+	msgbox BattleFrontier_OutsideWest_Text_BlueNeverSatisfied, MSGBOX_DEFAULT
+	turnobject LOCALID_BLUE, DIR_NORTH
+	release
+	end
+
+BattleFrontier_OutsideWest_Text_BlueNeverSatisfied:
+	.string "BLUE: I'll only be satisifed when\n"
+	.string "I can defeat my RIVAL.\p"
+	.string "Until then, I won't stop trying to\n"
+	.string "become a strong PPOKéMON TRAINER!$"
+
+BattleFrontier_OutsideWest_EventScript_YouDefeatedRed::
+	lock
+	faceplayer
+	applymovement LOCALID_BLUE, Common_Movement_ExclamationMark
+	msgbox BattleFrontier_OutsideWest_Text_YouDefeatedRed, MSGBOX_DEFAULT
+	turnobject LOCALID_BLUE, DIR_NORTH
+	release
+	end
+
+BattleFrontier_OutsideWest_Text_YouDefeatedRed:
+	.string "BLUE: That look in your eye...\p"
+	.string "You fought my RIVAL...RED!\p"
+	.string "Heh...somehow I knew you would\n"
+	.string "be the one to defeat him.\p"
+	.string "Still, I won't give up! Now I\n"
+	.string "just need to become strong\l"
+	.string "to beat both of you!$"

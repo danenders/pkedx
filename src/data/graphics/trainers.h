@@ -268,6 +268,9 @@ const u32 gTrainerPalette_PyramidKingBrandon[] = INCBIN_U32("graphics/trainers/p
 const u32 gTrainerFrontPic_Red[] = INCBIN_U32("graphics/trainers/front_pics/red_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Red[] = INCBIN_U32("graphics/trainers/palettes/red.gbapal.lz");
 
+const u32 gTrainerFrontPic_Blue[] = INCBIN_U32("graphics/trainers/front_pics/blue_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Blue[] = INCBIN_U32("graphics/trainers/palettes/blue.gbapal.lz");
+
 const u32 gTrainerFrontPic_Leaf[] = INCBIN_U32("graphics/trainers/front_pics/leaf_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Leaf[] = INCBIN_U32("graphics/trainers/palettes/leaf.gbapal.lz");
 

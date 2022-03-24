@@ -12403,12 +12403,49 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Everett[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_Red[] = {
+static const struct TrainerMonItemCustomMoves sParty_Red[] = {
+{
+    .iv = 255,
+    .lvl = 85,
+    .species = SPECIES_PIKACHU,
+    .heldItem = ITEM_LIGHT_BALL,
+    .moves = {MOVE_THUNDERBOLT, MOVE_VOLT_TACKLE, MOVE_IRON_TAIL, MOVE_SURF}
+    },
     {
-    .iv = 0,
-    .lvl = 5,
-    .species = SPECIES_CHARMANDER,
-    }
+    .iv = 255,
+    .lvl = 80,
+    .species = SPECIES_SNORLAX,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_REST, MOVE_BODY_SLAM, MOVE_SLEEP_TALK, MOVE_CURSE}
+    },
+    {
+    .iv = 255,
+    .lvl = 80,
+    .species = SPECIES_ESPEON,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_BATON_PASS, MOVE_PROTECT}
+    },
+    {
+    .iv = 255,
+    .lvl = 80,
+    .species = SPECIES_PIDGEOT,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_WHIRLWIND, MOVE_STEEL_WING, MOVE_AERIAL_ACE, MOVE_DOUBLE_EDGE}
+    },
+    {
+    .iv = 255,
+    .lvl = 80,
+    .species = SPECIES_LAPRAS,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_ICE_BEAM, MOVE_THUNDERBOLT, MOVE_REST, MOVE_HEAL_BELL}
+    },
+    {
+    .iv = 255,
+    .lvl = 85,
+    .species = SPECIES_CHARIZARD,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_FIRE_BLAST, MOVE_DRAGON_CLAW, MOVE_AERIAL_ACE, MOVE_DRAGON_DANCE}
+    },
 };
 
 static const struct TrainerMonItemCustomMoves sParty_Leaf[] = {

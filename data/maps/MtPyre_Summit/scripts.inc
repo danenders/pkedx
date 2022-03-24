@@ -5,6 +5,7 @@
 .set LOCALID_GRUNT_3, 6
 .set LOCALID_GRUNT_4, 7
 .set LOCALID_MAXIE, 8
+.set LOCALID_RED, 9
 
 MtPyre_Summit_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MtPyre_Summit_OnTransition
@@ -21,16 +22,19 @@ MtPyre_Summit_OnTransition:
 MtPyre_Summit_OnTransition_Day:
 	setvar VAR_TIMEOFDAY, 0
 	call_if_eq VAR_MT_PYRE_STATE, 2, MtPyre_Summit_EventScript_SetArchieMaxiePositions
+	call_if_set FLAG_IS_CHAMPION, MtPyre_Summit_EventScript_CheckForRed
 	end
 
 MtPyre_Summit_OnTransition_Twilight:
 	setvar VAR_TIMEOFDAY, 1
 	call_if_eq VAR_MT_PYRE_STATE, 2, MtPyre_Summit_EventScript_SetArchieMaxiePositions
+	call_if_set FLAG_IS_CHAMPION, MtPyre_Summit_EventScript_CheckForRed
 	end
 
 MtPyre_Summit_OnTransition_Night:
 	setvar VAR_TIMEOFDAY, 2
 	call_if_eq VAR_MT_PYRE_STATE, 2, MtPyre_Summit_EventScript_SetArchieMaxiePositions
+	call_if_set FLAG_RETURNED_RED_OR_BLUE_ORB, MtPyre_Summit_EventScript_CheckForRed
 	end
 
 MtPyre_Summit_OnResume:
@@ -210,6 +214,7 @@ MtPyre_Summit_EventScript_OldLady::
 MtPyre_Summit_EventScript_OldLadyOrbsReturned::
 	msgbox MtPyre_Summit_Text_ThoseTwoMenReturnedOrbs, MSGBOX_DEFAULT
 	setflag FLAG_RETURNED_RED_OR_BLUE_ORB
+	setflag FLAG_DAILY_RED_BATTLE
 	release
 	end
 
@@ -661,3 +666,39 @@ MtPyre_Summit_Text_HoennTrioTale:
 	.string "Then, its duty done, the green POKéMON\n"
 	.string "flew off into the wild blue yonder…$"
 
+MtPyre_Summit_EventScript_CheckForRed::
+	goto_if_unset FLAG_IS_CHAMPION, MtPyre_Summit_EventScript_HideRed
+	goto_if_set FLAG_DAILY_RED_BATTLE, MtPyre_Summit_EventScript_HideRed
+	clearflag FLAG_HIDE_RED_MTPYRE
+	addobject LOCALID_RED
+	end
+
+MtPyre_Summit_EventScript_HideRed::
+	setflag FLAG_HIDE_RED_MTPYRE
+	removeobject LOCALID_RED
+	end
+
+MtPyre_Summit_EventScript_Red::
+	lock
+	faceplayer
+	msgbox MtPyre_Summit_Text_DotDotDot, MSGBOX_DEFAULT
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_RED, LOCALID_RED, MtPyre_Summit_Text_DotDotDot, MtPyre_Summit_Text_DotDotDot, MtPyre_Summit_EventScript_RedDefeated
+	release
+	end
+
+MtPyre_Summit_EventScript_RedDefeated::
+	lock
+	faceplayer
+	msgbox MtPyre_Summit_Text_DotDotDot, MSGBOX_AUTOCLOSE
+	delay 20
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_RED
+	setflag FLAG_DAILY_RED_BATTLE
+	setflag FLAG_HIDE_RED_MTPYRE
+	delay 20
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+MtPyre_Summit_Text_DotDotDot:
+	.string "RED: ...$"
