@@ -505,7 +505,7 @@
 #define FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL 0x1D8
 #define FLAG_ENABLE_JUAN_MATCH_CALL          0x1D9
 
-#define FLAG_FLAG_MET_BLUE_AT_FRONTIER       0x1DA
+#define FLAG_MET_BLUE_AT_FRONTIER       	 0x1DA
 
 #define FLAG_SHOWN_MYSTIC_TICKET             0x1DB
 #define FLAG_DEFEATED_HO_OH                  0x1DC
@@ -1597,8 +1597,8 @@
 #define FLAG_DAILY_OAK_PRESENT                      (DAILY_FLAGS_START + 0x1A) // Unused Flag
 #define FLAG_DAILY_KANTO_STARTER                    (DAILY_FLAGS_START + 0x1B) // Unused Flag
 #define FLAG_DAILY_SAFARI_PRESENT                   (DAILY_FLAGS_START + 0x1C) // Unused Flag
-#define FLAG_DAILY_JOHTO_STARTER                    (DAILY_FLAGS_START + 0x1D) // Unused Flag
-#define FLAG_UNUSED_0x93E                           (DAILY_FLAGS_START + 0x1E) // Unused Flag
+#define FLAG_DAILY_JOHTO_VISITOR                    (DAILY_FLAGS_START + 0x1D) // Unused Flag
+#define FLAG_DAILY_DECLINED_JOHTO_EGG          		(DAILY_FLAGS_START + 0x1E) // Unused Flag
 #define FLAG_UNUSED_0x93F                           (DAILY_FLAGS_START + 0x1F) // Unused Flag
 #define FLAG_UNUSED_0x940                           (DAILY_FLAGS_START + 0x20) // Unused Flag
 #define FLAG_UNUSED_0x941                           (DAILY_FLAGS_START + 0x21) // Unused Flag

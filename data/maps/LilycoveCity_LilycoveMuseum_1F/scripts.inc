@@ -105,7 +105,7 @@ LilycoveCity_LilycoveMuseum_1F_EventScript_GetBulbasaurEgg::
 	giveegg SPECIES_BULBASAUR
 	goto_if_eq VAR_RESULT, MON_CANT_GIVE, LilycoveCity_LilycoveMuseum_1F_EventScript_CantGive
 	playfanfare MUS_OBTAIN_ITEM
-	message LilycoveCity_LilycoveMuseum_1F_Text_Text_ReceivedTheEgg
+	message LilycoveCity_LilycoveMuseum_1F_Text_ReceivedTheEgg
 	waitfanfare
 	setflag FLAG_DAILY_OAK_PRESENT
 	goto LilycoveCity_LilycoveMuseum_1F_EventScript_DailyOakCompleted
@@ -115,7 +115,7 @@ LilycoveCity_LilycoveMuseum_1F_EventScript_GetCharmanderEgg::
 	giveegg SPECIES_CHARMANDER
 	goto_if_eq VAR_RESULT, MON_CANT_GIVE, LilycoveCity_LilycoveMuseum_1F_EventScript_CantGive
 	playfanfare MUS_OBTAIN_ITEM
-	message LilycoveCity_LilycoveMuseum_1F_Text_Text_ReceivedTheEgg
+	message LilycoveCity_LilycoveMuseum_1F_Text_ReceivedTheEgg
 	waitfanfare
 	setflag FLAG_DAILY_OAK_PRESENT
 	goto LilycoveCity_LilycoveMuseum_1F_EventScript_DailyOakCompleted
@@ -125,13 +125,13 @@ LilycoveCity_LilycoveMuseum_1F_EventScript_GetSquirtleEgg::
 	giveegg SPECIES_SQUIRTLE
 	goto_if_eq VAR_RESULT, MON_CANT_GIVE, LilycoveCity_LilycoveMuseum_1F_EventScript_CantGive
 	playfanfare MUS_OBTAIN_ITEM
-	message LilycoveCity_LilycoveMuseum_1F_Text_Text_ReceivedTheEgg
+	message LilycoveCity_LilycoveMuseum_1F_Text_ReceivedTheEgg
 	waitfanfare
 	setflag FLAG_DAILY_OAK_PRESENT
 	goto LilycoveCity_LilycoveMuseum_1F_EventScript_DailyOakCompleted
 	end
 
-LilycoveCity_LilycoveMuseum_1F_Text_Text_ReceivedTheEgg:
+LilycoveCity_LilycoveMuseum_1F_Text_ReceivedTheEgg:
 	.string "{PLAYER} received the EGG.$"
 
 LilycoveCity_LilycoveMuseum_1F_EventScript_CantGive::

@@ -555,7 +555,7 @@ BattleFrontier_OutsideWest_Text_BlueMeetup:
 	.string "But instead it's a just a bunch of\n"
 	.string "rookie TRAINERS.$"
 
-BattleFrontier_OutsideWest_EventScript_BlueRematch
+BattleFrontier_OutsideWest_EventScript_BlueRematch::
 	lock
 	faceplayer
 	msgbox BattleFrontier_OutsideWest_Text_HeyPlayer, MSGBOX_YESNO
