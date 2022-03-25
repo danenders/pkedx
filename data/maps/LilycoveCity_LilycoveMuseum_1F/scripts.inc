@@ -1,8 +1,151 @@
 .set LOCALID_CURATOR, 2
 .set LOCALID_ARTIST_2, 8
+.set LOCALID_OAK, 11
 
 LilycoveCity_LilycoveMuseum_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, LilycoveCity_LilycoveMuseum_1F_OnLoad
 	.byte 0
+
+LilycoveCity_LilycoveMuseum_1F_OnLoad::
+	goto_if_unset FLAG_DAILY_RED_BATTLE, LilycoveCity_LilycoveMuseum_1F_EventScript_HideOak
+	goto_if_unset FLAG_DAILY_BLUE_BATTLE, LilycoveCity_LilycoveMuseum_1F_EventScript_HideOak
+	goto_if_unset FLAG_DAILY_LEAF_BATTLE, LilycoveCity_LilycoveMuseum_1F_EventScript_HideOak
+	call_if_unset FLAG_DAILY_KANTO_STARTER, LilycoveCity_LilycoveMuseum_1F_EventScript_SetKantoStarterGift
+	clearflag FLAG_HIDE_OAK_MUSEUM
+	addobject LOCALID_OAK
+	end
+
+LilycoveCity_LilycoveMuseum_1F_EventScript_HideOak::
+	setflag FLAG_HIDE_OAK_MUSEUM
+	removeobject LOCALID_OAK
+	end
+
+LilycoveCity_LilycoveMuseum_1F_EventScript_SetKantoStarterGift::
+	random 3
+	goto_if_eq VAR_RESULT, 1, LilycoveCity_LilycoveMuseum_1F_EventScript_SetBulbasaur
+	goto_if_eq VAR_RESULT, 2, LilycoveCity_LilycoveMuseum_1F_EventScript_SetCharmander
+	goto_if_eq VAR_RESULT, 3, LilycoveCity_LilycoveMuseum_1F_EventScript_SetSquirtle
+	end
+
+LilycoveCity_LilycoveMuseum_1F_EventScript_SetBulbasaur::
+	setvar VAR_KANTO_STARTER, 1
+	setflag FLAG_DAILY_KANTO_STARTER
+	return
+
+LilycoveCity_LilycoveMuseum_1F_EventScript_SetCharmander::
+	setvar VAR_KANTO_STARTER, 2
+	setflag FLAG_DAILY_KANTO_STARTER
+	return
+
+LilycoveCity_LilycoveMuseum_1F_EventScript_SetSquirtle::
+	setvar VAR_KANTO_STARTER, 3
+	setflag FLAG_DAILY_KANTO_STARTER
+	return
+
+
+LilycoveCity_LilycoveMuseum_1F_EventScript_Oak::
+	lock
+	faceplayer
+	playbgm MUS_RG_OAK, TRUE
+	goto_if_set FLAG_DAILY_OAK_PRESENT, LilycoveCity_LilycoveMuseum_1F_EventScript_DailyOakCompleted
+	goto_if_set FLAG_MET_PROFESSOR_OAK, LilycoveCity_LilycoveMuseum_1F_EventScript_OakGift
+	msgbox LilycoveCity_LilycoveMuseum_1F_Text_OakIntroduction, MSGBOX_DEFAULT
+	setflag FLAG_MET_PROFESSOR_OAK
+	goto LilycoveCity_LilycoveMuseum_1F_EventScript_OakGift
+	end
+
+LilycoveCity_LilycoveMuseum_1F_EventScript_DailyOakCompleted::
+	msgbox LilycoveCity_LilycoveMuseum_1F_Text_MysteriousCreatures, MSGBOX_DEFAULT
+	release
+	playbgm MUS_LILYCOVE_MUSEUM, TRUE
+	end
+
+LilycoveCity_LilycoveMuseum_1F_Text_MysteriousCreatures:
+	.string "OAK: POKéMON are certainly\n"
+	.string "mysterious creatures.\p"
+	.string "Seeing TRAINERS like you raise\n"
+	.string "POKéMON with care brings me hope\l"
+	.string "that we can one day unravel those\l"
+	.string "mysteries.$"
+
+LilycoveCity_LilycoveMuseum_1F_Text_OakIntroduction:
+	.string "????: This artifact is quite\n"
+	.string "fascinating, is it not?\p"
+	.string "There is still so much we do\n"
+	.string "not know about the origins of\l"
+	.string "POKéMON.\p"
+	.string "Oh! Where are my manners!\p"
+	.string "My name is OAK. I'm a POKéMON\n"
+	.string "PROFESSOR.\p"
+	.string "I heard from my GRANDSON that he\n"
+	.string "and his friends me a promising\l"
+	.string "young POKéMON TRAINER during their\l"
+	.string "travels here...\p"
+	.string "Yes...you must be the HOENN\n"
+	.string "POKéMON LEAGUE CHAMPION I've\l"
+	.string "heard so much about.$"
+
+LilycoveCity_LilycoveMuseum_1F_EventScript_OakGift::
+	msgbox LilycoveCity_LilycoveMuseum_1F_Text_OakGift, MSGBOX_DEFAULT
+	goto_if_eq VAR_KANTO_STARTER, 1, LilycoveCity_LilycoveMuseum_1F_EventScript_GetBulbasaurEgg
+	goto_if_eq VAR_KANTO_STARTER, 2, LilycoveCity_LilycoveMuseum_1F_EventScript_GetCharmanderEgg
+	goto_if_eq VAR_KANTO_STARTER, 3, LilycoveCity_LilycoveMuseum_1F_EventScript_GetSquirtleEgg
+	end
+
+LilycoveCity_LilycoveMuseum_1F_Text_OakGift:
+	.string "Have you been working on your\n"
+	.string "POKéDEX?\p"
+	.string "During my research, I've come\n"
+	.string "across this POKéMON EGG.\p"
+	.string "I'd like someone that understands\n"
+	.string "the bonds between a POKéMON and a\l"
+	.string "POKéMON TRAINER to care for it.$"
+
+LilycoveCity_LilycoveMuseum_1F_EventScript_GetBulbasaurEgg::
+	giveegg SPECIES_BULBASAUR
+	goto_if_eq VAR_RESULT, MON_CANT_GIVE, LilycoveCity_LilycoveMuseum_1F_EventScript_CantGive
+	playfanfare MUS_OBTAIN_ITEM
+	message LilycoveCity_LilycoveMuseum_1F_Text_Text_ReceivedTheEgg
+	waitfanfare
+	setflag FLAG_DAILY_OAK_PRESENT
+	goto LilycoveCity_LilycoveMuseum_1F_EventScript_DailyOakCompleted
+	end
+
+LilycoveCity_LilycoveMuseum_1F_EventScript_GetCharmanderEgg::
+	giveegg SPECIES_CHARMANDER
+	goto_if_eq VAR_RESULT, MON_CANT_GIVE, LilycoveCity_LilycoveMuseum_1F_EventScript_CantGive
+	playfanfare MUS_OBTAIN_ITEM
+	message LilycoveCity_LilycoveMuseum_1F_Text_Text_ReceivedTheEgg
+	waitfanfare
+	setflag FLAG_DAILY_OAK_PRESENT
+	goto LilycoveCity_LilycoveMuseum_1F_EventScript_DailyOakCompleted
+	end
+
+LilycoveCity_LilycoveMuseum_1F_EventScript_GetSquirtleEgg::
+	giveegg SPECIES_SQUIRTLE
+	goto_if_eq VAR_RESULT, MON_CANT_GIVE, LilycoveCity_LilycoveMuseum_1F_EventScript_CantGive
+	playfanfare MUS_OBTAIN_ITEM
+	message LilycoveCity_LilycoveMuseum_1F_Text_Text_ReceivedTheEgg
+	waitfanfare
+	setflag FLAG_DAILY_OAK_PRESENT
+	goto LilycoveCity_LilycoveMuseum_1F_EventScript_DailyOakCompleted
+	end
+
+LilycoveCity_LilycoveMuseum_1F_Text_Text_ReceivedTheEgg:
+	.string "{PLAYER} received the EGG.$"
+
+LilycoveCity_LilycoveMuseum_1F_EventScript_CantGive::
+	msgbox LilycoveCity_LilycoveMuseum_1F_Text_CantGive, MSGBOX_DEFAULT
+	playbgm MUS_LILYCOVE_MUSEUM, TRUE
+	release
+	end
+
+LilycoveCity_LilycoveMuseum_1F_Text_CantGive:
+	.string "OAK: Hmm...you don't seem\n"
+	.string "to take this egg right now.\p"
+	.string "Why don't you try making some\n"
+	.string "room for it first.$"
+
 
 LilycoveCity_LilycoveMuseum_1F_EventScript_Greeter::
 	msgbox LilycoveCity_LilycoveMuseum_1F_Text_WelcomeToLilycoveMuseum, MSGBOX_SIGN
@@ -291,4 +434,3 @@ LilycoveCity_LilycoveMuseum_1F_Text_MuseumTouristDestination:
 	.string "No, great for the HOENN region!\p"
 	.string "This is what I've heard--a lone TRAINER\n"
 	.string "procured all the paintings upstairs.$"
-

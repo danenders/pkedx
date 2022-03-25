@@ -527,11 +527,14 @@ BattleFrontier_OutsideWest_Text_MonWithLongTailInFrontier:
 
 BattleFrontier_OutsideWest_EventScript_Blue::
 	goto_if_set FLAG_DAILY_BLUE_BATTLE, BattleFrontier_OutsideWest_EventScript_BlueNeverSatisfied
+	goto_if_set FLAG_MET_BLUE_AT_FRONTIER, BattleFrontier_OutsideWest_EventScript_BlueRematch
 	lock
 	playbgm MUS_RG_ENCOUNTER_RIVAL, TRUE
 	msgbox BattleFrontier_OutsideWest_Text_RedsNotHere, MSGBOX_DEFAULT
 	applymovement LOCALID_BLUE, Common_Movement_ExclamationMark
 	faceplayer
+	msgbox BattleFrontier_OutsideWest_Text_BlueMeetup, MSGBOX_DEFAULT
+	setflag FLAG_MET_BLUE_AT_FRONTIER 
 	msgbox BattleFrontier_OutsideWest_Text_HeyPlayer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, TRUE, BattleFrontier_OutsideWest_EventScript_BlueBattle
 	msgbox BattleFrontier_OutsideWest_Text_WouldntWantToFightMeEither, MSGBOX_DEFAULT
@@ -543,23 +546,37 @@ BattleFrontier_OutsideWest_EventScript_Blue::
 BattleFrontier_OutsideWest_Text_RedsNotHere:
 	.string "BLUE: So he's not here, either...$"
 
-BattleFrontier_OutsideWest_Text_HeyPlayer:
+BattleFrontier_OutsideWest_Text_BlueMeetup:
 	.string "Oh! You're {PLAYER}!\p"
 	.string "It looks like you finally got\n"
 	.string "strong enough to make it here!\p"
 	.string "I thought I'd find the person I'm\n"
 	.string "looking for here, too.\p"
 	.string "But instead it's a just a bunch of\n"
-	.string "rookie TRAINERS.\p"
+	.string "rookie TRAINERS.$"
+
+BattleFrontier_OutsideWest_EventScript_BlueRematch
+	lock
+	faceplayer
+	msgbox BattleFrontier_OutsideWest_Text_HeyPlayer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, TRUE, BattleFrontier_OutsideWest_EventScript_BlueBattle
+	msgbox BattleFrontier_OutsideWest_Text_WouldntWantToFightMeEither, MSGBOX_DEFAULT
+	turnobject LOCALID_BLUE, DIR_NORTH
+	playbgm MUS_B_FRONTIER, TRUE
+	release
+	end
+
+BattleFrontier_OutsideWest_Text_HeyPlayer:
 	.string "I'm looking for a real challenge.\p"
 	.string "Say, now that you're the CHAMPION,\n"
-	.string "how about a BATTLE?$"
+	.string "how about a battle, {PLAYER}?$"
 
 BattleFrontier_OutsideWest_Text_WouldntWantToFightMeEither:
 	.string "Yeah, I wouldn't want to fight me\n"
 	.string "either.$"
 
 BattleFrontier_OutsideWest_EventScript_BlueBattle::
+	cleartrainerflag TRAINER_BLUE
 	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_BLUE, LOCALID_BLUE, BattleFrontier_OutsideWest_Text_BlueBattleIntro, BattleFrontier_OutsideWest_Text_BlueBattleDefeated, BattleFrontier_OutsideWest_EventScript_BlueBattled
 	release
 	end
@@ -603,7 +620,7 @@ BattleFrontier_OutsideWest_Text_BlueNeverSatisfied:
 	.string "BLUE: I'll only be satisifed when\n"
 	.string "I can defeat my RIVAL.\p"
 	.string "Until then, I won't stop trying to\n"
-	.string "become a strong PPOKéMON TRAINER!$"
+	.string "become a strong POKéMON TRAINER!$"
 
 BattleFrontier_OutsideWest_EventScript_YouDefeatedRed::
 	lock

@@ -279,6 +279,7 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_LEAF_INSIDE_LAB
 	setflag FLAG_HIDE_BLUE_INSIDE_LAB
 	setflag FLAG_HIDE_RED_MTPYRE
+	setflag FLAG_HIDE_OAK_MUSEUM
 
 	call EventScript_ResetAllBerries
 	end

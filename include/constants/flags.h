@@ -97,7 +97,7 @@
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0x53
 
 #define FLAG_SCOTT_POSTGAME_CALL                 0x54
-#define FLAG_UNUSED_0x55                    0x55
+#define FLAG_MET_PROFESSOR_OAK                   0x55
 
 #define FLAG_HIDE_CONTEST_POKE_BALL          0x56  // Always set after new game, object it hides is added directly
 #define FLAG_MET_RIVAL_MOM                   0x57
@@ -505,7 +505,7 @@
 #define FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL 0x1D8
 #define FLAG_ENABLE_JUAN_MATCH_CALL          0x1D9
 
-#define FLAG_UNUSED_0x1DA                    0x1DA // Unused Flag
+#define FLAG_FLAG_MET_BLUE_AT_FRONTIER       0x1DA
 
 #define FLAG_SHOWN_MYSTIC_TICKET             0x1DB
 #define FLAG_DEFEATED_HO_OH                  0x1DC
@@ -1222,12 +1222,12 @@
 #define FLAG_HIDE_LEAF_OUTSIDE_AC                                   0x493
 #define FLAG_HIDE_LEAF_INSIDE_AC                                    0x494 
 #define FLAG_HIDE_LEAF_INSIDE_LAB                                   0x495 
-#define FLAG_LEAF_GIFT_BULBASAUR                                    0x496 
-#define FLAG_LEAF_GIFT_CHARMANDER                                   0x497 
-#define FLAG_LEAF_GIFT_SQUIRTLE                                     0x498 
+#define FLAG_HIDE_SAFARI_ZONE_ETHAN                                 0x496 
+#define FLAG_HIDE_SAFARI_ZONE_LYRA                                  0x497 
+#define FLAG_HIDE_SAFARI_ZONE_KRIS                                  0x498 
 #define FLAG_HIDE_BLUE_INSIDE_LAB                                   0x499 
-#define FLAG_HIDE_RED_MTPYRE                                        0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
+#define FLAG_HIDE_RED_MTPYRE                                        0x49A 
+#define FLAG_HIDE_OAK_MUSEUM                                        0x49B 
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
@@ -1593,11 +1593,11 @@
 #define FLAG_DAILY_RECEIVED_BIRCH_STARTER      		(DAILY_FLAGS_START + 0x16) // Unused Flag
 #define FLAG_DAILY_RED_BATTLE                       (DAILY_FLAGS_START + 0x17) // Unused Flag
 #define FLAG_DAILY_BLUE_BATTLE                      (DAILY_FLAGS_START + 0x18) // Unused Flag
-#define FLAG_UNUSED_0x939                           (DAILY_FLAGS_START + 0x19) // Unused Flag
-#define FLAG_UNUSED_0x93A                           (DAILY_FLAGS_START + 0x1A) // Unused Flag
-#define FLAG_UNUSED_0x93B                           (DAILY_FLAGS_START + 0x1B) // Unused Flag
-#define FLAG_UNUSED_0x93C                           (DAILY_FLAGS_START + 0x1C) // Unused Flag
-#define FLAG_UNUSED_0x93D                           (DAILY_FLAGS_START + 0x1D) // Unused Flag
+#define FLAG_DAILY_LEAF_BATTLE                      (DAILY_FLAGS_START + 0x19) // Unused Flag
+#define FLAG_DAILY_OAK_PRESENT                      (DAILY_FLAGS_START + 0x1A) // Unused Flag
+#define FLAG_DAILY_KANTO_STARTER                    (DAILY_FLAGS_START + 0x1B) // Unused Flag
+#define FLAG_DAILY_SAFARI_PRESENT                   (DAILY_FLAGS_START + 0x1C) // Unused Flag
+#define FLAG_DAILY_JOHTO_STARTER                    (DAILY_FLAGS_START + 0x1D) // Unused Flag
 #define FLAG_UNUSED_0x93E                           (DAILY_FLAGS_START + 0x1E) // Unused Flag
 #define FLAG_UNUSED_0x93F                           (DAILY_FLAGS_START + 0x1F) // Unused Flag
 #define FLAG_UNUSED_0x940                           (DAILY_FLAGS_START + 0x20) // Unused Flag

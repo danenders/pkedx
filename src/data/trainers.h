@@ -11916,7 +11916,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_RED] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM | F_TRAINER_PARTY_CUSTOM_MOVESET,
-        .trainerClass = TRAINER_CLASS_CHAMPION,
+        .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_RED,
         .trainerName = _("RED"),
@@ -11948,7 +11948,7 @@ const struct Trainer gTrainers[] = {
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_BLUE,
         .trainerName = _("BLUE"),
-        .items = {ITEM_X_ATTACK, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_MAX_POTION},
+        .items = {ITEM_X_SPECIAL, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_MAX_POTION},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .partySize = ARRAY_COUNT(sParty_Blue),

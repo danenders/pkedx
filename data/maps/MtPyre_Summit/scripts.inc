@@ -682,6 +682,7 @@ MtPyre_Summit_EventScript_Red::
 	lock
 	faceplayer
 	msgbox MtPyre_Summit_Text_DotDotDot, MSGBOX_DEFAULT
+	cleartrainerflag TRAINER_RED
 	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_RED, LOCALID_RED, MtPyre_Summit_Text_DotDotDot, MtPyre_Summit_Text_DotDotDot, MtPyre_Summit_EventScript_RedDefeated
 	release
 	end

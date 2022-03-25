@@ -958,7 +958,11 @@ LittlerootTown_ProfessorBirchsLab_Text_BirchEnjoysRivalsHelpToo:
 LittlerootTown_ProfessorBirchsLab_EventScript_Leaf::
 	lock
 	faceplayer
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_Leaf, MSGBOX_DEFAULT
+	goto_if_set FLAG_DAILY_LEAF_BATTLE, LittlerootTown_ProfessorBirchsLab_EventScript_LeafFiredUp
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_Leaf, MSGBOX_YESNO
+	closemessage
+	goto_if_eq VAR_RESULT, TRUE, LittlerootTown_ProfessorBirchsLab_EventScript_LeafRematch
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_LeafDecline, MSGBOX_DEFAULT
 	turnobject LOCALID_LEAF, DIR_WEST
 	release
 	end
@@ -967,6 +971,40 @@ LittlerootTown_ProfessorBirchsLab_Text_Leaf:
 	.string "LEAF: PROF. BIRCH is letting me use\n"
 	.string "some of his equipment to do research\l"
 	.string "on rare POKéMON.\p"
-	.string "I wonder where I should travel to next?$"
+	.string "Say, want to have a POKéMON battle?$"
+
+LittlerootTown_ProfessorBirchsLab_Text_LeafDecline:
+	.string "That's alright. I should focus on my\n"
+	.string "research. I just get so fired up when\l"
+	.string "think about finding rare POKéMON!$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_LeafRematch::
+	cleartrainerflag TRAINER_LEAF
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_LEAF, LOCALID_LEAF, LittlerootTown_ProfessorBirchsLab_Text_LeafRematchBattleIntro, LittlerootTown_ProfessorBirchsLab_Text_LeafRematchBattleDefeat, LittlerootTown_ProfessorBirchsLab_EventScript_LeafRematchCompleted
+	end
 
 
+LittlerootTown_ProfessorBirchsLab_Text_LeafRematchBattleIntro:
+	.string "LEAF: I won't hold back this time!$"
+
+
+LittlerootTown_ProfessorBirchsLab_Text_LeafRematchBattleDefeat:
+	.string "LEAF: I need to get stronger!$"
+
+
+LittlerootTown_ProfessorBirchsLab_EventScript_LeafRematchCompleted::
+	setflag FLAG_DAILY_LEAF_BATTLE
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_LeafFiredUp, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_LeafFiredUp::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_LeafFiredUp, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_Text_LeafFiredUp:
+	.string "LEAF: Alright! I'm all fired up!\p"
+	.string "I'm going to keep researching\n"
+	.string "how to find even more powerful\l"
+	.string "POKéMON!$"
