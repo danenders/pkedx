@@ -231,7 +231,6 @@ const u32 gObjectEventPic_Truck[] = INCBIN_U32("graphics/object_events/pics/misc
 const u16 gObjectEventPal_Truck[] = INCBIN_U16("graphics/object_events/palettes/truck.gbapal");
 const u16 gObjectEventPal_Vigoroth[] = INCBIN_U16("graphics/object_events/palettes/vigoroth.gbapal");
 const u32 gObjectEventPic_BirchsBag[] = INCBIN_U32("graphics/object_events/pics/misc/birchs_bag.4bpp");
-const u32 gObjectEventPic_EnemyZigzagoon[] = INCBIN_U32("graphics/object_events/pics/pokemon/enemy_zigzagoon.4bpp");
 const u32 gObjectEventPic_CableCar[] = INCBIN_U32("graphics/object_events/pics/misc/cable_car.4bpp");
 const u16 gObjectEventPal_CableCar[] = INCBIN_U16("graphics/object_events/palettes/cable_car.gbapal");
 const u32 gObjectEventPic_SSTidal[] = INCBIN_U32("graphics/object_events/pics/misc/ss_tidal.4bpp");
@@ -784,24 +783,25 @@ const u16 gObjectEventPal_HoOhLugia[] = INCBIN_U16("graphics/object_events/palet
 const u16 gObjectEventPal_Celebi[] = INCBIN_U16("graphics/object_events/palettes/celebi.gbapal");
 
 //OW Pokemon
-const u32 gObjectEventPic_DeoxysOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/deoxys_old.4bpp");
-const u32 gObjectEventPic_MewOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/mew_old.4bpp");
-const u32 gObjectEventPic_DusclopsOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/dusclops_old.4bpp");
-const u32 gObjectEventPic_KirliaOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/kirlia_old.4bpp");
-const u32 gObjectEventPic_AzurillOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/azurill_old.4bpp");
-const u32 gObjectEventPic_KecleonOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/kecleon_old.4bpp");
-const u32 gObjectEventPic_WingullOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/wingull_old.4bpp");
-const u32 gObjectEventPic_AzumarillOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/azumarill_old.4bpp");
-const u32 gObjectEventPic_PikachuOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/pikachu_old.4bpp");
-const u32 gObjectEventPic_SkittyOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/skitty_old.4bpp");
-const u32 gObjectEventPic_PoochyenaOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/poochyena_old.4bpp");
-const u32 gObjectEventPic_GroudonOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/groudon_old.4bpp");
-const u32 gObjectEventPic_KyogreOld[] = INCBIN_U32("graphics/object_events/pics/pokemon/kyogre_old.4bpp");
-
 const u32 gObjectEventPic_VigorothMover[] = INCBIN_U32("graphics/object_events/pics/pokemon/vigoroth_mover.4bpp");
 const u32 gObjectEventPic_SudowoodoTree[] = INCBIN_U32("graphics/object_events/pics/pokemon/sudowoodo_tree.4bpp");
 const u32 gObjectEventPic_RayquazaCutscene[] = INCBIN_U32("graphics/object_events/pics/pokemon/rayquaza_cutscene.4bpp");
 
+//Updated OW Pokemon
+const u32 gObjectEventPic_PikachuOW[] = INCBIN_U32("graphics/object_events/pics/pokemon/pikachu_ow.4bpp");
+const u32 gObjectEventPic_AzumarillOW[] = INCBIN_U32("graphics/object_events/pics/pokemon/azumarill_ow.4bpp");
+const u32 gObjectEventPic_SkittyOW[] = INCBIN_U32("graphics/object_events/pics/pokemon/skitty_ow.4bpp");
+const u32 gObjectEventPic_PoochyenaOW[] = INCBIN_U32("graphics/object_events/pics/pokemon/poochyena_ow.4bpp");
+const u32 gObjectEventPic_AzurillOW[] = INCBIN_U32("graphics/object_events/pics/pokemon/azurill_ow.4bpp");
+const u32 gObjectEventPic_WingullOW[] = INCBIN_U32("graphics/object_events/pics/pokemon/wingull_ow.4bpp");
+const u32 gObjectEventPic_KecleonOW[] = INCBIN_U32("graphics/object_events/pics/pokemon/kecleon_ow.4bpp");
+const u32 gObjectEventPic_ZigzagoonOW[] = INCBIN_U32("graphics/object_events/pics/pokemon/zigzagoon_ow.4bpp");
+const u32 gObjectEventPic_DusclopsOW[] = INCBIN_U32("graphics/object_events/pics/pokemon/dusclops_ow.4bpp");
+const u32 gObjectEventPic_MewOW[] = INCBIN_U32("graphics/object_events/pics/pokemon/mew_ow.4bpp");
+const u32 gObjectEventPic_KirliaOW[] = INCBIN_U32("graphics/object_events/pics/pokemon/kirlia_ow.4bpp");
+const u32 gObjectEventPic_DeoxysOW[] = INCBIN_U32("graphics/object_events/pics/pokemon/deoxys_ow.4bpp");
+const u32 gObjectEventPic_GroudonOW[] = INCBIN_U32("graphics/object_events/pics/pokemon/groudon_ow.4bpp");
+const u32 gObjectEventPic_KyogreOW[] = INCBIN_U32("graphics/object_events/pics/pokemon/kyogre_ow.4bpp");
 
 
 const u16 gObjectEventPaletteLight[] = INCBIN_U16("graphics/object_events/palettes/light.gbapal");

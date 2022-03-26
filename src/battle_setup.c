@@ -746,13 +746,13 @@ u8 BattleSetup_GetTerrainId(void)
     case MAP_TYPE_UNDERGROUND:
         if (MetatileBehavior_IsIndoorEncounter(tileBehavior))
            {
-                if (gTimeOfDay != TIME_OF_DAY_NIGHT)
-                    if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
-                        return BATTLE_TERRAIN_BUILDING_DAY;
-                    else
-                        return BATTLE_TERRAIN_BUILDING_TWILIGHT;
+            if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+                if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                    return BATTLE_TERRAIN_BUILDING_DAY;
                 else
-                    return BATTLE_TERRAIN_BUILDING_NIGHT;
+                    return BATTLE_TERRAIN_BUILDING_TWILIGHT;
+            else
+                return BATTLE_TERRAIN_BUILDING_NIGHT;
             }
         if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
             return BATTLE_TERRAIN_CAVE_WATER;
@@ -761,15 +761,37 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_CAVE;
     case MAP_TYPE_INDOOR:
     case MAP_TYPE_SECRET_BASE:
-           {
-                if (gTimeOfDay != TIME_OF_DAY_NIGHT)
-                    if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
-                        return BATTLE_TERRAIN_BUILDING_DAY;
-                    else
-                        return BATTLE_TERRAIN_BUILDING_TWILIGHT;
+        //MEW
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(FARAWAY_ISLAND_INTERIOR) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(FARAWAY_ISLAND_INTERIOR))
+        {
+            if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+                if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                    return BATTLE_TERRAIN_LONG_GRASS_DAY;
                 else
-                    return BATTLE_TERRAIN_BUILDING_NIGHT;
-            }
+                    return BATTLE_TERRAIN_LONG_GRASS_TWILIGHT;
+            else
+                return BATTLE_TERRAIN_LONG_GRASS_NIGHT;
+        }
+        //DEOXYS
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BIRTH_ISLAND_EXTERIOR) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(BIRTH_ISLAND_EXTERIOR))
+        {
+            if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+                if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                    return BATTLE_TERRAIN_LONG_GRASS_DAY;
+                else
+                    return BATTLE_TERRAIN_LONG_GRASS_TWILIGHT;
+            else
+                return BATTLE_TERRAIN_LONG_GRASS_NIGHT;
+        }
+        {
+            if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+                if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                    return BATTLE_TERRAIN_BUILDING_DAY;
+                else
+                    return BATTLE_TERRAIN_BUILDING_TWILIGHT;
+            else
+                return BATTLE_TERRAIN_BUILDING_NIGHT;
+        }
     case MAP_TYPE_UNDERWATER:
         return BATTLE_TERRAIN_UNDERWATER;
     case MAP_TYPE_OCEAN_ROUTE:
@@ -890,28 +912,6 @@ u8 BattleSetup_GetTerrainId(void)
                 return BATTLE_TERRAIN_AUTUMN_TWILIGHT;
         else
             return BATTLE_TERRAIN_AUTUMN_NIGHT;
-    }
-    //MEW
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(FARAWAY_ISLAND_INTERIOR) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(FARAWAY_ISLAND_INTERIOR))
-    {
-        if (gTimeOfDay != TIME_OF_DAY_NIGHT)
-            if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
-                return BATTLE_TERRAIN_LONG_GRASS_DAY;
-            else
-                return BATTLE_TERRAIN_LONG_GRASS_TWILIGHT;
-        else
-            return BATTLE_TERRAIN_LONG_GRASS_NIGHT;
-    }
-    //DEOXYS
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BIRTH_ISLAND_EXTERIOR) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(BIRTH_ISLAND_EXTERIOR))
-    {
-        if (gTimeOfDay != TIME_OF_DAY_NIGHT)
-            if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
-                return BATTLE_TERRAIN_LONG_GRASS_DAY;
-            else
-                return BATTLE_TERRAIN_LONG_GRASS_TWILIGHT;
-        else
-            return BATTLE_TERRAIN_LONG_GRASS_NIGHT;
     }
     //Plain
     if (gTimeOfDay != TIME_OF_DAY_NIGHT)

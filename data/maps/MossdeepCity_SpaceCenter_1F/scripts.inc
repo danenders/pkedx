@@ -442,6 +442,8 @@ MossdeepCity_SpaceCenter_1F_EventScript_ShowSteven::
 
 MossdeepCity_SpaceCenter_1F_EventScript_StevenDiscovery::
 	lockall
+	checkitem ITEM_AURORA_TICKET
+	goto_if_eq VAR_RESULT, TRUE, MossdeepCity_SpaceCenter_1F_EventScript_WhatWillYouFind
 	applymovement LOCALID_STEVEN, Common_Movement_ExclamationMark
 	faceplayer
 	msgbox MossdeepCity_SpaceCenter_1F_Text_StevenDiscovery, MSGBOX_DEFAULT
@@ -462,11 +464,18 @@ MossdeepCity_SpaceCenter_1F_Text_StevenDiscovery:
 	.string "detected entering our planet's\l"
 	.string "atmosphere.$"
 
-MossdeepCity_SpaceCenter_1F_EventScript_Triangulating::
-	msgbox MossdeepCity_SpaceCenter_1F_Text_Triangulating, MSGBOX_DEFAULT
-	setflag FLAG_POSTGAME_STEVEN
+MossdeepCity_SpaceCenter_1F_EventScript_WhatWillYouFind::
+	msgbox MossdeepCity_SpaceCenter_1F_Text_WhatWillYouFind, MSGBOX_DEFAULT
 	release
 	end
+
+MossdeepCity_SpaceCenter_1F_EventScript_Triangulating::
+	msgbox MossdeepCity_SpaceCenter_1F_Text_Triangulating, MSGBOX_DEFAULT
+	release
+	end
+
+MossdeepCity_SpaceCenter_1F_Text_WhatWillYouFind:
+	.string "I wonder what awaits you.$"
 
 MossdeepCity_SpaceCenter_1F_Text_Triangulating:
 	.string "We're still collecting data.\p"

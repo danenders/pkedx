@@ -90,7 +90,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Truck;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VigorothCarryingBox;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VigorothFacingAway;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BirchsBag;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EnemyZigzagoon;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Zigzagoon;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Artist;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanNormal;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanMachBike;
@@ -191,7 +191,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skitty;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kecleon;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KyogreAsleep;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GroudonAsleep;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rayquaza;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RayquazaCutscene;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pikachu;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Azumarill;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Wingull;
@@ -346,7 +346,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_VIGOROTH_CARRYING_BOX] =    &gObjectEventGraphicsInfo_VigorothCarryingBox,
     [OBJ_EVENT_GFX_VIGOROTH_FACING_AWAY] =     &gObjectEventGraphicsInfo_VigorothFacingAway,
     [OBJ_EVENT_GFX_BIRCHS_BAG] =               &gObjectEventGraphicsInfo_BirchsBag,
-    [OBJ_EVENT_GFX_ZIGZAGOON_1] =              &gObjectEventGraphicsInfo_EnemyZigzagoon,
+    [OBJ_EVENT_GFX_ZIGZAGOON_1] =              &gObjectEventGraphicsInfo_Zigzagoon,
     [OBJ_EVENT_GFX_ARTIST] =                   &gObjectEventGraphicsInfo_Artist,
     [OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL] =     &gObjectEventGraphicsInfo_RivalBrendanNormal,
     [OBJ_EVENT_GFX_RIVAL_BRENDAN_MACH_BIKE] =  &gObjectEventGraphicsInfo_RivalBrendanMachBike,
@@ -447,7 +447,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_KECLEON] =                  &gObjectEventGraphicsInfo_Kecleon,
     [OBJ_EVENT_GFX_KYOGRE_ASLEEP] =            &gObjectEventGraphicsInfo_KyogreAsleep,
     [OBJ_EVENT_GFX_GROUDON_ASLEEP] =           &gObjectEventGraphicsInfo_GroudonAsleep,
-    [OBJ_EVENT_GFX_RAYQUAZA] =                 &gObjectEventGraphicsInfo_Rayquaza,
+    [OBJ_EVENT_GFX_RAYQUAZA] =                 &gObjectEventGraphicsInfo_RayquazaCutscene,
     [OBJ_EVENT_GFX_PIKACHU] =                  &gObjectEventGraphicsInfo_Pikachu,
     [OBJ_EVENT_GFX_AZUMARILL] =                &gObjectEventGraphicsInfo_Azumarill,
     [OBJ_EVENT_GFX_WINGULL] =                  &gObjectEventGraphicsInfo_Wingull,
