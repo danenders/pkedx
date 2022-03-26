@@ -662,13 +662,36 @@ u8 BattleSetup_GetTerrainId(void)
 
     if (MetatileBehavior_IsTallGrass(tileBehavior))
     {
-        if (gTimeOfDay != TIME_OF_DAY_NIGHT)
-            if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
-                return BATTLE_TERRAIN_GRASS_DAY;
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MT_PYRE_EXTERIOR) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MT_PYRE_EXTERIOR))
+        {
+            if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+                if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                    return BATTLE_TERRAIN_MOUNTAIN_DAY;
+                else
+                    return BATTLE_TERRAIN_MOUNTAIN_TWILIGHT;
             else
-                return BATTLE_TERRAIN_GRASS_TWILIGHT;
+                return BATTLE_TERRAIN_MOUNTAIN_NIGHT;
+        }
+        else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE113) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE113))
+        {
+            if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+                if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                    return BATTLE_TERRAIN_AUTUMN_DAY;
+                else
+                    return BATTLE_TERRAIN_AUTUMN_TWILIGHT;
+            else
+                return BATTLE_TERRAIN_AUTUMN_NIGHT;
+        }
         else
-            return BATTLE_TERRAIN_GRASS_NIGHT;
+        {
+            if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+                if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                    return BATTLE_TERRAIN_GRASS_DAY;
+                else
+                    return BATTLE_TERRAIN_GRASS_TWILIGHT;
+            else
+                return BATTLE_TERRAIN_GRASS_NIGHT;
+        }
     }
     
     if (MetatileBehavior_IsLongGrass(tileBehavior))
@@ -847,6 +870,16 @@ u8 BattleSetup_GetTerrainId(void)
                 return BATTLE_TERRAIN_WATER_TWILIGHT;
         else
             return BATTLE_TERRAIN_WATER_NIGHT;
+    }
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MT_PYRE_SUMMIT) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MT_PYRE_SUMMIT))
+    {
+        if (gTimeOfDay != TIME_OF_DAY_NIGHT)
+            if (gTimeOfDay != TIME_OF_DAY_TWILIGHT)
+                return BATTLE_TERRAIN_MOUNTAIN_DAY;
+            else
+                return BATTLE_TERRAIN_MOUNTAIN_TWILIGHT;
+        else
+            return BATTLE_TERRAIN_MOUNTAIN_NIGHT;
     }
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE113) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE113))
     {
