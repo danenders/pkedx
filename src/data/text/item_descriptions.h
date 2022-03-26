@@ -849,6 +849,11 @@ static const u8 sSoftSandDesc[] = _(
     "raises the power of\n"
     "GROUND-type moves.");
 
+static const u8 sPixieDustDesc[] = _(
+    "A hold item that\n"
+    "raises the power of\n"
+    "FAIRY-type moves.");
+
 static const u8 sHardStoneDesc[] = _(
     "A hold item that\n"
     "raises the power of\n"

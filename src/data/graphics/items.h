@@ -506,6 +506,9 @@ const u32 gItemIconPalette_LightBall[] = INCBIN_U32("graphics/items/icon_palette
 const u32 gItemIcon_SoftSand[] = INCBIN_U32("graphics/items/icons/soft_sand.4bpp.lz");
 const u32 gItemIconPalette_SoftSand[] = INCBIN_U32("graphics/items/icon_palettes/soft_sand.gbapal.lz");
 
+const u32 gItemIcon_PixieDust[] = INCBIN_U32("graphics/items/icons/pixie_dust.4bpp.lz");
+const u32 gItemIconPalette_PixieDust[] = INCBIN_U32("graphics/items/icon_palettes/pixie_dust.gbapal.lz");
+
 const u32 gItemIcon_HardStone[] = INCBIN_U32("graphics/items/icons/hard_stone.4bpp.lz");
 const u32 gItemIconPalette_HardStone[] = INCBIN_U32("graphics/items/icon_palettes/hard_stone.gbapal.lz");
 

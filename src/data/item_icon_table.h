@@ -244,8 +244,10 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_STICK] = {gItemIcon_Stick, gItemIconPalette_Stick},
     [ITEM_RAZOR_FANG] = {gItemIcon_RazorFang, gItemIconPalette_RazorFang},
     [ITEM_RAZOR_CLAW] = {gItemIcon_RazorClaw, gItemIconPalette_RazorClaw},
+    [ITEM_PIXIE_DUST] = {gItemIcon_PixieDust, gItemIconPalette_PixieDust},
     
     // ????????
+    [ITEM_0E5] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_0E6] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_0E7] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_0E8] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},

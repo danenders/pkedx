@@ -2735,12 +2735,14 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_0E4] =
+    [ITEM_PIXIE_DUST] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("PIXIE DUST"),
+        .itemId = ITEM_PIXIE_DUST,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_FAIRY_POWER,
+        .holdEffectParam = 10,
+        .description = sPixieDustDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

@@ -257,7 +257,7 @@
 #define ITEM_STICK 			225
 #define ITEM_RAZOR_CLAW 	226
 #define ITEM_RAZOR_FANG		227
-#define ITEM_0E4 228
+#define ITEM_PIXIE_DUST	 	228 //ITEM_0E4
 #define ITEM_0E5 229
 #define ITEM_0E6 230
 #define ITEM_0E7 231

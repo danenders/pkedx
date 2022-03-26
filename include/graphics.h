@@ -3968,6 +3968,9 @@ extern const u32 gItemIconPalette_ThickClub[];
 extern const u32 gItemIcon_Stick[];
 extern const u32 gItemIconPalette_Stick[];
 
+extern const u32 gItemIcon_PixieDust[];
+extern const u32 gItemIconPalette_PixieDust[];
+
 extern const u32 gItemIcon_RazorFang[];
 extern const u32 gItemIconPalette_RazorFang[];
 
