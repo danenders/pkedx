@@ -857,12 +857,12 @@
 #define TRAINER_BRENDAN_PLACEHOLDER         853
 #define TRAINER_MAY_PLACEHOLDER             854
 #define	TRAINER_BLUE 						855
-//#define TRAINER_UNUSED 					856
-//#define TRAINER_UNUSED 					857
-//#define TRAINER_UNUSED 					858
-//#define TRAINER_UNUSED 					859
-//#define TRAINER_UNUSED 					860
-//#define TRAINER_UNUSED 					861
+#define TRAINER_DOJO_HP 					856
+#define TRAINER_DOJO_ATK 					857
+#define TRAINER_DOJO_DEF 					858
+#define TRAINER_DOJO_SPA					859
+#define TRAINER_DOJO_SPD 					860
+#define TRAINER_DOJO_SPEED 					861
 //#define TRAINER_UNUSED 					862
 //#define TRAINER_UNUSED 					863
 

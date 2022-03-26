@@ -1524,3 +1524,11 @@ SlateportCity_Text_TradeThatPearl:
 	.string "How about a trade? I could\n"
 	.string "give you a DEEPSEATOOTH or\l"
 	.string "this DEEPSEASCALE.$"
+
+SlateportCity_EventScript_DojoSign::
+	msgbox SlateportCity_Text_DojoSign, MSGBOX_SIGN
+	end
+
+SlateportCity_Text_DojoSign:
+	.string "SLATEPORT DOJO\n"
+	.string "“Where HOENN's Champs train!”$"

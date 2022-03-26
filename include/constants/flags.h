@@ -1589,24 +1589,24 @@
 #define FLAG_DAILY_LANETTE_UPGRADE                  (DAILY_FLAGS_START + 0x13)
 #define FLAG_DAILY_APPRENTICE_LEAVES                (DAILY_FLAGS_START + 0x14)
 
-#define FLAG_DAILY_FANCLUB_PRESENT                  (DAILY_FLAGS_START + 0x15) // Unused Flag
-#define FLAG_DAILY_RECEIVED_BIRCH_STARTER      		(DAILY_FLAGS_START + 0x16) // Unused Flag
-#define FLAG_DAILY_RED_BATTLE                       (DAILY_FLAGS_START + 0x17) // Unused Flag
-#define FLAG_DAILY_BLUE_BATTLE                      (DAILY_FLAGS_START + 0x18) // Unused Flag
-#define FLAG_DAILY_LEAF_BATTLE                      (DAILY_FLAGS_START + 0x19) // Unused Flag
-#define FLAG_DAILY_OAK_PRESENT                      (DAILY_FLAGS_START + 0x1A) // Unused Flag
-#define FLAG_DAILY_KANTO_STARTER                    (DAILY_FLAGS_START + 0x1B) // Unused Flag
-#define FLAG_DAILY_SAFARI_PRESENT                   (DAILY_FLAGS_START + 0x1C) // Unused Flag
-#define FLAG_DAILY_JOHTO_VISITOR                    (DAILY_FLAGS_START + 0x1D) // Unused Flag
-#define FLAG_DAILY_DECLINED_JOHTO_EGG          		(DAILY_FLAGS_START + 0x1E) // Unused Flag
-#define FLAG_UNUSED_0x93F                           (DAILY_FLAGS_START + 0x1F) // Unused Flag
-#define FLAG_UNUSED_0x940                           (DAILY_FLAGS_START + 0x20) // Unused Flag
-#define FLAG_UNUSED_0x941                           (DAILY_FLAGS_START + 0x21) // Unused Flag
-#define FLAG_UNUSED_0x942                           (DAILY_FLAGS_START + 0x22) // Unused Flag
-#define FLAG_UNUSED_0x943                           (DAILY_FLAGS_START + 0x23) // Unused Flag
-#define FLAG_UNUSED_0x944                           (DAILY_FLAGS_START + 0x24) // Unused Flag
-#define FLAG_UNUSED_0x945                           (DAILY_FLAGS_START + 0x25) // Unused Flag
-#define FLAG_UNUSED_0x946                           (DAILY_FLAGS_START + 0x26) // Unused Flag
+#define FLAG_DAILY_FANCLUB_PRESENT                  (DAILY_FLAGS_START + 0x15) 
+#define FLAG_DAILY_RECEIVED_BIRCH_STARTER      		(DAILY_FLAGS_START + 0x16) 
+#define FLAG_DAILY_RED_BATTLE                       (DAILY_FLAGS_START + 0x17) 
+#define FLAG_DAILY_BLUE_BATTLE                      (DAILY_FLAGS_START + 0x18) 
+#define FLAG_DAILY_LEAF_BATTLE                      (DAILY_FLAGS_START + 0x19) 
+#define FLAG_DAILY_OAK_PRESENT                      (DAILY_FLAGS_START + 0x1A) 
+#define FLAG_DAILY_KANTO_STARTER                    (DAILY_FLAGS_START + 0x1B) 
+#define FLAG_DAILY_SAFARI_PRESENT                   (DAILY_FLAGS_START + 0x1C) 
+#define FLAG_DAILY_JOHTO_VISITOR                    (DAILY_FLAGS_START + 0x1D) 
+#define FLAG_DAILY_DECLINED_JOHTO_EGG          		(DAILY_FLAGS_START + 0x1E) 
+#define FLAG_DAILY_DOJO_OFFENSE_CHALLENGED          (DAILY_FLAGS_START + 0x1F) 
+#define FLAG_DAILY_DOJO_DEFENSE_CHALLENGED          (DAILY_FLAGS_START + 0x20) 
+#define FLAG_DAILY_DOJO_HP                          (DAILY_FLAGS_START + 0x21) // Unused Flag
+#define FLAG_DAILY_DOJO_ATK                         (DAILY_FLAGS_START + 0x22) // Unused Flag
+#define FLAG_DAILY_DOJO_DEF                         (DAILY_FLAGS_START + 0x23) // Unused Flag
+#define FLAG_DAILY_DOJO_SPA                         (DAILY_FLAGS_START + 0x24) // Unused Flag
+#define FLAG_DAILY_DOJO_SPD                         (DAILY_FLAGS_START + 0x25) // Unused Flag
+#define FLAG_DAILY_DOJO_SPEED                       (DAILY_FLAGS_START + 0x26) // Unused Flag
 #define FLAG_UNUSED_0x947                           (DAILY_FLAGS_START + 0x27) // Unused Flag
 #define FLAG_UNUSED_0x948                           (DAILY_FLAGS_START + 0x28) // Unused Flag
 #define FLAG_UNUSED_0x949                           (DAILY_FLAGS_START + 0x29) // Unused Flag
