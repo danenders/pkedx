@@ -673,3 +673,7 @@ SeafloorCavern_EventScript_ItemHelixFossil::
 MeteorFalls_EventScript_ItemOldAmber::
 	finditem ITEM_OLD_AMBER
 	end
+
+MeteorFalls_EventScript_ItemPixieDust::
+	finditem ITEM_PIXIE_DUST
+	end
