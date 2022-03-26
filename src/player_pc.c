@@ -224,10 +224,7 @@ static const struct MenuAction sItemStorage_MenuActions[] =
 
 static const struct ItemSlot sNewGamePCItems[] =
 {
-    { ITEM_REPEL, 2 },
-    { ITEM_OLD_ROD, 1 },
-    { ITEM_ACRO_BIKE, 1 },
-    { ITEM_MACH_BIKE, 1 },
+    { ITEM_POTION, 1 },
     { ITEM_NONE, 0 }
 };
 
