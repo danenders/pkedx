@@ -622,6 +622,16 @@
       "blockdata_filepath": "data/layouts/PokemonCenter_2F/map.bin"
     },
     {
+      "id": "EVER_GRANDE_CITY_POKEMON_LEAGUE_2F",
+      "name": "EverGrandeCity_PokemonLeague_2F_Layout",
+      "width": 14,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/EverGrandeCity_PokemonLeague_2F/border.bin",
+      "blockdata_filepath": "data/layouts/EverGrandeCity_PokemonLeague_2F/map.bin"
+    },
+    {
       "id": "LAYOUT_MART",
       "name": "Mart_Layout",
       "width": 11,
