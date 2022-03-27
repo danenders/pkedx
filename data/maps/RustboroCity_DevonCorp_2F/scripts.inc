@@ -1,4 +1,5 @@
 .set LOCALID_FOSSIL_SCIENTIST, 5
+.set LOCALID_PORYGON_BALL, 8
 
 RustboroCity_DevonCorp_2F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RustboroCity_DevonCorp_2F_OnTransition
@@ -26,6 +27,94 @@ RustboroCity_DevonCorp_2F_EventScript_BallScientist::
 	call_if_eq VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady
 	goto_if_set FLAG_MET_DEVON_EMPLOYEE, RustboroCity_DevonCorp_2F_EventScript_DevelopedBalls
 	msgbox RustboroCity_DevonCorp_2F_Text_DevelopingNewBalls, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_Porygon::
+	lock
+	msgbox RustboroCity_DevonCorp_2F_Text_Porygon, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_DevonCorp_2F_Text_Porygon:
+	.string "There's a POKéMON inside!$"
+
+RustboroCity_DevonCorp_2F_EventScript_PorygonScientist::
+	lock
+	faceplayer
+	goto_if_set FLAG_GOT_PORYGON, RustboroCity_DevonCorp_2F_EventScript_PorygonGiven
+	msgbox RustboroCity_DevonCorp_2F_Text_GivePorygon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, FALSE, RustboroCity_DevonCorp_2F_EventScript_PorygonDeclined
+	givemon SPECIES_PORYGON, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, RustboroCity_DevonCorp_2F_EventScript_ReceivePorygonParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, RustboroCity_DevonCorp_2F_EventScript_ReceivePorygonPC
+	goto Common_EventScript_NoMoreRoomForPokemon 
+	release
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_PorygonGiven::
+	msgbox RustboroCity_DevonCorp_2F_Text_PorygonGiven, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_DevonCorp_2F_Text_PorygonGiven:
+	.string "Decompiling a POKéMON'S DNA opens\n"
+	.string "up the next level of POKéMON\l"
+	.string "hacking!$"
+
+RustboroCity_DevonCorp_2F_Text_GivePorygon:
+	.string "I'm working on a program to edit\n"
+	.string "POKéMON on your PC!\p"
+	.string "We developed the world's first\n"
+	.string "digital POKéMON with this\l"
+	.string "technology!\p"
+	.string "You look like a capable TRAINER.\p"
+	.string "Would you take this POKéMON into\n"
+	.string "field for testing?$"
+
+RustboroCity_DevonCorp_2F_EventScript_PorygonDeclined::
+	msgbox RustboroCity_DevonCorp_2F_Text_PorygonDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_DevonCorp_2F_Text_PorygonDeclined:
+	.string "This is the future of POKéMON!\p"
+	.string "Don't you want to be a part of it?$"
+
+RustboroCity_DevonCorp_2F_EventScript_ReceivePorygonParty::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedPorygonFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_FinishReceivingPorygon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingPorygon
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceivedPorygonFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_PORYGON
+	playfanfare MUS_OBTAIN_ITEM
+	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_PORYGON
+	return
+
+RustboroCity_DevonCorp_2F_EventScript_ReceivePorygonPC::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedPorygonFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_TransferPorygonToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto RustboroCity_DevonCorp_2F_EventScript_TransferPorygonToPC
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_TransferPorygonToPC::
+	call Common_EventScript_TransferredToPC
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingPorygon
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_FinishReceivingPorygon::
+	removeobject LOCALID_PORYGON_BALL
+	setflag FLAG_GOT_PORYGON
 	release
 	end
 

@@ -338,3 +338,14 @@ Route101_Text_RouteSign:
 	.string "ROUTE 101\n"
 	.string "{UP_ARROW} OLDALE TOWN$"
 
+Route101_EventScript_PokemonWatcher::
+	lock
+	faceplayer
+	msgbox Route101_Text_SawARarePokemon, MSGBOX_DEFAULT
+	release
+	end
+
+Route101_Text_SawARarePokemon:
+	.string "Last night I saw a POKéMON that\n"
+	.string "I've never seen in HOENN!\p"
+	.string "But I can't find it this morning.$"

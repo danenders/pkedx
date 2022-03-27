@@ -681,7 +681,7 @@
 #define FLAG_CAUGHT_CELEBI   	0x27E
 #define FLAG_HIDE_CELEBI    	0x27F
 #define FLAG_DEFEATED_CELEBI    0x280
-#define FLAG_UNUSED_0x281  0x281 // Unused Flag
+#define FLAG_GOT_PORYGON  0x281 // Unused Flag
 #define FLAG_UNUSED_0x282  0x282 // Unused Flag
 #define FLAG_UNUSED_0x283  0x283 // Unused Flag
 #define FLAG_UNUSED_0x284  0x284 // Unused Flag
