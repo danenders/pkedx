@@ -464,7 +464,8 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
 	closemessage
 	setflag FLAG_HIDE_BLUE_INSIDE_LAB
 	removeobject LOCALID_BLUE
-	playbgm MUS_BIRCH_LAB, TRUE
+	savebgm MUS_DUMMY
+	fadedefaultbgm
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_MoveBackToBirch
 	turnobject LOCALID_RIVAL, DIR_WEST
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_WhereWereWe, MSGBOX_DEFAULT

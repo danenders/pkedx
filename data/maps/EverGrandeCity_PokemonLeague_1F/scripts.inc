@@ -1,6 +1,8 @@
 .set LOCALID_NURSE, 1
 .set LOCALID_GUARD_1, 3
 .set LOCALID_GUARD_2, 4
+.set LOCALID_LEAGUEWORKER, 6
+.set LOCALID_LANETTE, 5
 
 EverGrandeCity_PokemonLeague_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, EverGrandeCity_PokemonLeague_1F_OnTransition
@@ -11,6 +13,7 @@ EverGrandeCity_PokemonLeague_1F_OnTransition:
 	setrespawn HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE
 	setflag FLAG_LANDMARK_POKEMON_LEAGUE
 	call_if_unset FLAG_ENTERED_ELITE_FOUR, EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor
+	call_if_unset FLAG_MET_LANETTE, EverGrandeCity_PokemonLeague_1F_EventScript_LanetteNotHere
 	end
 
 EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor::
@@ -140,4 +143,108 @@ EverGrandeCity_PokemonLeague_1F_Text_HaventObtainedAllBadges:
 EverGrandeCity_PokemonLeague_1F_Text_GoForth:
 	.string "TRAINER! Believe in yourself and your\n"
 	.string "POKéMON, and go forth!$"
+
+
+EverGrandeCity_PokemonLeague_1F_EventScript_LanetteNotHere::
+	call_if_unset FLAG_BADGE08_GET, EverGrandeCity_PokemonLeague_1F_EventScript_LeagueWorker
+	removeobject LOCALID_LEAGUEWORKER
+	end
+
+EverGrandeCity_PokemonLeague_1F_EventScript_LeagueWorker::
+	setflag FLAG_HIDE_LANETTE_AT_LEAGUE
+	addobject LOCALID_LEAGUEWORKER
+	end
+
+EverGrandeCity_PokemonLeague_1F_EventScript_WorkingUpstairs::
+	lock
+	faceplayer
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_WorkingUpstairs, MSGBOX_DEFAULT
+	release
+	end
+
+EverGrandeCity_PokemonLeague_1F_Text_WorkingUpstairs:
+	.string "Sorry kid, can't let you upstairs\n"
+	.string "just yet.\p"
+	.string "They're installing a lot of HI-TECH\n"
+	.string "equipment up there.$"
+
+
+EverGrandeCity_PokemonLeague_1F_EventScript_Lanette::
+	goto_if_unset FLAG_IS_CHAMPION, EverGrandeCity_PokemonLeague_1F_EventScript_LanetteNotReady
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_Lanette, MSGBOX_DEFAULT
+	call_if_eq VAR_FACING, DIR_NORTH, EverGrandeCity_PokemonLeague_1F_EventScript_LanetteExit
+	call_if_eq VAR_FACING, DIR_SOUTH, EverGrandeCity_PokemonLeague_1F_EventScript_LanetteExit
+	call_if_eq VAR_FACING, DIR_WEST, EverGrandeCity_PokemonLeague_1F_EventScript_LanetteExitBlocked
+	waitmovement 0
+	removeobject LOCALID_LANETTE
+	setflag FLAG_HIDE_LANETTE_AT_LEAGUE
+	release
+	end
+
+EverGrandeCity_PokemonLeague_1F_EventScript_LanetteExit::
+	applymovement LOCALID_LANETTE, Movement_LanetteExit
+	return
+
+EverGrandeCity_PokemonLeague_1F_EventScript_LanetteExitBlocked::
+	applymovement LOCALID_LANETTE, Movement_LanetteExitBlocked
+	return
+
+Movement_LanetteExit:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Movement_LanetteExitBlocked:
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+EverGrandeCity_PokemonLeague_1F_Text_Lanette:
+	.string "LANETTE: Wow, {PLAYER}!\p"
+	.string "You defeated the ELITE FOUR?\p"
+	.string "That's awesome!\p"
+	.string "While you were challenging the\n"
+	.string "LEAGUE, we finished renovations\l"
+	.string "for the CABLE CLUB upstairs!\p"
+	.string "I'm heading out, but come see\n"
+	.string "me at my house sometime!$"
+
+EverGrandeCity_PokemonLeague_1F_EventScript_LanetteNotReady::
+	lock
+	faceplayer
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_LanetteNotReady, MSGBOX_DEFAULT
+	release
+	end
+
+EverGrandeCity_PokemonLeague_1F_Text_LanetteNotReady:
+	.string "LANETTE: Hi, {PLAYER}!\p"
+	.string "I'm helping the LEAGUE install\n"
+	.string "the equipment for a CABLE CLUB\l"
+	.string "upstairs!\p"
+	.string "If it works, you'll be able to\n"
+	.string "communicate with trainers from\l"
+	.string "all different regions\p"
+	.string "Wouldn't that be cool?\p"
+	.string "We still need a little more time\n"
+	.string "before it's ready, though.$"
 

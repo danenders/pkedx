@@ -1323,8 +1323,8 @@
 #define FLAG_DEFEATED_SOOTOPOLIS_GYM                                0x4F7
 #define FLAG_DEFEATED_METEOR_FALLS_STEVEN                           0x4F8
 
-#define FLAG_UNUSED_0x4F9                                           0x4F9 // Unused Flag
-#define FLAG_UNUSED_0x4FA                                           0x4FA // Unused Flag
+#define FLAG_MET_LANETTE                                          0x4F9 // Unused Flag
+#define FLAG_HIDE_LANETTE_AT_LEAGUE                                            0x4FA // Unused Flag
 
 #define FLAG_DEFEATED_ELITE_4_SIDNEY                                0x4FB
 #define FLAG_DEFEATED_ELITE_4_PHOEBE                                0x4FC
@@ -1607,7 +1607,7 @@
 #define FLAG_DAILY_DOJO_SPA                         (DAILY_FLAGS_START + 0x24) // Unused Flag
 #define FLAG_DAILY_DOJO_SPD                         (DAILY_FLAGS_START + 0x25) // Unused Flag
 #define FLAG_DAILY_DOJO_SPEED                       (DAILY_FLAGS_START + 0x26) // Unused Flag
-#define FLAG_UNUSED_0x947                           (DAILY_FLAGS_START + 0x27) // Unused Flag
+#define FLAG_DAILY_SLATEPORT_FISHERMAN_RANKED       (DAILY_FLAGS_START + 0x27) // Unused Flag
 #define FLAG_UNUSED_0x948                           (DAILY_FLAGS_START + 0x28) // Unused Flag
 #define FLAG_UNUSED_0x949                           (DAILY_FLAGS_START + 0x29) // Unused Flag
 #define FLAG_UNUSED_0x94A                           (DAILY_FLAGS_START + 0x2A) // Unused Flag

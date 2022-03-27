@@ -29,13 +29,7 @@ OldaleTown_PokemonCenter_1F_EventScript_Boy::
 OldaleTown_PokemonCenter_1F_EventScript_Girl::
 	lock
 	faceplayer
-	goto_if_set FLAG_SYS_POKEDEX_GET, OldaleTown_PokemonCenter_1F_EventScript_WirelessClubAvailable
-	msgbox OldaleTown_PokemonCenter_1F_Text_WirelessClubNotAvailable, MSGBOX_DEFAULT
-	release
-	end
-
-OldaleTown_PokemonCenter_1F_EventScript_WirelessClubAvailable::
-	msgbox OldaleTown_PokemonCenter_1F_Text_TradedInWirelessClub, MSGBOX_DEFAULT
+	msgbox OldaleTown_PokemonCenter_1F_Text_LeagueServices, MSGBOX_DEFAULT
 	release
 	end
 
@@ -51,14 +45,9 @@ OldaleTown_PokemonCenter_1F_Text_PokemonCentersAreGreat:
 	.string "as you like, and it's all for free.\l"
 	.string "You never have to worry!$"
 
-OldaleTown_PokemonCenter_1F_Text_WirelessClubNotAvailable:
-	.string "The POKéMON WIRELESS CLUB on\n"
-	.string "the second floor was built recently.\p"
-	.string "But they say they're still making\n"
-	.string "adjustments.$"
-
-OldaleTown_PokemonCenter_1F_Text_TradedInWirelessClub:
-	.string "The POKéMON WIRELESS CLUB on\n"
-	.string "the second floor was built recently.\p"
-	.string "I traded POKéMON right away.$"
+OldaleTown_PokemonCenter_1F_Text_LeagueServices:
+	.string "The POKéMON LEAGUE offers services\n"
+	.string "to trainers on the second floor.\p"
+	.string "But you need to prove yourself by\n"
+	.string "earning BADGES to use them.$"
 

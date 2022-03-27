@@ -5,40 +5,42 @@ SootopolisCity_PokemonCenter_2F_MapScripts::
 
 SootopolisCity_PokemonCenter_2F_EventScript_RankBoard::
 	lock
-	call Pkmn_Center_Services_EventScript_RankBoard
+	call Common_EventScript_Pkmn_Center_Services_RankBoard
 	release
 	end
 
 SootopolisCity_PokemonCenter_2F_EventScript_MoveDeleter::
 	lock
 	faceplayer
-	goto_if_unset FLAG_BADGE03_GET, Pkmn_Center_Services_EventScript_MustBeSeasoned
 	setvar VAR_0x800B, LOCALID_MOVE_DELETER
-	call Pkmn_Center_Services_EventScript_MoveDeleter
+	call Common_EventScript_Pkmn_Center_Services_MoveDeleter
 	release
 	end
 
 SootopolisCity_PokemonCenter_2F_EventScript_BerryClerk::
 	lock
 	faceplayer
-	goto_if_unset FLAG_BADGE01_GET, Pkmn_Center_Services_Text_MustBeBeginner
-	message gText_HowMayIServeYou
-	waitmessage
-	goto_if_set FLAG_IS_CHAMPION, Pkmn_Center_Services_EventScript_BerryClerk_Champion
-	goto_if_set FLAG_BADGE07_GET, Pkmn_Center_Services_EventScript_BerryClerk_Elite
-	goto_if_set FLAG_BADGE05_GET, Pkmn_Center_Services_EventScript_BerryClerk_Veteran
-	goto_if_set FLAG_BADGE03_GET, Pkmn_Center_Services_EventScript_BerryClerk_Seasoned
-	goto Pkmn_Center_Services_EventScript_BerryClerk_Beginner
+	call Common_EventScript_Pkmn_Center_Services_BerryClerk
 	release
 	end
 
 SootopolisCity_PokemonCenter_2F_EventScript_EliteShop::
 	lock
 	faceplayer
-	goto_if_unset FLAG_BADGE07_GET, Pkmn_Center_Services_Text_MustBeElite
-	message gText_HowMayIServeYou
-	waitmessage
-	goto_if_set FLAG_IS_CHAMPION, Pkmn_Center_Services_EventScript_EliteShop_Champion
-	goto Pkmn_Center_Services_EventScript_EliteShop_Elite
+	call Common_EventScript_Pkmn_Center_Services_EliteShop
 	release
 	end
+
+SootopolisCity_PokemonCenter_2F_EventScript_Ruckus::
+	lock
+	faceplayer
+	msgbox SootopolisCity_PokemonCenter_2F_Text_Ruckus, MSGBOX_DEFAULT
+	release
+	end
+
+SootopolisCity_PokemonCenter_2F_Text_Ruckus:
+	.string "Why do people like TEAM MAGMA and\n"
+	.string "TEAM AQUA feel like they need to\l"
+	.string "make such a ruckus?\p"
+	.string "They should be more like me and\n"
+	.string "learn to relax a little!$"

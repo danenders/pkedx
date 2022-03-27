@@ -1,30 +1,61 @@
-@BADGE CHECKS
-Pkmn_Center_Services_EventScript_MustBeBeginner::
-	msgbox Pkmn_Center_Services_Text_MustBeBeginner, MSGBOX_DEFAULT
+@SERVICES
+Common_EventScript_Pkmn_Center_Services_RankBoard::
+	msgbox Text_Pkmn_Center_Services__RankBoard, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, TRUE, EventScript_Pkmn_Center_Services_Rankings
 	release
 	end
 
-Pkmn_Center_Services_Text_MustBeBeginner:
+Common_EventScript_Pkmn_Center_Services_MoveDeleter::
+	goto_if_unset FLAG_BADGE03_GET, EventScript_Pkmn_Center_Services_MustBeSeasoned
+	goto EventScript_Pkmn_Center_Services_MoveDeleter
+	end
+
+Common_EventScript_Pkmn_Center_Services_BerryClerk::
+	goto_if_unset FLAG_BADGE01_GET, EventScript_Pkmn_Center_Services_MustBeBeginner
+	message gText_HowMayIServeYou
+	waitmessage
+	goto_if_set FLAG_IS_CHAMPION, EventScript_Pkmn_Center_Services_BerryClerk_Champion
+	goto_if_set FLAG_BADGE07_GET, EventScript_Pkmn_Center_Services_BerryClerk_Elite
+	goto_if_set FLAG_BADGE05_GET, EventScript_Pkmn_Center_Services_BerryClerk_Veteran
+	goto_if_set FLAG_BADGE03_GET, EventScript_Pkmn_Center_Services_BerryClerk_Seasoned
+	goto EventScript_Pkmn_Center_Services_BerryClerk_Beginner
+	end
+
+Common_EventScript_Pkmn_Center_Services_EliteShop::
+	goto_if_unset FLAG_BADGE07_GET, EventScript_Pkmn_Center_Services_MustBeElite
+	message gText_HowMayIServeYou
+	waitmessage
+	goto_if_set FLAG_IS_CHAMPION, EventScript_Pkmn_Center_Services_EliteShop_Champion
+	goto EventScript_Pkmn_Center_Services_EliteShop_Elite
+	end
+
+@BADGE CHECKS
+EventScript_Pkmn_Center_Services_MustBeBeginner::
+	msgbox Text_Pkmn_Center_Services__MustBeBeginner, MSGBOX_DEFAULT
+	release
+	end
+
+Text_Pkmn_Center_Services__MustBeBeginner:
 	.string "I'm sorry, but you need to be at\n"
 	.string "least BEGINNER RANK in the HOENN\l"
 	.string "LEAGUE to use our services.$"
 
-Pkmn_Center_Services_EventScript_MustBeSeasoned::
-	msgbox Pkmn_Center_Services_Text_MustBeSeasoned, MSGBOX_DEFAULT
+EventScript_Pkmn_Center_Services_MustBeSeasoned::
+	msgbox Text_Pkmn_Center_Services__MustBeSeasoned, MSGBOX_DEFAULT
 	release
 	end
 
-Pkmn_Center_Services_Text_MustBeSeasoned:
+Text_Pkmn_Center_Services__MustBeSeasoned:
 	.string "I'm sorry, but you need to be a\n"
 	.string "SEASONED TRAINER in the HOENN\l"
 	.string "LEAGUE to use my services.$"
 
-Pkmn_Center_Services_EventScript_MustBeElite::
-	msgbox Pkmn_Center_Services_Text_MustBeElite, MSGBOX_DEFAULT
+EventScript_Pkmn_Center_Services_MustBeElite::
+	msgbox Text_Pkmn_Center_Services__MustBeElite, MSGBOX_DEFAULT
 	release
 	end
 
-Pkmn_Center_Services_Text_MustBeElite:
+Text_Pkmn_Center_Services__MustBeElite:
 	.string "Whoa, slow down there, kid!\p"
 	.string "I only work the most ELITE\n"
 	.string "trainers.\p"
@@ -32,100 +63,96 @@ Pkmn_Center_Services_Text_MustBeElite:
 	.string "earn a few more badges.$"
 
 @RANK CHECK
-Pkmn_Center_Services_EventScript_RankBoard::
-	msgbox Pkmn_Center_Services_Text_RankBoard, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, TRUE, Pkmn_Center_Services_EventScript_Rankings
-	release
+EventScript_Pkmn_Center_Services_Rankings::
+	msgbox Text_Pkmn_Center_Services__Ranking_Searching, MSGBOX_DEFAULT
+	goto_if_set FLAG_IS_CHAMPION, EventScript_Pkmn_Center_Services_Ranking_Champion
+	goto_if_set FLAG_BADGE07_GET, EventScript_Pkmn_Center_Services_Ranking_Elite
+	goto_if_set FLAG_BADGE05_GET, EventScript_Pkmn_Center_Services_Ranking_Veteran
+	goto_if_set FLAG_BADGE03_GET, EventScript_Pkmn_Center_Services_Ranking_Seasoned
+	goto_if_set FLAG_BADGE01_GET, EventScript_Pkmn_Center_Services_Ranking_Beginner
+	goto EventScript_Pkmn_Center_Services_Ranking_Unranked
 	end
 
-Pkmn_Center_Services_Text_RankBoard:
+
+Text_Pkmn_Center_Services__RankBoard:
 	.string "It's the POKéMON LEAGUE rankings.\p"
 	.string "Look up your current rank?$"
 
-Pkmn_Center_Services_EventScript_Rankings::
-	msgbox Pkmn_Center_Services_Text_Ranking_Searching, MSGBOX_DEFAULT
-	goto_if_set FLAG_IS_CHAMPION, Pkmn_Center_Services_EventScript_Ranking_Champion
-	goto_if_set FLAG_BADGE07_GET, Pkmn_Center_Services_EventScript_Ranking_Elite
-	goto_if_set FLAG_BADGE05_GET, Pkmn_Center_Services_EventScript_Ranking_Veteran
-	goto_if_set FLAG_BADGE03_GET, Pkmn_Center_Services_EventScript_Ranking_Seasoned
-	goto_if_set FLAG_BADGE01_GET, Pkmn_Center_Services_EventScript_Ranking_Beginner
-	goto Pkmn_Center_Services_EventScript_Ranking_Unranked
-	end
-
-Pkmn_Center_Services_EventScript_Ranking_Unranked::
+EventScript_Pkmn_Center_Services_Ranking_Unranked::
 	playse SE_RG_HELP_OPEN
-	msgbox Pkmn_Center_Services_Text_Ranking_Unranked, MSGBOX_DEFAULT
+	msgbox Text_Pkmn_Center_Services__Ranking_Unranked, MSGBOX_DEFAULT
 	release
 	end
 
-Pkmn_Center_Services_EventScript_Ranking_Beginner::
+EventScript_Pkmn_Center_Services_Ranking_Beginner::
 	playse SE_RG_HELP_OPEN
-	msgbox Pkmn_Center_Services_Text_Ranking_Beginner, MSGBOX_DEFAULT
+	msgbox Text_Pkmn_Center_Services__Ranking_Beginner, MSGBOX_DEFAULT
 	release
 	end
 
-Pkmn_Center_Services_EventScript_Ranking_Seasoned::
+EventScript_Pkmn_Center_Services_Ranking_Seasoned::
 	playse SE_RG_HELP_OPEN
-	msgbox Pkmn_Center_Services_Text_Ranking_Seasoned, MSGBOX_DEFAULT
+	msgbox Text_Pkmn_Center_Services__Ranking_Seasoned, MSGBOX_DEFAULT
 	release
 	end
 
-Pkmn_Center_Services_EventScript_Ranking_Veteran::
+EventScript_Pkmn_Center_Services_Ranking_Veteran::
 	playse SE_RG_HELP_OPEN
-	msgbox Pkmn_Center_Services_Text_Ranking_Veteran, MSGBOX_DEFAULT
+	msgbox Text_Pkmn_Center_Services__Ranking_Veteran, MSGBOX_DEFAULT
 	release
 	end
 
-Pkmn_Center_Services_EventScript_Ranking_Elite::
+EventScript_Pkmn_Center_Services_Ranking_Elite::
 	playse SE_RG_HELP_OPEN
-	msgbox Pkmn_Center_Services_Text_Ranking_Elite, MSGBOX_DEFAULT
+	msgbox Text_Pkmn_Center_Services__Ranking_Elite, MSGBOX_DEFAULT
 	release
 	end
 
-Pkmn_Center_Services_EventScript_Ranking_Champion::
+EventScript_Pkmn_Center_Services_Ranking_Champion::
 	playse SE_RG_HELP_OPEN
 	waitse
-	msgbox Pkmn_Center_Services_Text_Ranking_Champion, MSGBOX_DEFAULT
+	msgbox Text_Pkmn_Center_Services__Ranking_Champion, MSGBOX_DEFAULT
 	release
 	end
 
-Pkmn_Center_Services_Text_Ranking_Searching:
+Text_Pkmn_Center_Services__Ranking_Searching:
 	.string "Searching database....\p"
 	.string "..........\p"
 	.string "Found TRAINER....\p"
 	.string "{PLAYER} from LITTLEROOT...$"
 
-Pkmn_Center_Services_Text_Ranking_Unranked:
+Text_Pkmn_Center_Services__Ranking_Unranked:
 	.string "You are currently UNRANKED!$"
 
-Pkmn_Center_Services_Text_Ranking_Beginner:
+Text_Pkmn_Center_Services__Ranking_Beginner:
 	.string "Your current rank is:\p"
 	.string "BEGINNER!$"
 
-Pkmn_Center_Services_Text_Ranking_Seasoned:
+Text_Pkmn_Center_Services__Ranking_Seasoned:
 	.string "Your current rank is:\p"
 	.string "SEASONED!$"
 
-Pkmn_Center_Services_Text_Ranking_Veteran:
+Text_Pkmn_Center_Services__Ranking_Veteran:
 	.string "Your current rank is:\p"
 	.string "VETERAN!$"
 
-Pkmn_Center_Services_Text_Ranking_Elite:
+Text_Pkmn_Center_Services__Ranking_Elite:
 	.string "Your current rank is:\p"
 	.string "ELITE!$"
 
-Pkmn_Center_Services_Text_Ranking_Champion:
+Text_Pkmn_Center_Services__Ranking_Champion:
 	.string "Your current rank is:\p"
 	.string "CHAMPION!$"
 
+
 @ELITE SHOP
-Pkmn_Center_Services_EventScript_EliteShop_Champion::
+EventScript_Pkmn_Center_Services_EliteShop_Champion::
 	pokemart Pkmn_Center_Services_Mart_EliteShop_Champion
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-Pkmn_Center_Services_EventScript_EliteShop_Elite::
+EventScript_Pkmn_Center_Services_EliteShop_Elite::
 	pokemart Pkmn_Center_Services_Mart_EliteShop_Elite
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
@@ -160,31 +187,31 @@ Pkmn_Center_Services_Mart_EliteShop_Champion:
 
 
 @BERRY SHOPS
-Pkmn_Center_Services_EventScript_BerryClerk_Champion::
+EventScript_Pkmn_Center_Services_BerryClerk_Champion::
 	pokemart Pkmn_Center_Services_BerryShop_Champion
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-Pkmn_Center_Services_EventScript_BerryClerk_Elite::
+EventScript_Pkmn_Center_Services_BerryClerk_Elite::
 	pokemart Pkmn_Center_Services_BerryShop_Elite
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-Pkmn_Center_Services_EventScript_BerryClerk_Veteran::
+EventScript_Pkmn_Center_Services_BerryClerk_Veteran::
 	pokemart Pkmn_Center_Services_BerryShop_Veteran
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-Pkmn_Center_Services_EventScript_BerryClerk_Seasoned::
+EventScript_Pkmn_Center_Services_BerryClerk_Seasoned::
 	pokemart Pkmn_Center_Services_BerryShop_Seasoned
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-Pkmn_Center_Services_EventScript_BerryClerk_Beginner::
+EventScript_Pkmn_Center_Services_BerryClerk_Beginner::
 	pokemart Pkmn_Center_Services_BerryShop_Beginner
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
@@ -279,104 +306,104 @@ Pkmn_Center_Services_BerryShop_Beginner:
 
 
 @MOVE DELETER
-Pkmn_Center_Services_EventScript_MoveDeleter::
+EventScript_Pkmn_Center_Services_MoveDeleter::
 	lockall
 	waitmovement 0
-	msgbox Pkmn_Center_Services_Text_ICanMakeMonForgetMove, MSGBOX_YESNO
+	msgbox Text_Pkmn_Center_Services__ICanMakeMonForgetMove, MSGBOX_YESNO
 	switch VAR_RESULT
-	case YES, Pkmn_Center_Services_EventScript_ChooseMonAndMoveToForget
-	case NO, Pkmn_Center_Services_EventScript_ComeAgain
+	case YES, EventScript_Pkmn_Center_Services_ChooseMonAndMoveToForget
+	case NO, EventScript_Pkmn_Center_Services_ComeAgain
 	releaseall
 	end
 
-Pkmn_Center_Services_EventScript_ChooseMonAndMoveToForget::
-	msgbox Pkmn_Center_Services_Text_WhichMonShouldForget, MSGBOX_DEFAULT
+EventScript_Pkmn_Center_Services_ChooseMonAndMoveToForget::
+	msgbox Text_Pkmn_Center_Services__WhichMonShouldForget, MSGBOX_DEFAULT
 	special ChoosePartyMon
 	waitstate
-	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, Pkmn_Center_Services_EventScript_ComeAgain
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, EventScript_Pkmn_Center_Services_ComeAgain
 	special IsSelectedMonEgg
-	goto_if_eq VAR_RESULT, TRUE, Pkmn_Center_Services_EventScript_EggCantForgetMoves
+	goto_if_eq VAR_RESULT, TRUE, EventScript_Pkmn_Center_Services_EggCantForgetMoves
 	special GetNumMovesSelectedMonHas
-	goto_if_eq VAR_RESULT, 1, Pkmn_Center_Services_EventScript_MonOnlyKnowsOneMove
-	msgbox Pkmn_Center_Services_Text_WhichMoveShouldBeForgotten, MSGBOX_DEFAULT
+	goto_if_eq VAR_RESULT, 1, EventScript_Pkmn_Center_Services_MonOnlyKnowsOneMove
+	msgbox Text_Pkmn_Center_Services__WhichMoveShouldBeForgotten, MSGBOX_DEFAULT
 	fadescreen FADE_TO_BLACK
 	special MoveDeleterChooseMoveToForget
 	fadescreen FADE_FROM_BLACK
-	goto_if_eq VAR_0x8005, MAX_MON_MOVES, Pkmn_Center_Services_EventScript_ChooseMonAndMoveToForget
+	goto_if_eq VAR_0x8005, MAX_MON_MOVES, EventScript_Pkmn_Center_Services_ChooseMonAndMoveToForget
 	special BufferMoveDeleterNicknameAndMove
-	msgbox Pkmn_Center_Services_Text_MonsMoveShouldBeForgotten, MSGBOX_YESNO
+	msgbox Text_Pkmn_Center_Services__MonsMoveShouldBeForgotten, MSGBOX_YESNO
 	switch VAR_RESULT
-	case YES, Pkmn_Center_Services_EventScript_TryForgetMove
-	case NO, Pkmn_Center_Services_EventScript_ComeAgain
+	case YES, EventScript_Pkmn_Center_Services_TryForgetMove
+	case NO, EventScript_Pkmn_Center_Services_ComeAgain
 	releaseall
 	end
 
-Pkmn_Center_Services_EventScript_TryForgetMove::
+EventScript_Pkmn_Center_Services_TryForgetMove::
 	special IsLastMonThatKnowsSurf
-	goto_if_eq VAR_RESULT, TRUE, Pkmn_Center_Services_EventScript_LastMonWithSurf
+	goto_if_eq VAR_RESULT, TRUE, EventScript_Pkmn_Center_Services_LastMonWithSurf
 	special MoveDeleterForgetMove
 	playfanfare MUS_MOVE_DELETED
 	waitfanfare
-	msgbox Pkmn_Center_Services_Text_MonHasForgottenMove, MSGBOX_DEFAULT
+	msgbox Text_Pkmn_Center_Services__MonHasForgottenMove, MSGBOX_DEFAULT
 	releaseall
 	end
 
-Pkmn_Center_Services_EventScript_MonOnlyKnowsOneMove::
+EventScript_Pkmn_Center_Services_MonOnlyKnowsOneMove::
 	special BufferMoveDeleterNicknameAndMove
-	msgbox Pkmn_Center_Services_Text_MonOnlyKnowsOneMove, MSGBOX_DEFAULT
+	msgbox Text_Pkmn_Center_Services__MonOnlyKnowsOneMove, MSGBOX_DEFAULT
 	releaseall
 	end
 
-Pkmn_Center_Services_EventScript_EggCantForgetMoves::
-	msgbox Pkmn_Center_Services_Text_EggCantForgetMoves, MSGBOX_DEFAULT
+EventScript_Pkmn_Center_Services_EggCantForgetMoves::
+	msgbox Text_Pkmn_Center_Services__EggCantForgetMoves, MSGBOX_DEFAULT
 	releaseall
 	end
 
-Pkmn_Center_Services_EventScript_ComeAgain::
-	msgbox Pkmn_Center_Services_Text_ComeAgain, MSGBOX_DEFAULT
+EventScript_Pkmn_Center_Services_ComeAgain::
+	msgbox Text_Pkmn_Center_Services__ComeAgain, MSGBOX_DEFAULT
 	releaseall
 	end
 
-Pkmn_Center_Services_EventScript_LastMonWithSurf::
+EventScript_Pkmn_Center_Services_LastMonWithSurf::
 	special BufferMoveDeleterNicknameAndMove
-	msgbox Pkmn_Center_Services_Text_CantForgetSurf, MSGBOX_DEFAULT
+	msgbox Text_Pkmn_Center_Services__CantForgetSurf, MSGBOX_DEFAULT
 	releaseall
 	end
 
-Pkmn_Center_Services_Text_ICanMakeMonForgetMove:
+Text_Pkmn_Center_Services__ICanMakeMonForgetMove:
 	.string "Uh…\n"
 	.string "Oh, yes, I'm a MOVE DELETER.\p"
 	.string "I can make POKéMON forget their moves.\p"
 	.string "Would you like me to do that?$"
 
-Pkmn_Center_Services_Text_WhichMonShouldForget:
+Text_Pkmn_Center_Services__WhichMonShouldForget:
 	.string "Which POKéMON should forget a move?$"
 
-Pkmn_Center_Services_Text_WhichMoveShouldBeForgotten:
+Text_Pkmn_Center_Services__WhichMoveShouldBeForgotten:
 	.string "Which move should be forgotten?$"
 
-Pkmn_Center_Services_Text_MonOnlyKnowsOneMove:
+Text_Pkmn_Center_Services__MonOnlyKnowsOneMove:
 	.string "{STR_VAR_1} knows only one move\n"
 	.string "so it can't be forgotten…$"
 
-Pkmn_Center_Services_Text_MonsMoveShouldBeForgotten:
+Text_Pkmn_Center_Services__MonsMoveShouldBeForgotten:
 	.string "Hm! {STR_VAR_1}'s {STR_VAR_2}?\n"
 	.string "That move should be forgotten?$"
 
-Pkmn_Center_Services_Text_MonHasForgottenMove:
+Text_Pkmn_Center_Services__MonHasForgottenMove:
 	.string "It worked to perfection!\p"
 	.string "{STR_VAR_1} has forgotten\n"
 	.string "{STR_VAR_2} completely.$"
 
-Pkmn_Center_Services_Text_ComeAgain:
+Text_Pkmn_Center_Services__ComeAgain:
 	.string "Come again if there are moves that\n"
 	.string "need to be forgotten.$"
 
-Pkmn_Center_Services_Text_EggCantForgetMoves:
+Text_Pkmn_Center_Services__EggCantForgetMoves:
 	.string "What?\n"
 	.string "No EGG should know any moves.$"
 
-Pkmn_Center_Services_Text_CantForgetSurf:
+Text_Pkmn_Center_Services__CantForgetSurf:
 	.string "Hm!\p"
 	.string "Your {STR_VAR_1} doesn't seem willing\n"
 	.string "to forget SURF.$"

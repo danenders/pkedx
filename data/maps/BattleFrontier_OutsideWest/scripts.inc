@@ -539,7 +539,8 @@ BattleFrontier_OutsideWest_EventScript_Blue::
 	goto_if_eq VAR_RESULT, TRUE, BattleFrontier_OutsideWest_EventScript_BlueBattle
 	msgbox BattleFrontier_OutsideWest_Text_WouldntWantToFightMeEither, MSGBOX_DEFAULT
 	turnobject LOCALID_BLUE, DIR_NORTH
-	playbgm MUS_B_FRONTIER, TRUE
+	savebgm MUS_DUMMY
+	fadedefaultbgm
 	release
 	end
 

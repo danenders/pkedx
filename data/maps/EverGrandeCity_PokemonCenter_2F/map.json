@@ -52,6 +52,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EverGrandeCity_PokemonCenter_2F_EventScript_EliteShop",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY_3",
+      "x": 2,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EverGrandeCity_PokemonCenter_2F_EventScript_AllTheWay",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ZIGZAGOON_1",
+      "x": 1,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EverGrandeCity_PokemonCenter_2F_EventScript_Zigzagoon",
+      "flag": "0"
     }
   ],
   "warp_events": [

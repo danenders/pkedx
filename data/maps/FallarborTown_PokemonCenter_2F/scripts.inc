@@ -5,40 +5,40 @@ FallarborTown_PokemonCenter_2F_MapScripts::
 
 FallarborTown_PokemonCenter_2F_EventScript_RankBoard::
 	lock
-	call Pkmn_Center_Services_EventScript_RankBoard
+	call Common_EventScript_Pkmn_Center_Services_RankBoard
 	release
 	end
 
 FallarborTown_PokemonCenter_2F_EventScript_MoveDeleter::
 	lock
 	faceplayer
-	goto_if_unset FLAG_BADGE03_GET, Pkmn_Center_Services_EventScript_MustBeSeasoned
 	setvar VAR_0x800B, LOCALID_MOVE_DELETER
-	call Pkmn_Center_Services_EventScript_MoveDeleter
+	call Common_EventScript_Pkmn_Center_Services_MoveDeleter
 	release
 	end
 
 FallarborTown_PokemonCenter_2F_EventScript_BerryClerk::
 	lock
 	faceplayer
-	goto_if_unset FLAG_BADGE01_GET, Pkmn_Center_Services_Text_MustBeBeginner
-	message gText_HowMayIServeYou
-	waitmessage
-	goto_if_set FLAG_IS_CHAMPION, Pkmn_Center_Services_EventScript_BerryClerk_Champion
-	goto_if_set FLAG_BADGE07_GET, Pkmn_Center_Services_EventScript_BerryClerk_Elite
-	goto_if_set FLAG_BADGE05_GET, Pkmn_Center_Services_EventScript_BerryClerk_Veteran
-	goto_if_set FLAG_BADGE03_GET, Pkmn_Center_Services_EventScript_BerryClerk_Seasoned
-	goto Pkmn_Center_Services_EventScript_BerryClerk_Beginner
+	call Common_EventScript_Pkmn_Center_Services_BerryClerk
 	release
 	end
 
 FallarborTown_PokemonCenter_2F_EventScript_EliteShop::
 	lock
 	faceplayer
-	goto_if_unset FLAG_BADGE07_GET, Pkmn_Center_Services_Text_MustBeElite
-	message gText_HowMayIServeYou
-	waitmessage
-	goto_if_set FLAG_IS_CHAMPION, Pkmn_Center_Services_EventScript_EliteShop_Champion
-	goto Pkmn_Center_Services_EventScript_EliteShop_Elite
+	call Common_EventScript_Pkmn_Center_Services_EliteShop
 	release
 	end
+
+FallarborTown_PokemonCenter_2F_EventScript_LanetteFan::
+	lock
+	faceplayer
+	msgbox FallarborTown_PokemonCenter_2F_Text_Lanette, MSGBOX_DEFAULT
+	release
+	end
+
+FallarborTown_PokemonCenter_2F_Text_Lanette:
+	.string "I heard FALLARBOR is home to some\n"
+	.string "kind of computer genius.\p"
+	.string "I can't even change my clocks!$"
