@@ -30,3 +30,26 @@ PacifidlogTown_PokemonCenter_2F_EventScript_EliteShop::
 	call Common_EventScript_Pkmn_Center_Services_EliteShop
 	release
 	end
+
+PacifidlogTown_PokemonCenter_2F_EventScript_VacationMan::
+	lock
+	faceplayer
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_VacationMan, MSGBOX_DEFAULT
+	release
+	end
+
+PacifidlogTown_PokemonCenter_2F_Text_VacationMan:
+	.string "Even on vacation, I can't get\n"
+	.string "my rank out of my head...$"
+
+PacifidlogTown_PokemonCenter_2F_EventScript_VacationWoman::
+	lock
+	faceplayer
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_VacationWoman, MSGBOX_DEFAULT
+	release
+	end
+
+PacifidlogTown_PokemonCenter_2F_Text_VacationMan:
+	.string "There's not a lot of prize money\n"
+	.string "in battling, so we're taking a\l"
+	.string "a modest vacation.$"

@@ -399,3 +399,24 @@ OldaleTown_Text_CitySign:
 	.string "OLDALE TOWN\n"
 	.string "“Where things start off scarce.”$"
 
+OldaleTown_EventScript_FollowingTip::
+	lock
+	faceplayer
+	msgbox OldaleTown_Text_FollowingTip, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_Text_FollowingTip:
+	.string "My PIKACHU likes to follow me\n"
+	.string "when we go out for a walk!\p"
+	.string "My dad said that's because I\n"
+	.string "have FOLLOWERS turned on in my\l"
+	.string "OPTIONS, but I don't know what\l"
+	.string "that even means.$"
+
+OldaleTown_EventScript_Pikachu::
+	faceplayer
+	playmoncry SPECIES_PIKACHU, CRY_MODE_NORMAL
+	waitmoncry
+	release
+	end
