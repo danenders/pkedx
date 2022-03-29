@@ -191,10 +191,8 @@ static u8 ChooseWildMonIndex_Land(void)
         return 4;
     else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_4 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_5)
         return 5;
-    else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_5 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_6)
-        return 6;
     else 
-        return 7;
+        return 6;
 }
 
 // ROCK_WILD_COUNT / WATER_WILD_COUNT
@@ -208,16 +206,8 @@ static u8 ChooseWildMonIndex_WaterRock(void)
         return 1;
     else if (rand >= ENCOUNTER_CHANCE_WATER_MONS_SLOT_1 && rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_2)
         return 2;
-    else if (rand >= ENCOUNTER_CHANCE_WATER_MONS_SLOT_2 && rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_3)
-        return 3;
-    else if (rand >= ENCOUNTER_CHANCE_WATER_MONS_SLOT_3 && rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_4)
-        return 4;
-    else if (rand >= ENCOUNTER_CHANCE_WATER_MONS_SLOT_4 && rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_5)
-        return 5;
-    else if (rand >= ENCOUNTER_CHANCE_WATER_MONS_SLOT_5 && rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_6)
-        return 6;
     else 
-        return 7;
+        return 3;
 }
 
 // FISH_WILD_COUNT
@@ -230,30 +220,22 @@ static u8 ChooseWildMonIndex_Fishing(u8 rod)
     switch (rod)
     {
     case OLD_ROD:
-        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_0)
+        if (rand <= ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_0)
             wildMonIndex = 0;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_0 && rand < ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_1)
-            wildMonIndex = 1;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_1 && rand < ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_2)
-            wildMonIndex = 2;
         break;
     case GOOD_ROD:
-        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_3)
-            wildMonIndex = 3;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_3 && rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_4)
-            wildMonIndex = 4;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_4 && rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_5)
-            wildMonIndex = 5;
+        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_1)
+            wildMonIndex = 1;
+        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_1 && rand < ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_2)
+            wildMonIndex = 2;
         break;
     case SUPER_ROD:
-        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_6)
-            wildMonIndex = 6;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_6 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_7)
-            wildMonIndex = 7;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_7 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_8)
-            wildMonIndex = 8;
-        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_8 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_9)
-            wildMonIndex = 9;
+        if (rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_3)
+            wildMonIndex = 3;
+        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_3 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_4)
+            wildMonIndex = 4;
+        if (rand >= ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_4 && rand < ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_5)
+            wildMonIndex = 5;
         break;
     }
     return wildMonIndex;

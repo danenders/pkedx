@@ -287,7 +287,7 @@
 #define FLAG_ENTERED_ELITE_FOUR              0x107
 #define FLAG_RECEIVED_TM43                   0x108
 #define FLAG_RECEIVED_TM41                   0x109
-#define FLAG_RECEIVED_LAVARIDGE_EGG          0x10A
+#define FLAG_UNUSED_0x10A		             0x10A
 #define FLAG_RECEIVED_REVIVED_FOSSIL_MON     0x10B
 #define FLAG_SECRET_BASE_REGISTRY_ENABLED    0x10C
 #define FLAG_RECEIVED_TM46                   0x10D
@@ -1228,8 +1228,8 @@
 #define FLAG_HIDE_BLUE_INSIDE_LAB                                   0x499 
 #define FLAG_HIDE_RED_MTPYRE                                        0x49A 
 #define FLAG_HIDE_OAK_MUSEUM                                        0x49B 
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
+#define FLAG_RECEIVED_MRMIME                                           0x49C // Unused Flag
+#define FLAG_RECEIVED_JYNX                                           0x49D // Unused Flag
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
 #define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
 #define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
@@ -1601,14 +1601,14 @@
 #define FLAG_DAILY_DECLINED_JOHTO_EGG          		(DAILY_FLAGS_START + 0x1E) 
 #define FLAG_DAILY_DOJO_OFFENSE_CHALLENGED          (DAILY_FLAGS_START + 0x1F) 
 #define FLAG_DAILY_DOJO_DEFENSE_CHALLENGED          (DAILY_FLAGS_START + 0x20) 
-#define FLAG_DAILY_DOJO_HP                          (DAILY_FLAGS_START + 0x21) // Unused Flag
-#define FLAG_DAILY_DOJO_ATK                         (DAILY_FLAGS_START + 0x22) // Unused Flag
-#define FLAG_DAILY_DOJO_DEF                         (DAILY_FLAGS_START + 0x23) // Unused Flag
-#define FLAG_DAILY_DOJO_SPA                         (DAILY_FLAGS_START + 0x24) // Unused Flag
-#define FLAG_DAILY_DOJO_SPD                         (DAILY_FLAGS_START + 0x25) // Unused Flag
-#define FLAG_DAILY_DOJO_SPEED                       (DAILY_FLAGS_START + 0x26) // Unused Flag
-#define FLAG_DAILY_SLATEPORT_FISHERMAN_RANKED       (DAILY_FLAGS_START + 0x27) // Unused Flag
-#define FLAG_UNUSED_0x948                           (DAILY_FLAGS_START + 0x28) // Unused Flag
+#define FLAG_DAILY_DOJO_HP                          (DAILY_FLAGS_START + 0x21)
+#define FLAG_DAILY_DOJO_ATK                         (DAILY_FLAGS_START + 0x22) 
+#define FLAG_DAILY_DOJO_DEF                         (DAILY_FLAGS_START + 0x23) 
+#define FLAG_DAILY_DOJO_SPA                         (DAILY_FLAGS_START + 0x24) 
+#define FLAG_DAILY_DOJO_SPD                         (DAILY_FLAGS_START + 0x25) 
+#define FLAG_DAILY_DOJO_SPEED                       (DAILY_FLAGS_START + 0x26) 
+#define FLAG_DAILY_SLATEPORT_FISHERMAN_RANKED       (DAILY_FLAGS_START + 0x27) 
+#define FLAG_DAILY_RECEIVED_LAVARIDGE_EGG           (DAILY_FLAGS_START + 0x28) 
 #define FLAG_UNUSED_0x949                           (DAILY_FLAGS_START + 0x29) // Unused Flag
 #define FLAG_UNUSED_0x94A                           (DAILY_FLAGS_START + 0x2A) // Unused Flag
 #define FLAG_UNUSED_0x94B                           (DAILY_FLAGS_START + 0x2B) // Unused Flag

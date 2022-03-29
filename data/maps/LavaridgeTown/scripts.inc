@@ -232,38 +232,6 @@ LavaridgeTown_EventScript_ExpertF::
 	msgbox LavaridgeTown_Text_OhYouLikeHotSprings, MSGBOX_NPC
 	end
 
-LavaridgeTown_EventScript_EggWoman::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_LAVARIDGE_EGG, LavaridgeTown_EventScript_ReceivedEgg
-	msgbox LavaridgeTown_Text_HaveEggWillYouTakeIt, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_DeclineEgg
-	getpartysize
-	goto_if_eq VAR_RESULT, PARTY_SIZE, LavaridgeTown_EventScript_NoRoomForEgg
-	msgbox LavaridgeTown_Text_HopeYoullWalkPlentyWithEgg, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_LAVARIDGE_EGG
-	playfanfare MUS_OBTAIN_ITEM
-	message LavaridgeTown_Text_ReceivedTheEgg
-	waitfanfare
-	giveegg SPECIES_WYNAUT
-	release
-	end
-
-LavaridgeTown_EventScript_ReceivedEgg::
-	msgbox LavaridgeTown_Text_EverySoOftenEggFoundAtDayCare, MSGBOX_DEFAULT
-	release
-	end
-
-LavaridgeTown_EventScript_NoRoomForEgg::
-	msgbox LavaridgeTown_Text_NoRoomForThisEgg, MSGBOX_DEFAULT
-	release
-	end
-
-LavaridgeTown_EventScript_DeclineEgg::
-	msgbox LavaridgeTown_Text_AsYouWishThen, MSGBOX_DEFAULT
-	release
-	end
-
 LavaridgeTown_EventScript_TownSign::
 	msgbox LavaridgeTown_Text_TownSign, MSGBOX_SIGN
 	end
@@ -320,6 +288,32 @@ LavaridgeTown_Text_BrendanExplainGoGogglesChallengeDad:
 	.string "he really is tough.\p"
 	.string "See you around!$"
 
+LavaridgeTown_EventScript_EggWoman::
+	lock
+	faceplayer
+	goto_if_set FLAG_DAILY_RECEIVED_LAVARIDGE_EGG, LavaridgeTown_EventScript_ReceivedEgg
+	msgbox LavaridgeTown_Text_HaveEggWillYouTakeIt, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_DeclineEgg
+	getpartysize
+	goto_if_eq VAR_RESULT, PARTY_SIZE, LavaridgeTown_EventScript_NoRoomForEgg
+	msgbox LavaridgeTown_Text_HopeYoullWalkPlentyWithEgg, MSGBOX_DEFAULT
+	setflag FLAG_DAILY_RECEIVED_LAVARIDGE_EGG
+	playfanfare MUS_OBTAIN_ITEM
+	message LavaridgeTown_Text_ReceivedTheEgg
+	waitfanfare
+	random 9
+	goto_if_eq VAR_RESULT, 1, LavaridgeTown_EventScript_WynautEgg
+	goto_if_eq VAR_RESULT, 2, LavaridgeTown_EventScript_AzurillEgg
+	goto_if_eq VAR_RESULT, 3, LavaridgeTown_EventScript_TogepiEgg
+	goto_if_eq VAR_RESULT, 4, LavaridgeTown_EventScript_PichuEgg
+	goto_if_eq VAR_RESULT, 5, LavaridgeTown_EventScript_MagbyEgg
+	goto_if_eq VAR_RESULT, 6, LavaridgeTown_EventScript_ElekidEgg
+	goto_if_eq VAR_RESULT, 7, LavaridgeTown_EventScript_CleffaEgg
+	goto_if_eq VAR_RESULT, 8, LavaridgeTown_EventScript_IgglybuffEgg
+	goto_if_eq VAR_RESULT, 9, LavaridgeTown_EventScript_SmoochumEgg
+	release
+	end
+
 LavaridgeTown_Text_HaveEggWillYouTakeIt:
 	.string "I have here an EGG.\p"
 	.string "I'd hoped to hatch it by covering it in\n"
@@ -340,19 +334,79 @@ LavaridgeTown_Text_HopeYoullWalkPlentyWithEgg:
 LavaridgeTown_Text_ReceivedTheEgg:
 	.string "{PLAYER} received the EGG.$"
 
+LavaridgeTown_EventScript_ReceivedEgg::
+	msgbox LavaridgeTown_Text_EverySoOftenEggFoundAtDayCare, MSGBOX_DEFAULT
+	release
+	end
+
+LavaridgeTown_Text_EverySoOftenEggFoundAtDayCare:
+	.string "Every so often, an EGG will be found at\n"
+	.string "the POKéMON DAY CARE.\p"
+	.string "Or at least that's how the rumor goes.$"
+
+LavaridgeTown_EventScript_NoRoomForEgg::
+	msgbox LavaridgeTown_Text_NoRoomForThisEgg, MSGBOX_DEFAULT
+	release
+	end
+
 LavaridgeTown_Text_NoRoomForThisEgg:
 	.string "Oh? You've too many POKéMON.\n"
 	.string "There's no room for this EGG…$"
+
+LavaridgeTown_EventScript_DeclineEgg::
+	msgbox LavaridgeTown_Text_AsYouWishThen, MSGBOX_DEFAULT
+	release
+	end
 
 LavaridgeTown_Text_AsYouWishThen:
 	.string "As you wish, then…\p"
 	.string "If you have a change of heart about\n"
 	.string "hatching this EGG, I will be here.$"
 
-LavaridgeTown_Text_EverySoOftenEggFoundAtDayCare:
-	.string "Every so often, an EGG will be found at\n"
-	.string "the POKéMON DAY CARE.\p"
-	.string "Or at least that's how the rumor goes.$"
+LavaridgeTown_EventScript_WynautEgg::
+	giveegg SPECIES_WYNAUT
+	release
+	end
+
+LavaridgeTown_EventScript_AzurillEgg::
+	giveegg SPECIES_AZURILL
+	release
+	end
+
+LavaridgeTown_EventScript_TogepiEgg::
+	giveegg SPECIES_TOGEPI
+	release
+	end
+
+LavaridgeTown_EventScript_PichuEgg::
+	giveegg SPECIES_PICHU
+	release
+	end
+
+LavaridgeTown_EventScript_MagbyEgg::
+	giveegg SPECIES_MAGBY
+	release
+	end
+
+LavaridgeTown_EventScript_ElekidEgg::
+	giveegg SPECIES_ELEKID
+	release
+	end
+
+LavaridgeTown_EventScript_CleffaEgg::
+	giveegg SPECIES_CLEFFA
+	release
+	end
+
+LavaridgeTown_EventScript_IgglybuffEgg::
+	giveegg SPECIES_IGGLYBUFF
+	release
+	end
+
+LavaridgeTown_EventScript_SmoochumEgg::
+	giveegg SPECIES_SMOOCHUM
+	release
+	end
 
 LavaridgeTown_Text_HotSpringsNeverRunDry:
 	.string "We draw as much hot water as we need,\n"
@@ -406,4 +460,3 @@ LavaridgeTown_Text_GymSign:
 LavaridgeTown_Text_HerbShopSign:
 	.string "POKéMON HERB SHOP\n"
 	.string "“Bitter taste--better cure!”$"
-

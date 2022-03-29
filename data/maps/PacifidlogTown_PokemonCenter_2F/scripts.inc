@@ -49,7 +49,7 @@ PacifidlogTown_PokemonCenter_2F_EventScript_VacationWoman::
 	release
 	end
 
-PacifidlogTown_PokemonCenter_2F_Text_VacationMan:
+PacifidlogTown_PokemonCenter_2F_Text_VacationWoman:
 	.string "There's not a lot of prize money\n"
 	.string "in battling, so we're taking a\l"
 	.string "a modest vacation.$"
