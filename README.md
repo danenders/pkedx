@@ -38,6 +38,7 @@ _The Hoenn region is unstable — Rayquaza has awakened! Your skills as a Traine
 ### Quality of Life & Other Adjustments
 * All Trade Evolution Pokemon now have item-based evolutions as well!
 * National Dex is given out from the start.
+* EVs can be gained at level 100.
 * Gain more than 1 Premier Ball when purchasing balls in increments of 10.
 * You can now surf at faster speeds, just like with running shoes.
 * IVs and EVs are viewable on the summary screen
