@@ -1,4 +1,5 @@
 .set LOCALID_STEVEN, 19
+.set LOCALID_SUDOWOODO, 22
 
 Route118_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route118_OnTransition
@@ -20,6 +21,7 @@ Route118_OnTransition_Day:
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_EAST, AbnormalWeather_StartGroudonWeather
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_WEST, AbnormalWeather_StartGroudonWeather
+	call_if_unset FLAG_DEFEATED_ROUTE118_SUDOWOODO, Route118_EventScript_ShowSudowoodo
 	end
 
 Route118_OnTransition_Twilight:
@@ -28,6 +30,7 @@ Route118_OnTransition_Twilight:
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_EAST, AbnormalWeather_StartGroudonWeather
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_WEST, AbnormalWeather_StartGroudonWeather
+	call_if_unset FLAG_DEFEATED_ROUTE118_SUDOWOODO, Route118_EventScript_ShowSudowoodo
 	end
 
 Route118_OnTransition_Night:
@@ -36,6 +39,7 @@ Route118_OnTransition_Night:
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_EAST, AbnormalWeather_StartGroudonWeather
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_118_WEST, AbnormalWeather_StartGroudonWeather
+	call_if_unset FLAG_DEFEATED_ROUTE118_SUDOWOODO, Route118_EventScript_ShowSudowoodo
 	end
 
 Route118_OnResume:
@@ -47,14 +51,17 @@ Route118_OnResume:
 
 Route118_OnResume_Day:
 	setvar VAR_TIMEOFDAY, 0
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route118_EventScript_TryRemoveSudowoodo
 	end
 
 Route118_OnResume_Twilight:
 	setvar VAR_TIMEOFDAY, 1
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route118_EventScript_TryRemoveSudowoodo
 	end
 
 Route118_OnResume_Night:
 	setvar VAR_TIMEOFDAY, 2
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route118_EventScript_TryRemoveSudowoodo
 	end
 
 Route118_OnLoad:
@@ -343,3 +350,73 @@ Route118_Text_RouteSign119:
 	.string "ROUTE 118\n"
 	.string "{UP_ARROW} ROUTE 119$"
 
+Route118_EventScript_ShowSudowoodo::
+	clearflag FLAG_HIDE_ROUTE118_SUDOWOODO
+	return
+
+Route118_EventScript_TryRemoveSudowoodo::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
+	removeobject VAR_LAST_TALKED
+	return
+
+Route118_EventScript_Sudowoodo::
+	lock
+	faceplayer
+	waitse
+	playse SE_SUDOWOODO_SHAKE
+	applymovement LOCALID_SUDOWOODO, Route118_Movement_SudowoodoShake
+	waitmovement 0
+	release
+	end
+
+Route118_EventScript_WaterSudowoodo::
+	lock
+	faceplayer
+	special DoWateringBerryTreeAnim
+	waitstate
+	waitse
+	playse SE_SUDOWOODO_SHAKE
+	applymovement LOCALID_SUDOWOODO, Route118_Movement_SudowoodoShake
+	waitmovement 0
+	msgbox gText_Sudowoodo_Attacked, MSGBOX_DEFAULT
+	closemessage
+	waitse
+	playmoncry SPECIES_SUDOWOODO, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setvar VAR_LAST_TALKED, LOCALID_SUDOWOODO
+	setwildbattle SPECIES_SUDOWOODO, 25
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route118_EventScript_DefeatedSudowoodo
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, Route118_EventScript_DefeatedSudowoodo
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route118_EventScript_DefeatedSudowoodo
+	setflag FLAG_DEFEATED_ROUTE118_SUDOWOODO
+	release
+	end
+
+Route118_EventScript_DefeatedSudowoodo::
+	setflag FLAG_DEFEATED_ROUTE118_SUDOWOODO
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+Route118_Movement_SudowoodoShake:
+	face_right
+	delay_8
+	face_down
+	delay_8
+	face_left
+	delay_8
+	face_down
+	delay_8
+	face_right
+	delay_8
+	face_down
+	delay_8
+	face_left
+	delay_8
+	face_down
+	step_end

@@ -1,3 +1,5 @@
+.set LOCALID_SUDOWOODO, 44
+
 Route123_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route123_OnTransition
 	map_script MAP_SCRIPT_ON_RESUME, Route123_OnResume
@@ -13,16 +15,19 @@ Route123_OnTransition:
 Route123_OnTransition_Day:
 	setvar VAR_TIMEOFDAY, 0
 	special SetRoute123Weather
+	call_if_unset FLAG_DEFEATED_ROUTE123_SUDOWOODO, Route123_EventScript_ShowSudowoodo
 	end
 
 Route123_OnTransition_Twilight:
 	setvar VAR_TIMEOFDAY, 1
 	special SetRoute123Weather
+	call_if_unset FLAG_DEFEATED_ROUTE123_SUDOWOODO, Route123_EventScript_ShowSudowoodo
 	end
 
 Route123_OnTransition_Night:
 	setvar VAR_TIMEOFDAY, 2
 	special SetRoute123Weather
+	call_if_unset FLAG_DEFEATED_ROUTE123_SUDOWOODO, Route123_EventScript_ShowSudowoodo
 	end
 
 Route123_OnResume:
@@ -34,14 +39,17 @@ Route123_OnResume:
 
 Route123_OnResume_Day:
 	setvar VAR_TIMEOFDAY, 0
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route123_EventScript_TryRemoveSudowoodo
 	end
 
 Route123_OnResume_Twilight:
 	setvar VAR_TIMEOFDAY, 1
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route123_EventScript_TryRemoveSudowoodo
 	end
 
 Route123_OnResume_Night:
 	setvar VAR_TIMEOFDAY, 2
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route123_EventScript_TryRemoveSudowoodo
 	end
 
 Route123_EventScript_GigaDrainGirl::
@@ -234,3 +242,73 @@ Route123_Text_RouteSignMtPyre:
 Route123_Text_BerryMastersHouse:
 	.string "BERRY MASTER'S HOUSE$"
 
+Route123_EventScript_ShowSudowoodo::
+	clearflag FLAG_HIDE_ROUTE123_SUDOWOODO
+	return
+
+Route123_EventScript_TryRemoveSudowoodo::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
+	removeobject VAR_LAST_TALKED
+	return
+
+Route123_EventScript_Sudowoodo::
+	lock
+	faceplayer
+	waitse
+	playse SE_SUDOWOODO_SHAKE
+	applymovement LOCALID_SUDOWOODO, Route123_Movement_SudowoodoShake
+	waitmovement 0
+	release
+	end
+
+Route123_EventScript_WaterSudowoodo::
+	lock
+	faceplayer
+	special DoWateringBerryTreeAnim
+	waitstate
+	waitse
+	playse SE_SUDOWOODO_SHAKE
+	applymovement LOCALID_SUDOWOODO, Route123_Movement_SudowoodoShake
+	waitmovement 0
+	msgbox gText_Sudowoodo_Attacked, MSGBOX_DEFAULT
+	closemessage
+	waitse
+	playmoncry SPECIES_SUDOWOODO, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setvar VAR_LAST_TALKED, LOCALID_SUDOWOODO
+	setwildbattle SPECIES_SUDOWOODO, 30
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route123_EventScript_DefeatedSudowoodo
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, Route123_EventScript_DefeatedSudowoodo
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route123_EventScript_DefeatedSudowoodo
+	setflag FLAG_DEFEATED_ROUTE123_SUDOWOODO
+	release
+	end
+
+Route123_EventScript_DefeatedSudowoodo::
+	setflag FLAG_DEFEATED_ROUTE123_SUDOWOODO
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+Route123_Movement_SudowoodoShake:
+	face_right
+	delay_8
+	face_down
+	delay_8
+	face_left
+	delay_8
+	face_down
+	delay_8
+	face_right
+	delay_8
+	face_down
+	delay_8
+	face_left
+	delay_8
+	face_down
+	step_end

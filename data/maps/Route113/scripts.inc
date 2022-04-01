@@ -1,3 +1,5 @@
+.set LOCALID_SUDOWOODO, 17
+
 Route113_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route113_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, Route113_OnTransition
@@ -14,19 +16,26 @@ Route113_OnTransition_Day:
 	setvar VAR_TIMEOFDAY, 0
 	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
 	call Route113_EventScript_CheckSetAshWeather
+	call_if_unset FLAG_DEFEATED_ROUTE113_SUDOWOODO, Route113_EventScript_ShowSudowoodo
 	end
 
 Route113_OnTransition_Twilight:
 	setvar VAR_TIMEOFDAY, 1
 	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
 	call Route113_EventScript_CheckSetAshWeather
+	call_if_unset FLAG_DEFEATED_ROUTE113_SUDOWOODO, Route113_EventScript_ShowSudowoodo
 	end
 
 Route113_OnTransition_Night:
 	setvar VAR_TIMEOFDAY, 2
 	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
 	call Route113_EventScript_CheckSetAshWeather
+	call_if_unset FLAG_DEFEATED_ROUTE113_SUDOWOODO, Route113_EventScript_ShowSudowoodo
 	end
+
+Route113_EventScript_ShowSudowoodo::
+	clearflag FLAG_HIDE_ROUTE113_SUDOWOODO
+	return
 
 Route113_OnResume:
 	special GetTimeOfDay
@@ -38,17 +47,26 @@ Route113_OnResume:
 Route113_OnResume_Day:
 	setvar VAR_TIMEOFDAY, 0
 	setstepcallback STEP_CB_ASH
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route113_EventScript_TryRemoveSudowoodo
 	end
 
 Route113_OnResume_Twilight:
 	setvar VAR_TIMEOFDAY, 1
 	setstepcallback STEP_CB_ASH
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route113_EventScript_TryRemoveSudowoodo
 	end
 
 Route113_OnResume_Night:
 	setvar VAR_TIMEOFDAY, 2
 	setstepcallback STEP_CB_ASH
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route113_EventScript_TryRemoveSudowoodo
 	end
+
+Route113_EventScript_TryRemoveSudowoodo::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
+	removeobject VAR_LAST_TALKED
+	return
 
 Route113_EventScript_CheckSetAshWeather::
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
@@ -202,3 +220,63 @@ Route113_Text_GlassWorkshopSign:
 	.string "GLASS WORKSHOP\n"
 	.string "“Turning Volcanic Ash into Glass Items”$"
 
+Route113_EventScript_Sudowoodo::
+	lock
+	faceplayer
+	waitse
+	playse SE_SUDOWOODO_SHAKE
+	applymovement LOCALID_SUDOWOODO, Route113_Movement_SudowoodoShake
+	waitmovement 0
+	release
+	end
+
+Route113_EventScript_WaterSudowoodo::
+	lock
+	faceplayer
+	special DoWateringBerryTreeAnim
+	waitstate
+	waitse
+	playse SE_SUDOWOODO_SHAKE
+	applymovement LOCALID_SUDOWOODO, Route113_Movement_SudowoodoShake
+	waitmovement 0
+	msgbox gText_Sudowoodo_Attacked, MSGBOX_DEFAULT
+	closemessage
+	waitse
+	playmoncry SPECIES_SUDOWOODO, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setvar VAR_LAST_TALKED, LOCALID_SUDOWOODO
+	setwildbattle SPECIES_SUDOWOODO, 15
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route113_EventScript_DefeatedSudowoodo
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, Route113_EventScript_DefeatedSudowoodo
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route113_EventScript_DefeatedSudowoodo
+	setflag FLAG_DEFEATED_ROUTE113_SUDOWOODO
+	release
+	end
+
+Route113_EventScript_DefeatedSudowoodo::
+	setflag FLAG_DEFEATED_ROUTE113_SUDOWOODO
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+Route113_Movement_SudowoodoShake:
+	face_right
+	delay_8
+	face_down
+	delay_8
+	face_left
+	delay_8
+	face_down
+	delay_8
+	face_right
+	delay_8
+	face_down
+	delay_8
+	face_left
+	delay_8
+	face_down
+	step_end

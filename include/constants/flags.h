@@ -484,7 +484,7 @@
 #define FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE 0x1C3
 #define FLAG_DEFEATED_ELECTRODE_1_AQUA_HIDEOUT 0x1C4
 #define FLAG_DEFEATED_ELECTRODE_2_AQUA_HIDEOUT 0x1C5
-#define FLAG_DEFEATED_SUDOWOODO              0x1C6
+#define FLAG_DEFEATED_BF_SUDOWOODO              0x1C6
 #define FLAG_DEFEATED_MEW                    0x1C7
 #define FLAG_DEFEATED_LATIAS_OR_LATIOS       0x1C8
 #define FLAG_CAUGHT_LATIAS_OR_LATIOS         0x1C9
@@ -511,12 +511,13 @@
 #define FLAG_DEFEATED_HO_OH                  0x1DC
 #define FLAG_DEFEATED_LUGIA                  0x1DD
 
-#define FLAG_UNUSED_0x1DE                    0x1DE // Unused Flag
-#define FLAG_UNUSED_0x1DF                    0x1DF // Unused Flag
-#define FLAG_UNUSED_0x1E0                    0x1E0 // Unused Flag
-#define FLAG_UNUSED_0x1E1                    0x1E1 // Unused Flag
-#define FLAG_UNUSED_0x1E2                    0x1E2 // Unused Flag
-#define FLAG_UNUSED_0x1E3                    0x1E3 // Unused Flag
+// New Sudowoodo
+#define FLAG_HIDE_ROUTE113_SUDOWOODO         0x1DE
+#define FLAG_DEFEATED_ROUTE113_SUDOWOODO     0x1DF
+#define FLAG_HIDE_ROUTE118_SUDOWOODO         0x1E0
+#define FLAG_DEFEATED_ROUTE118_SUDOWOODO     0x1E1
+#define FLAG_HIDE_ROUTE123_SUDOWOODO         0x1E2
+#define FLAG_DEFEATED_ROUTE123_SUDOWOODO     0x1E3
 
 // Mystery Gift Flags (Unknown)
 #define FLAG_MYSTERY_GIFT_DONE               0x1E4
