@@ -186,9 +186,6 @@ static void BattleIntroNoSlide(u8 taskId)
     }
 }
 
-
-
-
 static void BattleIntroSlide1(u8 taskId)
 {
     int i;
