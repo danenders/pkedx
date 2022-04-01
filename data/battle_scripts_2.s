@@ -62,32 +62,28 @@ BattleScript_SafariBallThrow::
 	handleballthrow
 
 BattleScript_SuccessBallThrow::
-	setbyte sMON_CAUGHT, TRUE
-	jumpifhalfword CMP_EQUAL, gLastUsedItem, ITEM_SAFARI_BALL, BattleScript_SafariNoIncGameStat
-	incrementgamestat GAME_STAT_POKEMON_CAPTURES
-BattleScript_SafariNoIncGameStat::
 	printstring STRINGID_GOTCHAPKMNCAUGHT
+	jumpifhalfword CMP_EQUAL, gLastUsedItem, ITEM_SAFARI_BALL, BattleScript_PrintCaughtMonInfo
 	setbyte sGIVEEXP_STATE, 0x0
 	getexp BS_TARGET
-	jumpifbyte CMP_NOT_EQUAL, sEXP_CATCH, TRUE, BattleScript_TryPrintCaughtMonInfo
-BattleScript_TryPrintCaughtMonInfo:
-	trysetcaughtmondexflags BattleScript_CaughtPokemonSkipNewDex
+	incrementgamestat GAME_STAT_POKEMON_CAPTURES
+BattleScript_PrintCaughtMonInfo::
+	trysetcaughtmondexflags BattleScript_TryNicknameCaughtMon
 	printstring STRINGID_PKMNDATAADDEDTODEX
 	waitstate
-	setbyte gBattleCommunication, 0
-	displaydexinfo
-BattleScript_CaughtPokemonSkipNewDex::
+	setbyte gBattleCommunication, 0x0
+BattleScript_TryNicknameCaughtMon::
 	printstring STRINGID_GIVENICKNAMECAPTURED
 	waitstate
-	setbyte gBattleCommunication, 0
-	trygivecaughtmonnick BattleScript_CaughtPokemonSkipNickname
+	setbyte gBattleCommunication, 0x0
+	trygivecaughtmonnick BattleScript_GiveCaughtMonEnd
 	givecaughtmon
 	printfromtable gCaughtMonStringIds
-	waitmessage 64
-	goto BattleScript_CaughtPokemonDone
-BattleScript_CaughtPokemonSkipNickname::
+	waitmessage 0x40
+	goto BattleScript_SuccessBallThrowEnd
+BattleScript_GiveCaughtMonEnd::
 	givecaughtmon
-BattleScript_CaughtPokemonDone::
+BattleScript_SuccessBallThrowEnd::
 	setbyte gBattleOutcome, B_OUTCOME_CAUGHT
 	finishturn
 

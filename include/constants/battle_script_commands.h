@@ -30,7 +30,6 @@
 #define sMULTIPLAYER_ID              (gBattleScripting + 0x25) // multiplayerId
 #define sSPECIAL_TRAINER_BATTLE_TYPE (gBattleScripting + 0x26) // specialTrainerBattleType
 #define sMON_CAUGHT 				 (gBattleScripting + 0x27)
-#define sEXP_CATCH                   (gBattleScripting + 0x28)
 
 // Array entries for battle communication
 #define MULTIUSE_STATE          0
