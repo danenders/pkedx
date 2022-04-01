@@ -7,7 +7,7 @@ _The Hoenn region is unstable — Rayquaza has awakened! Your skills as a Traine
 ## Features
 
 ### A New way to Explore Hoenn
-* Gotta Catch 'Em All: Updated encounters and events mean it is possible to obtain all Pokémon in a single player game.
+* Gotta Catch 'Em All: Updated encounters and events mean it is possible to obtain all Pokémon in a single playthrough.
 * Following Pokemon: Explore Hoenn together with your Pokémon partners.
 * Day & Night Cycles: More than just a cosmetic change! Some Pokémon may only be found at certain times of day.
   
@@ -28,6 +28,7 @@ _The Hoenn region is unstable — Rayquaza has awakened! Your skills as a Traine
 * Supplements have been introduced that decrease IVs (-3).
 
 ### New Content
+* A few additional evolutions and Pokemon have been added, bringing Emerald's dex count to an even 400 available Pokemon!
 * Find a MOVE DELETER and special shops at the POKEMON LEAGUE SERVICES, located on the 2nd floor of every PokeCenter.
 * A 6th floor has been added to Lilycove's Department Store.
 * A Dojo has been added to Slateport City. Challenge the pupils of the STAT MASTERS to EV train your Pokemon.
