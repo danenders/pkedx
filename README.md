@@ -7,18 +7,18 @@ _The Hoenn region is unstable — Rayquaza has awakened! Your skills as a Traine
 ## Features
 
 ### A New way to Explore Hoenn
-* Gotta Catch 'Em All: Updated encounters and events mean it is possible to obtain all Pokémon in a single player game. (WIP)
+* Gotta Catch 'Em All: Updated encounters and events mean it is possible to obtain all Pokémon in a single player game.
 * Following Pokemon: Explore Hoenn together with your Pokémon partners.
 * Day & Night Cycles: More than just a cosmetic change! Some Pokémon may only be found at certain times of day.
   
-### Style Changes
+### Aesthetic Changes
 * Character art has been upgraded to GEN IV style, with a brand new May sprite commissioned for this game.
-* Character dialogue and color palettes have been edited to be less gendered and more inclusive. (WIP) 
 * Battle Backgrounds now feature environment art
 
 ### New Mechanics & Modifications
-* Fairy Type: The Fairy type has been added, along with new moves (WIP).
+* Fairy Type: The Fairy type has been added, along with a few new moves to support the type.
 * Physical & Special Split: Moves have been re-categorized by Physical and Special attacks, based on modern classifications.
+* Pokemon that were given stat boosts in X&Y and SuMo have had their stats upgraded to match.
 * EXP Share is now a Key Item that can be toggled On/Off, and works across your party.
 * EXP is granted when a Pokémon is captured.
 * TMs can be used infinitely.
@@ -27,12 +27,24 @@ _The Hoenn region is unstable — Rayquaza has awakened! Your skills as a Traine
 * Vitamins now increase your Pokémon IVs (+3) instead of your EVs.
 * Supplements have been introduced that decrease IVs (-3).
 
-### Quality of Life
+### New Content
+* Find a MOVE DELETER and special shops at the POKEMON LEAGUE SERVICES, located on the 2nd floor of every PokeCenter.
+* A 6th floor has been added to Lilycove's Department Store.
+* A Dojo has been added to Slateport City. Challenge the pupils of the STAT MASTERS to EV train your Pokemon.
+* Various NPCs will provide different items or gift Pokemon daily.
+* Brief cameos from some of your favorite Kanto charaters.
+
+### Quality of Life & Other Adjustments
+* All Trade Evolution Pokemon now have item-based evolutions as well!
+* National Dex is given out from the start.
 * Gain more than 1 Premier Ball when purchasing balls in increments of 10.
 * You can now surf at faster speeds, just like with running shoes.
 * IVs and EVs are viewable on the summary screen
 * Repels prompt you for re-use when they run out
 * Hidden Power attributes (Base Power, Type) are now accurately displayed in summary screens & battle.
+* Move Tutors can be reused
+* TMs have been replaced with other items in PICKUP's tables, and Trainer Tower now gives out rare items instead of repeat TMs.
+* Secret Power is now an HM. Dazzling Gleam replaces it as a TM.
 
 
 ## Credits & Thanks
