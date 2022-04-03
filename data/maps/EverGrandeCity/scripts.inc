@@ -15,12 +15,12 @@ EverGrandeCity_OnTransition_Day:
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	end
 
-EverGrandeCity_OnTransition_Night:
+EverGrandeCity_OnTransition_Twilight:
 	setvar VAR_TIMEOFDAY, 1
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	end
 
-EverGrandeCity_OnTransition_Twilight:
+EverGrandeCity_OnTransition_Night:
 	setvar VAR_TIMEOFDAY, 2
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	end
@@ -36,11 +36,11 @@ EverGrandeCity_OnResume_Day:
 	setvar VAR_TIMEOFDAY, 0
 	end
 
-EverGrandeCity_OnResume_Night:
+EverGrandeCity_OnResume_Twilight:
 	setvar VAR_TIMEOFDAY, 1
 	end
 
-EverGrandeCity_OnResume_Twilight:
+EverGrandeCity_OnResume_Night:
 	setvar VAR_TIMEOFDAY, 2
 	end
 

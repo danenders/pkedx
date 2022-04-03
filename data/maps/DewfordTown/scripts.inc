@@ -48,11 +48,11 @@ DewfordTown_OnResume_Day:
 	setvar VAR_TIMEOFDAY, 0
 	end
 
-DewfordTown_OnResume_Night:
+DewfordTown_OnResume_Twilight:
 	setvar VAR_TIMEOFDAY, 1
 	end
 
-DewfordTown_OnResume_Twilight:
+DewfordTown_OnResume_Night:
 	setvar VAR_TIMEOFDAY, 2
 	end
 

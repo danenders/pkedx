@@ -55,11 +55,11 @@ MossdeepCity_OnResume_Day:
 	setvar VAR_TIMEOFDAY, 0
 	end
 
-MossdeepCity_OnResume_Night:
+MossdeepCity_OnResume_Twilight:
 	setvar VAR_TIMEOFDAY, 1
 	end
 
-MossdeepCity_OnResume_Twilight:
+MossdeepCity_OnResume_Night:
 	setvar VAR_TIMEOFDAY, 2
 	end
 

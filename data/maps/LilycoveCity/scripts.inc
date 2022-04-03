@@ -9,9 +9,9 @@ LilycoveCity_MapScripts::
 
 LilycoveCity_OnTransition:
 	special GetTimeOfDay
-	goto_if_eq VAR_RESULT, 0, LilycoveCity_OnResume_Day
-	goto_if_eq VAR_RESULT, 1, LilycoveCity_OnResume_Twilight
-	goto_if_eq VAR_RESULT, 2, LilycoveCity_OnResume_Night
+	goto_if_eq VAR_RESULT, 0, LilycoveCity_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, LilycoveCity_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, LilycoveCity_OnTransition_Night
 	end
 
 LilycoveCity_OnTransition_Day:

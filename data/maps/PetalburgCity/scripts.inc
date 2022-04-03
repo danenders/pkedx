@@ -55,11 +55,11 @@ PetalburgCity_OnResume_Day:
 	setvar VAR_TIMEOFDAY, 0
 	end
 
-PetalburgCity_OnResume_Night:
+PetalburgCity_OnResume_Twilight:
 	setvar VAR_TIMEOFDAY, 1
 	end
 
-PetalburgCity_OnResume_Twilight:
+PetalburgCity_OnResume_Night:
 	setvar VAR_TIMEOFDAY, 2
 	end
 

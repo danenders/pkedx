@@ -25,6 +25,7 @@
 SlateportCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, SlateportCity_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, SlateportCity_OnFrame
+	map_script MAP_SCRIPT_ON_RESUME, SlateportCity_OnResume
 	.byte 0
 
 SlateportCity_OnTransition:
@@ -32,7 +33,43 @@ SlateportCity_OnTransition:
 	call SlateportCity_EventScript_EnterSlateport
 	call_if_eq VAR_SLATEPORT_CITY_STATE, 1, SlateportCity_EventScript_MovePeopleForSternInterview
 	call_if_eq VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 1, SlateportCity_EventScript_SetReadyForScottScene
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, SlateportCity_OnTransition_Day
+	goto_if_eq VAR_RESULT, 1, SlateportCity_OnTransition_Twilight
+	goto_if_eq VAR_RESULT, 2, SlateportCity_OnTransition_Night
 	end
+
+SlateportCity_OnTransition_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+SlateportCity_OnTransition_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+SlateportCity_OnTransition_Night:
+	setvar VAR_TIMEOFDAY, 2
+	end
+
+SlateportCity_OnResume:
+	special GetTimeOfDay
+	goto_if_eq VAR_RESULT, 0, SlateportCity_OnResume_Day
+	goto_if_eq VAR_RESULT, 1, SlateportCity_OnResume_Twilight
+	goto_if_eq VAR_RESULT, 2, SlateportCity_OnResume_Night
+	end	
+
+SlateportCity_OnResume_Day:
+	setvar VAR_TIMEOFDAY, 0
+	end
+
+SlateportCity_OnResume_Twilight:
+	setvar VAR_TIMEOFDAY, 1
+	end
+
+SlateportCity_OnResume_Night:
+	setvar VAR_TIMEOFDAY, 2
+	end
+
 
 SlateportCity_EventScript_EnterSlateport::
 	setflag FLAG_VISITED_SLATEPORT_CITY
