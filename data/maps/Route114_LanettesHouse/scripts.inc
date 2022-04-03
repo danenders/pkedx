@@ -16,6 +16,7 @@ Route114_LanettesHouse_EventScript_Lanette::
 	giveitem ITEM_MELTAN_CANDY
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowNoRoomForDecor
 	setflag FLAG_RECEIVED_CANDY_LANETTE
+	setflag FLAG_DAILY_LANETTE_UPGRADE
 	release
 	end
 
@@ -36,7 +37,7 @@ Route114_LanettesHouse_Text_FoundThisWhileCleaning:
 
 Route114_LanettesHouse_EventScript_CheckPostgame::
 	goto_if_set FLAG_IS_CHAMPION, Route114_LanettesHouse_EventScript_GiveTicket
-	end
+	return
 
 
 Route114_LanettesHouse_EventScript_GiveTicket::
