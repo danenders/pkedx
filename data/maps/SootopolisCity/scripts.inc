@@ -772,7 +772,7 @@ SootopolisCity_EventScript_ExpertPostLegendaries::
 	end
 
 SootopolisCity_EventScript_ExpertPostgame::
-	goto_if_set FLAG_CAUGHT_JIRACHI, SootopolisCity_Text_YouAreTheWish
+	goto_if_set FLAG_CAUGHT_JIRACHI, SootopolisCity_EventScript_YouAreTheWish
 	msgbox SootopolisCity_Text_MadeAWish, MSGBOX_DEFAULT
 	release
 	end
@@ -783,8 +783,13 @@ SootopolisCity_Text_MadeAWish:
 	.string "I believe a POKéMON will grant\n"
 	.string "that WISH one day....$"
 
-SootopolisCity_Text_YouAreTheWish:
+SootopolisCity_EventScript_YouAreTheWish::
 	applymovement LOCALID_EXPERT, Common_Movement_ExclamationMark
+	msgbox SootopolisCity_Text_YouAreTheWish, MSGBOX_DEFAULT
+	release
+	end
+
+SootopolisCity_Text_YouAreTheWish:
 	.string "That POKéMON...\p"
 	.string "Perhaps it recognized you as\n"
 	.string "someone who wishes for PEACE too.$"

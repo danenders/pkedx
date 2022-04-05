@@ -811,3 +811,15 @@ PetalburgCity_Text_ImLookingForTalentedTrainers:
 	.string "I'm roaming the land in search of\n"
 	.string "talented TRAINERS.\p"
 	.string "I'm sorry to have taken your time.$"
+
+
+PetalburgCity_EventScript_TrainerTipNocturnal::
+	msgbox PetalburgCity_Text_TrainerTipNocturnal, MSGBOX_SIGN
+	end
+
+PetalburgCity_Text_TrainerTipNocturnal:
+	.string "TRAINER TIPS\p"
+	.string "Some POKéMON are NOCTURNAL!\p"
+	.string "If you're having trouble finding\n"
+	.string "a POKéMON, try searching at a\l"
+	.string "different time of the day!$"
