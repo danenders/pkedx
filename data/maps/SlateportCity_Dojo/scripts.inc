@@ -60,6 +60,7 @@ SlateportCity_Dojo_EventScript_OffenseMasterReset::
 	msgbox SlateportCity_Dojo_Text_ResetForAFee, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, TRUE, SlateportCity_Dojo_EventScript_TryResetOffense
 	msgbox SlateportCity_Dojo_Text_AnotherTimeThen, MSGBOX_DEFAULT
+	hidemoneybox
 	release
 	end
 
@@ -70,6 +71,7 @@ SlateportCity_Dojo_EventScript_DefenseMasterReset::
 	msgbox SlateportCity_Dojo_Text_ResetForAFee, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, TRUE, SlateportCity_Dojo_EventScript_TryResetDefense
 	msgbox SlateportCity_Dojo_Text_AnotherTimeThen, MSGBOX_DEFAULT
+	hidemoneybox
 	release
 	end
 
