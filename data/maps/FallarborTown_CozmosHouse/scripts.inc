@@ -48,6 +48,7 @@ FallarborTown_CozmosHouse_EventScript_GaveMeteorite::
 FallarborTown_CozmosHouse_EventScript_CozmosWife::
 	lock
 	faceplayer
+	goto_if_set FLAG_DELIVERY_TO_FALLARBOR, FallarborTown_CozmosHouse_EventScript_CozmosWifeParcel
 	goto_if_set FLAG_RECEIVED_TM27, FallarborTown_CozmosHouse_EventScript_CozmoIsHappy
 	goto_if_set FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, FallarborTown_CozmosHouse_EventScript_CozmoIsSad
 	msgbox FallarborTown_CozmosHouse_Text_CozmoWentToMeteorFalls, MSGBOX_DEFAULT
@@ -116,3 +117,23 @@ FallarborTown_CozmosHouse_Text_CozmoIsSoHappy:
 	.string "Look at PROF. COZMO…\n"
 	.string "He's so happy! I think it's cute.$"
 
+FallarborTown_CozmosHouse_EventScript_CozmosWifeParcel::
+	goto_if_unset FLAG_DAILY_DELIVERY_QUEST, FallarborTown_CozmosHouse_EventScript_CozmosWifeLate
+	msgbox PetalburgCity_PostOffice_Text_ThanksParcelDelivered, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message PetalburgCity_PostOffice_Text_HappyCustomer
+	waitfanfare
+	removeitem ITEM_PARCEL
+	setflag FLAG_DELIVERY_COMPLETED
+	clearflag FLAG_DELIVERY_TO_FALLARBOR
+	release
+	end
+
+FallarborTown_CozmosHouse_EventScript_CozmosWifeLate::
+	msgbox PetalburgCity_PostOffice_Text_MyParcelIsLate, MSGBOX_DEFAULT
+	call PetalburgCity_PostOffice_EventScripts_ResetDeliveries
+	message PetalburgCity_PostOffice_Text_UnhappyCustomer
+	waitmessage
+	removeitem ITEM_PARCEL
+	release
+	end

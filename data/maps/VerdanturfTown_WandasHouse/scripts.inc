@@ -35,8 +35,31 @@ VerdanturfTown_WandasHouse_EventScript_WallysUncleEverGrande::
 	end
 
 VerdanturfTown_WandasHouse_EventScript_WandasBoyfriend::
+	goto_if_set FLAG_DELIVERY_TO_VERDANTURF, VerdanturfTown_WandasHouse_EventScript_WandasBoyfriendParcel
 	msgbox VerdanturfTown_WandasHouse_Text_CanSeeGirlfriendEveryDay, MSGBOX_NPC
 	end
+
+VerdanturfTown_WandasHouse_EventScript_WandasBoyfriendParcel::
+	goto_if_unset FLAG_DAILY_DELIVERY_QUEST, VerdanturfTown_WandasHouse_EventScript_WandasBoyfriendParcelLate
+	msgbox PetalburgCity_PostOffice_Text_ThanksParcelDelivered, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message PetalburgCity_PostOffice_Text_HappyCustomer
+	waitfanfare
+	removeitem ITEM_PARCEL
+	setflag FLAG_DELIVERY_COMPLETED
+	clearflag FLAG_DELIVERY_TO_VERDANTURF
+	release
+	end
+
+VerdanturfTown_WandasHouse_EventScript_WandasBoyfriendParcelLate::
+	msgbox PetalburgCity_PostOffice_Text_MyParcelIsLate, MSGBOX_DEFAULT
+	call PetalburgCity_PostOffice_EventScripts_ResetDeliveries
+	message PetalburgCity_PostOffice_Text_UnhappyCustomer
+	waitmessage
+	removeitem ITEM_PARCEL
+	release
+	end
+
 
 VerdanturfTown_WandasHouse_EventScript_Wanda::
 	lock

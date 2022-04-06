@@ -4450,6 +4450,16 @@
       "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/SlateportCity_Dojo/border.bin",
       "blockdata_filepath": "data/layouts/SlateportCity_Dojo/map.bin"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_CITY_POST_OFFICE",
+      "name": "PetalburgCity_PostOffice_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/PetalburgCity_PostOffice/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgCity_PostOffice/map.bin"
     }
   ]
 }

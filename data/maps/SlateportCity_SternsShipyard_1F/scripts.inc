@@ -57,7 +57,31 @@ SlateportCity_SternsShipyard_1F_EventScript_Scientist1::
 	end
 
 SlateportCity_SternsShipyard_1F_EventScript_Scientist2::
+	goto_if_set FLAG_DELIVERY_TO_SLATEPORT, SlateportCity_SternsShipyard_1F_EventScript_Scientist2Parcel
 	msgbox SlateportCity_SternsShipyard_1F_Text_GetSeasickEasily, MSGBOX_NPC
+	end
+
+SlateportCity_SternsShipyard_1F_EventScript_Scientist2Parcel::
+	lock
+	faceplayer
+	goto_if_unset FLAG_DAILY_DELIVERY_QUEST, SlateportCity_SternsShipyard_1F_EventScript_Scientist2ParcelLate
+	msgbox PetalburgCity_PostOffice_Text_ThanksParcelDelivered, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message PetalburgCity_PostOffice_Text_HappyCustomer
+	waitfanfare
+	removeitem ITEM_PARCEL
+	setflag FLAG_DELIVERY_COMPLETED
+	clearflag FLAG_DELIVERY_TO_SLATEPORT
+	release
+	end
+
+SlateportCity_SternsShipyard_1F_EventScript_Scientist2ParcelLate::
+	msgbox PetalburgCity_PostOffice_Text_MyParcelIsLate, MSGBOX_DEFAULT
+	call PetalburgCity_PostOffice_EventScripts_ResetDeliveries
+	message PetalburgCity_PostOffice_Text_UnhappyCustomer
+	waitmessage
+	removeitem ITEM_PARCEL
+	release
 	end
 
 SlateportCity_SternsShipyard_1F_EventScript_Briney::

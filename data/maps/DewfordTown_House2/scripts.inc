@@ -23,6 +23,7 @@ DewfordTown_House2_EventScript_ExplainSilkScarf::
 	end
 
 DewfordTown_House2_EventScript_Boy::
+	goto_if_set FLAG_DELIVERY_TO_DEWFORD, DewfordTown_House2_EventScript_BoyParcel
 	msgbox DewfordTown_House2_Text_BrawlySoCool, MSGBOX_NPC
 	end
 
@@ -55,3 +56,23 @@ DewfordTown_House2_Text_BrawlySoCool:
 	.string "He's so cool…\n"
 	.string "Everyone idolizes him.$"
 
+DewfordTown_House2_EventScript_BoyParcel::
+	goto_if_unset FLAG_DAILY_DELIVERY_QUEST, DewfordTown_House2_EventScript_BoyParcelLate
+	msgbox PetalburgCity_PostOffice_Text_ThanksParcelDelivered, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message PetalburgCity_PostOffice_Text_HappyCustomer
+	waitfanfare
+	removeitem ITEM_PARCEL
+	setflag FLAG_DELIVERY_COMPLETED
+	clearflag FLAG_DELIVERY_TO_DEWFORD
+	release
+	end
+
+DewfordTown_House2_EventScript_BoyParcelLate::
+	msgbox PetalburgCity_PostOffice_Text_MyParcelIsLate, MSGBOX_DEFAULT
+	call PetalburgCity_PostOffice_EventScripts_ResetDeliveries
+	message PetalburgCity_PostOffice_Text_UnhappyCustomer
+	waitmessage
+	removeitem ITEM_PARCEL
+	release
+	end

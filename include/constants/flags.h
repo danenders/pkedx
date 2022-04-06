@@ -723,24 +723,27 @@
 #define FLAG_UNUSED_0x2A7  0x2A7 // Unused Flag
 #define FLAG_UNUSED_0x2A8  0x2A8 // Unused Flag
 #define FLAG_UNUSED_0x2A9  0x2A9 // Unused Flag
-#define FLAG_UNUSED_0x2AA  0x2AA // Unused Flag
-#define FLAG_UNUSED_0x2AB  0x2AB // Unused Flag
-#define FLAG_UNUSED_0x2AC  0x2AC // Unused Flag
-#define FLAG_UNUSED_0x2AD  0x2AD // Unused Flag
-#define FLAG_UNUSED_0x2AE  0x2AE // Unused Flag
-#define FLAG_UNUSED_0x2AF  0x2AF // Unused Flag
-#define FLAG_UNUSED_0x2B0  0x2B0 // Unused Flag
-#define FLAG_UNUSED_0x2B1  0x2B1 // Unused Flag
-#define FLAG_UNUSED_0x2B2  0x2B2 // Unused Flag
-#define FLAG_UNUSED_0x2B3  0x2B3 // Unused Flag
-#define FLAG_UNUSED_0x2B4  0x2B4 // Unused Flag
-#define FLAG_UNUSED_0x2B5  0x2B5 // Unused Flag
-#define FLAG_UNUSED_0x2B6  0x2B6 // Unused Flag
-#define FLAG_UNUSED_0x2B7  0x2B7 // Unused Flag
-#define FLAG_UNUSED_0x2B8  0x2B8 // Unused Flag
-#define FLAG_UNUSED_0x2B9  0x2B9 // Unused Flag
-#define FLAG_UNUSED_0x2BA  0x2BA // Unused Flag
-#define FLAG_UNUSED_0x2BB  0x2BB // Unused Flag
+
+//Post Office Quests
+#define FLAG_DELIVERY_STARTED   		0x2AA
+#define FLAG_DELIVERY_COMPLETED  		0x2AB
+
+#define FLAG_DELIVERY_TO_PETALBURG  	0x2AC 
+#define FLAG_DELIVERY_TO_SLATEPORT  	0x2AD 
+#define FLAG_DELIVERY_TO_MAUVILLE  		0x2AE 
+#define FLAG_DELIVERY_TO_RUSTBORO  		0x2AF 
+#define FLAG_DELIVERY_TO_FORTREE  		0x2B0 
+#define FLAG_DELIVERY_TO_LILYCOVE  		0x2B1 
+#define FLAG_DELIVERY_TO_MOSSDEEP  		0x2B2 
+#define FLAG_DELIVERY_TO_SOOTOPOLIS  	0x2B3 
+#define FLAG_DELIVERY_TO_EVERGRANDE  	0x2B4 
+#define FLAG_DELIVERY_TO_LITTLEROOT  	0x2B5 
+#define FLAG_DELIVERY_TO_OLDALE  		0x2B6 
+#define FLAG_DELIVERY_TO_DEWFORD  		0x2B7 
+#define FLAG_DELIVERY_TO_LAVARIDGE 		0x2B8 
+#define FLAG_DELIVERY_TO_FALLARBOR  	0x2B9 
+#define FLAG_DELIVERY_TO_VERDANTURF  	0x2BA 
+#define FLAG_DELIVERY_TO_PACIFIDLOG  	0x2BB 
 
 // Event Flags
 #define FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG                      0x2BC
@@ -1610,7 +1613,7 @@
 #define FLAG_DAILY_DOJO_SPEED                       (DAILY_FLAGS_START + 0x26) 
 #define FLAG_DAILY_SLATEPORT_FISHERMAN_RANKED       (DAILY_FLAGS_START + 0x27) 
 #define FLAG_DAILY_RECEIVED_LAVARIDGE_EGG           (DAILY_FLAGS_START + 0x28) 
-#define FLAG_UNUSED_0x949                           (DAILY_FLAGS_START + 0x29) // Unused Flag
+#define FLAG_DAILY_DELIVERY_QUEST                   (DAILY_FLAGS_START + 0x29)
 #define FLAG_UNUSED_0x94A                           (DAILY_FLAGS_START + 0x2A) // Unused Flag
 #define FLAG_UNUSED_0x94B                           (DAILY_FLAGS_START + 0x2B) // Unused Flag
 #define FLAG_UNUSED_0x94C                           (DAILY_FLAGS_START + 0x2C) // Unused Flag

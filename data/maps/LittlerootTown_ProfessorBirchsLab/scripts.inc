@@ -914,10 +914,32 @@ LittlerootTown_ProfessorBirchsLab_Text_BookTooHardToRead:
 LittlerootTown_ProfessorBirchsLab_EventScript_Aide::
 	lock
 	faceplayer
+	goto_if_set FLAG_DELIVERY_TO_LITTLEROOT, LittlerootTown_ProfessorBirchsLab_EventScript_AideParcel
 	goto_if_ge VAR_BIRCH_LAB_STATE, 3, LittlerootTown_ProfessorBirchsLab_EventScript_AideReceivedStarter
 	goto_if_set FLAG_BIRCH_AIDE_MET, LittlerootTown_ProfessorBirchsLab_EventScript_AideAlreadyMet
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork, MSGBOX_DEFAULT
 	setflag FLAG_BIRCH_AIDE_MET
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_AideParcel::
+	goto_if_unset FLAG_DAILY_DELIVERY_QUEST, LittlerootTown_ProfessorBirchsLab_EventScript_AideParcelLate
+	msgbox PetalburgCity_PostOffice_Text_ThanksParcelDelivered, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message PetalburgCity_PostOffice_Text_HappyCustomer
+	waitfanfare
+	removeitem ITEM_PARCEL
+	setflag FLAG_DELIVERY_COMPLETED
+	clearflag FLAG_DELIVERY_TO_LITTLEROOT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_AideParcelLate::
+	msgbox PetalburgCity_PostOffice_Text_MyParcelIsLate, MSGBOX_DEFAULT
+	call PetalburgCity_PostOffice_EventScripts_ResetDeliveries
+	message PetalburgCity_PostOffice_Text_UnhappyCustomer
+	waitmessage
+	removeitem ITEM_PARCEL
 	release
 	end
 

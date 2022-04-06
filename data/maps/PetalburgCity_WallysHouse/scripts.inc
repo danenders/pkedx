@@ -57,10 +57,33 @@ PetalburgCity_WallysHouse_EventScript_PlayedWithWally::
 PetalburgCity_WallysHouse_EventScript_WallysMom::
 	lock
 	faceplayer
+	goto_if_set FLAG_DELIVERY_TO_PETALBURG, PetalburgCity_WallysHouse_EventScript_WallysMomParcel
 	goto_if_set FLAG_RECEIVED_HM03, PetalburgCity_WallysHouse_EventScript_ReceivedHM03Surf
 	msgbox PetalburgCity_WallysHouse_Text_WallyWasReallyHappy, MSGBOX_DEFAULT
 	release
 	end
+
+PetalburgCity_WallysHouse_EventScript_WallysMomParcel::
+	goto_if_unset FLAG_DAILY_DELIVERY_QUEST, PetalburgCity_WallysHouse_EventScript_WallysMomLate
+	msgbox PetalburgCity_PostOffice_Text_ThanksParcelDelivered, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message PetalburgCity_PostOffice_Text_HappyCustomer
+	waitfanfare
+	removeitem ITEM_PARCEL
+	setflag FLAG_DELIVERY_COMPLETED
+	clearflag FLAG_DELIVERY_TO_OLDALE
+	release
+	end
+
+PetalburgCity_WallysHouse_EventScript_WallysMomLate::
+	msgbox PetalburgCity_PostOffice_Text_MyParcelIsLate, MSGBOX_DEFAULT
+	call PetalburgCity_PostOffice_EventScripts_ResetDeliveries
+	message PetalburgCity_PostOffice_Text_UnhappyCustomer
+	waitmessage
+	removeitem ITEM_PARCEL
+	release
+	end
+
 
 PetalburgCity_WallysHouse_EventScript_ReceivedHM03Surf::
 	msgbox PetalburgCity_WallysHouse_Text_WallyLeftWithoutTelling, MSGBOX_DEFAULT

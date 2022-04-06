@@ -95,7 +95,7 @@ void HandleIntroSlide(u8 terrain)
 
     if ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER) && gPartnerTrainerId != TRAINER_STEVEN_PARTNER)
     {
-        taskId = CreateTask(BattleIntroSlidePartner, 0);
+        taskId = CreateTask(BattleIntroNoSlide, 0);
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_LINK)
     {

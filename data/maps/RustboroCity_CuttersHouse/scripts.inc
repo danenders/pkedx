@@ -18,8 +18,35 @@ RustboroCity_CuttersHouse_EventScript_ExplainCut::
 	end
 
 RustboroCity_CuttersHouse_EventScript_Lass::
+	lock
+	faceplayer
+	goto_if_set FLAG_DELIVERY_TO_RUSTBORO, RustboroCity_CuttersHouse_EventScript_LassParcel
 	msgbox RustboroCity_CuttersHouse_Text_DadHelpedClearLandOfTrees, MSGBOX_NPC
+	release
 	end
+
+RustboroCity_CuttersHouse_EventScript_LassParcel::
+	goto_if_unset FLAG_DAILY_DELIVERY_QUEST, RustboroCity_CuttersHouse_EventScript_LassParcelLate
+	msgbox PetalburgCity_PostOffice_Text_ThanksParcelDelivered, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message PetalburgCity_PostOffice_Text_HappyCustomer
+	waitfanfare
+	removeitem ITEM_PARCEL
+	setflag FLAG_DELIVERY_COMPLETED
+	clearflag FLAG_DELIVERY_TO_RUSTBORO
+	release
+	end
+
+RustboroCity_CuttersHouse_EventScript_LassParcelLate::
+	msgbox PetalburgCity_PostOffice_Text_MyParcelIsLate, MSGBOX_DEFAULT
+	call PetalburgCity_PostOffice_EventScripts_ResetDeliveries
+	message PetalburgCity_PostOffice_Text_UnhappyCustomer
+	waitmessage
+	removeitem ITEM_PARCEL
+	release
+	end
+
+
 
 RustboroCity_CuttersHouse_Text_YouCanPutThisHMToGoodUse:
 	.string "That determined expression…\n"

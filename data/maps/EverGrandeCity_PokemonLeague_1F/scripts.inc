@@ -248,3 +248,37 @@ EverGrandeCity_PokemonLeague_1F_Text_LanetteNotReady:
 	.string "We still need a little more time\n"
 	.string "before it's ready, though.$"
 
+
+EverGrandeCity_PokemonLeague_1F_EventScript_Boy::
+	lock
+	faceplayer
+	goto_if_set FLAG_DELIVERY_TO_EVERGRANDE, EverGrandeCity_PokemonLeague_1F_EventScript_BoyParcel
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_Boy, MSGBOX_DEFAULT
+	release
+	end
+
+EverGrandeCity_PokemonLeague_1F_Text_Boy:
+	.string "The ELITE FOUR were too tough\n"
+	.string "for me, so I'm going to stick\l"
+	.string "to what I know - video games!$"
+
+EverGrandeCity_PokemonLeague_1F_EventScript_BoyParcel::
+	goto_if_unset FLAG_DAILY_DELIVERY_QUEST, EverGrandeCity_PokemonLeague_1F_EventScript_BoyParcelLate
+	msgbox PetalburgCity_PostOffice_Text_ThanksParcelDelivered, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message PetalburgCity_PostOffice_Text_HappyCustomer
+	waitfanfare
+	removeitem ITEM_PARCEL
+	setflag FLAG_DELIVERY_COMPLETED
+	clearflag FLAG_DELIVERY_TO_EVERGRANDE
+	release
+	end
+
+EverGrandeCity_PokemonLeague_1F_EventScript_BoyParcelLate::
+	msgbox PetalburgCity_PostOffice_Text_MyParcelIsLate, MSGBOX_DEFAULT
+	call PetalburgCity_PostOffice_EventScripts_ResetDeliveries
+	message PetalburgCity_PostOffice_Text_UnhappyCustomer
+	waitmessage
+	removeitem ITEM_PARCEL
+	release
+	end

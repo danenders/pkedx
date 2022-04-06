@@ -1065,3 +1065,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/LilycoveCity_DepartmentStore_6F/scripts.inc"
 
 	.include "data/maps/SlateportCity_Dojo/scripts.inc"
+
+	.include "data/maps/PetalburgCity_PostOffice/scripts.inc"

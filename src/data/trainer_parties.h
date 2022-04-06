@@ -1514,8 +1514,38 @@ static const struct TrainerMonItemDefaultMoves sParty_Brianna[] = {
 static const struct TrainerMonItemDefaultMoves sParty_Naomi[] = {
     {
     .iv = 100,
-    .lvl = 45,
+    .lvl = 50,
     .species = SPECIES_ROSELIA,
+    .heldItem = ITEM_NUGGET
+    },
+    {
+    .iv = 100,
+    .lvl = 50,
+    .species = SPECIES_VILEPLUME,
+    .heldItem = ITEM_NUGGET
+    },
+    {
+    .iv = 100,
+    .lvl = 50,
+    .species = SPECIES_VICTREEBEL,
+    .heldItem = ITEM_NUGGET
+    },
+    {
+    .iv = 100,
+    .lvl = 50,
+    .species = SPECIES_JUMPLUFF,
+    .heldItem = ITEM_NUGGET
+    },
+    {
+    .iv = 100,
+    .lvl = 50,
+    .species = SPECIES_SHIFTRY,
+    .heldItem = ITEM_NUGGET
+    },
+    {
+    .iv = 100,
+    .lvl = 50,
+    .species = SPECIES_EXEGGUTOR,
     .heldItem = ITEM_NUGGET
     }
 };
@@ -1731,8 +1761,38 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Mollie[] = {
 static const struct TrainerMonItemDefaultMoves sParty_Garret[] = {
     {
     .iv = 0,
-    .lvl = 45,
+    .lvl = 50,
     .species = SPECIES_AZUMARILL,
+    .heldItem = ITEM_NUGGET
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_WIGGLYTUFF,
+    .heldItem = ITEM_NUGGET
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_CLEFABLE,
+    .heldItem = ITEM_NUGGET
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_MAWILE,
+    .heldItem = ITEM_NUGGET
+    },
+    {
+    .iv = 0,
+    .lvl = 45,
+    .species = SPECIES_CHANSEY,
+    .heldItem = ITEM_NUGGET
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_TOGEKISS,
     .heldItem = ITEM_NUGGET
     }
 };
@@ -3135,21 +3195,66 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Walter1[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_Micah[] = {
     {
     .iv = 0,
-    .lvl = 44,
+    .lvl = 50,
     .species = SPECIES_MANECTRIC,
     },
     {
     .iv = 0,
-    .lvl = 44,
+    .lvl = 50,
     .species = SPECIES_MANECTRIC,
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_ARCANINE,
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_ARCANINE,
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_PERSIAN,
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_PERSIAN,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_Thomas[] = {
     {
     .iv = 0,
-    .lvl = 45,
+    .lvl = 50,
     .species = SPECIES_ZANGOOSE,
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_ELECTABUZZ,
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_MAGMAR,
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_SANDSLASH,
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_SCIZOR,
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_WEAVILE,
     }
 };
 
@@ -3893,42 +3998,42 @@ static const struct TrainerMonItemDefaultMoves sParty_Miguel1[] = {
 static const struct TrainerMonItemCustomMoves sParty_Colton[] = {
     {
     .iv = 0,
-    .lvl = 22,
+    .lvl = 50,
     .species = SPECIES_SKITTY,
     .heldItem = ITEM_ORAN_BERRY,
     .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .iv = 0,
-    .lvl = 36,
-    .species = SPECIES_SKITTY,
+    .lvl = 50,
+    .species = SPECIES_DELCATTY,
     .heldItem = ITEM_ORAN_BERRY,
     .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .iv = 0,
-    .lvl = 40,
-    .species = SPECIES_SKITTY,
+    .lvl = 50,
+    .species = SPECIES_DELCATTY,
     .heldItem = ITEM_ORAN_BERRY,
     .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .iv = 0,
-    .lvl = 12,
-    .species = SPECIES_SKITTY,
+    .lvl = 50,
+    .species = SPECIES_DELCATTY,
     .heldItem = ITEM_ORAN_BERRY,
     .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .iv = 0,
-    .lvl = 30,
-    .species = SPECIES_SKITTY,
+    .lvl = 50,
+    .species = SPECIES_DELCATTY,
     .heldItem = ITEM_ORAN_BERRY,
     .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .iv = 0,
-    .lvl = 42,
+    .lvl = 50,
     .species = SPECIES_DELCATTY,
     .heldItem = ITEM_ORAN_BERRY,
     .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK, MOVE_HEAL_BELL}
@@ -8551,12 +8656,32 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DezAndLuke[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_LeaAndJed[] = {
     {
     .iv = 0,
-    .lvl = 45,
+    .lvl = 50,
     .species = SPECIES_LUVDISC,
     },
     {
     .iv = 0,
-    .lvl = 45,
+    .lvl = 50,
+    .species = SPECIES_LUVDISC,
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_LUVDISC,
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_LUVDISC,
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
+    .species = SPECIES_LUVDISC,
+    },
+    {
+    .iv = 0,
+    .lvl = 50,
     .species = SPECIES_LUVDISC,
     }
 };

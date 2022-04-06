@@ -352,10 +352,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 18,
-      "y": 9,
+      "x": 14,
+      "y": 14,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -547,7 +547,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 14,
+      "x": 30,
       "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -560,7 +560,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 14,
+      "x": 30,
       "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",

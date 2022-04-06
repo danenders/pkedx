@@ -823,3 +823,11 @@ PetalburgCity_Text_TrainerTipNocturnal:
 	.string "If you're having trouble finding\n"
 	.string "a POKéMON, try searching at a\l"
 	.string "different time of the day!$"
+
+PetalburgCity_EventScript_PetalburgPost::
+	msgbox PetalburgCity_Text_PetalburgPost, MSGBOX_SIGN
+	end
+
+PetalburgCity_Text_PetalburgPost:
+	.string "PETALBURG POST\p"
+	.string "Help wanted!$"

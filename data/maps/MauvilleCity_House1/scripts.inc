@@ -4,6 +4,7 @@ MauvilleCity_House1_MapScripts::
 MauvilleCity_House1_EventScript_RockSmashDude::
 	lock
 	faceplayer
+	goto_if_set FLAG_DELIVERY_TO_MAUVILLE, MauvilleCity_House1_EventScript_RockSmashDudeParcel
 	goto_if_set FLAG_RECEIVED_HM06, MauvilleCity_House1_EventScript_ReceivedRockSmash
 	msgbox MauvilleCity_House1_Text_ImRockSmashDudeTakeThis, MSGBOX_DEFAULT
 	giveitem ITEM_HM06
@@ -44,3 +45,23 @@ MauvilleCity_House1_Text_MonCanFlyOutOfSmashedRock:
 	.string "could come flying out of hiding.\p"
 	.string "Woohoo!$"
 
+MauvilleCity_House1_EventScript_RockSmashDudeParcel::
+	goto_if_unset FLAG_DAILY_DELIVERY_QUEST, MauvilleCity_House1_EventScript_RockSmashDudeParcelLate
+	msgbox PetalburgCity_PostOffice_Text_ThanksParcelDelivered, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message PetalburgCity_PostOffice_Text_HappyCustomer
+	waitfanfare
+	removeitem ITEM_PARCEL
+	setflag FLAG_DELIVERY_COMPLETED
+	clearflag FLAG_DELIVERY_TO_MAUVILLE
+	release
+	end
+
+MauvilleCity_House1_EventScript_RockSmashDudeParcelLate::
+	msgbox PetalburgCity_PostOffice_Text_MyParcelIsLate, MSGBOX_DEFAULT
+	call PetalburgCity_PostOffice_EventScripts_ResetDeliveries
+	message PetalburgCity_PostOffice_Text_UnhappyCustomer
+	waitmessage
+	removeitem ITEM_PARCEL
+	release
+	end

@@ -1393,13 +1393,14 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_078] =
+    [ITEM_PARCEL] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("PARCEL"),
+        .itemId = ITEM_PARCEL,
         .price = 0,
-        .description = sDummyDesc,
-        .pocket = POCKET_ITEMS,
+        .description = sParcelDesc,
+        .importance = 2,
+        .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },

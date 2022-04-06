@@ -16,6 +16,7 @@ SootopolisCity_House3_EventScript_HaveFans::
 	end
 
 SootopolisCity_House3_EventScript_Girl::
+	goto_if_set FLAG_DELIVERY_TO_SOOTOPOLIS, SootopolisCity_House3_EventScript_GirlParcel
 	msgbox SootopolisCity_House3_Text_TrainerFanClubWasWild, MSGBOX_NPC
 	end
 
@@ -40,3 +41,23 @@ SootopolisCity_House3_Text_TrainerFanClubWasWild:
 	.string "It was really wild when I went to the\n"
 	.string "TRAINER FAN CLUB in LILYCOVE.$"
 
+SootopolisCity_House3_EventScript_GirlParcel::
+	goto_if_unset FLAG_DAILY_DELIVERY_QUEST, SootopolisCity_House3_EventScript_GirlParcelLate
+	msgbox PetalburgCity_PostOffice_Text_ThanksParcelDelivered, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message PetalburgCity_PostOffice_Text_HappyCustomer
+	waitfanfare
+	removeitem ITEM_PARCEL
+	setflag FLAG_DELIVERY_COMPLETED
+	clearflag FLAG_DELIVERY_TO_SOOTOPOLIS
+	release
+	end
+
+SootopolisCity_House3_EventScript_GirlParcelLate::
+	msgbox PetalburgCity_PostOffice_Text_MyParcelIsLate, MSGBOX_DEFAULT
+	call PetalburgCity_PostOffice_EventScripts_ResetDeliveries
+	message PetalburgCity_PostOffice_Text_UnhappyCustomer
+	waitmessage
+	removeitem ITEM_PARCEL
+	release
+	end

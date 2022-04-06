@@ -1429,6 +1429,11 @@ static const u8 sHM09Desc[] = _(
     "attack depending\n"
     "on the location.");
 
+static const u8 sParcelDesc[] = _(
+    "A parcel from the\n"
+    "PETALBURG POST.\n"
+    "What's inside?");
+
 // FireRed/LeafGreen key items
 static const u8 sOaksParcelDesc[] = _(
     "A parcel for PROF.\n"

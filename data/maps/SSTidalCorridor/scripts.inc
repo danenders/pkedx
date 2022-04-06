@@ -115,6 +115,7 @@ SSTidalCorridor_EventScript_Cabin4Sign::
 SSTidalCorridor_EventScript_ExitSailor::
 	lock
 	faceplayer
+	call SSTidalCorridor_EventScript_ResetTrainers
 	goto_if_eq VAR_SS_TIDAL_STATE, SS_TIDAL_LAND_LILYCOVE, SSTidalCorridor_EventScript_ExitLilycove
 	goto_if_eq VAR_SS_TIDAL_STATE, SS_TIDAL_LAND_SLATEPORT, SSTidalCorridor_EventScript_ExitSlateport
 	msgbox SSTidalCorridor_Text_CanRestInCabin2, MSGBOX_DEFAULT
@@ -338,3 +339,12 @@ SSTidalCorridor_Text_Cabin3:
 
 SSTidalCorridor_Text_Cabin4:
 	.string "Cabin 4$"
+
+SSTidalCorridor_EventScript_ResetTrainers::
+	cleartrainerflag TRAINER_COLTON
+	cleartrainerflag TRAINER_MICAH
+	cleartrainerflag TRAINER_THOMAS
+	cleartrainerflag TRAINER_LEA_AND_JED
+	cleartrainerflag TRAINER_GARRET
+	cleartrainerflag TRAINER_NAOMI
+	return

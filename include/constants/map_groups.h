@@ -133,6 +133,7 @@
 #define MAP_PETALBURG_CITY_POKEMON_CENTER_1F (4 | (8 << 8))
 #define MAP_PETALBURG_CITY_POKEMON_CENTER_2F (5 | (8 << 8))
 #define MAP_PETALBURG_CITY_MART              (6 | (8 << 8))
+#define MAP_PETALBURG_CITY_POST_OFFICE       (7 | (8 << 8))
 
 // gMapGroup_IndoorSlateport
 #define MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F      (0 | (9 << 8))
@@ -596,6 +597,6 @@
 
 #define MAP_GROUPS_COUNT 34
 
-// static const u8 MAP_GROUP_COUNT[] = {57, 5, 5, 6, 7, 8, 9, 7, 7, 15, 8, 17, 10, 24, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 109, 61, 89, 2, 1, 13, 1, 1, 3, 1, 0};
+// static const u8 MAP_GROUP_COUNT[] = {57, 5, 5, 6, 7, 8, 9, 7, 8, 15, 8, 17, 10, 24, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 109, 61, 89, 2, 1, 13, 1, 1, 3, 1, 0};
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

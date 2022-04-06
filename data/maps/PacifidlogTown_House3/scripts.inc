@@ -47,8 +47,32 @@ PacifidlogTown_House3_EventScript_TradeCompleted::
 	end
 
 PacifidlogTown_House3_EventScript_Girl::
+	goto_if_set FLAG_DELIVERY_TO_PACIFIDLOG, PacifidlogTown_House3_EventScript_GirlParcel
 	msgbox PacifidlogTown_House3_Text_IsThatAPokedex, MSGBOX_NPC
 	end
+
+PacifidlogTown_House3_EventScript_GirlParcel::
+	goto_if_unset FLAG_DAILY_DELIVERY_QUEST, PacifidlogTown_House3_EventScript_GirlParcelLate
+	msgbox PetalburgCity_PostOffice_Text_ThanksParcelDelivered, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message PetalburgCity_PostOffice_Text_HappyCustomer
+	waitfanfare
+	removeitem ITEM_PARCEL
+	setflag FLAG_DELIVERY_COMPLETED
+	clearflag FLAG_DELIVERY_TO_PACIFIDLOG
+	release
+	end
+
+PacifidlogTown_House3_EventScript_GirlParcelLate::
+	msgbox PetalburgCity_PostOffice_Text_MyParcelIsLate, MSGBOX_DEFAULT
+	call PetalburgCity_PostOffice_EventScripts_ResetDeliveries
+	message PetalburgCity_PostOffice_Text_UnhappyCustomer
+	waitmessage
+	removeitem ITEM_PARCEL
+	release
+	end
+
+
 
 PacifidlogTown_House3_Text_WillingToTradeIt:
 	.string "Check out this {STR_VAR_2}!\p"
