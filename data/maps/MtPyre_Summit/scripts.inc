@@ -34,7 +34,7 @@ MtPyre_Summit_OnTransition_Twilight:
 MtPyre_Summit_OnTransition_Night:
 	setvar VAR_TIMEOFDAY, 2
 	call_if_eq VAR_MT_PYRE_STATE, 2, MtPyre_Summit_EventScript_SetArchieMaxiePositions
-	call_if_set FLAG_RETURNED_RED_OR_BLUE_ORB, MtPyre_Summit_EventScript_CheckForRed
+	call_if_set FLAG_IS_CHAMPION, MtPyre_Summit_EventScript_CheckForRed
 	end
 
 MtPyre_Summit_OnResume:
@@ -214,7 +214,6 @@ MtPyre_Summit_EventScript_OldLady::
 MtPyre_Summit_EventScript_OldLadyOrbsReturned::
 	msgbox MtPyre_Summit_Text_ThoseTwoMenReturnedOrbs, MSGBOX_DEFAULT
 	setflag FLAG_RETURNED_RED_OR_BLUE_ORB
-	setflag FLAG_DAILY_RED_BATTLE
 	release
 	end
 
@@ -667,7 +666,7 @@ MtPyre_Summit_Text_HoennTrioTale:
 	.string "flew off into the wild blue yonder…$"
 
 MtPyre_Summit_EventScript_CheckForRed::
-	goto_if_unset FLAG_IS_CHAMPION, MtPyre_Summit_EventScript_HideRed
+	goto_if_unset FLAG_RETURNED_RED_OR_BLUE_ORB, MtPyre_Summit_EventScript_HideRed
 	goto_if_set FLAG_DAILY_RED_BATTLE, MtPyre_Summit_EventScript_HideRed
 	clearflag FLAG_HIDE_RED_MTPYRE
 	addobject LOCALID_RED
